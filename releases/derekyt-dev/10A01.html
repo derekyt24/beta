@@ -1,0 +1,261 @@
+<head>
+    <title>derekyt.dev version 1.0 beta 1 (10A01) &#8211; DerekYT</title>
+    <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
+<!-- Font information (start) -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- Font information (end) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<link rel="preload" as="image" href="https://derekyt.dev/assets/bg-images/releases-derekyt-dev-background.png">
+    <style>
+        body {
+            background-image:url('https://derekyt.dev/assets/bg-images/releases-derekyt-dev-background.png');
+            background-attachment: fixed;
+            background-size:cover;
+            font-family:"Inter", sans-serif;
+            text-align:left;
+            max-width:750px;
+            margin:0 auto;
+            padding-top:30px;
+            padding-bottom:30px;
+            display:flex;
+            flex-direction:column;
+            min-height:100vh;
+        }
+
+        b {
+            font-weight:550;
+        }
+
+        :root {
+            font-family: Inter, sans-serif;
+            font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+        }
+        @supports (font-variation-settings: normal) {
+            :root { font-family: InterVariable, sans-serif; }
+        }
+
+
+        nav {
+            display: flex;
+            justify-content:space-between;
+        }
+        
+        @media (max-width:600px) {
+            body {
+                padding-left:15px;
+                padding-right:15px;
+            }
+            nav {
+                font-size:14px;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                color: #ffffff;
+            }    
+        
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+            .nav-brand {
+                color: #ffffff;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0c0e11;
+                color: #ffffff;
+            }
+            a:link, a:visited {
+                color: #ffffff;
+            }
+            .nav-links a {
+                color: #ffffff;
+            }
+            .nav-brand {
+                color: #ffffff;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap:15px;
+        }
+
+        .nav-links a {
+            opacity:0.5;
+            text-decoration:none;
+        }
+
+        .nav-links a:link {
+            opacity:0.5;
+        }
+
+        .nav-links a:hover {
+            opacity:0.75;
+        }
+
+        .nav-links a:visited {
+            opacity:0.5;
+        }
+        
+        .nav-brand {
+            font-weight:500;
+            margin-right:15px;
+        }
+        
+        .beta-banner-style {
+            background-color: rgba(255, 237, 118, 0.5);
+            margin-top: 20px;
+            /*margin-bottom: 20px;*/
+            padding: 14px;
+            font-size:16px;
+            line-height:1.4;
+            border-radius: 7px;
+        }
+
+        .welcome-font {
+            max-width:90%;
+            margin-top:25px;
+            margin-bottom:15px;
+            font-size:36px;
+            font-weight:500;
+            line-height:1.3;
+            letter-spacing:-0.5px;
+        }
+
+        .ver-head-font {
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            margin:0px;
+            letter-spacing:-0.25px;
+            font-weight:500;
+        }
+
+        img {
+            border-radius: 7px;
+            width: 150px;
+            height: 150px;
+        }
+
+        hr {
+            width:100%;
+        }
+
+        .section-first-header {
+            font-size:12px;
+            font-weight:300;
+            margin-top:15px;
+            margin-bottom:7px;
+            letter-spacing:0.25px;
+            opacity:0.67;
+        }
+
+        .last-body-text {
+            margin-top:5px;
+            line-height:1.5;
+        }
+
+        .thin-margin {
+            margin-top:5px;
+            margin-bottom:5px;
+            line-height:1.5;
+        }
+
+        .update-metadata {
+            margin-top:5px;
+            margin-bottom:5px;
+            font-size:12px;
+            opacity:0.5;
+            letter-spacing:0.25px;
+        }
+
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+            font-weight:500;
+            line-height:1.5;
+        }
+
+        a:link {
+            opacity:0.83;
+        }
+
+        a:hover {
+            opacity:0.67;
+        }
+
+        a:visited {
+            opacity:0.5;
+        }
+
+        code {
+            font-family: ui-monospace;;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        footer {
+            font-size:10px;
+            letter-spacing:0.25px;
+            opacity:0.5;
+            margin-top: auto;
+        }
+    </style>
+</head>
+</style>
+<body>
+    <header>
+    <nav>
+        <span class="nav-brand">DerekYT</span>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>
+    <div class="beta-banner-style">This website is in beta. Some elements may not work properly.</div>
+    </header>
+    <div>
+        <p class="welcome-font">What's new in derekyt.dev version 1.0 beta 1</p>
+        <p class="glow" style="line-height:1.5;">Note: This is NOT a definitive list of what's new! There are more, smaller features, but these are the most significant ones.</p>
+        <p class="section-first-header">Home</p>
+        <p class="thin-margin">Background images now preload.</p>
+        <p class="thin-margin">New background image specifically for mobile (<code>max-width: 600px</code>)</p>
+        <p class="section-first-header">Projects</p>
+        <p class="thin-margin">Project links have been completely overhauled, with a new design and unique backgrounds. Links to releases (see "Releases" below) for each project were also added.</p>
+        <p class="thin-margin">New background images in light and dark mode, both for desktop (<code>min-width: 601px</code>) and mobile (<code>max-width: 600px</code>).</p>
+        <p class="section-first-header">Updates</p>
+        <p class="thin-margin">Removed all updates and the layout test, as they aren't applicable anymore.</p>
+        <p class="thin-margin">Replaced the previous updates with a general page description.</p>
+        <p class="section-first-header">Releases</p>
+        <p class="thin-margin">Release pages for a considerable amount of my project versions are now available. I'm still working through the entire list, but most versions over the last couple months are there.</p>
+        <div style="padding-top:5px;">
+            <p class="update-metadata" data-utc="2026-07-07T19:24Z">July 7, 2026 • 19:24 UTC</p>
+            <p class="update-metadata">Build number: 10A01</p>
+        </div>
+    </div>
+    <br>
+<footer>Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
+<script>
+    document.querySelectorAll('[data-utc]').forEach(el => {
+    const date = new Date(el.dataset.utc);
+    el.textContent = "" + date.toLocaleString(undefined, {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit',
+        timeZoneName: 'short'
+    });
+});
+</script>
+</body>

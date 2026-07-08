@@ -1,0 +1,484 @@
+<head>
+    <title>Projects – DerekYT</title>
+    <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #000000;
+            background-image:url('https://derekyt.dev/assets/bg-images/20260608-webimage-4-720h-2.png');
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            font-family:"Inter", sans-serif;
+            font-weight:400;
+            color:#ffffff;
+            text-align:left;
+            max-width:750px;
+            margin:0 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top:30px;
+            padding-bottom:30px;
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('assets/bg-images/projects-background-mobile-light.png');
+                background-color:#ffffff;
+                padding-left:15px;
+                padding-right:15px;
+                color: #000000;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #000000;
+            }
+
+            .nav-links a {
+                color: #000000;
+            }
+
+            .nav-brand {
+                color: #000000;
+            }
+
+            .apple-beta-timelines-button {
+                background-image:url('assets/apple-beta-timelines-button-light.png');
+                color:#ffffff;
+            }
+
+            .apple-beta-timelines-releases-button {
+                background-image:url('assets/apple-beta-timelines-releases-button-light.png');
+                color:#ffffff;
+            }
+
+            .android-beta-timelines-button {
+                background-image:url('assets/android-beta-timelines-button-light.png');
+                color:#ffffff;
+            }
+
+            .android-beta-timelines-releases-button {
+                background-image:url('assets/android-beta-timelines-releases-button-light.png');
+                color:#ffffff;
+            }
+
+            .compatibility-charts-button {
+                background-image:url('assets/compatibility-charts-button-light.png');
+                color:#ffffff;
+            }
+
+            .compatibility-charts-releases-button {
+                background-image:url('assets/compatibility-charts-releases-button-light.png');
+                color:#ffffff;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-image:url('assets/bg-images/projects-background-desktop-light.png');
+                background-color:#ffffff;
+                color: #000000;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #000000;
+            }
+
+            .nav-links a {
+                color: #000000;
+            }
+
+            .nav-brand {
+                color: #000000;
+            }
+
+            .apple-beta-timelines-button {
+                background-image:url('assets/apple-beta-timelines-button-light.png');
+                color:#ffffff !important;
+            }
+
+            .apple-beta-timelines-releases-button {
+                background-image:url('assets/apple-beta-timelines-releases-button-light.png');
+                color:#ffffff !important;
+            }
+
+            .android-beta-timelines-button {
+                background-image:url('assets/android-beta-timelines-button-light.png');
+                color:#ffffff !important;
+            }
+
+            .android-beta-timelines-releases-button {
+                background-image:url('assets/android-beta-timelines-releases-button-light.png');
+                color:#ffffff !important;
+            }
+
+            .compatibility-charts-button {
+                background-image:url('assets/compatibility-charts-button-light.png');
+                color:#ffffff !important;
+            }
+
+            .compatibility-charts-releases-button {
+                background-image:url('assets/compatibility-charts-releases-button-light.png');
+                color:#ffffff !important;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('assets/bg-images/projects-background-mobile-dark.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            .apple-beta-timelines-button {
+                background-image:url('assets/apple-beta-timelines-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .apple-beta-timelines-releases-button {
+                background-image:url('assets/apple-beta-timelines-releases-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .android-beta-timelines-button {
+                background-image:url('assets/android-beta-timelines-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .android-beta-timelines-releases-button {
+                background-image:url('assets/android-beta-timelines-releases-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .compatibility-charts-button {
+                background-image:url('assets/compatibility-charts-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .compatibility-charts-releases-button {
+                background-image:url('assets/compatibility-charts-releases-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            hr {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-image:url('assets/bg-images/projects-background-desktop-dark.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            .apple-beta-timelines-button {
+                background-image:url('assets/apple-beta-timelines-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .apple-beta-timelines-releases-button {
+                background-image:url('assets/apple-beta-timelines-releases-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .android-beta-timelines-button {
+                background-image:url('assets/android-beta-timelines-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .android-beta-timelines-releases-button {
+                background-image:url('assets/android-beta-timelines-releases-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .compatibility-charts-button {
+                background-image:url('assets/compatibility-charts-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            .compatibility-charts-releases-button {
+                background-image:url('assets/compatibility-charts-releases-button-dark.png');
+                color:#ffffff !important;
+            }
+
+            hr {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            gap:15px;
+        }
+
+        .nav-links a {
+            color:inherit;
+            opacity: 0.5;
+            text-decoration:none;
+        }
+
+        .nav-links a:link {
+            color:inherit;
+            opacity:0.5;
+        }
+
+        .nav-links a:hover {
+            color:inherit;
+            opacity:0.75;
+        }
+
+        .nav-links a:visited {
+            color:inherit;
+            opacity:0.5;
+        }
+        
+        .nav-brand {
+            color:inherit;
+            font-weight:500;
+            margin-right:15px;
+        }
+
+        .beta-label-style {
+            background-color: rgba(255, 237, 118, 0.5);
+            margin-top: 20px;
+            /*margin-bottom: 20px;*/
+            padding:14px;
+            font-size:16px;
+            line-height:1.4;
+            border-radius: 7px;
+        }
+        
+        .welcome-font {
+            margin-top:20px;
+            margin-bottom:20px;
+            font-size:36px;
+            font-weight:600;
+        }
+        
+        .heading-body-line-height {
+            /*line-height:25px;*/
+            margin-bottom:15px;
+        }
+
+        .link-margin {
+            display:block;
+            margin-bottom:5px;
+        }
+
+        img {
+            border-radius: 7px;
+        }
+
+        a:link {
+            color:inherit;
+            opacity:1;
+        }
+
+        a:hover {
+            color:inherit;
+            opacity:0.75;
+        }
+
+        a:visited {
+            color:inherit;
+            opacity:0.5;
+        }
+
+        .summary-font {
+            font-size:28px;
+            font-weight:550;
+            letter-spacing:0.25px;
+        }
+
+        .break-height {
+            line-height:100%;
+        }
+
+        .apple-beta-timelines-button {
+            outline:none;
+            border:none;
+            display:block;
+            max-width:115.265625px;
+            text-decoration:none;
+            margin-top:15px;
+            margin-bottom:10px;
+            border-radius:7px;
+            font-size:12px;
+            color:rgba(255,255,255,1);
+            padding:15px;
+        }
+
+        .apple-beta-timelines-releases-button {
+            outline:none;
+            border:none;
+            display:inline-block;
+            text-decoration:none;
+            margin-top:5px;
+            margin-bottom:5px;
+            border-radius:7px;
+            font-size:12px;
+            color:rgba(255,255,255,1);
+            padding:15px;
+        }
+
+        .android-beta-timelines-button {
+            outline:none;
+            border:none;
+            display:block;
+            max-width:126.875px;
+            text-decoration:none;
+            margin-bottom:10px;
+            border-radius:7px;
+            font-size:12px;
+            color:rgba(255,255,255,1);
+            padding:15px;
+        }
+
+        .android-beta-timelines-releases-button {
+            outline:none;
+            border:none;
+            display:block;
+            max-width:177.984375px;
+            text-decoration:none;
+            margin-top:5px;
+            margin-bottom:5px;
+            border-radius:7px;
+            font-size:12px;
+            color:rgba(255,255,255,1);
+            padding:15px;
+        }
+
+        .compatibility-charts-button {
+            outline:none;
+            border:none;
+            display:block;
+            max-width:115.265625px;
+            height:auto;
+            text-decoration:none;
+            margin-bottom:10px;
+            border-radius:7px;
+            box-shadow:none;
+            font-size:12px;
+            color:rgba(255,255,255,1);
+            padding:15px;
+        }
+
+        .compatibility-charts-releases-button {
+            outline:none;
+            border:none;
+            display:inline-block;
+            max-width:164.515625px;
+            text-decoration:none;
+            margin-top:5px;
+            margin-bottom:10px;
+            border-radius:7px;
+            font-size:12px;
+            color:rgba(255,255,255,1);
+            padding:15px;
+        }
+
+        .release-text-margin-extended {
+            margin-top:25px;
+            margin-bottom:10px;
+        }
+
+        .footnote {
+            font-size:10px;
+            opacity:0.5;
+            margin-top:5px;
+        }
+
+        footer {
+            font-size:10px;
+            letter-spacing:0.25px;
+            opacity:0.5;
+            margin-top: auto;
+        }
+    </style>
+</head>
+</style>
+<body>
+    <header>
+    <nav>
+        <span class="nav-brand">DerekYT</span>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>    
+    <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
+    <p class="welcome-font">Projects</p>
+    <p class="heading-body-line-height">Here, you can find Google Drive links to my projects.</p>
+    <div>
+    <a class="apple-beta-timelines-button" href="https://drive.google.com/drive/folders/1Vw2k4fz856dKxGk3J6SnUQwa-9xgCM7D?usp=sharing" target="_blank">Apple beta timelines</a>
+    <a class="android-beta-timelines-button" href="https://drive.google.com/drive/folders/1tq4QyOu16k-QellTT-ZUhTGIfDYwMz3z?usp=sharing" target="_blank">Android beta timelines</a>
+    <a class="compatibility-charts-button" href="https://drive.google.com/drive/folders/1cX9P6PujMvVeR-1TQRPlPcNdd3uC-VRk?usp=sharing" target="_blank">Compatibility charts</a>
+    </div>
+    <p class="release-text-margin-extended">Release notes for each project are also available below.</p>
+    <div>
+    <a class="apple-beta-timelines-releases-button" href="/releases/apple-beta-timelines/" target="_blank">Apple beta timelines releases</a>
+    <a class="android-beta-timelines-releases-button" href="/releases/android-beta-timelines/" target="_blank">Android beta timelines releases</a>
+    <a class="compatibility-charts-releases-button" href="/releases/compatibility-charts/" target="_blank">Compatibility charts releases</a>
+    </div>
+    </header>
+<footer style="color:rgba(255,255,255,1)">Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
+</body>
