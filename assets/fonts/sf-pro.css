@@ -1,0 +1,20 @@
+/*
+ * SF Pro (self-hosted, variable) — San Francisco Pro Fonts
+ * Source: https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts
+ * SF Pro is Apple's proprietary typeface; hosting it is subject to Apple's license.
+ * Axes: wght 1–1000, opsz 17–28 (optical sizing applied automatically).
+ */
+@font-face {
+    font-family: "SF Pro";
+    src: url("/assets/fonts/SF-Pro.woff2") format("woff2");
+    font-weight: 1 1000;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "SF Pro";
+    src: url("/assets/fonts/SF-Pro-Italic.woff2") format("woff2");
+    font-weight: 1 1000;
+    font-style: italic;
+    font-display: swap;
+}
