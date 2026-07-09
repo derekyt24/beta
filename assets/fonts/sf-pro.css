@@ -30,42 +30,42 @@
  */
 @font-face {
     font-family: "SF Compact Display";
-    src: url("SF-Compact.ttf") format("truetype");
+    src: url("SF-Compact.woff2") format("woff2");
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "SF Compact Display";
-    src: url("SF-Compact-Italic.ttf") format("truetype");
+    src: url("SF-Compact-Italic.woff2") format("woff2");
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: "SF Compact Text";
-    src: url("SF-Compact.ttf") format("truetype");
+    src: url("SF-Compact.woff2") format("woff2");
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "SF Compact Text";
-    src: url("SF-Compact-Italic.ttf") format("truetype");
+    src: url("SF-Compact-Italic.woff2") format("woff2");
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: "SF Compact";
-    src: url("SF-Compact.ttf") format("truetype");
+    src: url("SF-Compact.woff2") format("woff2");
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "SF Compact";
-    src: url("SF-Compact-Italic.ttf") format("truetype");
+    src: url("SF-Compact-Italic.woff2") format("woff2");
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
