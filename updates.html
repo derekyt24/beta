@@ -4,7 +4,7 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -16,10 +16,19 @@
             font-family: inherit;
         }
 
+        p {
+            font-family: "SF Compact Text", sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "SF Compact Display", sans-serif;
+            letter-spacing: -0.01em;
+        }
+
         body {
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Compact", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -171,6 +180,7 @@
             padding: 15px;
             line-height:100%;
             border-radius: 7px;
+            font-family: "SF Compact Text", sans-serif;
         }
 
         .welcome-font {
@@ -313,7 +323,7 @@
     </nav>
     <div class="beta-banner-style"><b>Caution:</b> This website is in beta. Some elements may not work properly.</div>
     </header>
-    <p class="welcome-font">Updates</p>
+    <h1 class="welcome-font">Updates</h1>
     <p class="heading-body-line-height">Upcoming changes to this website will be shared here first.</p>
 <footer>Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
 <script>

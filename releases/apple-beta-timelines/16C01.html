@@ -4,7 +4,7 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="../../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -16,11 +16,20 @@
             font-family: inherit;
         }
 
+        p {
+            font-family: "SF Compact Text", sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "SF Compact Display", sans-serif;
+            letter-spacing: -0.01em;
+        }
+
         body {
             background-image:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines-16C01-bg-image.png');
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Compact", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -163,6 +172,7 @@
             font-size:16px;
             line-height:1.4;
             border-radius: 7px;
+            font-family: "SF Compact Text", sans-serif;
         }
 
         .welcome-font {
@@ -289,7 +299,7 @@
     <div class="beta-banner-style">Caution: This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
-        <p class="welcome-font">What's new in beta 3 of the Apple beta timelines Spring Update</p>
+        <h1 class="welcome-font">What's new in beta 3 of the Apple beta timelines Spring Update</h1>
         <p>Added timelines for tvOS versions 16.0-16.6 and 17.0-17.6.</p>
         <p>Added OS X Yosemite 10.10.3.</p>
         <p class="update-metadata" data-utc="2026-04-13T18:02Z">April 13, 2026 • 18:02 UTC</p>

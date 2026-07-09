@@ -4,7 +4,7 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="../../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -16,10 +16,19 @@
             font-family: inherit;
         }
 
+        p {
+            font-family: "SF Compact Text", sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "SF Compact Display", sans-serif;
+            letter-spacing: -0.01em;
+        }
+
         body {
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Compact", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -132,6 +141,7 @@
             font-size:16px;
             line-height:1.4;
             border-radius: 7px;
+            font-family: "SF Compact Text", sans-serif;
         }
 
         .welcome-font {
@@ -155,6 +165,7 @@
             font-size:24px;
             gap:10px;
             margin-top:20px;
+            margin-bottom:1em;
             letter-spacing:-0.25px;
             font-weight:500;
         }
@@ -211,8 +222,8 @@
     <div class="beta-banner-style">This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
-        <p class="welcome-font">Compatibility charts releases</p>
-        <p class="ver-head-font-margin-top">Version 1.1.x</p>
+        <h1 class="welcome-font">Compatibility charts releases</h1>
+        <h2 class="ver-head-font-margin-top">Version 1.1.x</h2>
         <p><a class="link-underline" href="/releases/compatibility-charts/11E" target="_blank">Version 1.1 (11E) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/compatibility-charts/11E01" target="_blank">Version 1.1 RC (11E01) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/compatibility-charts/11D01" target="_blank">Version 1.1 beta 4 (11D01) &#8250;</a></p>
@@ -220,7 +231,7 @@
         <p><a class="link-underline" href="/releases/compatibility-charts/11B01" target="_blank">Version 1.1 beta 2 (11B01) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/compatibility-charts/11A01" target="_blank">Version 1.1 beta 1 (11A01) &#8250;</a></p>
         
-        <p class="ver-head-font-margin-top">Version 1.0.x</p>
+        <h2 class="ver-head-font-margin-top">Version 1.0.x</h2>
         <p><a class="link-underline" href="/releases/compatibility-charts/101A" target="_blank">Version 1.0.1 (101A) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/compatibility-charts/10A" target="_blank">Version 1.0 (10A) &#8250;</a></p>
     </div>

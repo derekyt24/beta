@@ -4,7 +4,7 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="../../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -16,11 +16,20 @@
             font-family: inherit;
         }
 
+        p {
+            font-family: "SF Compact Text", sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "SF Compact Display", sans-serif;
+            letter-spacing: -0.01em;
+        }
+
         body {
             background-image:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines-156A-bg-image.png');
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Compact", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -127,6 +136,7 @@
             font-size:16px;
             line-height:1.4;
             border-radius: 7px;
+            font-family: "SF Compact Text", sans-serif;
         }
 
         .welcome-font {
@@ -199,7 +209,7 @@
     <div class="beta-banner-style">Caution: This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
-        <p class="welcome-font">What's new in Apple beta timelines version 1.5.6</p>
+        <h1 class="welcome-font">What's new in Apple beta timelines version 1.5.6</h1>
         <p class="heading-body-line-height">In honor of Apple's 50th anniversary, all OS 26 timelines now feature headings with Apple's rainbow gradient and each platform's respective dark wallpaper as special edition timelines. Available through April 8.</p>
         <p class="update-metadata" data-utc="2026-04-02T05:48Z">April 2, 2026 • 05:48 UTC</p>
         <p class="update-metadata">Build number: 156A</p>

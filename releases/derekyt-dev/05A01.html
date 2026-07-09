@@ -4,7 +4,7 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="../../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -15,11 +15,20 @@
             font-family: inherit;
         }
 
+        p {
+            font-family: "SF Compact Text", sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "SF Compact Display", sans-serif;
+            letter-spacing: -0.01em;
+        }
+
         body {
             background-image:url('https://derekyt.dev/assets/bg-images/releases-derekyt-dev-background.png');
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Compact", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -126,6 +135,7 @@
             font-size:16px;
             line-height:1.4;
             border-radius: 7px;
+            font-family: "SF Compact Text", sans-serif;
         }
 
         .welcome-font {
@@ -230,7 +240,7 @@
     <div class="beta-banner-style">This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
-        <p class="welcome-font">What's new in derekyt.dev version 0.5 beta 1</p>
+        <h1 class="welcome-font">What's new in derekyt.dev version 0.5 beta 1</h1>
         <p class="thin-margin">Added a new label for an upcoming change regarding releases.</p>
         <p class="thin-margin">Work in progress: Added new <a href="/updates">Updates</a> page. (Note: This may end up becoming what Blog was going to be. I haven't decided yet.</p>
         <p class="thin-margin">Labels now use a smaller font size.</p>
