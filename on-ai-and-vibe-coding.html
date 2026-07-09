@@ -3,16 +3,20 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
         body {
             background-color: #000000;
             background-image:url('https://derekyt.dev/assets/bg-images/wwdc24-pre-intro-background-a-3-720h.png');
             background-size:cover;
             background-repeat:no-repeat;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Pro", "Inter", sans-serif;
             font-weight:400;
             color:#000000;
             text-align:left;
@@ -101,6 +105,8 @@
         .ver-head-font {
             letter-spacing:0.25px;
             font-weight:550;
+            margin-top:1em;
+            margin-bottom:1em;
         }
 
         img {
@@ -177,7 +183,7 @@
     </nav>
     <section>
         <div">
-        <p class="welcome-font">On AI and vibe coding</p>
+        <h1 class="welcome-font">On AI and vibe coding</h1>
         <p class="heading-body-line-height">Hi. I don't usually talk like this publicly, but something's been on my mind a lot lately, and I can't not talk about it.</p>
         <p class="heading-body-line-height">It's vibe coding. If you don't know what that is, let me explain. To put it simply, vibe coding is where you ask AI to code ideas you have. It's your ideas, and AI's execution. And I'll be up front about it. Vibe coding is.. actually awesome. In my case, I use it to code things that I'm not skilled in yet. For example, the frame on <a href="/updates">Updates</a> showing what each version of my projects would look like when planned changes go into effect on July 7, was vibe coded using a combination of Anthropic's Claude Sonnet 4.6, Google's Gemini 3.5 Flash, and OpenAI's GPT-5.5. <i>(Note: I was waiting for my Claude message limit to reset, so I used Gemini&#8212;which sucks, so I switched to GPT-5.5.)</i></p>
         <p class="heading-body-line-height">You might have noticed a small disclaimer at the bottom of every page, saying something like "More advanced features of this page, such as timezone auto-detection or expandable version lists, were coded by Claude Sonnet 4.6." That's just one version of the disclaimer, but they all convey the same point. AI is helping me make this website in some way shape or form. And to be clear, only some of the coding parts. All text is my own writing. I don't want AI writing for me. As a matter of fact, as I'm writing this in VS Code right now, I'm literally getting AI auto-complete suggestions. (Please stop giving them to me.) Anyway, I can do basic code, like making divs to group items or changing a background image (usually; on occasion I hit a snag with something like an incorrectly-typed letter or word) but the text is all my own.</p>

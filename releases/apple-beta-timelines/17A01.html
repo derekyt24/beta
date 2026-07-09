@@ -4,7 +4,7 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="../../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -12,11 +12,15 @@
 <link rel="preload" as="image" href="assets/20260610-webimage-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="preload" as="image" href="assets/20260610-webimage-light.png" media="(prefers-color-scheme: light)">
     <style>
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
         body {
             background-image:url('https://derekyt.dev/assets/bg-images/Apple-beta-timelines-17A01-bg-image-2.png');
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Pro", "Inter", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -284,7 +288,7 @@
     <div class="beta-banner-style"><b>Caution:</b> This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
-        <p class="welcome-font">What's new in Apple beta timelines Summer Update beta 1</p>
+        <h1 class="welcome-font">What's new in Apple beta timelines Summer Update beta 1</h1>
         <p>Added supplemental releases for iOS.</p>
         <p>Added iOS 12.5.x.</p>
         <p>Added iOS 15.7.7 as part of iOS 15.7.x. Added iOS 15.8.4 as part of iOS 15.8.x.</p>

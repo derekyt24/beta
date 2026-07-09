@@ -4,7 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="assets/fonts/sf-pro.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -13,10 +13,14 @@
 <link rel="preload" as="image" href="assets/bg-images/home-background-desktop-light.png" media="(min-width: 601px) and (prefers-color-scheme: light)">
 <link rel="preload" as="image" href="assets/bg-images/home-background-mobile-light.png" media="(max-width: 600px) and (prefers-color-scheme: light)">
     <style>
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
         body {
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Pro", "Inter", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -25,6 +29,7 @@
             display:flex;
             flex-direction:column;
             min-height:100vh;
+            letter-spacing:-0.25px;
         }
 
         nav {
@@ -224,7 +229,6 @@
             padding: 10px 20px;
             border: none;
             border-radius: 8px;
-            font-family: 'SF Pro', 'Inter', sans-serif;
             font-size: 15px;
             font-weight: 500;
             cursor: pointer;
@@ -296,6 +300,8 @@
         .ver-head-font {
             letter-spacing:0.25px;
             font-weight:550;
+            margin-top:1em;
+            margin-bottom:1em;
         }
 
         img {
@@ -368,7 +374,7 @@
         <p class="beta-label-style">This website is in beta. Some elements may not work properly.</p>
         <div class="note-style">Site releases have moved <a href="/releases/derekyt-dev/">here</a>.</div>
     </div>
-    <p class="welcome-font">Welcome!</p>
+    <h1 class="welcome-font">Welcome!</h1>
     <img class="photo-light" src="assets/20260404-profilepic-light.JPG" width="225px" height="225px">
     <img class="photo-dark" src="assets/20260404-profilepic-dark.JPG" width="225px" height="225px">
     <p class="heading-body-line-height">Hi! I'm Derek. Student, designer, and enthusiast for tech, modern cars, and weather.</p>

@@ -4,7 +4,7 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -12,10 +12,14 @@
 <link rel="preload" as="image" href="https://derekyt.dev/assets/bg-images/releases-background-mobile.png" media="(max-width:600px)">
 <link rel="preload" as="image" href="https://derekyt.dev/assets/bg-images/releases-background-desktop.png" media="(min-width:601px)">
     <style>
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
         body {
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Pro", "Inter", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -205,7 +209,7 @@
     <div class="beta-banner-style">This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
-        <p class="welcome-font">Project releases</p>
+        <h1 class="welcome-font">Project releases</h1>
         <p><a class="link-underline" href="/releases/derekyt-dev" target="_blank">Site updates &#8250;</a></p>
         <p><a class="link-underline" href="/releases/apple-beta-timelines/" target="_blank">Apple beta timelines &#8250;</a></p>
         <p><a class="link-underline" href="/releases/android-beta-timelines/" target="_blank">Android beta timelines &#8250;</a></p>

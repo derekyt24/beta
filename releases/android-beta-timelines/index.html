@@ -4,7 +4,7 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+<link rel="stylesheet" href="../../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -12,11 +12,15 @@
 <link rel="preload" as="image" href="assets/20260610-webimage-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="preload" as="image" href="assets/20260610-webimage-light.png" media="(prefers-color-scheme: light)">
     <style>
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
         body {
             background-image:url('https://derekyt.dev/assets/bg-images/releases-android-beta-timelines-background.png');
             background-attachment: fixed;
             background-size:cover;
-            font-family:"SF Pro", "Inter", sans-serif;
+            font-family: "SF Pro", "Inter", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -194,6 +198,7 @@
             font-size:24px;
             gap:10px;
             margin-top:20px;
+            margin-bottom:1em;
             letter-spacing:-0.25px;
             font-weight:500;
         }
@@ -264,8 +269,8 @@
     <div class="beta-banner-style">This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
-        <p class="welcome-font">Android beta timelines releases</p>
-        <p class="ver-head-font-margin-top">Version 1.0.x</p>
+        <h1 class="welcome-font">Android beta timelines releases</h1>
+        <h2 class="ver-head-font-margin-top">Version 1.0.x</h2>
         <p><a class="link-underline" href="/releases/android-beta-timelines/102A" target="_blank">Version 1.0.2 (102A) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/android-beta-timelines/101A" target="_blank">Version 1.0.1 (101A) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/android-beta-timelines/10G" target="_blank">Version 1.0 (10G) &#8250;</a></p>
