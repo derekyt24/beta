@@ -17,10 +17,17 @@
             font-family: inherit;
         }
 
+        @font-face {
+            font-family: "SF Compact";
+            src: url("/assets/fonts/SF-Compact.ttf") format=("truetype");
+            font-weight:100 900;
+            font-style:normal;
+        }
+
         body {
             background-attachment: fixed;
             background-size:cover;
-            font-family: "SF Pro", "Inter", sans-serif;
+            font-family: "SF Compact", "Inter", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -381,31 +388,31 @@
     <p class="heading-body-line-height">I make the Apple beta timelines, Android beta timelines, and compatibility charts projects. You can find links to those on the <a href="/projects">Projects</a> page.</p>
     </a>
     </header>
-<footer>Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
-<script>
-    document.querySelectorAll('[data-utc]').forEach(el => {
-    const date = new Date(el.dataset.utc);
-    el.textContent = "Released " + date.toLocaleString(undefined, {
-        year: 'numeric', month: 'long', day: 'numeric',
-        hour: '2-digit', minute: '2-digit',
-        timeZoneName: 'short'
+    <footer>AI models from Anthropic and OpenAI were involved in developing one or more features on this site. <a href="/how-ai-is-used">Learn more</a> (link coming soon)</footer>
+    <script>
+        document.querySelectorAll('[data-utc]').forEach(el => {
+        const date = new Date(el.dataset.utc);
+        el.textContent = "Released " + date.toLocaleString(undefined, {
+            year: 'numeric', month: 'long', day: 'numeric',
+            hour: '2-digit', minute: '2-digit',
+            timeZoneName: 'short'
+        });
     });
-});
-</script>
-<script>
-    (function() {
-        if (!sessionStorage.getItem('betaDisclosureSeen')) {
-            const overlay = document.getElementById('beta-modal-overlay');
-            const modal = document.getElementById('beta-modal');
-            const btn = document.getElementById('beta-modal-dismiss');
+    </script>
+    <script>
+        (function() {
+            if (!sessionStorage.getItem('betaDisclosureSeen')) {
+                const overlay = document.getElementById('beta-modal-overlay');
+                const modal = document.getElementById('beta-modal');
+                const btn = document.getElementById('beta-modal-dismiss');
 
-            overlay.style.display = 'flex';
+                overlay.style.display = 'flex';
 
-            btn.addEventListener('click', function() {
-                overlay.style.display = 'none';
-                sessionStorage.setItem('betaDisclosureSeen', '1');
-            });
-        }
-    })();
-</script>
+                btn.addEventListener('click', function() {
+                    overlay.style.display = 'none';
+                    sessionStorage.setItem('betaDisclosureSeen', '1');
+                });
+            }
+        })();
+    </script>
 </body>
