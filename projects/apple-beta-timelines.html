@@ -1,0 +1,394 @@
+<head>
+    <title>Projects &#8211; DerekYT (beta)</title>
+    <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/sf-pro.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preload" as="image" href="assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark.png" media="(min-width: 601px) and (prefers-color-scheme: dark)">
+<link rel="preload" as="image" href="assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark.png" media="(max-width: 600px) and (prefers-color-scheme: dark)">
+<link rel="preload" as="image" href="assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light.png" media="(min-width: 601px) and (prefers-color-scheme: light)">
+<link rel="preload" as="image" href="assets/bg-images/apple-beta-timelines-ios-27-wallpaperlight.png" media="(max-width: 600px) and (prefers-color-scheme: light)">
+    <style>
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
+        body {
+            background-color: #000000;
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            font-family: "SF Pro", "Inter", sans-serif;
+            font-weight:400;
+            color:#ffffff;
+            text-align:center;
+            max-width:750px;
+            margin:0 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top:30px;
+            padding-bottom:30px;
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light.png');
+                background-color:#ffffff;
+                padding-left:15px;
+                padding-right:15px;
+                color: #000000;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #000000;
+            }
+
+            .nav-links a {
+                color: #000000;
+            }
+
+            .nav-brand {
+                color: #000000;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-image:url('assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light.png');
+                background-color:#ffffff;
+                color: #000000;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #000000;
+            }
+
+            .nav-links a {
+                color: #000000;
+            }
+
+            .nav-brand {
+                color: #000000;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-image:url('assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            gap:15px;
+        }
+
+        .nav-links a {
+            color:inherit;
+            opacity: 0.5;
+            text-decoration:none;
+        }
+
+        .nav-links a:link {
+            color:inherit;
+            opacity:0.5;
+        }
+
+        .nav-links a:hover {
+            color:inherit;
+            opacity:0.75;
+        }
+
+        .nav-links a:visited {
+            color:inherit;
+            opacity:0.5;
+        }
+        
+        .nav-brand {
+            color:inherit;
+            font-weight:500;
+            margin-right:15px;
+        }
+
+        .beta-label-style {
+            background-color: rgba(255, 237, 118, 0.5);
+            margin-top: 20px;
+            width:fit-content;
+            max-width:calc(100% - 20px);
+            margin:20px auto 0;
+            text-align:center;
+            padding:12px;
+            font-size:14px;
+            line-height:1.4;
+            border-radius: 7px;
+        }
+        
+        .welcome-font {
+            margin-top:20px;
+            margin-bottom:20px;
+            font-size:36px;
+            font-weight:600;
+            font-variation-settings: "wdth" 108;
+        }
+        
+        .heading-body-line-height {
+            line-height:1.5;
+            margin-bottom:15px;
+        }
+
+        .link-margin {
+            display:block;
+            margin-bottom:5px;
+        }
+
+        img {
+            border-radius: 7px;
+        }
+
+        a:link {
+            color:inherit;
+            opacity:1;
+        }
+
+        a:hover {
+            color:inherit;
+            opacity:0.75;
+        }
+
+        a:visited {
+            color:inherit;
+            opacity:0.5;
+        }
+
+        .timeline-picker {
+            width:min(100%, 500px);
+            margin:32px auto 0;
+        }
+
+        .timeline-picker-fields {
+            display:grid;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            gap:16px;
+            text-align:left;
+        }
+
+        .timeline-picker label {
+            display:block;
+            margin-bottom:8px;
+            padding-left:8px;
+            font-size:16px;
+        }
+
+        .timeline-picker select {
+            width:100%;
+            padding:11px 12px;
+            border:0;
+            border-radius:8px;
+            background:rgba(16, 13, 12, 0.82);
+            color:#ffffff;
+            font-size:18px;
+        }
+
+        .timeline-picker select:disabled {
+            opacity:0.5;
+        }
+
+        .timeline-picker button {
+            margin-top:24px;
+            padding:9px 20px;
+            border:0;
+            border-radius:6px;
+            background:#0a84ff;
+            color:#ffffff;
+            font-size:17px;
+            cursor:pointer;
+        }
+
+        .timeline-picker button:disabled {
+            background:rgba(120, 120, 128, 0.45);
+            color:rgba(255, 255, 255, 0.6);
+            cursor:not-allowed;
+        }
+
+        @media (max-width:600px) {
+            .timeline-picker-fields {
+                grid-template-columns:1fr;
+                gap:12px;
+            }
+        }
+
+        .footnote {
+            font-size:10px;
+            opacity:0.5;
+            margin-top:5px;
+        }
+
+        footer {
+            font-size:10px;
+            letter-spacing:0.25px;
+            opacity:0.5;
+            margin-top: auto;
+        }
+    </style>
+</head>
+</style>
+<body>
+    <header>
+    <nav>
+        <span class="nav-brand">DerekYT</span>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>    
+    <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
+    <h1 class="welcome-font">Apple beta timelines</h1>
+    <p class="heading-body-line-height">From DerekYT and SLKVinyl, and That Josh Guy, Apple beta timelines is an easy way to find release dates for builds of Apple software.</p>
+    <form id="timeline-picker" class="timeline-picker">
+        <div class="timeline-picker-fields">
+            <div>
+                <label for="platform">Choose a platform</label>
+                <select id="platform" name="platform" required>
+                    <option value="" selected disabled>Choose a platform</option>
+                    <option value="ios">iOS</option>
+                    <option value="ipados">iPadOS</option>
+                    <option value="macos">OS X | macOS</option>
+                    <option value="visionos">visionOS</option>
+                    <option value="watchos">watchOS</option>
+                    <option value="tvos">tvOS</option>
+                </select>
+            </div>
+            <div>
+                <label for="version">Choose a version</label>
+                <select id="version" name="version" required disabled>
+                    <option value="" selected>Choose a platform first</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" disabled>Go</button>
+    </form>
+    </header>
+<script>
+    const timelineData = {
+        ios: { label: "iOS", versions: ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] },
+        ipados: { label: "iPadOS", versions: ["13", "14", "15", "16", "17", "18", "26", "27"] },
+        macos: { label: "OS X | macOS", versions: ["10.9", "10.10", "10.11", "10.12", "10.13", "10.14", "10.15", "11", "12", "13", "14", "15", "26", "27"] },
+        visionos: { label: "visionOS", versions: ["1", "2", "26", "27"] },
+        watchos: { label: "watchOS", versions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "26", "27"] },
+        tvos: { label: "tvOS", versions: ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] }
+    };
+
+    const picker = document.getElementById("timeline-picker");
+    const platformSelect = document.getElementById("platform");
+    const versionSelect = document.getElementById("version");
+    const goButton = picker.querySelector("button");
+
+    function versionSlug(platform, version) {
+        const normalizedVersion = version.replace(".", "-");
+        if (platform === "macos" && ["10.9", "10.10", "10.11"].includes(version)) {
+            return `os-x-${normalizedVersion}`;
+        }
+        return `${platform}-${normalizedVersion}`;
+    }
+
+    function updateVersions() {
+        const platform = platformSelect.value;
+        versionSelect.replaceChildren(new Option("Choose a version", ""));
+        versionSelect.disabled = !platform;
+        goButton.disabled = true;
+
+        if (!platform) return;
+
+        const { label, versions } = timelineData[platform];
+        versions.forEach((version) => {
+            versionSelect.add(new Option(`${label} ${version}`, version));
+        });
+    }
+
+    platformSelect.addEventListener("change", updateVersions);
+    versionSelect.addEventListener("change", () => {
+        goButton.disabled = !versionSelect.value;
+    });
+
+    picker.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!platformSelect.value || !versionSelect.value) return;
+        window.location.assign(`/projects/apple-beta-timelines/${versionSlug(platformSelect.value, versionSelect.value)}`);
+    });
+</script>
+</body>

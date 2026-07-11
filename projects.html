@@ -13,7 +13,6 @@
 
         body {
             background-color: #000000;
-            background-image:url('https://derekyt.dev/assets/bg-images/20260608-webimage-4-720h-2.png');
             background-size:cover;
             background-position:center;
             background-repeat:no-repeat;
@@ -249,7 +248,7 @@
 
         .project-card {
             width:100%;
-            max-width:375px;
+            max-width:325px;
             box-sizing:border-box;
             container-type:inline-size;
             padding-left:15px;
@@ -294,16 +293,31 @@
             }
         }
 
+        .project-picker {
+            position:relative;
+        }
+
         .project-selector select {
-            width:calc(100% + 8px);
-            margin-left:-8px;
+            width:100%;
             height:40px;
-            padding:0;
+            padding:0 32px 0 0;
             border:0;
             background:transparent;
             color:inherit;
             font-size:14px;
             font-weight:400;
+            appearance:none;
+            -webkit-appearance:none;
+        }
+
+        .project-picker svg {
+            position:absolute;
+            top:50%;
+            right:4px;
+            width:12px;
+            height:22px;
+            transform:translateY(-50%);
+            pointer-events:none;
         }
 
         .project-details {
@@ -409,11 +423,16 @@
     </div>
     <section class="project-selector" aria-label="Project details">
         <div class="project-card project-apple">
-            <select id="project-select" aria-label="Choose a project" aria-controls="project-details">
-                <option value="apple">Apple beta timelines</option>
-                <option value="android">Android beta timelines</option>
-                <option value="compatibility">Compatibility charts</option>
-            </select>
+            <div class="project-picker">
+                <select id="project-select" aria-label="Choose a project" aria-controls="project-details">
+                    <option value="apple">Apple beta timelines</option>
+                    <option value="android">Android beta timelines</option>
+                    <option value="compatibility">Compatibility charts</option>
+                </select>
+                <svg viewBox="0 0 16 28" aria-hidden="true" focusable="false">
+                    <path d="M3 10 8 5l5 5M3 18l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
 
             <div id="project-details" class="project-details">
                 <section data-project="apple">
