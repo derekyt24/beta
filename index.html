@@ -19,10 +19,9 @@
 
         @font-face {
             font-family: "SF Pro";
-            src: url("/assets/fonts/SF-Pro.ttf") format("truetype");
+            src: url("assets/fonts/SF-Pro.ttf") format("truetype");
             font-weight:100 900;
-            font-stretch:90%;
-            font-width:90%;
+            font-stretch: 30% 125%;
             font-style:normal;
         }
 
@@ -30,6 +29,7 @@
             background-attachment: fixed;
             background-size:cover;
             font-family: "SF Pro", "Inter", sans-serif;
+            font-variation-settings: "wdth" 100;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -282,6 +282,7 @@
             padding:14px;
             font-size:16px;
             line-height:1.4;
+            letter-spacing:0.25px;
             border-radius: 7px;
         }
 
@@ -292,18 +293,37 @@
             padding:16px;
             font-size:15px;
             line-height:1.4;
+            letter-spacing:0.25px;
             border-radius: 7px;
         }
 
-        .welcome-font {
+        .welcome-font-a {
             margin-top:25px;
             margin-bottom:20px;
             font-size:36px;
-            font-weight:600;
+            font-weight:550;
+            font-variation-settings: "wdth" 100;
+        }
+
+        .welcome-font-b {
+            margin-top:25px;
+            margin-bottom:20px;
+            font-size:36px;
+            font-weight:550;
+            font-variation-settings: "wdth" 95;
+        }
+
+        .welcome-font-c {
+            margin-top:25px;
+            margin-bottom:20px;
+            font-size:36px;
+            font-weight:550;
+            font-variation-settings: "wdth" 90;
         }
         
         .heading-body-line-height {
-            line-height:25px;
+            line-height:1.4;
+            letter-spacing:0.25px;
         }
 
         .ver-head-font {
@@ -383,7 +403,9 @@
         <p class="beta-label-style">This website is in beta. Some elements may not work properly.</p>
         <div class="note-style">Site releases have moved <a href="/releases/derekyt-dev/">here</a>.</div>
     </div>
-    <h1 class="welcome-font">Welcome!</h1>
+    <h1 class="welcome-font-a">Welcome!</h1>
+    <h1 class="welcome-font-b">Welcome!</h1>
+    <h1 class="welcome-font-c">Welcome!</h1>
     <img class="photo-light" src="assets/20260404-profilepic-light.JPG" width="225px" height="225px">
     <img class="photo-dark" src="assets/20260404-profilepic-dark.JPG" width="225px" height="225px">
     <p class="heading-body-line-height">Hi! I'm Derek. Student, designer, and enthusiast for tech, modern cars, and weather.</p>
