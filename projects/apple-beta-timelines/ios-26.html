@@ -178,9 +178,9 @@
 
         h1 {
             margin:0;
-            font-size:72px;
+            font-size:64px;
             font-weight:550;
-            letter-spacing:-0.015em;
+            letter-spacing:0em;
             line-height:1.1;
         }
 
@@ -234,16 +234,24 @@
             gap:22px 80px;
         }
 
+        .release-pair-builds,
         .release-pair-tight {
             grid-template-columns:repeat(2, max-content);
             justify-content:center;
+        }
+
+        .release-pair-builds {
             column-gap:100px;
+        }
+
+        .release-pair-tight {
+            column-gap:50px;
         }
 
         .release-name,
         .section-label {
             margin:0 0 5px;
-            color:rgba(255, 255, 255, 0.72);
+            color:rgba(255, 255, 255, 0.67);
             font-size:18px;
             font-weight:400;
             letter-spacing:0.03em;
@@ -258,7 +266,7 @@
 
         .release-note {
             margin:4px 0 0;
-            color:rgba(255, 255, 255, 0.72);
+            color:rgba(255, 255, 255, 0.67);
             font-size:16px;
             letter-spacing:0.01em;
         }
@@ -275,6 +283,7 @@
         .supplemental .section-label {
             font-size:21px;
             margin-bottom:15px;
+            color:rgba(255, 255, 255, 0.75);
         }
 
         .timeline-message {
@@ -316,8 +325,10 @@
                 gap:20px 28px;
             }
 
+            .release-pair-builds,
             .release-pair-tight {
-                grid-template-columns:repeat(2, minmax(0, 1fr));
+                grid-template-columns:repeat(2, max-content);
+                justify-content:center;
                 column-gap:20px;
             }
 
@@ -387,7 +398,7 @@
                             { name: "iOS 26.0 RC build", date: "Sep 9, 2025" },
                             { name: "iOS 26.0 final build", date: "Sep 15, 2025" }
                         ],
-                        className: "release-pair-tight"
+                        className: "release-pair-builds"
                     }
                 ],
                 supplemental: [
@@ -406,11 +417,105 @@
                             { name: "iOS 26.1 RC build", date: "Oct 28, 2025" },
                             { name: "iOS 26.1 final build", date: "Nov 3, 2025" }
                         ],
+                        className: "release-pair-builds"
+                    }
+                ]
+            },
+            "26-2": {
+                label: "iOS 26.2",
+                releases: [
+                    { name: "iOS 26.2 beta 1", date: "Nov 4, 2025" },
+                    { name: "iOS 26.2 beta 2", date: "Nov 12, 2025" },
+                    { name: "iOS 26.2 beta 3", date: "Nov 17, 2025", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iOS 26.2 RC build", date: "Dec 3, 2025" },
+                            { name: "iOS 26.2 final build", date: "Dec 12, 2025" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 26.2.1", date: "Jan 26, 2026" }
+                ]
+            },
+            "26-3": {
+                label: "iOS 26.3",
+                releases: [
+                    { name: "iOS 26.3 beta 1", date: "Dec 15, 2025" },
+                    { name: "iOS 26.3 beta 2", date: "Jan 12, 2026" },
+                    { name: "iOS 26.3 beta 3", date: "Jan 26, 2026", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iOS 26.3 RC build", date: "Feb 4, 2026" },
+                            { name: "iOS 26.3 final build", date: "Feb 11, 2026" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 26.3.1", date: "Mar 4, 2026" }
+                ]
+            },
+            "26-4": {
+                label: "iOS 26.4",
+                releases: [
+                    { name: "iOS 26.4 beta 1", date: "Feb 16, 2026" },
+                    { name: "iOS 26.4 beta 2", date: "Feb 23, 2026" },
+                    { name: "iOS 26.4 beta 3", date: "Mar 2, 2026" },
+                    { name: "iOS 26.4 beta 4", date: "Mar 9, 2026" },
+                    {
+                        pair: [
+                            { name: "iOS 26.4 RC build", date: "Mar 18, 2026" },
+                            { name: "iOS 26.4 final build", date: "Mar 24, 2026" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "iOS 26.4.1", date: "Apr 8, 2026" },
+                            { name: "iOS 26.4.2", date: "Apr 22, 2026" }
+                        ],
                         className: "release-pair-tight"
                     }
                 ]
             },
-            // Add 26.2 and later versions here by copying the 26.1 block.
+            "26-5": {
+                label: "iOS 26.5",
+                releases: [
+                    { name: "iOS 26.5 beta 1", date: "Mar 30, 2026", note: "build 2: Apr 3, 2026" },
+                    { name: "iOS 26.5 beta 2", date: "Apr 13, 2026" },
+                    { name: "iOS 26.5 beta 3", date: "Apr 20, 2026" },
+                    { name: "iOS 26.5 beta 4", date: "Apr 27, 2026" },
+                    {
+                        pair: [
+                            { name: "iOS 26.5 RC build", date: "May 4, 2026", note: "build 2: May 8, 2026" },
+                            { name: "iOS 26.5 final build", date: "May 11, 2026" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "iOS 26.5.1", date: "Jun 1, 2026" },
+                            { name: "iOS 26.5.2", date: "Jun 29, 2026" }
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+            "26-6": {
+                label: "iOS 26.6",
+                releases: [
+                    { name: "iOS 26.6 beta 1", date: "May 26, 2026" },
+                    { name: "iOS 26.6 beta 2", date: "Jun 15, 2026" },
+                    { name: "iOS 26.6 beta 3", date: "Jun 29, 2026" },
+                    { name: "iOS 26.6 beta 4", date: "Jul 6, 2026" }
+                ]
+            },
         };
 
         const versionSelect = document.getElementById("software-version");
