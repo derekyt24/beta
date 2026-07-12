@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS 11 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/x-icon" href="/assets/20260627-sitegraphic-updates.png">
+    <link rel="stylesheet" href="https://beta.derekyt.dev/assets/fonts/sf-pro.css">
+    <style>
+        * {
+            box-sizing:border-box;
+        }
+
+        body {
+            min-height:100vh;
+            margin:0;
+            padding:30px;
+            background-position:center;
+            background-size:cover;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            color:#ffffff;
+            font-family:"SF Pro", "Inter", sans-serif;
+            text-align:center;
+        }
+
+        @media (max-width:600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-11-wallpaper-mobile.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+        }
+
+        @media (min-width:601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-11-wallpaper-desktop.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        nav {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            width:min(100%, 750px);
+            margin:0 auto;
+            font-size:14px;
+        }
+
+        .nav-brand {
+            font-weight:500;
+            text-decoration:none;
+            letter-spacing:0.25px;
+        }
+
+        .nav-links {
+            display:flex;
+            gap:12px;
+            letter-spacing:0.25px;
+        }
+
+        a {
+            color:inherit;
+            text-decoration:none;
+        }
+
+        .nav-links a {
+            opacity:0.72;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            opacity:1;
+        }
+
+        main {
+            width:min(100%, 750px);
+            margin:30px auto 0;
+        }
+
+        h1 {
+            margin:0;
+            font-size:64px;
+            font-weight:550;
+            letter-spacing:0em;
+            line-height:1.1;
+        }
+
+        .version-picker {
+            display:block;
+            margin:7px auto 10px;
+        }
+
+        .version-picker select {
+            appearance:none;
+            -webkit-appearance:none;
+            margin:0;
+            padding:6px 28px 6px 8px;
+            border:0;
+            background:transparent;
+            color:inherit;
+            font-family:inherit;
+            font-size:21px;
+            font-weight:500;
+            line-height:1.2;
+            text-align:center;
+            cursor:pointer;
+        }
+
+        .version-picker span {
+            display:inline-grid;
+            position:relative;
+        }
+
+        .version-picker svg {
+            position:absolute;
+            top:50%;
+            right:10px;
+            width:14px;
+            height:14px;
+            transform:translateY(-50%);
+            pointer-events:none;
+        }
+
+        .release-grid {
+            display:grid;
+            width:100%;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            justify-content:initial;
+            row-gap:var(--timeline-row-gap, 22px);
+            column-gap:0;
+            align-items:start;
+        }
+
+        .release-align-left {
+            text-align:left;
+            padding-left:50px;
+        }
+
+        .release-align-right {
+            text-align:right;
+            padding-right:50px;
+        }
+
+        .release-pair {
+            display:grid;
+            grid-column:1 / -1;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            gap:22px 80px;
+        }
+
+        .release-pair-builds,
+        .release-pair-tight {
+            grid-template-columns:repeat(2, max-content);
+            justify-content:center;
+        }
+
+        .release-pair-builds {
+            column-gap:100px;
+        }
+
+        .release-pair-tight {
+            column-gap:50px;
+        }
+
+        .release-trio {
+            display:grid;
+            grid-column:1 / -1;
+            grid-template-columns:repeat(3, max-content);
+            justify-content:center;
+            column-gap:50px;
+        }
+
+        .release-name,
+        .section-label {
+            margin:0 0 5px;
+            color:rgba(255, 255, 255, 0.67);
+            font-size:18px;
+            font-weight:400;
+            letter-spacing:0.05em;
+        }
+
+        .release-date {
+            margin:0;
+            font-size:28px;
+            font-weight:400;
+            letter-spacing:0em;
+        }
+
+        .release-note {
+            margin:4px 0 0;
+            color:rgba(255, 255, 255, 0.67);
+            font-size:16px;
+            letter-spacing:0.03em;
+        }
+
+        .release-align-left {
+            text-align:left;
+        }
+
+        .release-align-right {
+            text-align:right;
+        }
+
+        .span-two {
+            grid-column:1 / -1;
+        }
+
+        .supplemental {
+            margin-top:6px;
+            margin-bottom:20px;
+        }
+
+        .supplemental .section-label {
+            font-size:21px;
+            margin-bottom:15px;
+            letter-spacing:0.01em;
+            color:rgba(255, 255, 255, 0.75);
+        }
+
+        .timeline-message {
+            margin:20px 0;
+            color:rgba(255, 255, 255, 0.72);
+            font-size:18px;
+        }
+
+        @media (max-width:600px) {
+            body {
+                padding-left:25px;
+                padding-right:25px;
+                background-attachment:scroll;
+            }
+
+            nav {
+                font-size:14px;
+            }
+
+            .nav-links {
+                gap:12px;
+            }
+
+            main {
+                margin-top:30px;
+            }
+
+            h1 {
+                font-size:44px;
+            }
+
+            .version-picker {
+                margin:7px auto 10px;
+            }
+
+            .version-picker select {
+                font-size:19px;
+            }
+
+            .release-grid {
+                grid-template-columns:repeat(2, minmax(0, 1fr));
+                justify-content:initial;
+                row-gap:var(--timeline-row-gap-mobile, 20px);
+                column-gap:var(--timeline-column-gap-mobile, 28px);
+            }
+
+            .release-pair {
+                gap:20px 28px;
+            }
+
+            .release-pair-builds,
+            .release-pair-tight {
+                grid-template-columns:repeat(2, max-content);
+                justify-content:center;
+                column-gap:20px;
+            }
+
+            .release-trio {
+                grid-template-columns:1fr;
+                row-gap:20px;
+            }
+
+            .release-name,
+            .section-label {
+                font-size:12px;
+            }
+
+            .release-date {
+                font-size:18px;
+                letter-spacing:0.25px;
+            }
+
+            .release-note {
+                font-size:10px;
+            }
+
+            .release-align-left {
+                padding-left:0;
+            }
+
+            .release-align-right {
+                padding-right:0;
+            }
+
+            .supplemental .section-label {
+                font-size:16px;
+                margin-bottom:12px;
+            }
+        }
+
+        @media (max-width:380px) {
+            body {
+                padding-left:15px;
+                padding-right:15px;
+            }
+
+            .release-grid {
+                row-gap:18px;
+                column-gap:16px;
+            }
+
+            .release-pair {
+                column-gap:16px;
+            }
+
+            .release-pair-builds,
+            .release-pair-tight {
+                column-gap:12px;
+            }
+
+            .release-date {
+                font-size:17px;
+                letter-spacing:0;
+            }
+
+            .supplemental .section-label {
+                font-size:15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav aria-label="Main navigation">
+        <a class="nav-brand" href="/">DerekYT</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1>iOS 11</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an iOS 11 version">
+                    <option value="11-0">iOS 11.0</option>
+                    <option value="11-1">iOS 11.1</option>
+                    <option value="11-2">iOS 11.2</option>
+                    <option value="11-2-5">iOS 11.2.5</option>
+                    <option value="11-3">iOS 11.3</option>
+                    <option value="11-4">iOS 11.4</option>
+                    <option value="11-4-1">iOS 11.4.1</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <script>
+        const timelines = {
+            "11-0": {
+                label: "iOS 11.0",
+                releases: [
+                    { name: "iOS 11.0 beta 1", date: "June 5, 2017", alignment: "left" },
+                    { name: "iOS 11.0 beta 2", date: "June 21, 2017", note: "build 2: June 26, 2017", alignment: "right" },
+                    { name: "iOS 11.0 beta 3", date: "July 10, 2017", alignment: "left" },
+                    { name: "iOS 11.0 beta 4", date: "July 24, 2017", alignment: "right" },
+                    { name: "iOS 11.0 beta 5", date: "August 7, 2017", alignment: "left" },
+                    { name: "iOS 11.0 beta 6", date: "August 14, 2017", alignment: "right" },
+                    { name: "iOS 11.0 beta 7", date: "August 21, 2017", alignment: "left" },
+                    { name: "iOS 11.0 beta 8", date: "August 28, 2017", alignment: "right" },
+                    { name: "iOS 11.0 beta 9", date: "August 31, 2017", alignment: "left" },
+                    { name: "iOS 11.0 beta 10", date: "September 6, 2017", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iOS 11.0 GM build", date: "September 12, 2017" },
+                            { name: "iOS 11.0 final build", date: "September 19, 2017" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    {
+                        trio: [
+                            { name: "iOS 11.0.1", date: "September 26, 2017" },
+                            { name: "iOS 11.0.2", date: "October 3, 2017" },
+                            { name: "iOS 11.0.3", date: "October 11, 2017" }
+                        ]
+                    }
+                ]
+            },
+            "11-1": {
+                label: "iOS 11.1",
+                releases: [
+                    { name: "iOS 11.1 beta 1", date: "September 27, 2017", alignment: "left" },
+                    { name: "iOS 11.1 beta 2", date: "October 9, 2017", alignment: "right" },
+                    { name: "iOS 11.1 beta 3", date: "October 16, 2017", alignment: "left" },
+                    { name: "iOS 11.1 beta 4", date: "October 20, 2017", alignment: "right" },
+                    { name: "iOS 11.1 beta 5", date: "October 23, 2017", spanTwo: true },
+                    { name: "iOS 11.1 final build", date: "October 31, 2017", spanTwo: true }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "iOS 11.1.1", date: "November 9, 2017" },
+                            { name: "iOS 11.1.2", date: "November 16, 2017" },
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+            "11-2": {
+                label: "iOS 11.2",
+                columnGap: "175px",
+                releases: [
+                    { name: "iOS 11.2 beta 1", date: "October 30, 2017", alignment: "left" },
+                    { name: "iOS 11.2 beta 2", date: "November 6, 2017", alignment: "right" },
+                    { name: "iOS 11.2 beta 3", date: "November 13, 2017", alignment: "left" },
+                    { name: "iOS 11.2 beta 4", date: "November 17, 2017", alignment: "right" },
+                    { name: "iOS 11.2 beta 5", date: "November 28, 2017", alignment: "left" },
+                    { name: "iOS 11.2 beta 6", date: "December 1, 2017", alignment: "right" },
+                    { name: "iOS 11.2 final build", date: "December 2, 2017", spanTwo: true }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "iOS 11.2.1", date: "December 13, 2017" },
+                            { name: "iOS 11.2.2", date: "January 8, 2018" },
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+            "11-2-5": {
+                label: "iOS 11.2.5",
+                columnGap: "175px",
+                releases: [
+                    { name: "iOS 11.2.5 beta 1", date: "December 13, 2017", alignment: "left" },
+                    { name: "iOS 11.2.5 beta 2", date: "December 19, 2017", alignment: "right" },
+                    { name: "iOS 11.2.5 beta 3", date: "January 3, 2018", alignment: "left" },
+                    { name: "iOS 11.2.5 beta 4", date: "January 9, 2018", alignment: "right" },
+                    { name: "iOS 11.2.5 beta 5", date: "January 11, 2018", alignment: "left" },
+                    { name: "iOS 11.2.5 beta 6", date: "January 17, 2018", alignment: "right" },
+                    { name: "iOS 11.2.5 beta 7", date: "January 19, 2018", spanTwo: true },
+                    { name: "iOS 11.2 final build", date: "January 23, 2018", spanTwo: true }
+                ],
+                supplemental: [
+                    { name: "iOS 11.2.6", date: "February 19, 2018" }
+                    ]
+            },
+            "11-3": {
+                label: "iOS 11.3",
+                columnGap: "220px",
+                releases: [
+                    { name: "iOS 11.3 beta 1", date: "January 24, 2018", alignment: "left" },
+                    { name: "iOS 11.3 beta 2", date: "February 6, 2018", alignment: "right" },
+                    { name: "iOS 11.3 beta 3", date: "February 20, 2018", alignment: "left" },
+                    { name: "iOS 11.3 beta 4", date: "March 5, 2018", alignment: "right" },
+                    { name: "iOS 11.3 beta 5", date: "March 12, 2018", alignment: "left" },
+                    { name: "iOS 11.3 beta 6", date: "March 16, 2018", alignment: "right" },
+                    { name: "iOS 11.3 final build", date: "March 29, 2018", spanTwo: true }
+                ],
+                supplemental: [
+                    { name: "iOS 11.3.1", date: "April 24, 2018" }
+                    ]
+            },
+            "11-4": {
+                label: "iOS 11.4",
+                columnGap: "315px",
+                releases: [
+                    { name: "iOS 11.4 beta 1", date: "April 2, 2018", alignment: "left" },
+                    { name: "iOS 11.4 beta 2", date: "April 16, 2018", alignment: "right" },
+                    { name: "iOS 11.4 beta 3", date: "May 1, 2018", alignment: "left" },
+                    { name: "iOS 11.4 beta 4", date: "May 7, 2018", alignment: "right" },
+                    { name: "iOS 11.4 beta 5", date: "May 14, 2018", alignment: "left" },
+                    { name: "iOS 11.4 beta 6", date: "May 17, 2018", alignment: "right" },
+                    { name: "iOS 11.4 final build", date: "May 29, 2018", spanTwo: true }
+                ]
+            },
+            "11-4-1": {
+                label: "iOS 11.4.1",
+                releases: [
+                    { name: "iOS 11.4.1 beta 1", date: "May 30, 2018", alignment: "left" },
+                    { name: "iOS 11.4.1 beta 2", date: "June 11, 2018", alignment: "right" },
+                    { name: "iOS 11.4.1 beta 3", date: "June 18, 2018", alignment: "left" },
+                    { name: "iOS 11.4.1 beta 4", date: "June 25, 2018", alignment: "right" },
+                    { name: "iOS 11.4.1 beta 5", date: "July 2, 2018", spanTwo: true },
+                    { name: "iOS 11.4.1 final build", date: "July 9, 2018", spanTwo: true }
+                ]
+            }
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                <p class="release-name">${release.name}</p>
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            releaseGrid.style.setProperty("--timeline-row-gap", timeline.rowGap ?? "22px");
+            releaseGrid.style.setProperty("--timeline-row-gap-mobile", timeline.rowGapMobile ?? "20px");
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>
