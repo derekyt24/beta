@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS 26 – Apple beta timelines</title>
+    <title>iOS 26 &#8211; Apple beta timelines</title>
     <link rel="icon" type="image/x-icon" href="/assets/20260627-sitegraphic-updates.png">
-    <link rel="stylesheet" href="/assets/fonts/sf-pro.css">
+    <link rel="stylesheet" href="https://beta.derekyt.dev/assets/fonts/sf-pro.css">
     <style>
         * {
             box-sizing:border-box;
@@ -24,23 +24,137 @@
             text-align:center;
         }
 
+        @media (max-width:600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-26-wallpaper-light-mobile.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-26-wallpaper-light.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-26-wallpaper-dark-mobile.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-26-wallpaper-dark.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
         nav {
             display:flex;
             align-items:center;
             justify-content:space-between;
-            width:min(100%, 1000px);
+            width:min(100%, 750px);
             margin:0 auto;
-            font-size:18px;
+            font-size:14px;
         }
 
         .nav-brand {
             font-weight:500;
             text-decoration:none;
+            letter-spacing:0.25px;
         }
 
         .nav-links {
             display:flex;
-            gap:16px;
+            gap:12px;
+            letter-spacing:0.25px;
         }
 
         a {
@@ -59,29 +173,34 @@
 
         main {
             width:min(100%, 700px);
-            margin:100px auto 0;
+            margin:30px auto 0;
         }
 
         h1 {
             margin:0;
-            font-size:clamp(64px, 12vw, 112px);
-            font-weight:600;
-            letter-spacing:-0.06em;
-            line-height:0.95;
+            font-size:72px;
+            font-weight:550;
+            letter-spacing:-0.015em;
+            line-height:1.1;
         }
 
         .version-picker {
-            margin:32px auto 48px;
+            display:block;
+            margin:7px auto 10px;
         }
 
         .version-picker select {
             appearance:none;
             -webkit-appearance:none;
+            margin:0;
             padding:6px 28px 6px 8px;
             border:0;
             background:transparent;
             color:inherit;
-            font:500 24px/1.2 inherit;
+            font-family:inherit;
+            font-size:21px;
+            font-weight:500;
+            line-height:1.2;
             text-align:center;
             cursor:pointer;
         }
@@ -91,17 +210,13 @@
             position:relative;
         }
 
-        .version-picker span::after {
-            content:"";
+        .version-picker svg {
             position:absolute;
             top:50%;
-            right:9px;
-            width:10px;
-            height:10px;
-            border-right:3px solid currentColor;
-            border-bottom:3px solid currentColor;
-            border-radius:1px;
-            transform:translateY(-70%) rotate(45deg);
+            right:10px;
+            width:14px;
+            height:14px;
+            transform:translateY(-50%);
             pointer-events:none;
         }
 
@@ -112,8 +227,17 @@
             align-items:start;
         }
 
-        .release {
-            min-height:72px;
+        .release-pair {
+            display:grid;
+            grid-column:1 / -1;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            gap:22px 80px;
+        }
+
+        .release-pair-tight {
+            grid-template-columns:repeat(2, max-content);
+            justify-content:center;
+            column-gap:100px;
         }
 
         .release-name,
@@ -122,19 +246,21 @@
             color:rgba(255, 255, 255, 0.72);
             font-size:18px;
             font-weight:400;
+            letter-spacing:0.03em;
         }
 
         .release-date {
             margin:0;
             font-size:28px;
             font-weight:400;
-            letter-spacing:-0.02em;
+            letter-spacing:-0.01em;
         }
 
         .release-note {
             margin:4px 0 0;
             color:rgba(255, 255, 255, 0.72);
             font-size:16px;
+            letter-spacing:0.01em;
         }
 
         .span-two {
@@ -143,6 +269,18 @@
 
         .supplemental {
             margin-top:6px;
+            margin-bottom:20px;
+        }
+
+        .supplemental .section-label {
+            font-size:21px;
+            margin-bottom:15px;
+        }
+
+        .timeline-message {
+            margin:20px 0;
+            color:rgba(255, 255, 255, 0.72);
+            font-size:18px;
         }
 
         @media (max-width:600px) {
@@ -163,15 +301,24 @@
             }
 
             h1 {
-                font-size:clamp(58px, 20vw, 82px);
+                font-size:48px;
             }
 
             .version-picker {
-                margin:24px auto 40px;
+                margin:10px auto 25px;
             }
 
             .release-grid {
                 gap:20px 28px;
+            }
+
+            .release-pair {
+                gap:20px 28px;
+            }
+
+            .release-pair-tight {
+                grid-template-columns:repeat(2, minmax(0, 1fr));
+                column-gap:20px;
             }
 
             .release-name,
@@ -181,6 +328,7 @@
 
             .release-date {
                 font-size:24px;
+                letter-spacing:0.25px;
             }
 
             .release-note {
@@ -203,67 +351,109 @@
         <h1>iOS 26</h1>
         <label class="version-picker" for="software-version">
             <span>
-                <select id="software-version" aria-label="Choose an iOS 26 release">
+                <select id="software-version" aria-label="Choose an iOS 26 version">
                     <option value="26-0">iOS 26.0</option>
+                    <option value="26-1">iOS 26.1</option>
+                    <option value="26-2">iOS 26.2</option>
+                    <option value="26-3">iOS 26.3</option>
+                    <option value="26-4">iOS 26.4</option>
+                    <option value="26-5">iOS 26.5</option>
+                    <option value="26-6">iOS 26.6</option>
                 </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
             </span>
         </label>
 
-        <section class="release-grid" aria-label="iOS 26.0 release dates">
-            <article class="release">
-                <p class="release-name">iOS 26.0 beta 1</p>
-                <p class="release-date">Jun 9, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 beta 2</p>
-                <p class="release-date">Jun 23, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 beta 3</p>
-                <p class="release-date">Jul 7, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 beta 4, build 1</p>
-                <p class="release-date">Jul 22, 2025</p>
-                <p class="release-note">build 2: Jul 24, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 beta 5</p>
-                <p class="release-date">Aug 5, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 beta 6, build 1</p>
-                <p class="release-date">Aug 11, 2025</p>
-                <p class="release-note">build 2: Aug 14, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 beta 7</p>
-                <p class="release-date">Aug 18, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 beta 8</p>
-                <p class="release-date">Aug 25, 2025</p>
-            </article>
-            <article class="release span-two">
-                <p class="release-name">iOS 26.0 beta 9</p>
-                <p class="release-date">Sep 2, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 RC build</p>
-                <p class="release-date">Sep 9, 2025</p>
-            </article>
-            <article class="release">
-                <p class="release-name">iOS 26.0 final build</p>
-                <p class="release-date">Sep 15, 2025</p>
-            </article>
-            <section class="span-two supplemental" aria-labelledby="supplemental-title">
-                <p id="supplemental-title" class="section-label">supplemental releases</p>
-                <article class="release">
-                    <p class="release-name">iOS 26.0.1</p>
-                    <p class="release-date">Sep 29, 2025</p>
-                </article>
-            </section>
-        </section>
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
     </main>
+    <script>
+        const timelines = {
+            "26-0": {
+                label: "iOS 26.0",
+                releases: [
+                    { name: "iOS 26.0 beta 1", date: "Jun 9, 2025" },
+                    { name: "iOS 26.0 beta 2", date: "Jun 23, 2025" },
+                    { name: "iOS 26.0 beta 3", date: "Jul 7, 2025" },
+                    { name: "iOS 26.0 beta 4, build 1", date: "Jul 22, 2025", note: "build 2: Jul 24, 2025" },
+                    { name: "iOS 26.0 beta 5", date: "Aug 5, 2025" },
+                    { name: "iOS 26.0 beta 6, build 1", date: "Aug 11, 2025", note: "build 2: Aug 14, 2025" },
+                    { name: "iOS 26.0 beta 7", date: "Aug 18, 2025" },
+                    { name: "iOS 26.0 beta 8", date: "Aug 25, 2025" },
+                    { name: "iOS 26.0 beta 9", date: "Sep 2, 2025", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iOS 26.0 RC build", date: "Sep 9, 2025" },
+                            { name: "iOS 26.0 final build", date: "Sep 15, 2025" }
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 26.0.1", date: "Sep 29, 2025" }
+                ]
+            },
+            "26-1": {
+                label: "iOS 26.1",
+                releases: [
+                    { name: "iOS 26.1 beta 1", date: "Sep 22, 2025" },
+                    { name: "iOS 26.1 beta 2", date: "Oct 6, 2025" },
+                    { name: "iOS 26.1 beta 3", date: "Oct 13, 2025" },
+                    { name: "iOS 26.1 beta 4", date: "Oct 20, 2025" },
+                    {
+                        pair: [
+                            { name: "iOS 26.1 RC build", date: "Oct 28, 2025" },
+                            { name: "iOS 26.1 final build", date: "Nov 3, 2025" }
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+            // Add 26.2 and later versions here by copying the 26.1 block.
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+
+        function releaseMarkup(release) {
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}">
+                <p class="release-name">${release.name}</p>
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
 </body>
 </html>
