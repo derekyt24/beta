@@ -53,7 +53,7 @@
             }
         }
 
-        @media (prefers-color-scheme: light) {
+        @media (min-width:601px) and (prefers-color-scheme: light) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-26-wallpaper-light-desktop.png');
                 background-color:#0a1015;
@@ -109,7 +109,7 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (min-width:601px) and (prefers-color-scheme: dark) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-26-wallpaper-dark-desktop.png');
                 background-color:#0a1015;
@@ -295,6 +295,7 @@
         @media (max-width:600px) {
             body {
                 padding:20px;
+                background-attachment:scroll;
             }
 
             nav {
@@ -306,7 +307,7 @@
             }
 
             main {
-                margin-top:72px;
+                margin-top:30px;
             }
 
             h1 {
@@ -314,7 +315,7 @@
             }
 
             .version-picker {
-                margin:10px auto 25px;
+                margin:7px auto 10px;
             }
 
             .release-grid {
@@ -344,6 +345,11 @@
 
             .release-note {
                 font-size:14px;
+            }
+
+            .supplemental .section-label {
+                font-size:18px;
+                margin-bottom:12px;
             }
         }
     </style>
