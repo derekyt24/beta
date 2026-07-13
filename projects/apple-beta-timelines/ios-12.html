@@ -15,6 +15,8 @@
             min-height:100vh;
             margin:0;
             padding:30px;
+            display:flex;
+            flex-direction:column;
             background-position:center;
             background-size:cover;
             background-repeat:no-repeat;
@@ -113,6 +115,7 @@
         }
 
         main {
+            flex:1;
             width:min(100%, 750px);
             margin:30px auto 0;
         }
@@ -233,8 +236,9 @@
         .release-note {
             margin:4px 0 0;
             color:rgba(255, 255, 255, 0.67);
-            font-size:16px;
+            font-size:14px;
             letter-spacing:0.03em;
+            white-space:pre-line;
         }
 
         .release-align-left {
@@ -382,6 +386,60 @@
                 font-size:15px;
             }
         }
+        .timeline-footnote {
+            width:min(100%, 750px);
+            margin:20px auto 0;
+            color:rgba(255, 255, 255, 0.75);
+            font-size:16px;
+            font-weight:400;
+            letter-spacing:0.01em;
+        }
+
+        @media (max-width:600px) {
+            .timeline-footnote {
+                font-size:13px;
+            }
+        }
+        /* iOS 15 typography calibration. */
+        .release-name {
+            font-weight:500;
+            letter-spacing:0.03em;
+        }
+
+        .release-date {
+            color:rgba(255, 255, 255, 0.9);
+        }
+
+        .release-note {
+            letter-spacing:0.04em;
+            line-height:1.35;
+        }
+
+        .section-label {
+            font-weight:400;
+            letter-spacing:0.03em;
+        }
+
+        .release-name,
+        .release-date,
+        .release-note {
+            font-optical-sizing:none;
+        }
+
+        @media (max-width:600px) {
+            .release-date {
+                letter-spacing:0;
+            }
+
+            .release-name,
+            .release-date,
+            .release-note {
+                font-optical-sizing:none;
+                line-height:1.13;
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -406,6 +464,7 @@
                     <option value="12-2">iOS 12.2</option>
                     <option value="12-3">iOS 12.3</option>
                     <option value="12-4">iOS 12.4</option>
+                    <option value="12-5-x">iOS 12.5.x</option>
                 </select>
                 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                     <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -415,6 +474,7 @@
 
         <section id="release-grid" class="release-grid" aria-live="polite"></section>
     </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
     <script>
         const timelines = {
             "12-0": {
@@ -546,11 +606,38 @@
                         ]
                     }
                 ]
+            },
+            "12-5-x": {
+                label: "iOS 12.5.x",
+                releases: [
+                    {
+                        trio: [
+                            { date: "iOS 12.5", note: "Final build: Dec 14, 2020" },
+                            { date: "iOS 12.5.1", note: "Final build: Jan 11, 2021" },
+                            { date: "iOS 12.5.2", note: "Final build: Mar 26, 2021" }
+                        ]
+                    },
+                    {
+                        trio: [
+                            { date: "iOS 12.5.3", note: "Final build: May 3, 2021" },
+                            { date: "iOS 12.5.4", note: "Final build: Jun 14, 2021" },
+                            { date: "iOS 12.5.5", note: "Final build: Sep 23, 2021" }
+                        ]
+                    },
+                    {
+                        trio: [
+                            { date: "iOS 12.5.6", note: "Final build: Aug 31, 2022" },
+                            { date: "iOS 12.5.7", note: "Final build: Jan 23, 2023" },
+                            { date: "iOS 12.5.8", note: "Final build: Jan 26, 2026"}
+                        ]
+                    }
+                ]
             }
         };
 
         const versionSelect = document.getElementById("software-version");
         const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
 
         function releaseMarkup(release) {
             if (release.trio) {
@@ -565,9 +652,10 @@
 
             const spanClass = release.spanTwo ? " span-two" : "";
             const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
             const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
             return `<article class="release${spanClass}${alignmentClass}">
-                <p class="release-name">${release.name}</p>
+                ${name}
                 <p class="release-date">${release.date}</p>${note}
             </article>`;
         }
@@ -578,10 +666,14 @@
             if (!timeline) {
                 releaseGrid.setAttribute("aria-label", "Timeline coming soon");
                 releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
                 return;
             }
 
             releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
             releaseGrid.style.setProperty("--timeline-row-gap", timeline.rowGap ?? "22px");
             releaseGrid.style.setProperty("--timeline-row-gap-mobile", timeline.rowGapMobile ?? "20px");
             let markup = timeline.releases.map(releaseMarkup).join("");

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS 15 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/x-icon" href="/assets/20260627-sitegraphic-updates.png">
+    <link rel="stylesheet" href="https://beta.derekyt.dev/assets/fonts/sf-pro.css">
+    <style>
+        * {
+            box-sizing:border-box;
+        }
+
+        body {
+            min-height:100vh;
+            margin:0;
+            padding:30px;
+            display:flex;
+            flex-direction:column;
+            background-position:center;
+            background-size:cover;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            color:#ffffff;
+            font-family:"SF Pro", "Inter", sans-serif;
+            text-align:center;
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-light-mobile.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+        }
+
+        @media (min-width:601px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-light-desktop.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-dark-mobile.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+        }
+
+        @media (min-width:601px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-dark-desktop.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+        }
+
+        nav {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            width:min(100%, 750px);
+            margin:0 auto;
+            font-size:14px;
+        }
+
+        .nav-brand {
+            font-weight:500;
+            text-decoration:none;
+            letter-spacing:0.25px;
+        }
+
+        .nav-links {
+            display:flex;
+            gap:12px;
+            letter-spacing:0.25px;
+        }
+
+        a {
+            color:inherit;
+            text-decoration:none;
+        }
+
+        .nav-links a {
+            opacity:0.72;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            opacity:1;
+        }
+
+        main {
+            flex:1;
+            width:min(100%, 750px);
+            margin:30px auto 0;
+        }
+
+        h1 {
+            margin:0;
+            font-size:64px;
+            font-weight:550;
+            letter-spacing:0em;
+            line-height:1.1;
+        }
+
+        .version-picker {
+            display:block;
+            margin:7px auto 10px;
+        }
+
+        .version-picker select {
+            appearance:none;
+            -webkit-appearance:none;
+            margin:0;
+            padding:6px 28px 6px 8px;
+            border:0;
+            background:transparent;
+            color:inherit;
+            font-family:inherit;
+            font-size:21px;
+            font-weight:500;
+            line-height:1.2;
+            text-align:center;
+            cursor:pointer;
+        }
+
+        .version-picker span {
+            display:inline-grid;
+            position:relative;
+        }
+
+        .version-picker svg {
+            position:absolute;
+            top:50%;
+            right:10px;
+            width:14px;
+            height:14px;
+            transform:translateY(-50%);
+            pointer-events:none;
+        }
+
+        .release-grid {
+            display:grid;
+            width:100%;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            justify-content:initial;
+            row-gap:var(--timeline-row-gap, 22px);
+            column-gap:0;
+            align-items:start;
+        }
+
+        .release-align-left {
+            text-align:left;
+            padding-left:50px;
+        }
+
+        .release-align-right {
+            text-align:right;
+            padding-right:50px;
+        }
+
+        .release-pair {
+            display:grid;
+            grid-column:1 / -1;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            gap:22px 20px;
+        }
+
+        .release-pair-compact {
+            grid-template-columns:repeat(2, max-content);
+            justify-content:center;
+            column-gap:50px;
+        }
+
+        .release-pair-builds,
+        .release-pair-tight {
+            grid-template-columns:repeat(2, max-content);
+            justify-content:center;
+        }
+
+        .release-pair-builds {
+            column-gap:100px;
+        }
+
+        .release-pair-tight {
+            column-gap:50px;
+        }
+
+        .release-trio {
+            display:grid;
+            grid-column:1 / -1;
+            grid-template-columns:repeat(3, max-content);
+            justify-content:center;
+            column-gap:50px;
+        }
+
+        .supplemental .release-trio + .release-trio {
+            margin-top:24px;
+        }
+
+        .release-name,
+        .section-label {
+            margin:0 0 5px;
+            color:rgba(255, 255, 255, 0.67);
+            font-size:18px;
+            font-weight:500;
+            letter-spacing:0.03em;
+        }
+
+        .release-date {
+            margin:0;
+            color:rgba(255,255,255,0.9);
+            font-size:28px;
+            font-weight:400;
+            letter-spacing:0em;
+        }
+
+        .release-note {
+            margin:4px 0 0;
+            color:rgba(255, 255, 255, 0.67);
+            font-size:14px;
+            letter-spacing:0.04em;
+            line-height:1.35;
+            white-space:pre-line;
+        }
+
+        .section-label {
+            margin:0 0 5px;
+            color:rgba(255, 255, 255, 0.67);
+            font-size:18px;
+            font-weight:400;
+            letter-spacing:0.03em;
+        }
+
+        .release-name,
+        .release-date,
+        .release-note {
+            font-optical-sizing:none;
+        }
+
+        .release-align-left {
+            text-align:left;
+        }
+
+        .release-align-right {
+            text-align:right;
+        }
+
+        .span-two {
+            grid-column:1 / -1;
+        }
+
+        .supplemental {
+            margin-top:6px;
+            margin-bottom:20px;
+        }
+
+        .supplemental .section-label {
+            font-size:21px;
+            margin-bottom:15px;
+            letter-spacing:0.01em;
+            color:rgba(255, 255, 255, 0.75);
+        }
+
+        .timeline-message {
+            margin:20px 0;
+            color:rgba(255, 255, 255, 0.72);
+            font-size:18px;
+        }
+
+        @media (max-width:600px) {
+            body {
+                padding-left:25px;
+                padding-right:25px;
+                background-attachment:scroll;
+            }
+
+            nav {
+                font-size:14px;
+            }
+
+            .nav-links {
+                gap:12px;
+            }
+
+            main {
+                margin-top:30px;
+            }
+
+            h1 {
+                font-size:44px;
+            }
+
+            .version-picker {
+                margin:7px auto 10px;
+            }
+
+            .version-picker select {
+                font-size:19px;
+            }
+
+            .release-grid {
+                grid-template-columns:repeat(2, minmax(0, 1fr));
+                justify-content:initial;
+                row-gap:var(--timeline-row-gap-mobile, 20px);
+                column-gap:var(--timeline-column-gap-mobile, 28px);
+            }
+
+            .release-pair {
+                gap:20px 28px;
+            }
+
+            .release-pair-builds,
+            .release-pair-tight {
+                grid-template-columns:repeat(2, max-content);
+                justify-content:center;
+                column-gap:20px;
+            }
+
+            .release-trio {
+                grid-template-columns:1fr;
+                row-gap:20px;
+            }
+
+            .supplemental .release-trio + .release-trio {
+                margin-top:20px;
+            }
+
+            .release-name,
+            .section-label {
+                font-size:12px;
+            }
+
+            .release-date {
+                font-size:18px;
+                letter-spacing:0em;
+            }
+
+            .release-note {
+                font-size:10px;
+            }
+
+            .release-align-left {
+                padding-left:0;
+            }
+
+            .release-align-right {
+                padding-right:0;
+            }
+
+            .supplemental .section-label {
+                font-size:16px;
+                margin-bottom:12px;
+            }
+            
+            .release-name,
+            .release-date,
+            .release-note {
+                font-optical-sizing:none;
+                line-height:1.13;
+            }
+            
+        }
+
+        @media (max-width:380px) {
+            body {
+                padding-left:15px;
+                padding-right:15px;
+            }
+
+            .release-grid {
+                row-gap:18px;
+                column-gap:16px;
+            }
+
+            .release-pair {
+                column-gap:16px;
+            }
+
+            .release-pair-builds,
+            .release-pair-tight {
+                column-gap:12px;
+            }
+
+            .release-date {
+                font-size:17px;
+                letter-spacing:0;
+            }
+
+            .supplemental .section-label {
+                font-size:15px;
+            }
+        }
+        .timeline-footnote {
+            width:min(100%, 750px);
+            margin:20px auto 0;
+            color:rgba(255, 255, 255, 0.75);
+            font-size:16px;
+            font-weight:400;
+            letter-spacing:0.01em;
+        }
+
+        @media (max-width:600px) {
+            .timeline-footnote {
+                font-size:13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav aria-label="Main navigation">
+        <a class="nav-brand" href="/">DerekYT</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1>iOS 15</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an iOS 12 version">
+                    <option value="15-0">iOS 15.0</option>
+                    <option value="15-1">iOS 15.1</option>
+                    <option value="15-2">iOS 15.2</option>
+                    <option value="15-3">iOS 15.3</option>
+                    <option value="15-4">iOS 15.4</option>
+                    <option value="15-5">iOS 15.5</option>
+                    <option value="15-6">iOS 15.6</option>
+                    <option value="15-7-x">iOS 15.7.x</option>
+                    <option value="15-8-x">iOS 15.8.x</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "15-0": {
+                label: "iOS 15.0",
+                releases: [
+                    { name: "iOS 15.0 beta 1", date: "June 7, 2021", alignment: "left" },
+                    { name: "iOS 15.0 beta 2", date: "June 24, 2021", note: "build 2: June 30, 2021", alignment: "right" },
+                    { name: "iOS 15.0 beta 3", date: "July 14, 2021", alignment: "left" },
+                    { name: "iOS 15.0 beta 4", date: "July 27, 2021", alignment: "right" },
+                    { name: "iOS 15.0 beta 5", date: "August 10, 2021", alignment: "left" },
+                    { name: "iOS 15.0 beta 6", date: "August 17, 2021", alignment: "right" },
+                    { name: "iOS 15.0 beta 7", date: "August 25, 2021", alignment: "left" },
+                    { name: "iOS 15.0 beta 8", date: "August 31, 2021", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iOS 15.0 RC build", date: "September 14, 2021" },
+                            { name: "iOS 15.0 final build", date: "September 20, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "iOS 15.0.1", date: "October 1, 2021" },
+                            { name: "iOS 15.0.2", date: "October 11, 2021" }
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+            "15-1": {
+                label: "iOS 15.1",
+                releases: [
+                    { name: "iOS 15.1 beta 1", date: "September 21, 2021", alignment: "left" },
+                    { name: "iOS 15.1 beta 2", date: "September 28, 2021", alignment: "right" },
+                    { name: "iOS 15.1 beta 3", date: "October 6, 2021", alignment: "left" },
+                    { name: "iOS 15.1 beta 4", date: "October 13, 2021", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iOS 15.1 RC build", date: "October 18, 2021" },
+                            { name: "iOS 15.1 final build", date: "October 25, 2021" }
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 15.1.1", date: "November 17, 2021" }
+                ]
+            },
+            "15-2": {
+                label: "iOS 15.2",
+                releases: [
+                    { name: "iOS 15.2 beta 1", date: "October 27, 2021", alignment: "left" },
+                    { name: "iOS 15.2 beta 2", date: "November 9, 2021", alignment: "right" },
+                    { name: "iOS 15.2 beta 3", date: "November 16, 2021", alignment: "left" },
+                    { name: "iOS 15.2 beta 4", date: "December 2, 2021", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iOS 15.2 RC build", date: "December 7, 2021", note: "build 2: December 10, 2021" },
+                            { name: "iOS 15.2 final build", date: "December 13, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 15.2.1", date: "January 12, 2022" }
+                ]
+            },
+            "15-3": {
+                label: "iOS 15.3",
+                releases: [
+                    { name: "iOS 15.3 beta 1", date: "December 17, 2021", alignment: "left" },
+                    { name: "iOS 15.3 beta 2", date: "January 12, 2022", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iOS 15.3 RC build", date: "January 20, 2022" },
+                            { name: "iOS 15.3 final build", date: "January 26, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 15.3.1", date: "February 10, 2022" }
+                ]
+            },
+            "15-4": {
+                label: "iOS 15.4",
+                releases: [
+                    { name: "iOS 15.4 beta 1", date: "January 27, 2022", alignment: "left" },
+                    { name: "iOS 15.4 beta 2", date: "February 8, 2022", alignment: "right" },
+                    { name: "iOS 15.4 beta 3", date: "February 15, 2022", alignment: "left" },
+                    { name: "iOS 15.4 beta 4", date: "February 22, 2022", alignment: "right" },
+                    { name: "iOS 15.4 beta 5", date: "March 1, 2022", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iOS 15.4 RC build", date: "March 8, 2022" },
+                            { name: "iOS 15.4 final build", date: "March 14, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 15.4.1", date: "March 31, 2022" }
+                ]
+            },
+            "15-5": {
+                label: "iOS 15.5",
+                releases: [
+                    { name: "iOS 15.5 beta 1", date: "April 5, 2022", alignment: "left" },
+                    { name: "iOS 15.5 beta 2", date: "April 19, 2022", alignment: "right" },
+                    { name: "iOS 15.5 beta 3", date: "April 26, 2022", alignment: "left" },
+                    { name: "iOS 15.5 beta 4", date: "May 3, 2022", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iOS 15.5 RC build", date: "May 12, 2022" },
+                            { name: "iOS 15.5 final build", date: "May 16, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "15-6": {
+                label: "iOS 15.6",
+                releases: [
+                    { name: "iOS 15.6 beta 1", date: "May 18, 2022", alignment: "left" },
+                    { name: "iOS 15.6 beta 2", date: "May 31, 2022", alignment: "right" },
+                    { name: "iOS 15.6 beta 3", date: "June 14, 2022", alignment: "left" },
+                    { name: "iOS 15.6 beta 4", date: "June 28, 2022", alignment: "right" },
+                    { name: "iOS 15.6 beta 5", date: "July 5, 2022", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iOS 15.6 RC build", date: "July 12, 2022", note: "build 2: July 15, 2022" },
+                            { name: "iOS 15.6 final build", date: "July 20, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 15.6.1", date: "August 17, 2022" }
+                ]
+            },
+            "15-7-x": {
+                label: "iOS 15.7.x",
+                releases: [
+                    {
+                        trio: [
+                            { date: "iOS 15.7", note: "RC build: Sep 7, 2022\nFinal build: Sep 12, 2022" },
+                            { date: "iOS 15.7.1", note: "RC build: Oct 18, 2022\nFinal build: Oct 27, 2022" },
+                            { date: "iOS 15.7.2", note: "RC build: Dec 7, 2022\nFinal build: Dec 13, 2022"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        trio: [
+                            { date: "iOS 15.7.3", note: "RC build: Jan 18, 2023\nFinal build: Jan 23, 2023" },
+                            { date: "iOS 15.7.4", note: "RC build: Mar 21, 2023\nFinal build: Mar 27, 2023" },
+                            { date: "iOS 15.7.5", note: "Final build: Apr 10, 2023"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        trio: [
+                            { date: "iOS 15.7.6", note: "RC build: May 9, 2023\nFinal build: May 18, 2023" },
+                            { date: "iOS 15.7.7", note: "Final build: Jun 21, 2023" },
+                            { date: "iOS 15.7.8", note: "RC build: Jul 18, 2023\nFinal build: July 24, 2023"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                ]
+            },
+            "15-8-x": {
+                label: "iOS 15.8.x",
+                releases: [
+                    {
+                        trio: [
+                            { date: "iOS 15.8", note: "RC build: Oct 17, 2023\nFinal build: Oct 25, 2023" },
+                            { date: "iOS 15.8.1", note: "RC build: Jan 17, 2024\nFinal build: Jan 22, 2024" },
+                            { date: "iOS 15.8.2", note: "RC build: Feb 27, 2024\nFinal build: Mar 5, 2024"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        trio: [
+                            { date: "iOS 15.8.3", note: "RC build: Jul 23, 2024\nFinal build: Jul 29, 2024" },
+                            { date: "iOS 15.8.4", note: "Final build: Mar 31, 2025" },
+                            { date: "iOS 15.8.5", note: "RC build: Sep 9, 2025\nFinal build: Sep 15, 2025"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        trio: [
+                            { date: "iOS 15.8.6", note: "Final build: Jan 26, 2026" },
+                            { date: "iOS 15.8.7", note: "Final build: Mar 11, 2026" },
+                            { date: "iOS 15.8.8", note: "Final build: May 11, 2026"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                ]
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            releaseGrid.style.setProperty("--timeline-row-gap", timeline.rowGap ?? "22px");
+            releaseGrid.style.setProperty("--timeline-row-gap-mobile", timeline.rowGapMobile ?? "20px");
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

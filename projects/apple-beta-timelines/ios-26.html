@@ -14,7 +14,12 @@
         body {
             min-height:100vh;
             margin:0;
-            padding:30px;
+            padding-top:30px;
+            padding-left:30px;
+            padding-right:30px;
+            padding-bottom:40px;
+            display:flex;
+            flex-direction:column;
             background-position:center;
             background-size:cover;
             background-repeat:no-repeat;
@@ -172,6 +177,7 @@
         }
 
         main {
+            flex:1;
             width:min(100%, 700px);
             margin:30px auto 0;
         }
@@ -248,12 +254,11 @@
             column-gap:50px;
         }
 
-        .release-name,
-        .section-label {
+        .release-name {
             margin:0 0 5px;
             color:rgba(255, 255, 255, 0.67);
             font-size:18px;
-            font-weight:400;
+            font-weight:500;
             letter-spacing:0.03em;
         }
 
@@ -271,6 +276,13 @@
             letter-spacing:0.01em;
         }
 
+        .section-label {
+            margin:0 0 5px;
+            color:rgba(255, 255, 255, 0.67);
+            font-size:18px;
+            font-weight:400;
+            letter-spacing:0.01em;
+        }
         .span-two {
             grid-column:1 / -1;
         }
@@ -351,6 +363,12 @@
                 font-size:10px;
             }
 
+            .release-name,
+            .release-date,
+            .release-note {
+                font-optical-sizing:none;
+            }
+
             .supplemental .section-label {
                 font-size:16px;
                 margin-bottom:12px;
@@ -382,10 +400,71 @@
                 letter-spacing:0;
             }
 
+            .release-name,
+            .release-date,
+            .release-note {
+                font-optical-sizing:none;
+            }
+
             .supplemental .section-label {
                 font-size:15px;
             }
         }
+        .timeline-footnote {
+            width:min(100%, 700px);
+            margin:30px auto 0;
+            color:rgba(255, 255, 255, 0.75);
+            font-size:16px;
+            font-weight:400;
+            line-height:1.7;
+            letter-spacing:0.01em;
+        }
+
+        @media (max-width:600px) {
+            .timeline-footnote {
+                font-size:13px;
+            }
+        }
+        /* iOS 15 typography calibration. */
+        .release-name {
+            font-weight:500;
+            letter-spacing:0.03em;
+        }
+
+        .release-date {
+            color:rgba(255, 255, 255, 0.9);
+        }
+
+        .release-note {
+            letter-spacing:0.04em;
+            line-height:1.35;
+        }
+
+        .section-label {
+            font-weight:400;
+            letter-spacing:0.03em;
+        }
+
+        .release-name,
+        .release-date,
+        .release-note {
+            font-optical-sizing:none;
+        }
+
+        @media (max-width:600px) {
+            .release-date {
+                letter-spacing:0;
+            }
+
+            .release-name,
+            .release-date,
+            .release-note {
+                font-optical-sizing:none;
+                line-height:1.13;
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -419,6 +498,7 @@
 
         <section id="release-grid" class="release-grid" aria-live="polite"></section>
     </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
     <script>
         const timelines = {
             "26-0": {
@@ -524,6 +604,7 @@
             },
             "26-5": {
                 label: "iOS 26.5",
+                footnote: "1: Released only for iPhone 17 models and iPhone Air.",
                 releases: [
                     { name: "iOS 26.5 beta 1", date: "Mar 30, 2026", note: "build 2: Apr 3, 2026" },
                     { name: "iOS 26.5 beta 2", date: "Apr 13, 2026" },
@@ -540,7 +621,7 @@
                 supplemental: [
                     {
                         pair: [
-                            { name: "iOS 26.5.1", date: "Jun 1, 2026" },
+                            { name: "iOS 26.5.1&#185;", date: "Jun 1, 2026" },
                             { name: "iOS 26.5.2", date: "Jun 29, 2026" }
                         ],
                         className: "release-pair-tight"
@@ -560,6 +641,7 @@
 
         const versionSelect = document.getElementById("software-version");
         const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
 
         function releaseMarkup(release) {
             if (release.pair) {
@@ -581,10 +663,14 @@
             if (!timeline) {
                 releaseGrid.setAttribute("aria-label", "Timeline coming soon");
                 releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
                 return;
             }
 
             releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
             let markup = timeline.releases.map(releaseMarkup).join("");
 
             if (timeline.supplemental?.length) {
