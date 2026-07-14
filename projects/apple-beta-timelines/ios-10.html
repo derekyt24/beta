@@ -28,7 +28,7 @@
 
         @media (max-width:600px) and (prefers-color-scheme: light) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-10-wallpaper-light-mobile.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-10-wallpaper-mobile.png');
                 background-color:#0a1015;
                 padding-left:15px;
                 padding-right:15px;
@@ -54,7 +54,7 @@
 
         @media (min-width:601px) and (prefers-color-scheme: light) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-10-wallpaper-light-desktop.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-10-wallpaper-desktop.png');
                 background-color:#0a1015;
                 color: #ffffff;
             }
@@ -77,7 +77,7 @@
 
         @media (max-width:600px) and (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-10-wallpaper-dark-mobile.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-10-wallpaper-mobile.png');
                 background-color:#0a1015;
                 padding-left:15px;
                 padding-right:15px;
@@ -103,7 +103,7 @@
 
         @media (min-width:601px) and (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-10-wallpaper-dark-desktop.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-10-wallpaper-desktop.png');
                 background-color:#0a1015;
                 color: #ffffff;
             }
@@ -524,11 +524,12 @@
 
         <section id="release-grid" class="release-grid" aria-live="polite"></section>
     </main>
-    <footer id="timeline-footnote" class="timeline-footnote">1: Released only for iPhone 7 and 7 Plus.</footer>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
     <script>
         const timelines = {
             "10-0": {
                 label: "iOS 10-0",
+                footnote: "1: Released only for iPhone 7 and 7 Plus.",
                 releases: [
                     { name: "iOS 10.0 beta 1", date: "June 13, 2016", alignment: "left" },
                     { name: "iOS 10.0 beta 2", date: "July 5, 2016", alignment: "right" },
@@ -541,11 +542,20 @@
                     {
                         pair: [
                             { name: "iOS 10.0.1 GM build", date: "September 7, 2016" },
-                            { name: "iOS 10.0 + 10.0.1&#185; final build", date: "September 13, 2016" }
+                            { name: "iOS 10.0 + 10.0.1 final build", date: "September 13, 2016" }
                         ],
                         className: "release-pair-builds"
                     }
                 ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "iOS 10.0.2", date: "September 23, 2016" },
+                            { name: "iOS 10.0.3&#185;", date: "October 17, 2016" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ]
             },
             "10-1": {
                 label: "iOS 10.1",
