@@ -214,14 +214,14 @@
             width:100%;
             grid-template-columns:repeat(2, minmax(0, 1fr));
             justify-content:initial;
-            row-gap:var(--timeline-row-gap, 22px);
+            row-gap:var(--timeline-row-gap, 20px);
             column-gap:0;
             align-items:start;
         }
 
         .release-align-left {
             text-align:left;
-            padding-left:50px;
+            padding-left:60px;
         }
 
         .release-align-right {
@@ -757,7 +757,7 @@
             releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
             timelineFootnote.textContent = timeline.footnote ?? "";
             timelineFootnote.hidden = !timeline.footnote;
-            releaseGrid.style.setProperty("--timeline-row-gap", timeline.rowGap ?? "22px");
+            releaseGrid.style.setProperty("--timeline-row-gap", timeline.rowGap ?? "20px");
             releaseGrid.style.setProperty("--timeline-row-gap-mobile", timeline.rowGapMobile ?? "20px");
             let markup = timeline.releases.map(releaseMarkup).join("");
 

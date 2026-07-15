@@ -255,7 +255,8 @@
 
         .timeline-picker select {
             width:100%;
-            padding:11px 12px;
+            padding:0px 5px;
+            min-height:60px;
             border:0;
             border-radius:8px;
             background:rgba(16, 13, 12, 0.82);
@@ -327,7 +328,8 @@
                     <option value="" selected disabled>Choose a platform</option>
                     <option value="ios">iOS</option>
                     <option value="ipados">iPadOS</option>
-                    <option value="macos">OS X | macOS</option>
+                    <option value="osx">OS X</option>
+                    <option value="macos">macOS</option>
                     <option value="visionos">visionOS</option>
                     <option value="watchos">watchOS</option>
                     <option value="tvos">tvOS</option>
@@ -347,7 +349,8 @@
     const timelineData = {
         ios: { label: "iOS", versions: ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] },
         ipados: { label: "iPadOS", versions: ["13", "14", "15", "16", "17", "18", "26", "27"] },
-        macos: { label: "OS X | macOS", versions: ["10.9", "10.10", "10.11", "10.12", "10.13", "10.14", "10.15", "11", "12", "13", "14", "15", "26", "27"] },
+        osx:{ label: "OS X", versions: ["10.9", "10.10", "10.11"] },
+        macos: { label: "macOS", versions: ["10.12", "10.13", "10.14", "10.15", "11", "12", "13", "14", "15", "26", "27"] },
         visionos: { label: "visionOS", versions: ["1", "2", "26", "27"] },
         watchos: { label: "watchOS", versions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "26", "27"] },
         tvos: { label: "tvOS", versions: ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] }
