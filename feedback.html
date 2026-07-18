@@ -1,0 +1,422 @@
+<head>
+    <title>Feedback &#8211; DerekYT (beta)</title>
+    <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/sf-pro.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
+        body {
+            background-color: #000000;
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            font-family: "SF Pro", "Inter", sans-serif;
+            font-weight:400;
+            color:#ffffff;
+            text-align:left;
+            max-width:750px;
+            margin:0 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top:30px;
+            padding-bottom:30px;
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('assets/bg-images/feedback-light-mobile.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-image:url('assets/bg-images/feedback-light-desktop.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(0, 0, 0, 1);
+            }
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('assets/bg-images/feedback-dark-mobile.png');
+                background-color:#0a1015;
+                padding-left:15px;
+                padding-right:15px;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-image:url('assets/bg-images/feedback-dark-desktop.png');
+                background-color:#0a1015;
+                color: #ffffff;
+            }
+            nav {
+                font-size:14px;
+            }
+
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+
+            .nav-brand {
+                color: #ffffff;
+            }
+
+            hr {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            gap:15px;
+        }
+
+        .nav-links a {
+            color:inherit;
+            opacity: 0.5;
+            text-decoration:none;
+        }
+
+        .nav-links a:link {
+            color:inherit;
+            opacity:0.5;
+        }
+
+        .nav-links a:hover {
+            color:inherit;
+            opacity:0.75;
+        }
+
+        .nav-links a:visited {
+            color:inherit;
+            opacity:0.5;
+        }
+        
+        .nav-brand {
+            color:inherit;
+            font-weight:500;
+            margin-right:15px;
+        }
+
+        .beta-label-style {
+            background-color: rgba(255, 237, 118, 0.5);
+            margin-top: 20px;
+            /*margin-bottom: 20px;*/
+            padding:14px;
+            font-size:16px;
+            line-height:1.4;
+            border-radius: 7px;
+        }
+        
+        .welcome-font {
+            margin-top:20px;
+            margin-bottom:20px;
+            font-size:36px;
+            font-weight:500;
+        }
+        
+        .heading-body-line-height {
+            line-height:1.35;
+            letter-spacing:0.01em;
+            margin-bottom:15px;
+        }
+
+        .link-margin {
+            display:block;
+            margin-bottom:5px;
+        }
+
+        img {
+            border-radius: 7px;
+        }
+
+        a:link {
+            color:inherit;
+            opacity:1;
+        }
+
+        a:hover {
+            color:inherit;
+            opacity:0.75;
+        }
+
+        a:visited {
+            color:inherit;
+            opacity:0.5;
+        }
+
+        .summary-font {
+            font-size:28px;
+            font-weight:550;
+            letter-spacing:0.25px;
+        }
+
+        .break-height {
+            line-height:100%;
+        }
+
+        .release-text-margin-extended {
+            margin-top:25px;
+            margin-bottom:10px;
+        }
+
+        .project-selector {
+            margin-top:5px;
+            margin-bottom:10px;
+        }
+
+        .project-card {
+            width:100%;
+            max-width:325px;
+            box-sizing:border-box;
+            container-type:inline-size;
+            padding-left:15px;
+            padding-right:15px;
+            padding-top:7px;
+            padding-bottom:15px;
+            border-radius:12px;
+            background-position:center;
+            background-size:cover;
+            background-repeat:no-repeat;
+            box-shadow:0 16px 32px rgba(0,0,0,0.25);
+            color:#ffffff;
+        }
+
+        .project-card.project-apple {
+            background-image:url('assets/apple-beta-timelines-button-dark.png');
+        }
+
+        .project-card.project-android {
+            background-image:url('assets/android-beta-timelines-button-dark.png');
+        }
+
+        .project-card.project-compatibility {
+            background-image:url('assets/compatibility-charts-button-dark.png');
+        }
+
+        @media (prefers-color-scheme: light) {
+            .project-card {
+                border-color:rgba(0,0,0,0.5);
+            }
+
+            .project-card.project-apple {
+                background-image:url('assets/apple-beta-timelines-button-light.png');
+            }
+
+            .project-card.project-android {
+                background-image:url('assets/android-beta-timelines-button-light.png');
+            }
+
+            .project-card.project-compatibility {
+                background-image:url('assets/compatibility-charts-button-light.png');
+            }
+        }
+
+        .project-picker {
+            position:relative;
+        }
+
+        .project-selector select {
+            width:100%;
+            height:40px;
+            padding:0 32px 0 0;
+            border:0;
+            background:transparent;
+            color:inherit;
+            font-size:14px;
+            font-weight:400;
+            appearance:none;
+            -webkit-appearance:none;
+        }
+
+        .project-picker svg {
+            position:absolute;
+            top:50%;
+            right:4px;
+            width:12px;
+            height:22px;
+            transform:translateY(-50%);
+            pointer-events:none;
+        }
+
+        .project-details {
+            margin-top:0px;
+        }
+
+        .project-details p {
+            margin-top:0;
+        }
+
+        .project-description {
+            margin-bottom:10px;
+            font-size:20px;
+            font-weight:500;
+            line-height:1.25;
+        }
+
+        .project-links {
+            font-size:16px;
+        }
+
+        .project-card a:link,
+        .project-card a:visited {
+            color:inherit;
+            opacity:1;
+        }
+
+        .project-card a:hover {
+            opacity:0.75;
+        }
+
+        .project-details p:last-child {
+            margin-bottom:0;
+        }
+
+        @media (max-width:600px) {
+            .project-card {
+                padding:16px;
+                border-radius:18px;
+            }
+
+            .project-selector select {
+                font-size:18px;
+            }
+
+            .project-description {
+                font-size:20px;
+            }
+
+            .project-links {
+                font-size:16px;
+            }
+        }
+
+        @container (max-width:375px) {
+            .project-selector select {
+                font-size:16px;
+            }
+
+            .project-description {
+                font-size:16px;
+                line-height:1.4;
+                font-weight:500;
+            }
+
+            .project-links {
+                font-size:15px;
+            }
+        }
+
+        .footnote {
+            font-size:10px;
+            opacity:0.5;
+            margin-top:5px;
+        }
+
+        footer {
+            font-size:10px;
+            letter-spacing:0.25px;
+            opacity:0.5;
+            margin-top: auto;
+        }
+    </style>
+</head>
+</style>
+<body>
+    <header>
+    <nav>
+        <span class="nav-brand">DerekYT</span>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>    
+    <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
+    <h1 class="welcome-font">Feedback</h1>
+    <p class="heading-body-line-height">Use the form below to send bug reports and feature requests.</p>
+    </header>
+<footer style="color:rgba(255,255,255,1)">Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
+</body>

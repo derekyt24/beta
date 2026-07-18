@@ -297,7 +297,7 @@
             border-radius: 7px;
         }
 
-        .welcome-font-a {
+        .welcome-font {
             margin-top:25px;
             margin-bottom:20px;
             font-size:36px;
@@ -387,14 +387,17 @@
         <p class="beta-label-style">This website is in beta. Some elements may not work properly.</p>
         <div class="note-style">Site releases have moved <a href="/releases/derekyt-dev/">here</a>.</div>
     </div>
-    <h1 class="welcome-font-a">Welcome!</h1>
+    <h1 class="welcome-font">Welcome!</h1>
     <img class="photo-light" src="assets/20260404-profilepic-light.JPG" width="225px" height="225px">
     <img class="photo-dark" src="assets/20260404-profilepic-dark.JPG" width="225px" height="225px">
     <p class="heading-body-line-height">Hi! I'm Derek. Student, designer, and enthusiast for tech, modern cars, and weather.</p>
     <p class="heading-body-line-height">I make the Apple beta timelines, Android beta timelines, and compatibility charts projects. You can find links to those on the <a href="/projects">Projects</a> page.</p>
     </a>
     </header>
-    <footer>AI models from Anthropic and OpenAI were involved in developing one or more features on this site. <a href="/how-ai-is-used">Learn more</a> (link coming soon)</footer>
+    <footer>
+        <p>Try experimental beta features at <a href="https://beta.derekyt.dev/">beta.derekyt.dev</a></p>
+        <p>AI models from Anthropic and OpenAI assisted in developing features on this site. <a href="/how-ai-is-used">Learn more</a> (link coming soon)</p>
+    </footer>
     <script>
         document.querySelectorAll('[data-utc]').forEach(el => {
         const date = new Date(el.dataset.utc);
