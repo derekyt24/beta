@@ -27,7 +27,7 @@
             flex-direction: column;
             min-height: 100vh;
             padding-top:30px;
-            padding-bottom:30px;
+            padding-bottom:15px;
         }
 
         @media (max-width:600px) and (prefers-color-scheme: light) {
@@ -59,7 +59,7 @@
             }
         }
 
-        @media (prefers-color-scheme: light) {
+        @media (min-width:601px) and (prefers-color-scheme: light) {
             body {
                 background-image:url('assets/bg-images/feedback-light-desktop.png');
                 background-color:#0a1015;
@@ -115,7 +115,7 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (min-width:601px) and (prefers-color-scheme: dark) {
             body {
                 background-image:url('assets/bg-images/feedback-dark-desktop.png');
                 background-color:#0a1015;
@@ -233,160 +233,9 @@
             letter-spacing:0.25px;
         }
 
-        .break-height {
-            line-height:100%;
-        }
-
         .release-text-margin-extended {
             margin-top:25px;
             margin-bottom:10px;
-        }
-
-        .project-selector {
-            margin-top:5px;
-            margin-bottom:10px;
-        }
-
-        .project-card {
-            width:100%;
-            max-width:325px;
-            box-sizing:border-box;
-            container-type:inline-size;
-            padding-left:15px;
-            padding-right:15px;
-            padding-top:7px;
-            padding-bottom:15px;
-            border-radius:12px;
-            background-position:center;
-            background-size:cover;
-            background-repeat:no-repeat;
-            box-shadow:0 16px 32px rgba(0,0,0,0.25);
-            color:#ffffff;
-        }
-
-        .project-card.project-apple {
-            background-image:url('assets/apple-beta-timelines-button-dark.png');
-        }
-
-        .project-card.project-android {
-            background-image:url('assets/android-beta-timelines-button-dark.png');
-        }
-
-        .project-card.project-compatibility {
-            background-image:url('assets/compatibility-charts-button-dark.png');
-        }
-
-        @media (prefers-color-scheme: light) {
-            .project-card {
-                border-color:rgba(0,0,0,0.5);
-            }
-
-            .project-card.project-apple {
-                background-image:url('assets/apple-beta-timelines-button-light.png');
-            }
-
-            .project-card.project-android {
-                background-image:url('assets/android-beta-timelines-button-light.png');
-            }
-
-            .project-card.project-compatibility {
-                background-image:url('assets/compatibility-charts-button-light.png');
-            }
-        }
-
-        .project-picker {
-            position:relative;
-        }
-
-        .project-selector select {
-            width:100%;
-            height:40px;
-            padding:0 32px 0 0;
-            border:0;
-            background:transparent;
-            color:inherit;
-            font-size:14px;
-            font-weight:400;
-            appearance:none;
-            -webkit-appearance:none;
-        }
-
-        .project-picker svg {
-            position:absolute;
-            top:50%;
-            right:4px;
-            width:12px;
-            height:22px;
-            transform:translateY(-50%);
-            pointer-events:none;
-        }
-
-        .project-details {
-            margin-top:0px;
-        }
-
-        .project-details p {
-            margin-top:0;
-        }
-
-        .project-description {
-            margin-bottom:10px;
-            font-size:20px;
-            font-weight:500;
-            line-height:1.25;
-        }
-
-        .project-links {
-            font-size:16px;
-        }
-
-        .project-card a:link,
-        .project-card a:visited {
-            color:inherit;
-            opacity:1;
-        }
-
-        .project-card a:hover {
-            opacity:0.75;
-        }
-
-        .project-details p:last-child {
-            margin-bottom:0;
-        }
-
-        @media (max-width:600px) {
-            .project-card {
-                padding:16px;
-                border-radius:18px;
-            }
-
-            .project-selector select {
-                font-size:18px;
-            }
-
-            .project-description {
-                font-size:20px;
-            }
-
-            .project-links {
-                font-size:16px;
-            }
-        }
-
-        @container (max-width:375px) {
-            .project-selector select {
-                font-size:16px;
-            }
-
-            .project-description {
-                font-size:16px;
-                line-height:1.4;
-                font-weight:500;
-            }
-
-            .project-links {
-                font-size:15px;
-            }
         }
 
         .footnote {
