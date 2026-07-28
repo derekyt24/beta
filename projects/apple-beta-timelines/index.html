@@ -1,6 +1,6 @@
 <head>
-    <title>Projects &#8211; DerekYT (beta)</title>
-    <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
+    <title>Apple beta timelines &#8211; DerekYT (beta)</title>
+    <link rel="icon" type="image/x-icon" href="https://beta.derekyt.dev/assets/20260708-betafavicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
 
         @media (max-width:600px) and (prefers-color-scheme: light) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-index-light-mobile.png');
                 background-color:#0a1015;
                 padding-left:15px;
                 padding-right:15px;
@@ -65,7 +65,7 @@
 
         @media (prefers-color-scheme: light) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-index-light-desktop.png');
                 background-color:#0a1015;
                 color: #ffffff;
             }
@@ -92,7 +92,7 @@
 
         @media (max-width:600px) and (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-index-dark-mobile.png');
                 background-color:#0a1015;
                 padding-left:15px;
                 padding-right:15px;
@@ -121,7 +121,7 @@
 
         @media (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-index-dark-desktop.png');
                 background-color:#0a1015;
                 color: #ffffff;
             }
@@ -327,12 +327,6 @@
                 <select id="platform" name="platform" required>
                     <option value="" selected disabled>Choose a platform</option>
                     <option value="ios">iOS</option>
-                    <option value="ipados" disabled>iPadOS (coming soon)</option>
-                    <option value="osx" disabled>OS X (coming soon)</option>
-                    <option value="macos" disabled>macOS (coming soon)</option>
-                    <option value="visionos" disabled>visionOS (coming soon)</option>
-                    <option value="watchos" disabled>watchOS (coming soon)</option>
-                    <option value="tvos" disabled>tvOS (coming soon)</option>
                 </select>
             </div>
             <div>
@@ -347,13 +341,7 @@
     </header>
 <script>
     const timelineData = {
-        ios: { label: "iOS", versions: ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] },
-        ipados: { label: "iPadOS", versions: ["13", "14", "15", "16", "17", "18", "26", "27"] },
-        osx:{ label: "OS X", versions: ["10.9", "10.10", "10.11"] },
-        macos: { label: "macOS", versions: ["10.12", "10.13", "10.14", "10.15", "11", "12", "13", "14", "15", "26", "27"] },
-        visionos: { label: "visionOS", versions: ["1", "2", "26", "27"] },
-        watchos: { label: "watchOS", versions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "26", "27"] },
-        tvos: { label: "tvOS", versions: ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] }
+        ios: { label: "iOS", versions: ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] }
     };
 
     const picker = document.getElementById("timeline-picker");
