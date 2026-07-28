@@ -1,16 +1,15 @@
 <head>
-    <title>Updates – DerekYT</title>
+    <title>Updates &#8211; DerekYT</title>
     <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<link rel="preload" as="image" href="assets/20260610-webimage-dark.png" media="(prefers-color-scheme: dark)">
-<link rel="preload" as="image" href="assets/20260610-webimage-light.png" media="(prefers-color-scheme: light)">
+<link rel="preload" as="image" href="https://derekyt.dev/assets/20260613-webimage-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" as="image" href="https://derekyt.dev/assets/20260626-webimage-light-6.png" media="(prefers-color-scheme: light)">
     <style>
         button, input, select, textarea {
             font-family: inherit;
@@ -19,7 +18,7 @@
         body {
             background-attachment: fixed;
             background-size:cover;
-            font-family: "SF Pro", "Inter", sans-serif;
+            font-family: "Inter", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -51,18 +50,11 @@
             letter-spacing:-0.5px;
         }
 
-        :root {
-            font-family: "SF Pro", Inter, sans-serif;
-            font-feature-settings: 'liga' 1, 'calt' 1;
-        }
-
-        @supports (font-variation-settings: normal) {
-            :root { font-family: "SF Pro", InterVariable, sans-serif; }
-        }
-
         nav {
             display: flex;
             justify-content:space-between;
+            font-size:14px;
+            letter-spacing:0em;
         }
         
         @media (max-width:600px) {
@@ -92,55 +84,27 @@
                 color: #000000;
             }
         }
-@media (prefers-color-scheme: dark) {
-    body {
-        background-image: url('assets/20260613-webimage-dark.png');
-        background-color: #0c0e11;
-        color: #ffffff;
-    }
-    a:link, a:visited {
-        color: #ffffff;
-    }
-    .nav-links a {
-        color: #ffffff;
-    }
-    .nav-brand {
-        color: #ffffff;
-    }
-}
-
-        @media (prefers-color-scheme: light) {
-            .beta-version-label { 
-                border:1.5px solid rgba(221, 158, 0, 1);
-                color:rgba(221, 158, 0, 1);
-
-            }
-        }
 
         @media (prefers-color-scheme: dark) {
-            .beta-version-label { 
-                border:1.5px solid rgba(255, 183, 0, 1);
-                color:rgba(255, 183, 0, 1);
+            body {
+                background-image: url('assets/20260613-webimage-dark.png');
+                background-color: #0c0e11;
+                color: #ffffff;
             }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .latest-version-label { 
-                border:1.5px solid rgba(0, 122, 255, 1);
-                color:rgba(0, 122, 255, 1);
+            a:link, a:visited {
+                color: #ffffff;
             }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .latest-version-label { 
-                border:1.5px solid rgba(0, 122, 255, 1);
-                color:rgba(0, 122, 255, 1);
+            .nav-links a {
+                color: #ffffff;
+            }
+            .nav-brand {
+                color: #ffffff;
             }
         }
 
         .nav-links {
             display: flex;
-            gap:15px;
+            gap:10px;
         }
 
         .nav-links a {
@@ -162,15 +126,31 @@
         
         .nav-brand {
             font-weight:500;
-            margin-right:15px;
         }
         
-        .beta-banner-style {
+        .beta-label-style {
             background-color: rgba(255, 237, 118, 0.5);
             margin-top: 20px;
-            padding: 15px;
-            line-height:100%;
+            padding:14px;
+            font-size:15px;
+            line-height:1.4;
+            letter-spacing:0.01em;
             border-radius: 7px;
+        }
+
+        .deprecation-label-style {
+            background-color: rgba(172, 7, 7, 0.5);
+            margin-top: 10px;
+            padding:14px;
+            font-size:15px;
+            line-height:1.4;
+            letter-spacing:0em;
+            border-radius: 7px;
+        }
+
+        .deprecation-label-text-main {
+            font-size:15px;
+            margin: 0 auto;
         }
 
         .welcome-font {
@@ -208,14 +188,6 @@
             width:100%;
         }
 
-        .update-metadata {
-            margin-top:0;
-            margin-bottom:10px;
-            font-size:12px;
-            opacity:0.5;
-            letter-spacing:0.25px;
-        }
-
         a:link {
             opacity:0.83;
         }
@@ -228,68 +200,16 @@
             opacity:0.5;
         }
 
-        .summary-font {
-            font-size:28px;
-            font-weight:550;
-            letter-spacing:0.25px;
-        }
-
-        .version-padding {
-            line-height: 75%;
-        }
-
-        .break-height {
-            line-height:100%;
-        }
-
-        .project-update-frame {
-            max-height:150px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .ver-update-margin-bottom {
-            margin-bottom:10px;
-        }
-
-        .ver-update-margin-top {
-            margin-top:0px;
-        }
-
-        .vertical-margins {
-            margin-top:10px;
-            margin-bottom:10px;
-        }
-
-        .beta-version-label {
-            border-radius:5px;
-            display:inline-flex;
-            padding:5px 6.5px 5px 7.5px;
-            text-transform:uppercase;
-            font-size:10px;
-            letter-spacing:1px;
-            vertical-align:middle;
-        }
-
-        .latest-version-label {
-            border-radius:5px;
-            display:flex;
-            padding:5px 6.5px 5px 7.5px;
-            width:fit-content;
-            text-transform:uppercase;
-            font-size:10px;
-            letter-spacing:1px;
-        }
-
-        .version-label-row {
-            display:flex;
-            gap:10px;
-            margin-bottom:5px;
-        }
-
         a.link-underline {
             text-decoration:none;
+        }
+
+        .update-metadata {
+            margin-top:5px;
+            margin-bottom:0px;
+            font-size:12px;
+            opacity:0.5;
+            letter-spacing:0.25px;
         }
 
         footer {
@@ -311,16 +231,21 @@
             <a href="/updates">Updates</a>
         </div>
     </nav>
-    <div class="beta-banner-style"><b>Caution:</b> This website is in beta. Some elements may not work properly.</div>
+    <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
+   <div class="deprecation-label-style">
+        <p class="deprecation-label-text-main">This page will be deprecated soon.</p>
+        <p class="update-metadata" data-utc="2026-07-28T22:33Z">Jul 28, 2026 at 22:33 UTC</p>
+    </div>
     </header>
     <h1 class="welcome-font">Updates</h1>
     <p class="heading-body-line-height">Upcoming changes to this website will be shared here first.</p>
+    
 <footer>Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
 <script>
     document.querySelectorAll('[data-utc]').forEach(el => {
     const date = new Date(el.dataset.utc);
     el.textContent = "" + date.toLocaleString(undefined, {
-        year: 'numeric', month: 'long', day: 'numeric',
+        year: 'numeric', month: 'short', day: 'numeric',
         hour: '2-digit', minute: '2-digit',
         timeZoneName: 'short'
     });
