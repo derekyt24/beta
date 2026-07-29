@@ -1,10 +1,10 @@
 <head>
     <title>Home &#8211; DerekYT (beta)</title>
     <link rel="icon" type="image/x-icon" href="https://beta.derekyt.dev/assets/20260708-betafavicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/fonts/sf-pro.css">
+<!-- Font information (start) -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -17,18 +17,10 @@
             font-family: inherit;
         }
 
-        @font-face {
-            font-family: "SF Pro";
-            src: url("assets/fonts/SF-Pro.ttf") format("truetype");
-            font-weight:100 900;
-            font-stretch: 30% 125%;
-            font-style:normal;
-        }
-
         body {
             background-attachment: fixed;
             background-size:cover;
-            font-family: "SF Pro", "Inter", sans-serif;
+            font-family: "Inter", sans-serif;
             font-variation-settings: "wdth" 100;
             text-align:left;
             max-width:750px;
@@ -282,7 +274,7 @@
             padding:14px;
             font-size:15px;
             line-height:1.4;
-            letter-spacing:0.01em;
+            letter-spacing:0em;
             border-radius: 7px;
         }
 
@@ -292,7 +284,7 @@
             padding:14px;
             font-size:15px;
             line-height:1.4;
-            letter-spacing:0.01em;
+            letter-spacing:0em;
             border-radius: 7px;
         }
 
@@ -300,13 +292,13 @@
             margin-top:25px;
             margin-bottom:20px;
             font-size:36px;
-            font-weight:550;
-            font-variation-settings: "wdth" 100;
+            font-weight:500;
+            letter-spacing:-0.015em;
         }
         
         .heading-body-line-height {
             line-height:1.5;
-            letter-spacing:0.25px;
+            letter-spacing:0em;
         }
 
         .ver-head-font {
@@ -394,19 +386,8 @@
     </a>
     </header>
     <footer>
-        <p>Try experimental beta features at <a href="https://beta.derekyt.dev/">beta.derekyt.dev</a></p>
         <p>AI models from Anthropic and OpenAI assisted in developing features on this site.</p>
     </footer>
-    <script>
-        document.querySelectorAll('[data-utc]').forEach(el => {
-        const date = new Date(el.dataset.utc);
-        el.textContent = "Released " + date.toLocaleString(undefined, {
-            year: 'numeric', month: 'long', day: 'numeric',
-            hour: '2-digit', minute: '2-digit',
-            timeZoneName: 'short'
-        });
-    });
-    </script>
     <script>
         (function() {
             if (!sessionStorage.getItem('betaDisclosureSeen')) {
