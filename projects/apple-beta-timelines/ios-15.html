@@ -14,113 +14,40 @@
         body {
             min-height:100vh;
             margin:0;
-            padding:30px;
+            padding:25px 20px 25px 20px;
             display:flex;
             flex-direction:column;
             background-position:center;
             background-size:cover;
             background-repeat:no-repeat;
             background-attachment:fixed;
+            background-color:#0a1015;
             color:#ffffff;
             font-family:"SF Pro", "Inter", sans-serif;
             text-align:center;
         }
 
-        @media (max-width:600px) and (prefers-color-scheme: light) {
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-light-mobile.png');
-                background-color:#0a1015;
-                padding-left:15px;
-                padding-right:15px;
-                color: #ffffff;
             }
-            nav {
-                font-size:14px;
-            }
-
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-
-            .nav-brand {
-                color: #ffffff;
-            }
-
         }
 
-        @media (min-width:601px) and (prefers-color-scheme: light) {
+        @media (min-width: 601px) and (prefers-color-scheme: light) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-light-desktop.png');
-                background-color:#0a1015;
-                color: #ffffff;
-            }
-            nav {
-                font-size:14px;
-            }
-
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-
-            .nav-brand {
-                color: #ffffff;
             }
         }
 
-        @media (max-width:600px) and (prefers-color-scheme: dark) {
+        @media (max-width: 600px) and (prefers-color-scheme: dark) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-dark-mobile.png');
-                background-color:#0a1015;
-                padding-left:15px;
-                padding-right:15px;
-                color: #ffffff;
             }
-            nav {
-                font-size:14px;
-            }
-
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-
-            .nav-brand {
-                color: #ffffff;
-            }
-
         }
 
-        @media (min-width:601px) and (prefers-color-scheme: dark) {
+        @media (min-width: 601px) and (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-dark-desktop.png');
-                background-color:#0a1015;
-                color: #ffffff;
-            }
-            nav {
-                font-size:14px;
-            }
-
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-
-            .nav-brand {
-                color: #ffffff;
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-15-wallpaper-dark-desktop.png')
             }
         }
 
@@ -270,11 +197,15 @@
 
         .release-name,
         .section-label {
-            margin:0 0 5px;
+            margin:0 0 4.5px;
             color:rgba(255, 255, 255, 0.67);
             font-size:18px;
-            font-weight:500;
+            font-weight:400;
             letter-spacing:0.03em;
+        }
+
+        .release-name {
+            font-weight:500;
         }
 
         .release-date {
@@ -286,7 +217,7 @@
         }
 
         .release-note {
-            margin:4px 0 0;
+            margin:4.5px 0 0;
             color:rgba(255, 255, 255, 0.67);
             font-size:14px;
             letter-spacing:0.04em;
@@ -294,26 +225,10 @@
             white-space:pre-line;
         }
 
-        .section-label {
-            margin:0 0 5px;
-            color:rgba(255, 255, 255, 0.67);
-            font-size:18px;
-            font-weight:400;
-            letter-spacing:0.03em;
-        }
-
         .release-name,
         .release-date,
         .release-note {
-            font-optical-sizing:none;
-        }
-
-        .release-align-left {
-            text-align:left;
-        }
-
-        .release-align-right {
-            text-align:right;
+            font-optical-sizing: none;
         }
 
         .span-two {
@@ -340,8 +255,6 @@
 
         @media (max-width:600px) {
             body {
-                padding-left:25px;
-                padding-right:25px;
                 background-attachment:scroll;
             }
 
@@ -403,7 +316,7 @@
 
             .release-date {
                 font-size:18px;
-                letter-spacing:0em;
+                letter-spacing:0.25px;
             }
 
             .release-note {
@@ -422,14 +335,6 @@
                 font-size:16px;
                 margin-bottom:12px;
             }
-            
-            .release-name,
-            .release-date,
-            .release-note {
-                font-optical-sizing:none;
-                line-height:1.13;
-            }
-            
         }
 
         @media (max-width:380px) {

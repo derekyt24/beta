@@ -1,0 +1,375 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 25px 20px 25px 20px;
+    display: flex;
+    flex-direction: column;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #0a1015;
+    color: #ffffff;
+    font-family: "SF Pro", "Inter", sans-serif;
+    text-align: center;
+}
+
+@font-face {
+    font-family: "SF Pro";
+    src: url("SF-Pro.woff2") format("woff2");
+    font-weight: 1 1000;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "SF Pro";
+    src: url("SF-Pro-Italic.woff2") format("woff2");
+    font-weight: 1 1000;
+    font-style: italic;
+    font-display: swap;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100%, 750px);
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.nav-brand {
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.25px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+    letter-spacing: 0.25px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-links a {
+    opacity: 0.72;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    opacity: 1;
+}
+
+main {
+    flex: 1;
+    width: min(100%, 750px);
+    margin: 30px auto 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 64px;
+    font-weight: 550;
+    letter-spacing: 0em;
+    line-height: 1.1;
+}
+
+.version-picker {
+    display: block;
+    margin: 7px auto 10px;
+}
+
+.version-picker select {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 6px 28px 6px 8px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+}
+
+.version-picker span {
+    display: inline-grid;
+    position: relative;
+}
+
+.version-picker svg {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 14px;
+    height: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.release-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: initial;
+    row-gap: var(--timeline-row-gap, 22px);
+    column-gap: 0;
+    align-items: start;
+}
+
+.release-align-left {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.release-align-right {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.release-pair {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 20px;
+}
+
+.release-pair-compact {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    column-gap: 50px;
+}
+
+.release-pair-builds,
+.release-pair-tight {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+}
+
+.release-pair-builds {
+    column-gap: 100px;
+}
+
+.release-pair-tight {
+    column-gap: 50px;
+}
+
+.release-trio {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, max-content);
+    justify-content: center;
+    column-gap: 50px;
+}
+
+.supplemental .release-trio+.release-trio {
+    margin-top: 24px;
+}
+
+.release-name,
+.section-label {
+    margin: 0 0 4.5px;
+    color: rgba(255, 255, 255, 0.67);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+.release-name {
+    font-weight: 500;
+}
+
+.release-date {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+.release-note {
+    margin: 4.5px 0 0;
+    color: rgba(255, 255, 255, 0.67);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+    white-space: pre-line;
+}
+
+.release-name,
+.release-date,
+.release-note {
+    font-optical-sizing: none;
+}
+
+.span-two {
+    grid-column: 1 / -1;
+}
+
+.supplemental {
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.supplemental .section-label {
+    font-size: 21px;
+    margin-bottom: 15px;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.timeline-message {
+    margin: 20px 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 18px;
+}
+
+@media (max-width:600px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    nav {
+        font-size: 14px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    main {
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+
+    .version-picker {
+        margin: 7px auto 10px;
+    }
+
+    .version-picker select {
+        font-size: 19px;
+    }
+
+    .release-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: initial;
+        row-gap: var(--timeline-row-gap-mobile, 20px);
+        column-gap: var(--timeline-column-gap-mobile, 28px);
+    }
+
+    .release-pair {
+        gap: 20px 28px;
+    }
+
+    .release-pair-builds,
+    .release-pair-tight {
+        grid-template-columns: repeat(2, max-content);
+        justify-content: center;
+        column-gap: 20px;
+    }
+
+    .release-trio {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+
+    .supplemental .release-trio+.release-trio {
+        margin-top: 20px;
+    }
+
+    .release-name,
+    .section-label {
+        font-size: 12px;
+    }
+
+    .release-date {
+        font-size: 18px;
+        letter-spacing: 0.25px;
+    }
+
+    .release-note {
+        font-size: 10px;
+    }
+
+    .release-align-left {
+        padding-left: 0;
+    }
+
+    .release-align-right {
+        padding-right: 0;
+    }
+
+    .release-name,
+    .release-date,
+    .release-note {
+        line-height: 1.13;
+    }
+
+    .supplemental .release-note {
+        line-height: 1.4;
+    }
+
+    .supplemental .section-label {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width:380px) {
+    body {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .release-grid {
+        row-gap: 18px;
+        column-gap: 16px;
+    }
+
+    .release-pair {
+        column-gap: 16px;
+    }
+
+    .release-pair-builds,
+    .release-pair-tight {
+        column-gap: 12px;
+    }
+
+    .release-date {
+        font-size: 17px;
+        letter-spacing: 0;
+    }
+
+    .supplemental .section-label {
+        font-size: 15px;
+    }
+}
+
+.timeline-footnote {
+    width: min(100%, 750px);
+    margin: 20px auto 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width:600px) {
+    .timeline-footnote {
+        font-size: 13px;
+    }
+}

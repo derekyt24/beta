@@ -14,113 +14,40 @@
         body {
             min-height:100vh;
             margin:0;
-            padding:30px;
+            padding:25px 20px 25px 20px;
             display:flex;
             flex-direction:column;
             background-position:center;
             background-size:cover;
             background-repeat:no-repeat;
             background-attachment:fixed;
+            background-color:#0a1015;
             color:#ffffff;
             font-family:"SF Pro", "Inter", sans-serif;
             text-align:center;
         }
 
-        @media (max-width:600px) and (prefers-color-scheme: light) {
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-13-wallpaper-light-mobile.png');
-                background-color:#0a1015;
-                padding-left:15px;
-                padding-right:15px;
-                color: #ffffff;
             }
-            nav {
-                font-size:14px;
-            }
-
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-
-            .nav-brand {
-                color: #ffffff;
-            }
-
         }
 
-        @media (min-width:601px) and (prefers-color-scheme: light) {
+        @media (min-width: 601px) and (prefers-color-scheme: light) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-13-wallpaper-light-desktop.png');
-                background-color:#0a1015;
-                color: #ffffff;
-            }
-            nav {
-                font-size:14px;
-            }
-
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-
-            .nav-brand {
-                color: #ffffff;
             }
         }
 
-        @media (max-width:600px) and (prefers-color-scheme: dark) {
+        @media (max-width: 600px) and (prefers-color-scheme: dark) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-13-wallpaper-dark-mobile.png');
-                background-color:#0a1015;
-                padding-left:15px;
-                padding-right:15px;
-                color: #ffffff;
             }
-            nav {
-                font-size:14px;
-            }
-
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-
-            .nav-brand {
-                color: #ffffff;
-            }
-
         }
 
-        @media (min-width:601px) and (prefers-color-scheme: dark) {
+        @media (min-width: 601px) and (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-13-wallpaper-dark-desktop.png');
-                background-color:#0a1015;
-                color: #ffffff;
-            }
-            nav {
-                font-size:14px;
-            }
-
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-
-            .nav-brand {
-                color: #ffffff;
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-13-wallpaper-dark-desktop.png')
             }
         }
 
@@ -270,35 +197,38 @@
 
         .release-name,
         .section-label {
-            margin:0 0 5px;
+            margin:0 0 4.5px;
             color:rgba(255, 255, 255, 0.67);
             font-size:18px;
             font-weight:400;
-            letter-spacing:0.04em;
+            letter-spacing:0.03em;
+        }
+
+        .release-name {
+            font-weight:500;
         }
 
         .release-date {
             margin:0;
+            color:rgba(255,255,255,0.9);
             font-size:28px;
             font-weight:400;
             letter-spacing:0em;
         }
 
         .release-note {
-            margin:4px 0 0;
+            margin:4.5px 0 0;
             color:rgba(255, 255, 255, 0.67);
             font-size:14px;
-            letter-spacing:0.03em;
+            letter-spacing:0.04em;
             line-height:1.35;
             white-space:pre-line;
         }
 
-        .release-align-left {
-            text-align:left;
-        }
-
-        .release-align-right {
-            text-align:right;
+        .release-name,
+        .release-date,
+        .release-note {
+            font-optical-sizing: none;
         }
 
         .span-two {
@@ -325,8 +255,6 @@
 
         @media (max-width:600px) {
             body {
-                padding-left:25px;
-                padding-right:25px;
                 background-attachment:scroll;
             }
 
@@ -452,46 +380,6 @@
                 font-size:13px;
             }
         }
-        /* iOS 15 typography calibration. */
-        .release-name {
-            font-weight:500;
-            letter-spacing:0.03em;
-        }
-
-        .release-date {
-            color:rgba(255, 255, 255, 0.9);
-        }
-
-        .release-note {
-            letter-spacing:0.04em;
-            line-height:1.35;
-        }
-
-        .section-label {
-            font-weight:400;
-            letter-spacing:0.03em;
-        }
-
-        .release-name,
-        .release-date,
-        .release-note {
-            font-optical-sizing:none;
-        }
-
-        @media (max-width:600px) {
-            .release-date {
-                letter-spacing:0;
-            }
-
-            .release-name,
-            .release-date,
-            .release-note {
-                font-optical-sizing:none;
-                line-height:1.13;
-            }
-        }
-
-
     </style>
 </head>
 <body>
@@ -508,7 +396,7 @@
         <h1>iOS 13</h1>
         <label class="version-picker" for="software-version">
             <span>
-                <select id="software-version" aria-label="Choose an iOS 12 version">
+                <select id="software-version" aria-label="Choose an iOS 13 version">
                     <option value="13-0">iOS 13.0</option>
                     <option value="13-1">iOS 13.1</option>
                     <option value="13-2">iOS 13.2</option>
@@ -711,8 +599,6 @@
             releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
             timelineFootnote.textContent = timeline.footnote ?? "";
             timelineFootnote.hidden = !timeline.footnote;
-            releaseGrid.style.setProperty("--timeline-row-gap", timeline.rowGap ?? "22px");
-            releaseGrid.style.setProperty("--timeline-row-gap-mobile", timeline.rowGapMobile ?? "20px");
             let markup = timeline.releases.map(releaseMarkup).join("");
 
             if (timeline.supplemental?.length) {

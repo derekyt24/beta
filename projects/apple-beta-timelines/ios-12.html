@@ -437,6 +437,10 @@
                 font-optical-sizing:none;
                 line-height:1.13;
             }
+
+            .supplemental .release-note {
+                line-height:1.4;
+            }
         }
 
 
@@ -516,12 +520,15 @@
                 ]
             },
             "12-1-1": {
-                label: "iOS 12.1.1",
+                label: "iOS 12.1.1 + 12.1.2",
                 releases: [
                     { name: "iOS 12.1.1 beta 1", date: "October 31, 2018", alignment: "left" },
                     { name: "iOS 12.1.1 beta 2", date: "November 7, 2018", alignment: "right" },
                     { name: "iOS 12.1.1 beta 3", date: "November 15, 2018", spanTwo: true },
                     { name: "iOS 12.1.1 final build", date: "December 5, 2018", spanTwo: true }
+                ],
+                supplemental: [
+                    { date: "iOS 12.1.2", note: "beta 1: Dec 10, 2018\nfinal build: Dec 17, 2018"}
                 ]
             },
             "12-1-2": {
