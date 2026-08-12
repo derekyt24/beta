@@ -30,8 +30,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            padding-top:30px;
-            padding-bottom:30px;
+            padding: 25px 20px 25px 20px;
         }
 
         @media (max-width:600px) and (prefers-color-scheme: light) {
@@ -327,6 +326,7 @@
                 <select id="platform" name="platform" required>
                     <option value="" selected disabled>Choose a platform</option>
                     <option value="ios">iOS</option>
+                    <option value="ipados">iPadOS</option>
                 </select>
             </div>
             <div>
@@ -341,7 +341,8 @@
     </header>
 <script>
     const timelineData = {
-        ios: { label: "iOS", versions: ["10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] }
+        ios: { label: "iOS", versions: ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] },
+        ipados: { label: "iPadOS", versions: ["13", "14", "15", "16", "17", "18", "26", "27"] }
     };
 
     const picker = document.getElementById("timeline-picker");

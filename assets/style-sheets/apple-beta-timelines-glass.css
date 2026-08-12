@@ -293,7 +293,7 @@ body {
         margin:0 0 5px;
         color:rgba(255, 255, 255, 0.67);
         font-size:18px;
-        font-weight:400;
+        font-weight:450;
         letter-spacing:0.01em;
     }
     .span-two {
@@ -367,6 +367,10 @@ body {
             font-size:12px;
         }
 
+        .release-name {
+            font-weight:550;
+        }
+
         .release-date {
             font-size:18px;
             letter-spacing:0.25px;
@@ -377,6 +381,7 @@ body {
         }
 
         .supplemental .section-label {
+            letter-spacing:-0.005em;
             font-size:16px;
             margin-bottom:12px;
         }
