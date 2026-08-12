@@ -41,22 +41,6 @@
             font-size:14px;
             letter-spacing:0em;
         }
-        
-        @media (max-width:600px) and (prefers-color-scheme: light) {
-            body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-light.png');
-            }
-
-            #beta-modal {
-                background-color: #ffffff;
-                color: #1a2530;
-            }
-
-            #beta-modal-dismiss {
-                background-color: rgba(79, 196, 255, 0.5);
-                color: #1a2530;
-            }
-        }
 
         @media (prefers-color-scheme: light) {
             body {
@@ -74,9 +58,25 @@
             }
         }
 
-        @media (max-width:600px) and (prefers-color-scheme: dark) {
+        @media (max-width:600px) and (prefers-color-scheme: light) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-dark.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-light.png');
+            }
+
+            #beta-modal {
+                background-color: #ffffff;
+                color: #1a2530;
+            }
+
+            #beta-modal-dismiss {
+                background-color: rgba(79, 196, 255, 0.5);
+                color: #1a2530;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-desktop-dark.png');
             }
 
             #beta-modal {
@@ -90,9 +90,9 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (max-width:600px) and (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-desktop-dark.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-dark.png');
             }
 
             #beta-modal {
