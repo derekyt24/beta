@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPadOS 16 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/x-icon" href="/assets/20260627-sitegraphic-updates.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-16-wallpaper-light-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-16-wallpaper-light-desktop.png');
+            }
+        }
+
+        @media (max-width: 600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-16-wallpaper-dark-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-16-wallpaper-dark-desktop.png')
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav aria-label="Main navigation">
+        <a class="nav-brand" href="/">DerekYT</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1>iPadOS 16</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an iPadOS 16 version">
+                    <option value="16-0">iPadOS 16.0</option>
+                    <option value="16-1">iPadOS 16.1</option>
+                    <option value="16-2">iPadOS 16.2</option>
+                    <option value="16-3">iPadOS 16.3</option>
+                    <option value="16-4">iPadOS 16.4</option>
+                    <option value="16-5">iPadOS 16.5</option>
+                    <option value="16-6">iPadOS 16.6</option>
+                    <option value="16-7-x">iPadOS 16.7.x</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+        <p id="timeline-intro" class="timeline-intro-note" hidden></p>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "16-0": {
+                label: "iPadOS 16.0",
+                intro: "iPadOS 16 released as iPadOS 16.1 on Oct 24, 2022. See 'iPadOS 16.1' for more.",
+                releases: [
+                    { name: "iPadOS 16.0 beta 1", date: "June 6, 2022", alignment: "left" },
+                    { name: "iPadOS 16.0 beta 2", date: "June 22, 2022", alignment: "right" },
+                    { name: "iPadOS 16.0 beta 3", date: "July 6, 2022", note: "build 2: July 11, 2022", alignment: "left" },
+                    { name: "iPadOS 16.0 beta 4", date: "July 27, 2022", alignment: "right" },
+                    { name: "iPadOS 16.0 beta 5", date: "August 8, 2022", alignment: "left" },
+                    { name: "iPadOS 16.0 beta 6", date: "August 15, 2022", alignment: "right" },
+                ],
+            },
+            "16-1": {
+                label: "iPadOS 16.1",
+                supplementalIntro: "iPadOS 16 released as iPadOS 16.1.",
+                releases: [
+                    { name: "iPadOS 16.1 beta 1", date: "August 23, 2022", alignment: "left" },
+                    { name: "iPadOS 16.1 beta 2", date: "September 14, 2022", alignment: "right" },
+                    { name: "iPadOS 16.1 beta 3", date: "September 20, 2022", alignment: "left" },
+                    { name: "iPadOS 16.1 beta 4", date: "September 27, 2022", alignment: "right" },
+                    { name: "iPadOS 16.1 beta 5", date: "October 4, 2022", alignment: "left" },
+                    { name: "iPadOS 16.1 beta 6", date: "October 11, 2022", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 16.1 RC build", date: "October 18, 2022" },
+                            { name: "iPadOS 16.1 final build", date: "October 24, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 16.1.1", date: "November 9, 2022" }
+                ]
+            },
+            "16-2": {
+                label: "iPadOS 16.2",
+                releases: [
+                    { name: "iPadOS 16.2 beta 1", date: "October 25, 2022", alignment: "left" },
+                    { name: "iPadOS 16.2 beta 2", date: "November 8, 2022", alignment: "right" },
+                    { name: "iPadOS 16.2 beta 3", date: "November 15, 2022", alignment: "left" },
+                    { name: "iPadOS 16.2 beta 4", date: "December 1, 2022", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 16.2 RC build", date: "December 7, 2022" },
+                            { name: "iPadOS 16.2 final build", date: "December 13, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "16-3": {
+                label: "iPadOS 16.3",
+                releases: [
+                    { name: "iPadOS 16.3 beta 1", date: "December 14, 2022", alignment: "left" },
+                    { name: "iPadOS 16.3 beta 2", date: "January 10, 2023", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 16.3 RC build", date: "January 18, 2023" },
+                            { name: "iPadOS 16.3 final build", date: "January 23, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 16.3.1", date: "February 13, 2023" }
+                ]
+            },
+            "16-4": {
+                label: "iPadOS 16.4",
+                releases: [
+                    { name: "iPadOS 16.4 beta 1", date: "February 16, 2023", alignment: "left" },
+                    { name: "iPadOS 16.4 beta 2", date: "February 28, 2023", alignment: "right" },
+                    { name: "iPadOS 16.4 beta 3", date: "March 7, 2023", alignment: "left" },
+                    { name: "iPadOS 16.4 beta 4", date: "March 15, 2023", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 16.4 RC build", date: "March 21, 2023" },
+                            { name: "iPadOS 16.4 final build", date: "March 27, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 16.4.1", date: "April 7, 2023" }
+                ]
+            },
+            "16-5": {
+                label: "iPadOS 16.5",
+                releases: [
+                    { name: "iPadOS 16.5 beta 1", date: "March 28, 2023", alignment: "left" },
+                    { name: "iPadOS 16.5 beta 2", date: "April 11, 2023", alignment: "right" },
+                    { name: "iPadOS 16.5 beta 3", date: "April 25, 2023", alignment: "left" },
+                    { name: "iPadOS 16.5 beta 4", date: "May 2, 2023", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 16.5 RC build", date: "May 9, 2023", note: "build 2: May 15, 2023" },
+                            { name: "iPadOS 16.5 final build", date: "May 18, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name : "iPadOS 16.5.1", date: "June 21, 2023" }
+                ]
+            },
+            "16-6": {
+                label: "iOS 16.6",
+                releases: [
+                    { name: "iPadOS 16.6 beta 1", date: "May 19, 2023", alignment: "left" },
+                    { name: "iPadOS 16.6 beta 2", date: "May 31, 2023", alignment: "right" },
+                    { name: "iPadOS 16.6 beta 3", date: "June 15, 2023", alignment: "left" },
+                    { name: "iPadOS 16.6 beta 4", date: "June 27, 2023", alignment: "right" },
+                    { name: "iPadOS 16.6 beta 5", date: "July 10, 2023", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iPadOS 16.6 RC build", date: "July 18, 2023" },
+                            { name: "iPadOS 16.6 final build", date: "July 24, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 16.6.1", date: "September 7, 2023" }
+                ]
+            },
+            "16-7-x": {
+                label: "iPadOS 16.7.x",
+                releases: [
+                    {
+                        trio: [
+                            { date: "iPadOS 16.7", note: "RC build: Sep 12, 2023\nFinal build: Sep 21, 2023" },
+                            { date: "iPadOS 16.7.1", note: "Final build: Oct 10, 2023" },
+                            { date: "iPadOS 16.7.2", note: "RC build: Oct 17, 2023\nFinal build: Oct 25, 2023"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        trio: [
+                            { date: "iPadOS 16.7.3", note: "RC build: Dec 5, 2023\nFinal build: Dec 11, 2023" },
+                            { date: "iPadOS 16.7.4", note: "Final build: Dec 19, 2023" },
+                            { date: "iPadOS 16.7.5", note: "RC build: Jan 17, 2024\nFinal build: Jan 22, 2024"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        trio: [
+                            { date: "iPadOS 16.7.6", note: "RC build: Feb 27, 2024\nFinal build: Mar 5, 2024" },
+                            { date: "iPadOS 16.7.7", note: "Final build: Mar 21, 2024" },
+                            { date: "iPadOS 16.7.8", note: "RC build: May 7, 2024\nFinal build: May 13, 2024"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        trio: [
+                            { date: "iPadOS 16.7.9", note: "RC build: Jul 23, 2024\nFinal build: Jul 29, 2024" },
+                            { date: "iPadOS 16.7.10", note: "Final build: Aug 7, 2024" },
+                            { date: "iPadOS 16.7.11", note: "Final build: Mar 31, 2025"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        trio: [
+                            { date: "iPadOS 16.7.12", note: "RC build: Sep 9, 2025\nFinal build: Sep 15, 2025" },
+                            { date: "iPadOS 16.7.13", note: "Final build: Jan 26, 2026" },
+                            { date: "iPadOS 16.7.14", note: "Final build: Feb 2, 2026"}
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        pair: [
+                            { date: "iPadOS 16.7.15", note: "Final build: Mar 11, 2026" },
+                            { date: "iPadOS 16.7.16", note: "Final build: May 11, 2026" }
+                        ],
+                        className: "release-pair-compact"
+                    },
+                ]
+            }
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineIntro = document.getElementById("timeline-intro");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineIntro.hidden = true;
+                timelineIntro.textContent = "";
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineIntro.textContent = timeline.intro ?? "";
+            timelineIntro.hidden = !timeline.intro;
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    ${timeline.supplementalIntro ? `<p class="timeline-intro-note supplemental-intro-note">${timeline.supplementalIntro}</p>` : ""}
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

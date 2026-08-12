@@ -90,6 +90,7 @@ h1 {
 .version-picker select {
     appearance: none;
     -webkit-appearance: none;
+    field-sizing: content;
     margin: 0;
     padding: 6px 28px 6px 8px;
     border: 0;
@@ -165,6 +166,10 @@ h1 {
     column-gap: 50px;
 }
 
+.release-trio.release-trio-tight {
+    column-gap: 30px;
+}
+
 .release-trio {
     display: grid;
     grid-column: 1 / -1;
@@ -194,7 +199,7 @@ h1 {
     margin: 0;
     color: rgba(255, 255, 255, 0.9);
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 450;
     letter-spacing: 0em;
 }
 
@@ -218,7 +223,7 @@ h1 {
 }
 
 .supplemental {
-    margin-top: 6px;
+    margin-top: 0;
     margin-bottom: 20px;
 }
 
@@ -227,6 +232,10 @@ h1 {
     margin-bottom: 15px;
     letter-spacing: 0.01em;
     color: rgba(255, 255, 255, 0.75);
+}
+
+.supplemental .supplemental-intro-note {
+    margin: 0 auto 17.5px;
 }
 
 .timeline-message {
@@ -253,7 +262,7 @@ h1 {
     }
 
     h1 {
-        font-size: 44px;
+        font-size: 42px;
     }
 
     .version-picker {
@@ -267,7 +276,7 @@ h1 {
     .release-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         justify-content: initial;
-        row-gap: var(--timeline-row-gap-mobile, 20px);
+        row-gap: var(--timeline-row-gap-mobile, 17.5px);
         column-gap: var(--timeline-column-gap-mobile, 28px);
     }
 
@@ -294,15 +303,17 @@ h1 {
     .release-name,
     .section-label {
         font-size: 12px;
+        letter-spacing:0.02em;
     }
 
     .release-date {
         font-size: 18px;
-        letter-spacing: 0.25px;
+        letter-spacing: 0em;
     }
 
     .release-note {
         font-size: 10px;
+        letter-spacing:0.02em;
     }
 
     .release-align-left {
@@ -316,7 +327,7 @@ h1 {
     .release-name,
     .release-date,
     .release-note {
-        line-height: 1.13;
+        line-height: 1.15;
     }
 
     .supplemental .release-note {
@@ -324,8 +335,18 @@ h1 {
     }
 
     .supplemental .section-label {
+        letter-spacing:-0.005em;
         font-size: 16px;
         margin-bottom: 12px;
+    }
+
+    .timeline-footnote {
+        font-size: 13px;
+    }
+
+    .timeline-intro-note {
+        line-height:1.4;
+        font-size: 13px;
     }
 }
 
@@ -368,8 +389,18 @@ h1 {
     letter-spacing: 0.01em;
 }
 
-@media (max-width:600px) {
-    .timeline-footnote {
-        font-size: 13px;
-    }
+.timeline-intro-note {
+    width: min(100%, 750px);
+    margin: 22.5px auto 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 21px;
+    font-weight: 450;
+    letter-spacing: 0em;
+    line-height:1.4;
+    white-space: pre-line;
+}
+
+.timeline-intro-note.timeline-intro-after-supplemental {
+    margin-top: 0;
+    padding-top: 0px;
 }

@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS 8 &#8211; Apple beta timelines</title>
+    <title>iOS 7 &#8211; Apple beta timelines</title>
     <link rel="icon" type="image/x-icon" href="/assets/20260627-sitegraphic-updates.png">
     <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
     <style>
         @media (max-width:600px) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-8-wallpaper-mobile.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-7-wallpaper-mobile.png');
             }
         }
 
         @media (min-width:601px) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-8-wallpaper-desktop.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-7-wallpaper-desktop.png');
             }
         }
     </style>
@@ -31,15 +31,12 @@
     </nav>
 
     <main>
-        <h1>iOS 8</h1>
+        <h1>iOS 7</h1>
         <label class="version-picker" for="software-version">
             <span>
                 <select id="software-version" aria-label="Choose an iOS 8 version">
-                    <option value="8-0">iOS 8.0</option>
-                    <option value="8-1">iOS 8.1</option>
-                    <option value="8-2">iOS 8.2</option>
-                    <option value="8-3">iOS 8.3</option>
-                    <option value="8-4">iOS 8.4</option>
+                    <option value="7-0">iOS 7.0</option>
+                    <option value="7-1">iOS 7.1</option>
                 </select>
                 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                     <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -52,81 +49,67 @@
     <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
     <script>
         const timelines = {
-            "8-0": {
-                label: "iOS 8.0",
+            "7-0": {
+                label: "iOS 7.0",
+                footnote: "1: iPhone 5c + 5s only",
                 releases: [
-                    { name: "iOS 8.0 beta 1", date: "June 2, 2014", alignment: "left" },
-                    { name: "iOS 8.0 beta 2", date: "June 17, 2014", alignment: "right" },
-                    { name: "iOS 8.0 beta 3", date: "July 7, 2014", alignment: "left" },
-                    { name: "iOS 8.0 beta 4", date: "July 21, 2014", alignment: "right" },
-                    { name: "iOS 8.0 beta 5", date: "August 4, 2014", spanTwo: true },
+                    { name: "iOS 7.0 beta 1", date: "June 10, 2013", alignment: "left" },
+                    { name: "iOS 7.0 beta 2", date: "June 24, 2013", alignment: "right" },
+                    { name: "iOS 7.0 beta 3", date: "July 8, 2013", note: "build 2: July 11, 2013", alignment: "left" },
+                    { name: "iOS 7.0 beta 4", date: "July 29, 2013", alignment: "right" },
+                    { name: "iOS 7.0 beta 5", date: "August 6, 2013", alignment: "left" },
+                    { name: "iOS 7.0 beta 6", date: "August 15, 2013", alignment: "right" },
                     {
                         pair: [
-                            { name: "iOS 8.0 GM build", date: "September 9, 2014" },
-                            { name: "iOS 8.0 final build", date: "September 17, 2014" }
+                            { name: "iOS 7.0 GM build", date: "September 10, 2013" },
+                            { name: "iOS 7.0 final build", date: "September 18, 2013" }
                         ],
                         className: "release-pair-builds"
                     }
                 ],
                 supplemental: [
                     {
-                        pair: [
-                            { name: "iOS 8.0.1", date: "September 24, 2014" },
-                            { name: "iOS 8.0.2", date: "September 25, 2014" }
+                        trio: [
+                            { name: "iOS 7.0.1&#185;", date: "September 18, 2013" },
+                            { name: "iOS 7.0.2", date: "September 26, 2013" },
+                            { name: "iOS 7.0.3", date: "October 22, 2013" },
                         ],
-                        className: "release-pair-tight"
+                        className: "release-trio-tight"
+                    },
+                    {
+                        trio: [
+                            { name: "iOS 7.0.4", date: "November 14, 2013"},
+                            { name: "iOS 7.0.5&#185;", date: "January 29, 2014" },
+                            { name: "iOS 7.0.6", date: "February 21, 2014" }
+                        ],
+                        className: "release-trio-tight"
                     }
                 ]
             },
-            "8-1": {
-                label: "iOS 8.1",
+            "7-1": {
+                label: "iOS 7.1",
                 releases: [
-                    { name: "iOS 8.1 beta 1", date: "September 29, 2014", alignment: "left" },
-                    { name: "iOS 8.1 beta 2", date: "October 7, 2014", alignment: "right" },
-                    { name: "iOS 8.1 final build", date: "October 20, 2014", spanTwo: true }
+                    { name: "iOS 7.1 beta 1", date: "November 18, 2013", alignment: "left" },
+                    { name: "iOS 7.1 beta 2", date: "December 14, 2013", alignment: "right" },
+                    { name: "iOS 7.1 beta 3", date: "January 7, 2014", alignment: "left" },
+                    { name: "iOS 7.1 beta 4", date: "January 20, 2014", alignment: "right" },
+                    { name: "iOS 7.1 beta 5", date: "February 4, 2014", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iOS 7.1 GM build", date: "March 10, 2014", },
+                            { name: "iOS 7.1 final build", date: "March 10, 2014", }
+                        ],
+                        className: "release-pair-builds"
+                    }
                 ],
                 supplemental: [
                     {
                         trio: [
-                            { date: "iOS 8.1.1", note: "beta 1: Nov 3, 2014\nfinal build: Nov 17, 2014" },
-                            { date: "iOS 8.1.2", note: "final build: Dec 9, 2014" },
-                            { date: "iOS 8.1.3", note: "final build: Jan 27, 2015" }
-                        ]
+                            { name: "iOS 7.1.1", date: "April 22, 2014" },
+                            { name: "iOS 7.1.2", date: "June 30, 2014" }
+                        ],
+                        className: "release-pair-tight"
                     }
-                ]
-            },
-            "8-2": {
-                label: "iOS 8.2",
-                releases: [
-                    { name: "iOS 8.2 beta 1", date: "November 18, 2014", alignment: "left" },
-                    { name: "iOS 8.2 beta 2", date: "December 10, 2014", alignment: "right" },
-                    { name: "iOS 8.2 beta 3", date: "December 18, 2014", alignment: "left" },
-                    { name: "iOS 8.2 beta 4", date: "January 12, 2015", alignment: "right" },
-                    { name: "iOS 8.2 beta 5", date: "February 2, 2015", spanTwo: true },
-                    { name: "iOS 8.2 final build", date: "March 9, 2015", spanTwo: true }
-                ],
-            },
-            "8-3": {
-                label: "iOS 8.3",
-                releases: [
-                    { name: "iOS 8.3 beta 1", date: "February 9, 2015", alignment: "left" },
-                    { name: "iOS 8.3 beta 2", date: "February 23, 2015", alignment: "right" },
-                    { name: "iOS 8.3 beta 3", date: "March 12, 2015", alignment: "left" },
-                    { name: "iOS 8.3 beta 4", date: "March 24, 2015", alignment: "right" },
-                    { name: "iOS 8.3 final build", date: "April 8, 2015", spanTwo: true }
-                ],
-            },
-            "8-4": {
-                label: "iOS 8.4",
-                releases: [
-                    { name: "iOS 8.4 beta 1", date: "April 13, 2015", alignment: "left" },
-                    { name: "iOS 8.4 beta 2", date: "April 27, 2015", alignment: "right" },
-                    { name: "iOS 8.4 beta 3", date: "May 11, 2015", alignment: "left" },
-                    { name: "iOS 8.4 beta 4", date: "June 9, 2015", alignment: "right" },
-                    { name: "iOS 8.4 final build", date: "June 30, 2015", spanTwo: true }
-                ],
-                supplemental: [
-                    { date: "iOS 8.4.1", note: "beta 1: Jul 14, 2015\nbeta 2: Jul 30, 2015\nfinal build: Aug 13, 2015" }
                 ]
             },
         };

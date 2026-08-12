@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPadOS 17 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/x-icon" href="/assets/20260627-sitegraphic-updates.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-17-wallpaper-light-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-17-wallpaper-light-desktop.png');
+            }
+        }
+
+        @media (max-width: 600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-17-wallpaper-dark-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-17-wallpaper-dark-desktop.png')
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav aria-label="Main navigation">
+        <a class="nav-brand" href="/">DerekYT</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1>iPadOS 17</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an iPadOS 17 version">
+                    <option value="17-0">iPadOS 17.0</option>
+                    <option value="17-1">iPadOS 17.1</option>
+                    <option value="17-2">iPadOS 17.2</option>
+                    <option value="17-3">iPadOS 17.3</option>
+                    <option value="17-4">iPadOS 17.4</option>
+                    <option value="17-5">iPadOS 17.5</option>
+                    <option value="17-6">iPadOS 17.6</option>
+                    <option value="17-7-x">iPadOS 17.7.x</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "17-0": {
+                label: "iOS 17.0",
+                releases: [
+                    { name: "iPadOS 17.0 beta 1", date: "June 5, 2023", alignment: "left" },
+                    { name: "iPadOS 17.0 beta 2", date: "June 21, 2023", alignment: "right" },
+                    { name: "iPadOS 17.0 beta 3", date: "July 5, 2023", note: "build 2: July 11, 2023", alignment: "left" },
+                    { name: "iPadOS 17.0 beta 4", date: "July 25, 2023", note: "build 2: July 31, 2023", alignment: "right" },
+                    { name: "iPadOS 17.0 beta 5", date: "August 8, 2023", alignment: "left" },
+                    { name: "iPadOS 17.0 beta 6", date: "August 15, 2023", alignment: "right" },
+                    { name: "iPadOS 17.0 beta 7", date: "August 22, 2023", alignment: "left" },
+                    { name: "iPadOS 17.0 beta 8", date: "August 29, 2023", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 17.0 RC build", date: "September 12, 2023" },
+                            { name: "iPadOS 17.0 final build", date: "September 18, 2023" }
+                        ],
+                        className: "release-trio-tight"
+                    }
+                ],
+                supplemental: [
+                    {
+                        trio: [
+                            { name: "iPadOS 17.0.1", date: "September 21, 2023" },
+                            { name: "iPadOS 17.0.2", date: "September 26, 2023" },
+                            { name: "iPadOS 17.0.3", date: "October 4, 2023" }
+                        ]
+                    }
+                ]
+            },
+            "17-1": {
+                label: "iPadOS 17.1",
+                releases: [
+                    { name: "iPadOS 17.1 beta 1", date: "September 27, 2023", alignment: "left" },
+                    { name: "iPadOS 17.1 beta 2", date: "October 3, 2023", alignment: "right" },
+                    { name: "iPadOS 17.1 beta 3", date: "October 10, 2023", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iPadOS 17.1 RC build", date: "October 17, 2023" },
+                            { name: "iPadOS 17.1 final build", date: "October 25, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "iPadOS 17.1.1", date: "November 7, 2023" },
+                            { name: "iPadOS 17.1.2", date: "November 30, 2023" },
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+            "17-2": {
+                label: "iPadOS 17.2",
+                releases: [
+                    { name: "iPadOS 17.2 beta 1", date: "October 26, 2023", alignment: "left" },
+                    { name: "iPadOS 17.2 beta 2", date: "November 9, 2023", alignment: "right" },
+                    { name: "iPadOS 17.2 beta 3", date: "November 14, 2023", alignment: "left" },
+                    { name: "iPadOS 17.2 beta 4", date: "November 28, 2023", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 17.2 RC build", date: "December 5, 2023" },
+                            { name: "iPadOS 17.2 final build", date: "December 11, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 17.2.1", date: "December 19, 2023" }
+                ]
+            },
+            "17-3": {
+                label: "iPadOS 17.3",
+                releases: [
+                    { name: "iPadOS 17.3 beta 1", date: "December 12, 2023", alignment: "left" },
+                    { name: "iPadOS 17.3 beta 2", date: "January 3, 2024", alignment: "right" },
+                    { name: "iPadOS 17.3 beta 3", date: "January 9, 2024", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iPadOS 17.3 RC build", date: "January 17, 2024" },
+                            { name: "iPadOS 17.3 final build", date: "January 22, 2024" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 17.3.1", date: "February 8, 2024" },
+                ]
+            },
+            "17-4": {
+                label: "iPadOS 17.4",
+                releases: [
+                    { name: "iPadOS 17.4 beta 1", date: "January 25, 2024", alignment: "left" },
+                    { name: "iPadOS 17.4 beta 2", date: "February 6, 2024", alignment: "right" },
+                    { name: "iPadOS 17.4 beta 3", date: "February 13, 2024", alignment: "left" },
+                    { name: "iPadOS 17.4 beta 4", date: "February 20, 2024", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 17.4 RC build", date: "February 27, 2024" },
+                            { name: "iPadOS 17.4 final build", date: "March 5, 2024" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 17.4.1", date: "March 21, 2024", note: "build 2: March 26, 2024"}
+                ]
+            },
+            "17-5": {
+                label: "iPadOS 17.5",
+                releases: [
+                    { name: "iPadOS 17.5 beta 1", date: "April 2, 2024", alignment: "left" },
+                    { name: "iPadOS 17.5 beta 2", date: "April 16, 2024", alignment: "right" },
+                    { name: "iPadOS 17.5 beta 3", date: "April 23, 2024", alignment: "left" },
+                    { name: "iPadOS 17.5 beta 4", date: "April 30, 2024", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 17.5 RC build", date: "May 7, 2024" },
+                            { name: "iPadOS 17.5 final build", date: "May 13, 2024" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 17.5.1", date: "May 20, 2024" }
+                ]
+            },
+            "17-6": {
+                label: "iPadOS 17.6",
+                releases: [
+                    { name: "iPadOS 17.6 beta 1", date: "June 17, 2024", alignment: "left" },
+                    { name: "iPadOS 17.6 beta 2", date: "July 1, 2024", alignment: "right" },
+                    { name: "iPadOS 17.6 beta 3", date: "July 9, 2024", alignment: "left" },
+                    { name: "iPadOS 17.6 beta 4", date: "July 16, 2024", alignment: "right"},
+                    {
+                        pair: [
+                            { name: "iPadOS 17.6 RC build", date: "July 23, 2024" },
+                            { name: "iPadOS 17.6 final build", date: "July 29, 2024" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 17.6.1", date: "August 7, 2024", note: "build 2: August 19, 2024" },
+                ]
+            },
+            "17-7-x": {
+                label: "iOS 17.7.x",
+                releases: [
+                    {
+                        trio: [
+                            { date: "iPadOS 17.7", note: "RC build: Sep 9, 2024\nFinal build: Sep 16, 2024" },
+                            { date: "iPadOS 17.7.1", note: "RC build: Oct 21, 2024\nFinal build: Oct 28, 2024" },
+                            { date: "iPadOS 17.7.2", note: "Final build: Nov 19, 2024" },
+                        ],
+                        className: "release-trio-tight"
+                    },
+                    {
+                        trio: [
+                            { date: "iPadOS 17.7.3", note: "RC build: Dec 5, 2024\nFinal build: Dec 11, 2024" },
+                            { date: "iPadOS 17.7.4", note: "RC build: Jan 21, 2025\nFinal build: Jan 27, 2025" },
+                            { date: "iPadOS 17.7.5", note: "Final build: Feb 10, 2025" },
+                        ],
+                        className: "release-trio-tight"
+                    },
+                    {
+                        trio: [
+                            { date: "iPadOS 17.7.6", note: "RC build: Mar 24, 2025\nFinal build: Mar 31, 2025" },
+                            { date: "iPadOS 17.7.7", note: "RC build: May 6, 2025\nFinal build: May 12, 2025" },
+                            { date: "iPadOS 17.7.8", note: "Final build: May 19, 2025" },
+                        ],
+                        className: "release-trio-tight"
+                    },
+                    {
+                        trio: [
+                            { date: "iPadOS 17.7.9", note: "RC build: Jul 21, 2025\nFinal build: Jul 29, 2025" },
+                            { date: "iPadOS 17.7.10", note: "Final build: Aug 20, 2025" },
+                            { date: "iPadOS 17.7.11", note: "Final build: May 11, 2026" },
+                        ],
+                        className: "release-trio-tight"
+                    },
+                ]
+            }
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

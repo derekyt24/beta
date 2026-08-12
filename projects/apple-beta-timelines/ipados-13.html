@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPadOS 13 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/x-icon" href="/assets/20260627-sitegraphic-updates.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-13-wallpaper-light-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-13-wallpaper-light-desktop.png');
+            }
+        }
+
+        @media (max-width: 600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-13-wallpaper-dark-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ipados-13-wallpaper-dark-desktop.png')
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav aria-label="Main navigation">
+        <a class="nav-brand" href="/">DerekYT</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/updates">Updates</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1>iPadOS 13</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an iOS 13 version">
+                    <option value="13-0">iPadOS 13.0</option>
+                    <option value="13-1">iPadOS 13.1</option>
+                    <option value="13-2">iPadOS 13.2</option>
+                    <option value="13-3">iPadOS 13.3</option>
+                    <option value="13-3-1">iPadOS 13.3.1</option>
+                    <option value="13-4">iPadOS 13.4</option>
+                    <option value="13-5">iPadOS 13.4.5 + 13.5</option>
+                    <option value="13-6">iPadOS 13.5.5 + 13.6</option>
+                    <option value="13-7">iPadOS 13.7</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+        <p id="timeline-intro" class="timeline-intro-note" hidden></p>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "13-0": {
+                label: "iPadOS 13.0",
+                releases: [
+                    { name: "iPadOS 13.0 beta 1", date: "June 3, 2019", alignment: "left" },
+                    { name: "iPadOS 13.0 beta 2", date: "June 17, 2019", alignment: "right" },
+                    { name: "iPadOS 13.0 beta 3", date: "July 2, 2019", note: "build 2: July 8, 2019", alignment: "left" },
+                    { name: "iPadOS 13.0 beta 4", date: "July 17, 2019", alignment: "right" },
+                    { name: "iPadOS 13.0 beta 5", date: "July 29, 2019", alignment: "left" },
+                    { name: "iPadOS 13.0 beta 6", date: "August 7, 2019", alignment: "right" },
+                    { name: "iPadOS 13.0 beta 7", date: "August 15, 2019", alignment: "left" },
+                    { name: "iPadOS 13.0 beta 8", date: "August 21, 2019", alignment: "right" },
+                ],
+                intro: "iPadOS 13 released as iPadOS 13.1 on Sep 24, 2019. See 'iPadOS 13.1' for more.",
+            },
+            "13-1": {
+                label: "iPadOS 13.1",
+                supplementalIntro: "iPadOS 13 released as iPadOS 13.1.",
+                releases: [
+                    { name: "iPadOS 13.1 beta 1", date: "August 27, 2019", alignment: "left" },
+                    { name: "iPadOS 13.1 beta 2", date: "September 4, 2019", alignment: "right" },
+                    { name: "iPadOS 13.1 beta 3", date: "September 10, 2019", alignment: "left" },
+                    { name: "iPadOS 13.1 beta 4", date: "September 18, 2019", alignment: "right" },
+                    { name: "iPadOS 13.1 final build", date: "September 24, 2019", spanTwo: true }
+                ],
+
+                supplemental: [
+                    {
+                        trio: [
+                            { name: "iPadOS 13.1.1", date: "September 27, 2019" },
+                            { name: "iPadOS 13.1.2", date: "September 30, 2019" },
+                            { name: "iPadOS 13.1.3", date: "October 15, 2019" }
+                        ]
+                    }
+                ]
+            },
+            "13-2": {
+                label: "iPadOS 13.2",
+                releases: [
+                    { name: "iPadOS 13.2 beta 1", date: "October 2, 2019", alignment: "left" },
+                    { name: "iPadOS 13.2 beta 2", date: "October 10, 2019", alignment: "right" },
+                    { name: "iPadOS 13.2 beta 3", date: "October 16, 2019", alignment: "left" },
+                    { name: "iPadOS 13.2 beta 4", date: "October 23, 2019", alignment: "right" },
+                    { name: "iPadOS 13.2 final build", date: "October 28, 2019", spanTwo: true }
+                ],
+                supplemental: [
+                    { pair: [
+                            { name: "iPadOS 13.2.2", date: "November 7, 2019" },
+                            { name: "iPadOS 13.2.3", date: "November 18, 2019" },
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+            "13-3": {
+                label: "iPadOS 13.3",
+                releases: [
+                    { name: "iPadOS 13.3 beta 1", date: "November 5, 2019", alignment: "left" },
+                    { name: "iPadOS 13.3 beta 2", date: "November 12, 2019", alignment: "right" },
+                    { name: "iPadOS 13.3 beta 3", date: "November 20, 2019", alignment: "left" },
+                    { name: "iPadOS 13.3 beta 4", date: "December 5, 2019", alignment: "right" },
+                    { name: "iPadOS 13.3 final build", date: "December 10, 2019", spanTwo: true }
+                ],
+            },
+            "13-3-1": {
+                label: "iPadOS 13.3.1",
+                releases: [
+                    { name: "iPadOS 13.3.1 beta 1", date: "December 17, 2019", alignment: "left" },
+                    { name: "iPadOS 13.3.1 beta 2", date: "January 14, 2020", alignment: "right" },
+                    { name: "iPadOS 13.3.1 beta 3", date: "January 22, 2020", spanTwo: true },
+                    { name: "iPadOS 13.3.1 final build", date: "January 28, 2020", spanTwo: true }
+                ],
+            },
+            "13-4": {
+                label: "iPadOS 13.4",
+                releases: [
+                    { name: "iPadOS 13.4 beta 1", date: "February 5, 2020", alignment: "left" },
+                    { name: "iPadOS 13.4 beta 2", date: "February 19, 2020", alignment: "right" },
+                    { name: "iPadOS 13.4 beta 3", date: "February 26, 2020", alignment: "left" },
+                    { name: "iPadOS 13.4 beta 4", date: "March 3, 2020", alignment: "right" },
+                    { name: "iPadOS 13.4 beta 5", date: "March 10, 2020", alignment: "left" },
+                    { name: "iPadOS 13.4 beta 6", date: "March 18, 2020", alignment: "right" },
+                    { name: "iPadOS 13.4 final build", date: "March 24, 2020", spanTwo: true }
+                ],
+                supplemental: [
+                    { name: "iPadOS 13.4.1", date: "April 7, 2020" }
+                ]
+            },
+            "13-5": {
+                label: "iPadOS 13.4.5 + 13.5",
+                releases: [
+                    { name: "iPadOS 13.4.5 beta 1", date: "March 31, 2020", alignment: "left" },
+                    { name: "iPadOS 13.4.5 beta 2", date: "April 15, 2020", alignment: "right" },
+                    { name: "iPadOS 13.5 beta 3", date: "April 29, 2020", alignment: "left" },
+                    { name: "iPadOS 13.5 beta 4", date: "May 6, 2020", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 13.5 GM build", date: "May 18, 2020" },
+                            { name: "iPadOS 13.5 final build", date: "May 20, 2020" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 13.5.1", date: "June 1, 2020" }
+                ]
+            },
+            "13-6": {
+                label: "iPadOS 13.5.5 + 13.6",
+                releases: [
+                    { name: "iPadOS 13.5.5 beta 1", date: "June 1, 2020", spanTwo: true },
+                    { name: "iPadOS 13.6 beta 2", date: "June 9, 2020", alignment: "left" },
+                    { name: "iPadOS 13.6 beta 3", date: "June 30, 2020", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "iPadOS 13.6 GM build", date: "July 9, 2020" },
+                            { name: "iPadOS 13.6 final build", date: "July 15, 2020" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iPadOS 13.6.1", date: "August 12, 2020" }
+                ]
+            },
+            "13-7": {
+                label: "iPadOS 13.7",
+                releases: [
+                    {
+                        pair: [
+                            { name: "iPadOS 13.7 beta 1", date: "August 26, 2020" },
+                            { name: "iPadOS 13.7 final build", date: "September 1, 2020" }
+                        ],
+                        className: "release-pair-builds"
+                    },
+                ]
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineIntro = document.getElementById("timeline-intro");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
+                timelineIntro.hidden = true;
+                timelineIntro.textContent = "";
+                timelineIntro.classList.remove("timeline-intro-after-supplemental");
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineIntro.textContent = timeline.intro ?? "";
+            timelineIntro.hidden = !timeline.intro;
+            timelineIntro.classList.toggle(
+                "timeline-intro-after-supplemental",
+                Boolean(timeline.supplemental?.length)
+            );
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    ${timeline.supplementalIntro ? `<p class="timeline-intro-note supplemental-intro-note">${timeline.supplementalIntro}</p>` : ""}
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>
