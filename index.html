@@ -8,10 +8,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<link rel="preload" as="image" href="https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-desktop-dark.png">
-<link rel="preload" as="image" href="https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-dark.png">
-<link rel="preload" as="image" href="https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-desktop-light.png">
-<link rel="preload" as="image" href="https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-light.png">
+<link rel="preload" as="image" href="https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-desktop-dark.png" media="(min-width: 601px) and (prefers-color-scheme: dark)">
+<link rel="preload" as="image" href="https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-dark.png" media="(max-width: 600px) and (prefers-color-scheme: dark)">
+<link rel="preload" as="image" href="https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-desktop-light.png" media="(min-width: 601px) and (prefers-color-scheme: light)">
+<link rel="preload" as="image" href="https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-light.png" media="(max-width: 600px) and (prefers-color-scheme: light)">
     <style>
         button, input, select, textarea {
             font-family: inherit;
@@ -40,6 +40,12 @@
             justify-content:space-between;
             font-size:14px;
             letter-spacing:0em;
+        }
+
+        @media (max-width:600px) {
+            body {
+                background-attachment:scroll;
+            }
         }
 
         @media (prefers-color-scheme: light) {
