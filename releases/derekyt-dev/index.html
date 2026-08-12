@@ -4,7 +4,6 @@
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="../../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -17,17 +16,22 @@
 
         body {
             background-image:url('https://derekyt.dev/assets/bg-images/releases-derekyt-dev-background.png');
+            background-color:#0a1015;
+            color:#ffffff;
             background-attachment: fixed;
             background-size:cover;
             font-family: "SF Pro", "Inter", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
-            padding-top:30px;
-            padding-bottom:30px;
+            padding:25px 20px 25px 20px;
             display:flex;
             flex-direction:column;
             min-height:100vh;
+        }
+
+        a {
+            color: #ffffff;
         }
 
         p {
@@ -56,80 +60,7 @@
         
         @media (max-width:600px) {
             body {
-                padding-left:15px;
-                padding-right:15px;
-            }
-            nav {
-                font-size:14px;
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            body {
-                color: #ffffff;
-            }    
-        
-            a:link, a:visited {
-                color: #ffffff;
-            }
-
-            .nav-links a {
-                color: #ffffff;
-            }
-            .nav-brand {
-                color: #ffffff;
-            }
-        }
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #0c0e11;
-        color: #ffffff;
-    }
-    a:link, a:visited {
-        color: #ffffff;
-    }
-    .nav-links a {
-        color: #ffffff;
-    }
-    .nav-brand {
-        color: #ffffff;
-    }
-}
-
-        @media (prefers-color-scheme: dark) {
-            .apple-beta-timelines-graphic-dark { display: none; }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .apple-beta-timelines-graphic-light { display: none; }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .beta-version-label { 
-                border:1.5px solid rgba(221, 158, 0, 1);
-                color:rgba(221, 158, 0, 1);
-
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .beta-version-label { 
-                border:1.5px solid rgba(255, 183, 0, 1);
-                color:rgba(255, 183, 0, 1);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .latest-version-label { 
-                border:1.5px solid rgba(0, 122, 255, 1);
-                color:rgba(0, 122, 255, 1);
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .latest-version-label { 
-                border:1.5px solid rgba(0, 122, 255, 1);
-                color:rgba(0, 122, 255, 1);
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/releases-derekyt-dev-background-mobile.png')
             }
         }
 
@@ -139,19 +70,23 @@
         }
 
         .nav-links a {
+            color: #ffffff;
             opacity:0.5;
             text-decoration:none;
         }
 
         .nav-links a:link {
+            color: #ffffff;
             opacity:0.5;
         }
 
         .nav-links a:hover {
+            color: #ffffff;
             opacity:0.75;
         }
 
         .nav-links a:visited {
+            color: #ffffff;
             opacity:0.5;
         }
         
@@ -176,7 +111,7 @@
 
         .welcome-font {
             margin-top:25px;
-            margin-bottom:15px;
+            margin-bottom:20px;
             font-size:36px;
             font-weight:500;
             line-height:1.3;
@@ -199,7 +134,7 @@
             font-size:24px;
             gap:10px;
             margin-top:20px;
-            margin-bottom:1em;
+            margin-bottom:0;
             letter-spacing:-0.25px;
             font-weight:500;
         }
@@ -246,7 +181,7 @@
 
         footer {
             font-size:10px;
-            letter-spacing:0.25px;
+            letter-spacing:0.01em;
             opacity:0.5;
             margin-top: auto;
             padding-top: 50px;
@@ -268,7 +203,8 @@
     </header>
     <div>
         <h1 class="welcome-font">Site releases</h1>
-        <h2 class="ver-head-font">Version 1.0 betas</h2>
+        <h2 class="ver-head-font">Version 1.0.x</h2>
+        <p class="coming-soon">Version 1.0 (10B) (coming soon)</p>
         <p><a class="link-underline" href="/releases/derekyt-dev/10A01" target="_blank">Version 1.0 beta 1 (10A01) &#8250;</a></p>
         
         <h2 class="ver-head-font-margin-top">Version 0.5 betas</h2>
@@ -297,7 +233,7 @@
         <p><a class="link-underline" href="/releases/derekyt-dev/02A01" target="_blank">Version 0.2 beta 1 (02A01) &#8250;</a></p>
     </div>
     <br>
-<footer>Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
+<footer>AI models from Anthropic and OpenAI assisted in developing features on this site.</footer>
 <script>
     document.querySelectorAll('[data-utc]').forEach(el => {
     const date = new Date(el.dataset.utc);
