@@ -302,16 +302,19 @@ h1 {
 
     .release-name,
     .section-label {
+        margin: 0px 0px 4px;
         font-size: 12px;
         letter-spacing:0.02em;
     }
 
     .release-date {
         font-size: 18px;
+        font-weight:450;
         letter-spacing: 0em;
     }
 
     .release-note {
+        margin: 4px 0px 0px;
         font-size: 10px;
         letter-spacing:0.02em;
     }

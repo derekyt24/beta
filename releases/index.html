@@ -1,3 +1,5 @@
+---
+---
 <head>
     <title>Releases &#8211; DerekYT</title>
     <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
@@ -52,7 +54,7 @@
             display: flex;
             justify-content:space-between;
         }
-        
+
         @media (max-width:600px) {
             body {
                 background-image:url('https://derekyt.dev/assets/bg-images/releases-background-mobile.png');
@@ -132,7 +134,7 @@
         .nav-links a:visited {
             opacity:0.5;
         }
-        
+
         .nav-brand {
             font-weight:500;
             margin-right:15px;
@@ -141,7 +143,7 @@
         a.link-underline {
             text-decoration:none;
         }
-        
+
         .beta-banner-style {
             background-color: rgba(255, 237, 118, 0.5);
             margin-top: 20px;
@@ -182,7 +184,7 @@
         a:visited {
             opacity:0.5;
         }
-        
+
         .coming-soon {
             opacity:0.5;
         }
@@ -198,14 +200,7 @@
 </style>
 <body>
     <header>
-    <nav>
-        <span class="nav-brand">DerekYT</span>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/projects">Projects</a>
-            <a href="/updates">Updates</a>
-        </div>
-    </nav>
+    {% include site-header.html %}
     <div class="beta-banner-style">This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
@@ -216,7 +211,7 @@
         <p class="coming-soon">Compatibility charts (coming soon)</p>
     </div>
     <br>
-<footer>Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
+{% include site-footer.html %}
 <script>
     document.querySelectorAll('[data-utc]').forEach(el => {
     const date = new Date(el.dataset.utc);

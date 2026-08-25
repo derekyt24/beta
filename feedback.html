@@ -1,3 +1,5 @@
+---
+---
 <head>
     <title>Feedback &#8211; DerekYT (beta)</title>
     <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
@@ -173,7 +175,7 @@
             color:inherit;
             opacity:0.5;
         }
-        
+
         .nav-brand {
             color:inherit;
             font-weight:500;
@@ -189,14 +191,14 @@
             line-height:1.4;
             border-radius: 7px;
         }
-        
+
         .welcome-font {
             margin-top:20px;
             margin-bottom:20px;
             font-size:36px;
             font-weight:500;
         }
-        
+
         .heading-body-line-height {
             line-height:1.35;
             letter-spacing:0.01em;
@@ -255,17 +257,10 @@
 </style>
 <body>
     <header>
-    <nav>
-        <span class="nav-brand">DerekYT</span>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/projects">Projects</a>
-            <a href="/updates">Updates</a>
-        </div>
-    </nav>    
+    {% include site-header.html %}
     <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
     <h1 class="welcome-font">Feedback</h1>
     <p class="heading-body-line-height">Use the form below to send bug reports and feature requests.</p>
     </header>
-<footer style="color:rgba(255,255,255,1)">Some features on this page were coded and/or assisted by Claude Sonnet 4.6 and GPT-5.5. <a href="/on-ai-and-vibe-coding">Learn more</a></footer>
+{% include site-footer.html %}
 </body>

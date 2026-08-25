@@ -1,3 +1,5 @@
+---
+---
 <head>
     <title>Site releases &#8211; DerekYT</title>
     <link rel="icon" type="image/x-icon" href="assets/20260627-sitegraphic-updates.png">
@@ -57,7 +59,7 @@
             justify-content:space-between;
             font-size:14px;
         }
-        
+
         @media (max-width:600px) {
             body {
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/releases-derekyt-dev-background-mobile.png')
@@ -89,7 +91,7 @@
             color: #ffffff;
             opacity:0.5;
         }
-        
+
         .nav-brand {
             font-weight:500;
             margin-right:15px;
@@ -98,7 +100,7 @@
         a.link-underline {
             text-decoration:none;
         }
-        
+
         .beta-banner-style {
             background-color: rgba(255, 237, 118, 0.5);
             margin-top: 20px;
@@ -117,7 +119,7 @@
             line-height:1.3;
             letter-spacing:-0.5px;
         }
-        
+
         .heading-body-line-height {
             line-height:25px;
         }
@@ -191,14 +193,7 @@
 </style>
 <body>
     <header>
-    <nav>
-        <span class="nav-brand">DerekYT</span>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/projects">Projects</a>
-            <a href="/updates">Updates</a>
-        </div>
-    </nav>
+    {% include site-header.html %}
     <div class="beta-banner-style">This website is in beta. Some elements may not work properly.</div>
     </header>
     <div>
@@ -206,12 +201,12 @@
         <h2 class="ver-head-font">Version 1.0.x</h2>
         <p class="coming-soon">Version 1.0 (10B) (coming soon)</p>
         <p><a class="link-underline" href="/releases/derekyt-dev/10A01" target="_blank">Version 1.0 beta 1 (10A01) &#8250;</a></p>
-        
+
         <h2 class="ver-head-font-margin-top">Version 0.5 betas</h2>
         <p><a class="link-underline" href="/releases/derekyt-dev/05C01" target="_blank">Version 0.5 beta 3 (05C01) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/derekyt-dev/05B01" target="_blank">Version 0.5 beta 2 (05B01) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/derekyt-dev/05A01" target="_blank">Version 0.5 beta 1 (05A01) &#8250;</a></p>
-        
+
         <h2 class="ver-head-font-margin-top">Version 0.4 betas</h2>
         <p><a class="link-underline" href="/releases/derekyt-dev/04F01" target="_blank">Version 0.4 beta 6 (04F01) &#8250;</a></p>
         <p><a class="link-underline" href="/releases/derekyt-dev/04E01" target="_blank">Version 0.4 beta 5 (04E01) &#8250;</a></p>
@@ -233,7 +228,7 @@
         <p><a class="link-underline" href="/releases/derekyt-dev/02A01" target="_blank">Version 0.2 beta 1 (02A01) &#8250;</a></p>
     </div>
     <br>
-<footer>AI models from Anthropic and OpenAI assisted in developing features on this site.</footer>
+{% include site-footer.html %}
 <script>
     document.querySelectorAll('[data-utc]').forEach(el => {
     const date = new Date(el.dataset.utc);

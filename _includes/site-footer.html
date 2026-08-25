@@ -1,0 +1,48 @@
+<style>
+    .site-footer {
+        font-size:10px;
+        letter-spacing:0.03em;
+        opacity:0.5;
+        margin-top:auto;
+        padding-top:50px;
+    }
+
+    .site-footer .ai-models-tooltip {
+        position:relative;
+        cursor:help;
+        text-decoration:underline dotted;
+        text-underline-offset:3px;
+    }
+
+    .site-footer .ai-models-tooltip::after {
+        content:attr(data-tooltip);
+        position:absolute;
+        left:50%;
+        bottom:calc(100% + 8px);
+        z-index:1;
+        width:max-content;
+        max-width:240px;
+        padding:8px 10px;
+        border-radius:6px;
+        background:rgba(0, 0, 0, 0.85);
+        color:#fff;
+        font-size:12px;
+        letter-spacing:0;
+        line-height:1.3;
+        opacity:0;
+        pointer-events:none;
+        transform:translate(-50%, 4px);
+        transition:opacity 150ms ease, transform 150ms ease;
+    }
+
+    .site-footer .ai-models-tooltip:hover::after,
+    .site-footer .ai-models-tooltip:focus-visible::after {
+        opacity:1;
+        transform:translate(-50%, 0);
+    }
+
+    .site-footer .ai-models-tooltip[data-tooltip=""]::after {
+        display:none;
+    }
+</style>
+<footer class="site-footer"><span class="ai-models-tooltip" data-tooltip="from Anthropic and OpenAI" tabindex="0">AI models</span> assisted in developing features on this site.</footer>

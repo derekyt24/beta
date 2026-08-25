@@ -1,3 +1,5 @@
+---
+---
 <head>
     <title>Home &#8211; DerekYT (beta)</title>
     <link rel="icon" type="image/x-icon" href="https://beta.derekyt.dev/assets/20260708-betafavicon.png">
@@ -25,7 +27,7 @@
             color:#ffffff;
             font-variation-settings: "wdth" 100;
             text-align:left;
-            max-width:750px;
+            max-width:800px;
             margin:0 auto;
             padding:25px 20px 25px 20px;
             display:flex;
@@ -111,7 +113,7 @@
                 color: #ffffff;
             }
         }
-        
+
         @media (prefers-color-scheme: dark) {
             .photo-light { display: none; }
         }
@@ -186,11 +188,11 @@
             color:inherit;
             opacity:0.5;
         }
-        
+
         .nav-brand {
             font-weight:500;
         }
-        
+
         .beta-label-style {
             background-color: rgba(255, 237, 118, 0.5);
             margin-top: 20px;
@@ -289,14 +291,7 @@
     </div>
     </div>
     <header>
-    <nav>
-        <span class="nav-brand">DerekYT (beta)</span>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/projects">Projects</a>
-            <a href="/updates">Updates</a>
-        </div>
-    </nav>
+    {% include site-header-beta.html %}
     <div>
         <p class="beta-label-style">This website is in beta. Some elements may not work properly.</p>
         <div class="apple-beta-timelines-note-style"><a href="https://beta.derekyt.dev/projects/apple-beta-timelines">Try Apple beta timelines version 2.0 here &#155;</a></div>
@@ -308,9 +303,7 @@
     <p class="heading-body-line-height">I make the Apple beta timelines, Android beta timelines, and compatibility charts projects. You can find links to those on the <a href="/projects">Projects</a> page.</p>
     </a>
     </header>
-    <footer>
-        <p>AI models from Anthropic and OpenAI assisted in developing features on this site.</p>
-    </footer>
+    {% include site-footer.html %}
     <script>
         (function() {
             if (!sessionStorage.getItem('betaDisclosureSeen')) {
