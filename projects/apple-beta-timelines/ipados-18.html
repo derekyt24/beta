@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPadOS 18 &#8211; Apple beta timelines</title>
-    <link rel="icon" type="image/x-icon" href="/assets/20260627-sitegraphic-updates.png">
+    <link rel="icon" type="image/png" href="/assets/20260826-betafavicon-a.png">
     <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
     <style>
         @media (max-width: 600px) and (prefers-color-scheme: light) {
@@ -261,6 +261,10 @@
                 return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
             }
 
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
             if (release.pair) {
                 const className = release.className ? ` ${release.className}` : "";
                 return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;

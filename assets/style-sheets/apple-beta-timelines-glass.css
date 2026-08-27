@@ -259,6 +259,18 @@ body {
         column-gap:50px;
     }
 
+    .release-quad {
+        display:grid;
+        grid-column:1 / -1;
+        grid-template-columns:repeat(4, max-content);
+        justify-content:center;
+        column-gap:40px;
+    }
+
+    .release-quad.release-quad-tight {
+        column-gap:25px;
+    }
+
     .release-name {
         margin:0 0 4.5px;
         color:rgba(255, 255, 255, 0.67);
@@ -363,13 +375,17 @@ body {
             column-gap:20px;
         }
 
-        .release-name,
-        .section-label {
-            font-size:12px;
+        .release-quad {
+            grid-template-columns:1fr;
+            row-gap:20px;
         }
 
-        .release-name {
-            font-weight:550;
+        .release-name,
+        .section-label {
+            margin: 0 0 3.5px;
+            font-size:12px;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
         }
 
         .release-date {

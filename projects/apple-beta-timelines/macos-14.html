@@ -1,0 +1,351 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>macOS 14 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260826-betafavicon-a.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-macos-14-wallpaper-light-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-macos-14-wallpaper-light-desktop.png');
+            }
+        }
+
+        @media (max-width: 600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-macos-14-wallpaper-dark-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-macos-14-wallpaper-dark-desktop.png')
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>macOS 14</h1>
+        <p class="timeline-picker-note">macOS 14 also known as macOS Sonoma</p>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an iOS 17 version">
+                    <option value="14-0">macOS 14.0</option>
+                    <option value="14-1">macOS 14.1</option>
+                    <option value="14-2">macOS 14.2</option>
+                    <option value="14-3">macOS 14.3</option>
+                    <option value="14-4">macOS 14.4</option>
+                    <option value="14-5">macOS 14.5</option>
+                    <option value="14-6">macOS 14.6</option>
+                    <option value="14-7-x">macOS 14.7.x</option>
+                    <option value="14-8-x">macOS 14.8.x</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "14-0": {
+                label: "macOS 14.0",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 14.0 beta 1", date: "June 5, 2023", alignment: "left" },
+                    { name: "macOS 14.0 beta 2", date: "June 21, 2023", alignment: "right" },
+                    { name: "macOS 14.0 beta 3", date: "July 5, 2023", note: "build 2: July 11, 2023", alignment: "left" },
+                    { name: "macOS 14.0 beta 4", date: "July 25, 2023", note: "build 2: July 31, 2023", alignment: "right" },
+                    { name: "macOS 14.0 beta 5", date: "August 8, 2023", alignment: "left" },
+                    { name: "macOS 14.0 beta 6", date: "August 22, 2023", alignment: "right" },
+                    { name: "macOS 14.0 beta 7", date: "August 29, 2023", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "macOS 14.0 RC build", date: "September 12, 2023", note: "build 2: September 21, 2023" },
+                            { name: "macOS 14.0 final build", date: "September 26, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "14-1": {
+                label: "macOS 14.1",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 14.1 beta 1", date: "September 27, 2023", alignment: "left" },
+                    { name: "macOS 14.1 beta 2", date: "October 3, 2023", alignment: "right" },
+                    { name: "macOS 14.1 beta 3", date: "October 10, 2023", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "macOS 14.1 RC build", date: "October 17, 2023" },
+                            { name: "macOS 14.1 final build", date: "October 25, 2023", note: "build 2: November 1, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "macOS 14.1.1", date: "November 7, 2023" },
+                            { name: "macOS 14.1.2", date: "November 30, 2023" },
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+            "14-2": {
+                label: "macOS 14.2",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 14.2 beta 1", date: "October 26, 2023", alignment: "left" },
+                    { name: "macOS 14.2 beta 2", date: "November 9, 2023", alignment: "right" },
+                    { name: "macOS 14.2 beta 3", date: "November 14, 2023", alignment: "left" },
+                    { name: "macOS 14.2 beta 4", date: "November 28, 2023", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "macOS 14.2 RC build", date: "December 5, 2023", note: "build 2: December 7, 2023" },
+                            { name: "macOS 14.2 final build", date: "December 11, 2023" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "macOS 14.2.1", date: "December 19, 2023" }
+                ]
+            },
+            "14-3": {
+                label: "macOS 14.3",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 14.3 beta 1", date: "December 12, 2023", alignment: "left" },
+                    { name: "macOS 14.3 beta 2", date: "January 3, 2024", alignment: "right" },
+                    { name: "macOS 14.3 beta 3", date: "January 9, 2024", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "macOS 14.3 RC build", date: "January 17, 2024" },
+                            { name: "macOS 14.3 final build", date: "January 22, 2024" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "macOS 14.3.1", date: "February 8, 2024" },
+                ]
+            },
+            "14-4": {
+                label: "macOS 14.4",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 14.4 beta 1", date: "January 29, 2024", alignment: "left" },
+                    { name: "macOS 14.4 beta 2", date: "February 6, 2024", alignment: "right" },
+                    { name: "macOS 14.4 beta 3", date: "February 13, 2024", alignment: "left" },
+                    { name: "macOS 14.4 beta 4", date: "February 20, 2024", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "macOS 14.4 RC build", date: "March 4, 2024" },
+                            { name: "macOS 14.4 final build", date: "March 7, 2024" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "macOS 14.4.1", date: "March 25, 2024" }
+                ]
+            },
+            "14-5": {
+                label: "macOS 14.5",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 14.5 beta 1", date: "April 2, 2024", alignment: "left" },
+                    { name: "macOS 14.5 beta 2", date: "April 16, 2024", alignment: "right" },
+                    { name: "macOS 14.5 beta 3", date: "April 23, 2024", alignment: "left" },
+                    { name: "macOS 14.5 beta 4", date: "April 30, 2024", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "macOS 14.5 RC build", date: "May 9, 2024" },
+                            { name: "macOS 14.5 final build", date: "May 13, 2024" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "14-6": {
+                label: "macOS 14.6",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 14.6 beta 1", date: "June 17, 2024", alignment: "left" },
+                    { name: "macOS 14.6 beta 2", date: "July 1, 2024", alignment: "right" },
+                    { name: "macOS 14.6 beta 3", date: "July 9, 2024", alignment: "left" },
+                    { name: "macOS 14.6 beta 4", date: "July 16, 2024", alignment: "right"},
+                    {
+                        pair: [
+                            { name: "macOS 14.6 RC build", date: "July 23, 2024" },
+                            { name: "macOS 14.6 final build", date: "July 29, 2024" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "macoS 14.6.1", date: "August 7, 2024" },
+                ]
+            },
+            "14-7-x": {
+                label: "macOS 14.7.x",
+                gridMaxWidth: "950px",
+                releases: [
+                    {
+                        pair: [
+                            { date: "macOS 14.7", note: "RC build 1: Aug 28, 2024\nRC build 2: Sep 9, 2024\nFinal build: Sep 16, 2024" },
+                            { date: "macOS 14.7.1", note: "RC build 1: Sep 23, 2024\nRC build 2: Oct 7, 2024\nRC build 3: Oct 15, 2024\nRC build 4: Oct 21, 2024\nFinal build: Oct 28, 2024" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        pair: [
+                            { date: "macOS 14.7.2", note: "RC build 1: Nov 5, 2024\nRC build 2: Nov 11, 2024\nRC build 3: Nov 20, 2024\nRC build 4: Dec 5, 2024\nFinal build: Dec 11, 2024" },
+                            { date: "macOS 14.7.3", note: "RC build 1: Dec 16, 2024\nRC build 2: Jan 7, 2025\nRC build 3: Jan 16, 2025\nRC build 4: Jan 21, 2025\nFinal build: Jan 27, 2025" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        pair: [
+                            { date: "macOS 14.7.4", note: "Final build: Feb 10, 2025" },
+                            { date: "macOS 14.7.5", note: "RC build 1: Feb 21, 2025\nRC build 2: Mar 3, 2025\nRC build 3: Mar 10, 2025\nRC build 4: Mar 17, 2025\nRC build 5: Mar 24, 2025\nFinal build: Mar 31, 2025" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        pair: [
+                            { date: "macOS 14.7.6", note: "RC build 1: Apr 14, 2025\nRC build 2: Apr 21, 2025\nRC build 3: Apr 28, 2025\nRC build 4: May 6, 2025\nFinal build: May 12, 2025" },
+                            { date: "macOS 14.7.7", note: "RC build 1: Jun 18, 2025\nRC build 2: Jun 30, 2025\nRC build 4: Jul 14, 2025\nRC build 5: Jul 21, 2025\nFinal build: Jul 29, 2025" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    { date: "macOS 14.7.8", note: "Final build: Aug 20, 2025", spanTwo: true },
+                ]
+            },
+            "14-8-x": {
+                label: "macOS 14.8.x",
+                gridMaxWidth: "950px",
+                footnote: "1: macOS 14.8.7 RC build 1 continues macOS 14.8.6 RC build 2.",
+                releases: [
+                    {
+                        pair: [
+                            { date: "macOS 14.8", note: "RC build 1: Aug 5, 2025\nRC build 2: Aug 11, 2025\nRC build 3: Aug 18, 2025\nRC build 4: Aug 25, 2025\nRC build 5: Sep 2, 2025\nRC build 6: Sep 9, 2025\nFinal build: Sep 15, 2025" },
+                            { date: "macOS 14.8.1", note: "RC build: Sep 22, 2025\nFinal build: Sep 29, 2025" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        pair: [
+                            { date: "macOS 14.8.2", note: "RC build 1: Oct 6, 2025\nRC build 2: Oct 13, 2025\nRC build 3: Oct 20, 2025\nRC build 4: Oct 28, 2025\nFinal build: Nov 3, 2025" },
+                            { date: "macOS 14.8.3", note: "RC build 1: Nov 6, 2025\nRC build 2: Nov 12, 2025\nRC build 3: Nov 17, 2025\nRC build 4: Dec 3, 2025\nFinal build: Dec 12, 2025" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        pair: [
+                            { date: "macOS 14.8.4", note: "RC build 1: Dec 15, 2025\nRC build 2: Jan 12, 2026\nRC build 3: Jan 26, 2026\nRC build 4: Feb 4, 2026\nFinal build: Feb 11, 2026" },
+                            { date: "macOS 14.8.5", note: "RC build 1: Feb 16, 2026\nRC build 2: Feb 23, 2026\nRC build 3: Mar 2, 2026\nRC build 4: Mar 9, 2026\nRC build 5: Mar 18, 2026\nFinal build: Mar 24, 2026" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        pair: [
+                            { date: "macOS 14.8.6", note: "RC build 1: Mar 30, 2026\nRC build 2: Apr 13, 2026" },
+                            { date: "macOS 14.8.7", note: "RC build 1&#185;: Apr 20, 2026\nRC build 2: Apr 27, 2026\nRC build 3: May 4, 2026\nFinal build: May 11, 2026" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                    {
+                        pair: [
+                            { date: "macOS 14.8.8", note: "RC build 1: May 26, 2026\nRC build 2: Jun 15, 2026\nRC build 3: Jun 29, 2026\nRC build 4: Jul 6, 2026\nRC build 5: Jul 13, 2026\nRC build 6: Jul 20, 2026\nRC build 7: Jul 24, 2026\nFinal build: Jul 27, 2026" },
+                            { date: "macOS 14.8.9", note: "Final build: Aug 6, 2026" },
+                        ],
+                        className: "release-pair-compact"
+                    },
+                ]
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            if (timeline.gridMaxWidth) {
+                releaseGrid.style.setProperty("--timeline-grid-max-width", timeline.gridMaxWidth);
+            } else {
+                releaseGrid.style.removeProperty("--timeline-grid-max-width");
+            }
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>
