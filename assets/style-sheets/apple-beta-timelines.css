@@ -51,7 +51,7 @@ nav {
 .nav-links {
     display: flex;
     gap: 12px;
-    letter-spacing: -0.01em;
+    letter-spacing:0em;
 }
 
 a {
@@ -83,11 +83,12 @@ h1 {
 }
 
 .timeline-picker-note {
-    margin: 12.5px 0px 10px 0px;
+    margin: 12.5px 0px 5.61px 0px;
     color: rgba(255, 255, 255, 0.75);
     font-size: 21px;
-    font-weight:450;
-    letter-spacing: 0.01em;
+    font-weight:500;
+    line-height:1.4;
+    letter-spacing: -0.01em;
 }
 
 .version-picker {
@@ -137,9 +138,112 @@ h1 {
     align-items: start;
 }
 
+/* Optional nested layout groups let one timeline use differently sized sections. */
+.release-section {
+    display: grid;
+    grid-column: 1 / -1;
+    width: min(100%, 800px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-self: center;
+    row-gap: var(--timeline-row-gap, 17.5px);
+    column-gap: 0;
+    align-items: start;
+}
+
+.release-section-wide {
+    width: min(100%, 950px);
+}
+
+@media (min-width: 601px) {
+    .release-section-wide {
+        width: min(100%, 1550px);
+    }
+
+    .security-update-row.security-update-row--3 {
+        width: min(100%, 750px);
+        justify-self: center;
+    }
+
+    .security-update-row.security-update-row--8 {
+        width: 100%;
+        justify-self: center;
+    }
+
+    .security-update-row.security-update-row--5 {
+        width: min(100%, 950px);
+        justify-self: center;
+    }
+}
+
+.security-update-mobile {
+    display: none;
+}
+
+.security-update-desktop {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+}
+
+.security-update-row {
+    display: grid;
+    width: 100%;
+}
+
+.security-update-row--2 {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.security-update-row--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 10px;
+}
+
+.security-update-row--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 10px;
+}
+
+.security-update-row--5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 10px;
+}
+
+.security-update-row--6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 10px;
+}
+
+.security-update-row--7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    column-gap: 10px;
+}
+
+.security-update-row--8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    column-gap: 10px;
+}
+
+/* Opt-in for short historical rows that should follow their content instead of filling the section. */
+.security-update-row.security-update-row--content {
+    width: fit-content;
+    max-width: 100%;
+    grid-template-columns: repeat(var(--security-update-count), max-content);
+    justify-self: center;
+    column-gap: 10px;
+}
+
+.security-update-row .release {
+    min-width: 0;
+    padding: 0;
+    text-align: center;
+}
+
 @media (min-width: 751px) {
     .release-grid {
-        width: min(calc(100vw - 40px), var(--timeline-grid-max-width, 950px));
+        width: min(calc(100vw - 40px), var(--timeline-grid-max-width, 750px));
         margin-left: 50%;
         transform: translateX(-50%);
     }
@@ -206,6 +310,12 @@ h1 {
     column-gap: 25px;
 }
 
+/* Supplemental releases share one section, so give consecutive standalone rows
+   the same breathing room as the main timeline grid. */
+.supplemental > .release + .release {
+    margin-top: var(--timeline-row-gap, 17.5px);
+}
+
 .supplemental .release-trio+.release-trio {
     margin-top: 24px;
 }
@@ -239,8 +349,9 @@ h1 {
     margin: 3.5px 0 0;
     color: rgba(255, 255, 255, 0.67);
     font-size: 14px;
+    font-weight: 450;
     letter-spacing: 0.04em;
-    line-height: 1.4;
+    line-height: 1.3;
     white-space: pre-line;
 }
 
@@ -267,6 +378,21 @@ h1 {
     color: rgba(255, 255, 255, 0.75);
 }
 
+.release-grid > .section-label,
+.release-section .section-label {
+    font-size: 21px;
+    font-weight: 450;
+    margin: 5px 0px 0px 0px;
+    letter-spacing: 0em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* A second, in-timeline section title—for example, Security Updates after
+   a version's main and supplemental releases. */
+.supplemental .section-label-divider {
+    margin-top: 30px;
+}
+
 .supplemental .supplemental-intro-note {
     margin: 0 auto 17.5px;
 }
@@ -278,11 +404,12 @@ h1 {
 }
 
 .timeline-footnote {
-    width: min(100%, 750px);
+    width: min(100%, 1100px);
     margin: 30px auto 0;
     color: rgba(255, 255, 255, 0.75);
     font-size: 16px;
     font-weight: 400;
+    line-height:1.4;
     letter-spacing: 0.01em;
 }
 
@@ -308,6 +435,17 @@ h1 {
     white-space: pre-line;
 }
 
+/* Lets a macOS version note outgrow the 750px timeline column when needed. */
+@media (min-width: 751px) {
+    .timeline-intro-mac-wide {
+        width: min(calc(100vw - 40px), 950px);
+        max-width: none;
+        margin-left: 50%;
+        margin-right: 0;
+        transform: translateX(-50%);
+    }
+}
+
 .timeline-intro-note.timeline-intro-after-supplemental,
 .timeline-intro-mac.timeline-intro-after-supplemental {
     margin-top: 0;
@@ -317,7 +455,7 @@ h1 {
 @media (max-width:600px) {
     body {
         background-attachment: scroll;
-        padding: 20px 17.5px 20px 17.5px;
+        padding: 20px;
     }
 
     nav {
@@ -357,6 +495,39 @@ h1 {
 
     .release-pair {
         gap: 20px 28px;
+    }
+
+    .security-update-desktop {
+        display: none;
+    }
+
+    .security-update-mobile {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 360px;
+        justify-self:center;
+        column-gap: 8px;
+        row-gap: 20px;
+    }
+
+    .security-update-mobile .section-label {
+        grid-column: 1 / -1;
+    }
+
+    .security-update-mobile .release {
+        min-width: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .security-update-mobile .release-note {
+        font-size: 9px;
+        line-height: 1.3;
+    }
+
+    .supplemental > .release + .release {
+        margin-top: var(--timeline-row-gap-mobile, 15px);
     }
 
     .release-pair-builds,
@@ -424,14 +595,32 @@ h1 {
         margin-bottom: 12px;
     }
 
+    .release-grid > .section-label,
+    .release-section .section-label {
+        letter-spacing: -0.005em;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .supplemental .section-label-divider {
+        margin-top: 25px;
+    }
+
     .timeline-footnote {
         font-size: 12px;
     }
 
     .timeline-intro-note,
     .timeline-intro-mac {
-        line-height:1.4;
-        font-size: 14px;
+        line-height:1.5;
+        font-size: 12px;
+    }
+
+    .timeline-intro-mac-wide {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        transform: none;
     }
 }
 

@@ -1,6 +1,8 @@
+---
+---
 <head>
     <title>Projects &#8211; DerekYT (beta)</title>
-    <link rel="icon" type="image/png" href="/assets/20260826-betafavicon-a.png">
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
     <!-- Font information (start) -->
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -57,35 +59,6 @@
                 padding-left:15px;
                 background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-projects-background-mobile-dark.png');
             }
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-links {
-            display: flex;
-            gap:15px;
-        }
-
-        .nav-links a {
-            color:#ffffff;
-            opacity: 0.5;
-            text-decoration:none;
-        }
-
-        .nav-links a:hover {
-            color:#ffffff;
-            opacity:0.75;
-        }
-
-        
-        .nav-brand {
-            color:inherit;
-            font-weight:500;
-            margin-right:15px;
         }
 
         .beta-label-style {
@@ -274,14 +247,7 @@
 </head>
 <body>
     <header>
-    <nav>
-        <span class="nav-brand">DerekYT</span>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/projects">Projects</a>
-            <a href="/updates">Updates</a>
-        </div>
-    </nav>    
+    {% include site-header.html %}
     <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
     <h1 class="welcome-font">Projects</h1>
     <p class="heading-body-line-height">Here, you can find Google Drive links and release notes to my projects.</p>

@@ -1,0 +1,404 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>macOS 10.15 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-macos-10-15-wallpaper-light-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-macos-10-15-wallpaper-light-desktop.png');
+            }
+        }
+
+        @media (max-width: 600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-macos-10-15-wallpaper-dark-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-macos-10-15-wallpaper-dark-desktop.png')
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>macOS 10.15</h1>
+        <p id="timeline-picker-note" class="timeline-picker-note">macOS 10.15 also known as macOS Catalina</p>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose a macOS 10.15 version">
+                    <option value="10-15">macOS 10.15</option>
+                    <option value="10-15-1">macOS 10.15.1</option>
+                    <option value="10-15-2">macOS 10.15.2</option>
+                    <option value="10-15-3">macOS 10.15.3</option>
+                    <option value="10-15-4">macOS 10.15.4</option>
+                    <option value="10-15-5">macOS 10.15.5</option>
+                    <option value="10-15-6">macOS 10.15.6</option>
+                    <option value="10-15-7">macOS 10.15.7</option>
+                    <option value="10-15-8">macOS 10.15.8</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+        <p id="timeline-intro-mac" class="timeline-intro-mac" hidden></p>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "10-15": {
+                label: "macOS 10.15",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 10.15 beta 1", date: "June 3, 2019", alignment: "left" },
+                    { name: "macOS 10.15 beta 2", date: "June 17, 2019", note: "build 2: June 24, 2019", alignment: "right" },
+                    { name: "macOS 10.15 beta 3", date: "July 2, 2019", alignment: "left" },
+                    { name: "macOS 10.15 beta 4", date: "July 16, 2019", alignment: "right" },
+                    { name: "macOS 10.15 beta 5", date: "July 31, 2019", alignment: "left" },
+                    { name: "macOS 10.15 beta 6", date: "August 19, 2019", alignment: "right" },
+                    { name: "macOS 10.15 beta 7", date: "August 28, 2019", alignment: "left" },
+                    { name: "macOS 10.15 beta 8", date: "September 10, 2019", alignment: "right" },
+                    { name: "macOS 10.15 beta 9", date: "September 23, 2019", alignment: "left" },
+                    { name: "macOS 10.15 beta 10", date: "September 30, 2019", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "macOS 10.15 GM build", date: "October 3, 2019" },
+                            { name: "macOS 10.15 final build", date: "October 7, 2019" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "macOS 10.15 Supplemental Update", date: "October 15, 2019", note: "build 2: October 21, 2019" }
+                ]
+            },
+            "10-15-1": {
+                label: "macOS 10.15.1",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 10.15.1 beta 1", date: "October 10, 2019", alignment: "left" },
+                    { name: "macOS 10.15.1 beta 2", date: "October 16, 2019", alignment: "right" },
+                    { name: "macOS 10.15.1 beta 3", date: "October 23, 2019", spanTwo: true },
+                    { name: "macOS 10.15.1 final build", date: "October 29, 2019", spanTwo: true }
+                ],
+                supplemental: [
+                    { name: "macOS 10.15.1 Supplemental Update", date: "November 13, 2019" }
+                ]
+            },
+            "10-15-2": {
+                label: "macOS 10.15.2",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 10.15.2 beta 1", date: "November 7, 2019", alignment: "left" },
+                    { name: "macOS 10.15.2 beta 2", date: "November 13, 2019", alignment: "right" },
+                    { name: "macOS 10.15.2 beta 3", date: "November 20, 2019", alignment: "left" },
+                    { name: "macOS 10.15.2 beta 4", date: "December 6, 2019", alignment: "right" },
+                    { name: "macoS 10.15.2 final builds", date: "December 10, 2019", spanTwo: true }
+                ],
+            },
+            "10-15-3": {
+                label: "macOS 10.15.3",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 10.15.3 beta 1", date: "December 17, 2019", alignment: "left" },
+                    { name: "macOS 10.15.3 beta 2", date: "January 14, 2020", alignment: "right" },
+                    { name: "macOS 10.15.3 beta 3", date: "January 24, 2020", spanTwo: true },
+                    { name: "macOS 10.15.3 final build", date: "January 28, 2020", spanTwo: true }
+                ],
+            },
+            "10-15-4": {
+                label: "macOS 10.15.4",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 10.15.4 beta 1", date: "February 5, 2020", alignment: "left" },
+                    { name: "macOS 10.15.4 beta 2", date: "February 19, 2020", alignment: "right" },
+                    { name: "macOS 10.15.4 beta 3", date: "February 26, 2020", alignment: "left" },
+                    { name: "macOS 10.15.4 beta 4", date: "March 3, 2020", alignment: "right" },
+                    { name: "macOS 10.15.4 beta 5", date: "March 10, 2020", alignment: "left" },
+                    { name: "macOS 10.15.4 beta 6", date: "March 18, 2020", alignment: "right" },
+                    { name: "macOS 10.15.4 final build", date: "March 24, 2020", spanTwo: true }
+                ],
+                supplemental: [
+                    { name: "macOS 10.15.4 Supplemental Update", date: "April 8, 2020" }
+                ]
+            },
+            "10-15-5": {
+                label: "macOS 10.15.5",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 10.15.5 beta 1", date: "March 31, 2020", alignment: "left" },
+                    { name: "macOS 10.15.5 beta 2", date: "April 16, 2020", alignment: "right" },
+                    { name: "macOS 10.15.5 beta 3", date: "April 29, 2020", alignment: "left" },
+                    { name: "macOS 10.15.5 beta 4", date: "May 7, 2020", alignment: "right" },
+                    { name: "macOS 10.15.5 beta 5", date: "May 18, 2020", spanTwo: true },
+                    { name: "macOS 10.15.5 final build", date: "May 26, 2020", spanTwo: true },
+
+                ],
+                supplemental: [
+                    { name: "macOS 10.15.5 Supplemental Update", date: "June 1, 2020", note: "build 2: June 15, 2020" }
+                ]
+            },
+            "10-15-6": {
+                label: "macOS 10.15.6",
+                gridMaxWidth: "750px",
+                releases: [
+                    { name: "macOS 10.15.6 beta 1", date: "June 1, 2020", alignment: "left" },
+                    { name: "macOS 10.15.6 beta 2", date: "June 9, 2020", alignment: "right" },
+                    { name: "macOS 10.15.6 beta 3", date: "June 30, 2020", alignment: "left" },
+                    { name: "macOS 10.15.6 beta 4", date: "July 9, 2020", alignment: "right" },
+                ],
+                supplemental: [
+                    { name: "macOS 10.15.6 Supplemental Update", date: "August 12, 2020", spanTwo: true },
+                    { name: "macOS 10.15.6 Supplemental Update 2 beta", date: "September 10, 2020", spanTwo: true },
+                ],
+                intro: "macOS 10.15.6 Supplemental Update 2 beta (presumably) continued as macOS 10.15.7.\nFor more information, see macOS 10.15.7.",
+            },
+            "10-15-7": {
+                label: "macOS 10.15.7",
+                footnote: "1: 2021-001 beta 2 continues 2020-002 beta 1.\n2: 2022-001 beta 2 continues 2021-008 beta 1, build 2.\n3: 2022-003 beta 2 continues 2022-002.",
+                gridMaxWidth: "1550px",
+                sectionedLayout: true,
+                releases: [
+                    { mainLabel: "Main Update" },
+                    { name: "macOS 10.15.7 build 1", date: "September 24, 2020", alignment: "left" },
+                    { name: "macOS 10.15.7 build 2", date: "October 27, 2020", alignment: "right" },
+                    { supplementalLabel: "Supplemental Updates" },
+                    { name: "macOS 10.15.7 Supplemental Update 1", date: "November 5, 2020", alignment: "left" },
+                    { name: "macOS 10.15.7 Supplemental Update 2", date: "February 9, 2021", alignment: "right" },
+                    { 
+                        sectionLabel: "Security Updates",
+                        sectionWidth: "wide",
+                        sectionLayout: "security-grid",
+                    },
+                    { 
+                        pair: [
+                            { date: "2020-001", note: "beta 1: Nov 19, 2020\nbeta 2: Dec 3, 2020\nFinal build: Dec 14, 2020" },
+                            { date: "2020-002", note: "beta 1: Dec 16, 2020" },
+                    ],
+                    className: "release-pair-tight"
+                    },
+                    { 
+                        quad: [
+                            { date: "2021-001", note: "beta 2&#185;: Jan 13, 2021\nbeta 3: Jan 22, 2021\nFinal build: Feb 1, 2021" },
+                            { date: "2021-002", note: "beta 1: Feb 9, 2021\nbeta 2: Feb 17, 2021\nbeta 3: Mar 2, 2021\nbeta 4: Mar 16, 2021\nbeta 5: Mar 23, 2021\nbeta 6: Apr 14, 2021\nbeta 7: Apr 20, 2021\nFinal build: Apr 26, 2021" },
+                            { date: "2021-003", note: "beta 1: Apr 21, 2021\nbeta 2: May 4, 2021\nbeta 3: May 10, 2021\nbeta 4: May 14, 2021\nbeta 5: May 17, 2021\nFinal build: May 24, 2021", },
+                            { date: "2021-004", note: "beta 1: May 19, 2021\nbeta 2: Jun 3, 2021\nbeta 3: Jun 14, 2021\nbeta 4: Jun 29, 2021\nbeta 5: Jul 8, 2021\nbeta 6: Jul 13, 2021\nFinal build: Jul 21, 2021" },
+                    ],
+                    className: "release-quad-tight",
+                    securityRow: "2021"
+                    },
+                    {
+                        quad: [
+                            { date: "2021-005", note: "Final build: Sep 13, 2021" },
+                            { date: "2021-006", note: "Final build: Sep 23, 2021" },
+                            { date: "2021-007", note: "beta 1: Sep 30, 2021\nbeta 2: Oct 6, 2021\nbeta 3: Oct 13, 2021\nbeta 4: Oct 18, 2021\nFinal build: Oct 25, 2021" },
+                            { date: "2021-008", note: "beta 1: Nov 9, 2021\nbeta 2: Nov 16, 2021\nbeta 3: Dec 1, 2021\nbeta 4: Dec 7, 2021\nFinal build: Dec 13, 2021\nbeta 1, build 2: Dec 16, 2021" },
+                        ],
+                        className: "release-quad-tight",
+                        securityRow: "2021"
+                    },
+                    {
+                        trio: [
+                            { date: "2022-001", note: "beta 2&#178;: Jan 11, 2022\nbeta 3: Jan 20, 2022\nFinal build: Jan 26, 2022" },
+                            { date: "2022-002", note: "beta 1: Jan 27, 2022\nFinal build: Feb 14, 2022" },
+                            { date: "2022-003", note: "beta 2&#179;: Feb 15, 2022\nbeta 3: Feb 22, 2022\nbeta 4: Mar 1, 2022\nbeta 5: Mar 8, 2022\nFinal build: Mar 14, 2022" }
+                        ],
+                        className: "release-trio-tight",
+                        securityRow: "2022"
+                    },
+                    {
+                        pair: [
+                            { date: "2022-004", note: "beta 1: Apr 5, 2022\nbeta 2: Apr 19, 2022\nbeta 3: Apr 26, 2022\nbeta 4: May 3, 2022\nbeta 5: May 12, 2022\nFinal build: May 16, 2022" },
+                            { date: "2022-005", note: "beta 1: May 18, 2022\nbeta 2: May 31, 2022\nbeta 3: Jun 14, 2022\nbeta 4: Jun 24, 2022\nbeta 5: Jul 5, 2022\nbeta 6: Jul 12, 2022\nFinal build: Jul 20, 2022" },
+                        ],
+                        className: "release-pair-tight",
+                        securityRow: "2022"
+                    }
+                ],
+            },
+            "10-15-8": {
+                label: "macOS 10.15.8",
+                pickerNote: "Security Updates • macOS 10.15 also known as macOS Catalina",
+                releases: [
+                    { date: "2026-001", note: "Final build: Feb 2, 2026", spanTwo: true }
+                ],
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelinePickerNote = document.getElementById("timeline-picker-note");
+        const timelineIntro = document.getElementById("timeline-intro-mac");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+        const defaultPickerNote = "macOS 10.15 also known as macOS Catalina";
+
+        function releaseMarkup(release) {
+            if (release.mainLabel) {
+                return `<p class="section-label span-two">${release.mainLabel}</p>`;
+            }
+
+            if (release.supplementalLabel) {
+                return `<p class="section-label section-label-divider span-two">${release.supplementalLabel}</p>`;
+            }
+
+            if (release.sectionLabel) {
+                return `<p class="section-label section-label-divider span-two">${release.sectionLabel}</p>`;
+            }
+
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function sectionedReleasesMarkup(releases) {
+            const sections = [{ width: "standard", layout: "default", releases: [] }];
+
+            releases.forEach((release) => {
+                if (release.sectionWidth === "wide" && sections.at(-1).releases.length) {
+                    sections.push({
+                        width: "wide",
+                        layout: release.sectionLayout ?? "default",
+                        releases: []
+                    });
+                }
+                sections.at(-1).releases.push(release);
+            });
+
+            return sections.map((section) => {
+                const widthClass = section.width === "wide" ? " release-section-wide" : "";
+                if (section.layout === "security-grid") {
+                    const flatten = (release) => {
+                        if (release.pair) return release.pair.flatMap(flatten);
+                        if (release.trio) return release.trio.flatMap(flatten);
+                        if (release.quad) return release.quad.flatMap(flatten);
+                        return [release];
+                    };
+                    const mobileReleases = section.releases.flatMap(flatten);
+                    const desktopRows = [];
+
+                    section.releases.forEach((release) => {
+                        if (release.sectionLabel) {
+                            desktopRows.push({ label: release });
+                            return;
+                        }
+
+                        const previousRow = desktopRows.at(-1);
+                        if (release.securityRow && previousRow?.key === release.securityRow) {
+                            previousRow.releases.push(release);
+                            return;
+                        }
+
+                        desktopRows.push({ key: release.securityRow, releases: [release] });
+                    });
+
+                    const desktopMarkup = desktopRows.map((row) => {
+                        if (row.label) return releaseMarkup(row.label);
+                        const rowReleases = row.releases.flatMap(flatten);
+                        return `<div class="security-update-row security-update-row--${rowReleases.length}">
+                            ${rowReleases.map(releaseMarkup).join("")}
+                        </div>`;
+                    }).join("");
+                    return `<section class="release-section${widthClass}">
+                        <div class="security-update-desktop span-two">
+                            ${desktopMarkup}
+                        </div>
+                        <div class="security-update-mobile">
+                            ${mobileReleases.map(releaseMarkup).join("")}
+                        </div>
+                    </section>`;
+                }
+                return `<section class="release-section${widthClass}">
+                    ${section.releases.map(releaseMarkup).join("")}
+                </section>`;
+            }).join("");
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
+                timelineIntro.hidden = true;
+                timelineIntro.textContent = "";
+                timelineIntro.classList.remove("timeline-intro-after-supplemental");
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelinePickerNote.textContent = timeline.pickerNote ?? defaultPickerNote;
+            timelineIntro.textContent = timeline.intro ?? "";
+            timelineIntro.hidden = !timeline.intro;
+            timelineIntro.classList.toggle(
+            "timeline-intro-after-supplemental",
+            Boolean(timeline.supplemental?.length)
+            );
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            if (timeline.gridMaxWidth) {
+                releaseGrid.style.setProperty("--timeline-grid-max-width", timeline.gridMaxWidth);
+            } else {
+                releaseGrid.style.removeProperty("--timeline-grid-max-width");
+            }
+            let markup = timeline.mainLabel
+                ? `<p class="section-label span-two">${timeline.mainLabel}</p>`
+                : "";
+            markup += timeline.sectionedLayout
+                ? sectionedReleasesMarkup(timeline.releases)
+                : timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental Updates">
+                    <p class="section-label">${timeline.supplementalLabel ?? "Supplemental Updates"}</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

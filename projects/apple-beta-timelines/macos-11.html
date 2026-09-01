@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>macOS 11 &#8211; Apple beta timelines</title>
-    <link rel="icon" type="image/png" href="/assets/20260826-betafavicon-a.png">
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
     <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
     <style>
         @media (max-width: 600px) and (prefers-color-scheme: light) {
@@ -39,6 +39,7 @@
 
     <main>
         <h1>macOS 11</h1>
+        <p class="timeline-picker-note">macOS 11 also known as macOS Big Sur</p>
         <label class="version-picker" for="software-version">
             <span>
                 <select id="software-version" aria-label="Choose a macOS 11 version">
@@ -59,6 +60,7 @@
         </label>
 
         <section id="release-grid" class="release-grid" aria-live="polite"></section>
+        <p id="timeline-intro-mac" class="timeline-intro-mac timeline-intro-mac-wide" hidden></p>
     </main>
     <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
     <script>
@@ -79,6 +81,7 @@
                     { name: "macOS 11.0 beta 10", date: "October 14, 2020", alignment: "right" },
                     { name: "macOS 11.0 final build", date: "November 10, 2020", spanTwo: true },
                 ],
+                intro: "macOS 11.0 released as preinstalled firmware for Macs with M1.\nmacOS 11.0.1 released for all other Macs on November 12, 2020.\nApple advised owners of Macs with M1 (released November 17, 2020) to update to macOS 11.0.1.",
             },
             "11-0-1": {
                 label: "macOS 11.0.1",
@@ -93,6 +96,7 @@
                         className: "release-pair-builds"
                     }
                 ],
+                intro: "macOS 11.0 released as preinstalled firmware for Macs with M1.\nmacOS 11.0.1 released for all other Macs on November 12, 2020.\nApple advised owners of Macs with M1 (released November 17, 2020) to update to macOS 11.0.1.",
             },
             "11-1": {
                 label: "macOS 11.1",
@@ -266,6 +270,7 @@
 
         const versionSelect = document.getElementById("software-version");
         const releaseGrid = document.getElementById("release-grid");
+        const timelineIntro = document.getElementById("timeline-intro-mac");
         const timelineFootnote = document.getElementById("timeline-footnote");
 
         function releaseMarkup(release) {
@@ -308,6 +313,12 @@
             }
 
             releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineIntro.textContent = timeline.intro ?? "";
+            timelineIntro.hidden = !timeline.intro;
+            timelineIntro.classList.toggle(
+            "timeline-intro-after-supplemental",
+            Boolean(timeline.supplemental?.length)
+            );
             timelineFootnote.textContent = timeline.footnote ?? "";
             timelineFootnote.hidden = !timeline.footnote;
             if (timeline.gridMaxWidth) {

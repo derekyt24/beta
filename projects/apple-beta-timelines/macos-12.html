@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>macOS 12 &#8211; Apple beta timelines</title>
-    <link rel="icon" type="image/png" href="/assets/20260826-betafavicon-a.png">
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
     <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
     <style>
         @media (max-width: 600px) and (prefers-color-scheme: light) {
@@ -39,6 +39,7 @@
 
     <main>
         <h1>macOS 12</h1>
+        <p class="timeline-picker-note">macOS 12 also known as macOS Monterey</p>
         <label class="version-picker" for="software-version">
             <span>
                 <select id="software-version" aria-label="Choose a macOS 12 version">
@@ -58,7 +59,7 @@
         </label>
 
         <section id="release-grid" class="release-grid" aria-live="polite"></section>
-        <p id="timeline-intro-mac" class="timeline-intro-mac" hidden></p>
+        <p id="timeline-intro-mac" class="timeline-intro-mac timeline-intro-mac-wide" hidden></p>
     </main>
     <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
     <script>
@@ -82,7 +83,7 @@
                 supplemental: [
                     { date: "macOS 12.0.1", note: "RC build 1: Oct 18, 2021\nRC build 2: Oct 21, 2021\nFinal build: Oct 25, 2021" },
                 ],
-                intro: "macOS 12.0 released on October 18, 2021 as preinstalled firmware for MacBook Pro models with M1 Pro and M1 Max. On October 25, 2021, macOS 12.0.1 released. Apple advised owners of MacBook Pro models with M1 Pro and M1 Max (released October 26, 2021) to update to macOS 12.0.1."
+                intro: "macOS 12.0 released on October 18, 2021 as preinstalled firmware for MacBook Pro models with M1 Pro and M1 Max.\nmacOS 12.0.1 released for all other supported Macs on October 25, 2021.\nApple advised owners of MacBook Pro models with M1 Pro and M1 Max (released October 26, 2021) to update to macOS 12.0.1."
             },
             "12-1": {
                 label: "macOS 12.1",
