@@ -1,0 +1,308 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS X 10.10 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (max-width:600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-os-x-10-10-wallpaper-mobile.png');
+            }
+        }
+
+        @media (min-width:601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-os-x-10-10-wallpaper-desktop.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>OS X 10.10</h1>
+        <p id="timeline-picker-note" class="timeline-picker-note">OS X 10.10 also known as OS X Yosemite</p>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an OS X 10.10 version">
+                    <option value="10-10">OS X 10.10</option>
+                    <option value="10-10-1">OS X 10.10.1</option>
+                    <option value="10-10-2">OS X 10.10.2</option>
+                    <option value="10-10-3">OS X 10.10.3</option>
+                    <option value="10-10-4">OS X 10.10.4</option>
+                    <option value="10-10-5">OS X 10.10.5</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "10-10": {
+                label: "OS X 10.10",
+                releases: [
+                    { name: "OS X 10.10 beta 1", date: "June 2, 2014", alignment: "left" },
+                    { name: "OS X 10.10 beta 2", date: "June 17, 2014", alignment: "right" },
+                    { name: "OS X 10.10 beta 3", date: "July 7, 2014", alignment: "left" },
+                    { name: "OS X 10.10 beta 4", date: "July 21, 2014", alignment: "right" },
+                    { name: "OS X 10.10 beta 5", date: "August 4, 2014", alignment: "left" },
+                    { name: "OS X 10.10 beta 6", date: "August 18, 2014", alignment: "right" },
+                    { name: "OS X 10.10 beta 7", date: "September 2, 2014", alignment: "left" },
+                    { name: "OS X 10.10 beta 8", date: "September 15, 2014", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "OS X 10.10 GM build", date: "September 30, 2014", note: "build 2: October 7, 2014\nbuild 3: October 9, 2014" },
+                            { name: "OS X 10.10 final build", date: "October 16, 2014" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "10-10-1": {
+                label: "OS X 10.10.1",
+                releases: [
+                    { name: "OS X 10.10.1 beta 1", date: "November 3, 2014", alignment: "left" },
+                    { name: "OS X 10.10.1 beta 2", date: "November 10, 2014", alignment: "right" },
+                    { name: "OS X 10.10.1 final build", date: "November 17, 2014", spanTwo: true },
+                    { name: "OS X 10.10.1 NTP Update", date: "December 22, 2014", spanTwo: true },
+                ],
+            },
+            "10-10-2": {
+                label: "OS X 10.10.2",
+                releases: [
+                    { name: "OS X 10.10.2 beta 1", date: "November 20, 2014", alignment: "left" },
+                    { name: "OS X 10.10.2 beta 2", date: "December 4, 2014", alignment: "right" },
+                    { name: "OS X 10.10.2 beta 3", date: "December 12, 2014", alignment: "left" },
+                    { name: "OS X 10.10.2 beta 4", date: "December 20, 2014", alignment: "right" },
+                    { name: "OS X 10.10.2 beta 5", date: "January 7, 2015", alignment: "left" },
+                    { name: "OS X 10.10.2 beta 6", date: "January 21, 2015", alignment: "right" },
+                    { name: "OS X 10.10.2 final build", date: "January 27, 2015", spanTwo: true }
+                ],
+            },
+            "10-10-3": {
+                label: "OS X 10.10.3",
+                releases: [
+                    { name: "OS X 10.10.3 beta 1", date: "February 5, 2015", alignment: "left" },
+                    { name: "OS X 10.10.3 beta 2", date: "February 23, 2015", alignment: "right" },
+                    { name: "OS X 10.10.3 beta 3", date: "March 12, 2015", alignment: "left" },
+                    { name: "OS X 10.10.3 beta 4", date: "March 16, 2015", alignment: "right" },
+                    { name: "OS X 10.10.3 beta 5", date: "March 23, 2015", alignment: "left" },
+                    { name: "OS X 10.10.3 beta 6", date: "March 30, 2015", alignment: "right" }, 
+                    { name: "OS X 10.10.3 beta 7", date: "April 2, 2015", spanTwo: true },                   
+                    { name: "OS X 10.10.3 final build", date: "April 8, 2015", spanTwo: true }
+                ],
+            },
+            "10-10-4": {
+                label: "OS X 10.10.4",
+                releases: [
+                    { name: "OS X 10.10.4 beta 1", date: "April 16, 2015", alignment: "left" },
+                    { name: "OS X 10.10.4 beta 2", date: "April 27, 2015", alignment: "right" },
+                    { name: "OS X 10.10.4 beta 3", date: "May 11, 2015", alignment: "left" },
+                    { name: "OS X 10.10.4 beta 4", date: "May 26, 2015", alignment: "right" },
+                    { name: "OS X 10.10.4 beta 5", date: "June 9, 2015", note: "build 2: June 15, 2015", spanTwo: true },
+                    { name: "OS X 10.10.4 final build", date: "June 30, 2015", spanTwo: true }
+                ],
+            },
+            "10-10-5": {
+                label: "OS X 10.10.5",
+                gridMaxWidth: "1310px",
+                sectionedLayout: true,
+                releases: [
+                    { mainLabel: "Main Update" },
+                    { name: "OS X 10.11.5 beta 1", date: "July 14, 2015", alignment: "left" },
+                    { name: "OS X 10.11.5 beta 2", date: "July 30, 2015", alignment: "right" },
+                    { name: "OS X 10.11.5 beta 3", date: "August 5, 2015", spanTwo: true },
+                    { name: "OS X 10.11.5 final build", date: "August 13, 2015", spanTwo: true },
+                    { 
+                        sectionLabel: "Security Updates",
+                        sectionWidth: "wide",
+                        sectionLayout: "security-grid",
+                    },
+                    { 
+                        trio: [
+                            { date: "2015-004", note: "Final build: Oct 21, 2015" },
+                            { date: "2015-005", note: "Final build: Dec 8, 2015" },
+                            { date: "2015-006", note: "Final build: Dec 11, 2015" },
+                    ],
+                    className: "release-trio-tight"
+                    },
+                    { 
+                        quad: [
+                            { date: "2016-001", note: "Final build: Jan 19, 2016" },
+                            { date: "2016-002", note: "Final build: Mar 21, 2016" },
+                            { date: "2016-003", note: "Final build: May 16, 2016", },
+                            { date: "2016-004", note: "beta 1: Jun 7, 2016\nbeta 2: Jul 6, 2016\nFinal build: Jul 18, 2016" },
+                    ],
+                    className: "release-quad-tight",
+                    securityRow: "2021"
+                    },
+                    {
+                        trio: [
+                            { date: "2016-005", note: "Final build: Sep 1, 2016" },
+                            { date: "2016-006", note: "beta 1: Sep 24, 2016\nFinal build: Oct 24, 2016" },
+                            { date: "2016-007", note: "beta 1: Oct 31, 2016\nbeta 2: Nov 8, 2016\nbeta 3: Nov 4, 2016\nbeta 4: Nov 28, 2016\nbeta 5: Dec 5, 2016\nFinal build: Dec 13, 2016" },
+                        ],
+                        className: "release-trio-tight",
+                        securityRow: "2021"
+                    },
+                    {
+                        trio: [
+                            { date: "2017-001", note: "beta 1: Jan 24, 2017\nbeta 2: Feb 20, 2017\nbeta 3: Mar 7, 2017\nFinal build: Mar 27, 2017" },
+                            { date: "2017-002", note: "beta 1: Mar 28, 2017\nbeta 2: Apr 10, 2017\nbeta 3: Apr 17, 2017\nFinal build: May 15, 2017" },
+                            { date: "2017-003", note: "beta 1: May 16, 2017\nbeta 2: May 30, 2017\nbeta 3: Jun 13, 2017\nFinal build: Jul 19, 2017", },
+                        ],
+                        className: "release-trio-tight",
+                        securityRow: "2022"
+                    },
+                ],
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.mainLabel) {
+                return `<p class="section-label span-two">${release.mainLabel}</p>`;
+            }
+
+            if (release.supplementalLabel || release.sectionLabel) {
+                return `<p class="section-label section-label-divider span-two">${release.supplementalLabel ?? release.sectionLabel}</p>`;
+            }
+
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function sectionedReleasesMarkup(releases) {
+            const sections = [{ width: "standard", layout: "default", releases: [] }];
+
+            releases.forEach((release) => {
+                if (release.sectionWidth === "wide" && sections.at(-1).releases.length) {
+                    sections.push({
+                        width: "wide",
+                        layout: release.sectionLayout ?? "default",
+                        releases: []
+                    });
+                }
+                sections.at(-1).releases.push(release);
+            });
+
+            return sections.map((section) => {
+                const widthClass = section.width === "wide" ? " release-section-wide" : "";
+                if (section.layout !== "security-grid") {
+                    return `<section class="release-section${widthClass}">
+                        ${section.releases.map(releaseMarkup).join("")}
+                    </section>`;
+                }
+
+                const flatten = (release) => {
+                    if (release.pair) return release.pair.flatMap(flatten);
+                    if (release.trio) return release.trio.flatMap(flatten);
+                    if (release.quad) return release.quad.flatMap(flatten);
+                    return [release];
+                };
+                const mobileReleases = section.releases.flatMap(flatten);
+                const desktopRows = [];
+
+                section.releases.forEach((release) => {
+                    if (release.sectionLabel) {
+                        desktopRows.push({ label: release });
+                        return;
+                    }
+                    const previousRow = desktopRows.at(-1);
+                    if (release.securityRow && previousRow?.key === release.securityRow) {
+                        previousRow.releases.push(release);
+                        return;
+                    }
+                    desktopRows.push({ key: release.securityRow, releases: [release] });
+                });
+
+                const desktopMarkup = desktopRows.map((row) => {
+                    if (row.label) return releaseMarkup(row.label);
+                    const rowReleases = row.releases.flatMap(flatten);
+                    const contentClass = row.releases.some((release) => release.securityFitContent)
+                        ? " security-update-row--content"
+                        : "";
+                    return `<div class="security-update-row security-update-row--${rowReleases.length}${contentClass}" style="--security-update-count: ${rowReleases.length}">
+                        ${rowReleases.map(releaseMarkup).join("")}
+                    </div>`;
+                }).join("");
+
+                return `<section class="release-section${widthClass}">
+                    <div class="security-update-desktop span-two">${desktopMarkup}</div>
+                    <div class="security-update-mobile">${mobileReleases.map(releaseMarkup).join("")}</div>
+                </section>`;
+            }).join("");
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            if (timeline.gridMaxWidth) {
+                releaseGrid.style.setProperty("--timeline-grid-max-width", timeline.gridMaxWidth);
+            } else {
+                releaseGrid.style.removeProperty("--timeline-grid-max-width");
+            }
+            let markup = timeline.sectionedLayout
+                ? sectionedReleasesMarkup(timeline.releases)
+                : timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

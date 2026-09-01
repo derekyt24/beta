@@ -160,7 +160,7 @@ h1 {
     }
 
     .security-update-row.security-update-row--3 {
-        width: min(100%, 750px);
+        width: fit-content;
         justify-self: center;
     }
 
@@ -170,7 +170,7 @@ h1 {
     }
 
     .security-update-row.security-update-row--5 {
-        width: min(100%, 950px);
+        width: fit-content;
         justify-self: center;
     }
 }
@@ -198,32 +198,32 @@ h1 {
 
 .security-update-row--3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 10px;
+    column-gap: 15px;
 }
 
 .security-update-row--4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 10px;
+    column-gap: 15px;
 }
 
 .security-update-row--5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    column-gap: 10px;
+    column-gap: 15px;
 }
 
 .security-update-row--6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    column-gap: 10px;
+    column-gap: 15px;
 }
 
 .security-update-row--7 {
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    column-gap: 10px;
+    column-gap: 15px;
 }
 
 .security-update-row--8 {
     grid-template-columns: repeat(8, minmax(0, 1fr));
-    column-gap: 10px;
+    column-gap: 15px;
 }
 
 /* Opt-in for short historical rows that should follow their content instead of filling the section. */
@@ -232,7 +232,7 @@ h1 {
     max-width: 100%;
     grid-template-columns: repeat(var(--security-update-count), max-content);
     justify-self: center;
-    column-gap: 10px;
+    column-gap: 15px;
 }
 
 .security-update-row .release {
