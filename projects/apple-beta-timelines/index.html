@@ -1,6 +1,8 @@
 ---
 ---
 <head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Apple beta timelines &#8211; DerekYT (beta)</title>
     <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -322,6 +324,8 @@
                     <option value="" selected disabled>Choose a platform</option>
                     <option value="ios">iOS</option>
                     <option value="ipados">iPadOS</option>
+                    <option value="os-x">OS X</option>
+                    <option value=""
                 </select>
             </div>
             <div>
@@ -337,7 +341,9 @@
 <script>
     const timelineData = {
         ios: { label: "iOS", versions: ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] },
-        ipados: { label: "iPadOS", versions: ["13", "14", "15", "16", "17", "18", "26", "27"] }
+        ipados: { label: "iPadOS", versions: ["13", "14", "15", "16", "17", "18", "26", "27"] },
+        "os-x": { label: "OS X", versions: ["10-9", "10-10", "10-11"]},
+        macos: { label: "macOS", versions: ["10-12", "10-13", "10-14", "10-15", "11", "12", "13", "14", "15", "26", "27"]},
     };
 
     const picker = document.getElementById("timeline-picker");

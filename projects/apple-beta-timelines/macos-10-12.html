@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>macOS 10.12 &#8211; Apple beta timelines</title>
@@ -258,7 +260,6 @@
                         if (release.quad) return release.quad.flatMap(flatten);
                         return [release];
                     };
-                    const mobileReleases = section.releases.flatMap(flatten);
                     const desktopRows = [];
 
                     section.releases.forEach((release) => {
@@ -282,9 +283,21 @@
                         </div>`;
                     }).join("");
 
+                const mobileMarkup = section.releases.map((release) => {
+                    if (release.sectionLabel) return releaseMarkup(release);
+                    const releases = flatten(release);
+                    return releases.reduce((rows, release, index) => {
+                        if (index % 3 === 0) rows.push([]);
+                        rows.at(-1).push(release);
+                        return rows;
+                    }, []).map((row) => `<div class="security-update-mobile-row security-update-mobile-row--${row.length}">
+                        ${row.map(releaseMarkup).join("")}
+                    </div>`).join("");
+                }).join("");
+
                     return `<section class="release-section${widthClass}">
                         <div class="security-update-desktop span-two">${desktopMarkup}</div>
-                        <div class="security-update-mobile">${mobileReleases.map(releaseMarkup).join("")}</div>
+                    <div class="security-update-mobile">${mobileMarkup}</div>
                     </section>`;
                 }
 

@@ -39,6 +39,7 @@ nav {
     justify-content: space-between;
     width: min(100%, 750px);
     margin: 0 auto;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
 }
 
@@ -83,7 +84,7 @@ h1 {
 }
 
 .timeline-picker-note {
-    margin: 12.5px 0px 5.61px 0px;
+    margin: 10px 0px 5px 0px;
     color: rgba(255, 255, 255, 0.75);
     font-size: 21px;
     font-weight:500;
@@ -92,6 +93,7 @@ h1 {
 }
 
 .version-picker {
+    width: fit-content;
     display: block;
     margin: 7px auto 10px;
 }
@@ -145,7 +147,7 @@ h1 {
     width: min(100%, 800px);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-self: center;
-    row-gap: var(--timeline-row-gap, 17.5px);
+    row-gap: var(--timeline-row-gap, 15px);
     column-gap: 0;
     align-items: start;
 }
@@ -502,17 +504,48 @@ h1 {
     }
 
     .security-update-mobile {
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         grid-column: 1 / -1;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
         width: 360px;
+        max-width: 100%;
         justify-self:center;
-        column-gap: 8px;
-        row-gap: 20px;
+        gap: 15px;
     }
 
     .security-update-mobile .section-label {
-        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .security-update-mobile-row {
+        display: grid;
+        width: fit-content;
+        column-gap: 15px;
+        row-gap: 15px;
+    }
+
+    .security-update-mobile-row--1 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .security-update-mobile-row--2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .security-update-mobile-row--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .security-update-mobile-row--4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .security-update-mobile-row--5,
+    .security-update-mobile-row--6,
+    .security-update-mobile-row--7,
+    .security-update-mobile-row--8 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .security-update-mobile .release {
@@ -523,7 +556,7 @@ h1 {
 
     .security-update-mobile .release-note {
         font-size: 9px;
-        line-height: 1.3;
+        line-height: 1.4;
     }
 
     .supplemental > .release + .release {
@@ -557,7 +590,7 @@ h1 {
 
     .release-name,
     .section-label {
-        margin: 0px 0px 3.5px;
+        margin: 0px 0px 4px;
         font-size: 12px;
         line-height: 1.2;
         letter-spacing:0.02em;
@@ -566,12 +599,12 @@ h1 {
     .release-date {
         font-size: 18px;
         font-weight:450;
-        line-height: 1.2;
+        line-height: 1;
         letter-spacing: 0em;
     }
 
     .release-note {
-        margin: 2.5px 0px 0px;
+        margin: 3.5px 0px 0px;
         line-height: 1.4;
         font-size: 10px;
         letter-spacing:0.02em;
@@ -599,7 +632,7 @@ h1 {
     .release-section .section-label {
         letter-spacing: -0.005em;
         font-size: 16px;
-        margin-bottom: 5px;
+        margin-bottom: 0px;
     }
 
     .supplemental .section-label-divider {

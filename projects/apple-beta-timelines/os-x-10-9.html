@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OS X 10.11 &#8211; Apple beta timelines</title>
+    <title>OS X 10.9 &#8211; Apple beta timelines</title>
     <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
     <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
     <style>
         @media (max-width:600px) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-os-x-10-11-wallpaper-mobile.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-os-x-10-9-wallpaper-mobile.png');
             }
         }
 
         @media (min-width:601px) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-os-x-10-11-wallpaper-desktop.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-os-x-10-9-wallpaper-desktop.png');
             }
         }
     </style>
@@ -28,18 +28,17 @@
     {% include site-header.html %}
 
     <main>
-        <h1>OS X 10.11</h1>
-        <p id="timeline-picker-note" class="timeline-picker-note">OS X 10.11 also known as OS X El Capitan</p>
+        <h1>OS X 10.9</h1>
+        <p id="timeline-picker-note" class="timeline-picker-note">OS X 10.9 also known as OS X Mavericks</p>
         <label class="version-picker" for="software-version">
             <span>
-                <select id="software-version" aria-label="Choose an OS X 10.11 version">
-                    <option value="10-11">OS X 10.11</option>
-                    <option value="10-11-1">OS X 10.11.1</option>
-                    <option value="10-11-2">OS X 10.11.2</option>
-                    <option value="10-11-3">OS X 10.11.3</option>
-                    <option value="10-11-4">OS X 10.11.4</option>
-                    <option value="10-11-5">OS X 10.11.5</option>
-                    <option value="10-11-6">OS X 10.11.6</option>
+                <select id="software-version" aria-label="Choose an OS X 10.9 version">
+                    <option value="10-9">OS X 10.9</option>
+                    <option value="10-9-1">OS X 10.9.1</option>
+                    <option value="10-9-2">OS X 10.9.2</option>
+                    <option value="10-9-3">OS X 10.9.3</option>
+                    <option value="10-9-4">OS X 10.9.4</option>
+                    <option value="10-9-5">OS X 10.9.5</option>
                 </select>
                 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                     <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -52,143 +51,124 @@
     <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
     <script>
         const timelines = {
-            "10-11": {
-                label: "OS X 10.11",
+            "10-9": {
+                label: "OS X 10.9",
                 releases: [
-                    { name: "OS X 10.11 beta 1", date: "June 8, 2015", alignment: "left" },
-                    { name: "OS X 10.11 beta 2", date: "June 23, 2015", alignment: "right" },
-                    { name: "OS X 10.11 beta 3", date: "July 8, 2015", alignment: "left" },
-                    { name: "OS X 10.11 beta 4", date: "July 21, 2015", alignment: "right" },
-                    { name: "OS X 10.11 beta 5", date: "July 27, 2015", alignment: "left" },
-                    { name: "OS X 10.11 beta 6", date: "August 3, 2015", alignment: "right" },
-                    { name: "OS X 10.11 beta 7", date: "August 19, 2015", alignment: "left" },
-                    { name: "OS X 10.11 beta 8", date: "August 31, 2015", alignment: "right" },
+                    { name: "OS X 10.9 beta 1", date: "June 10, 2013", alignment: "left" },
+                    { name: "OS X 10.9 beta 2", date: "June 24, 2013", alignment: "right" },
+                    { name: "OS X 10.9 beta 3", date: "July 8, 2013", alignment: "left" },
+                    { name: "OS X 10.9 beta 4", date: "July 22, 2013", alignment: "right" },
+                    { name: "OS X 10.9 beta 5", date: "August 7, 2013", alignment: "left" },
+                    { name: "OS X 10.9 beta 6", date: "August 21, 2013", alignment: "right" },
+                    { name: "OS X 10.9 beta 7", date: "September 3, 2013", alignment: "left" },
+                    { name: "OS X 10.9 beta 8", date: "September 16, 2013", alignment: "right" },
                     {
                         pair: [
-                            { name: "OS X 10.11 GM builds", date: "September 9, 2015" },
-                            { name: "OS X 10.11 final build", date: "September 30, 2015" }
+                            { name: "OS X 10.9 GM build", date: "October 3, 2013", note: "build 2: October 18, 2013" },
+                            { name: "OS X 10.9 final build", date: "October 22, 2013" }
                         ],
                         className: "release-pair-builds"
                     }
                 ],
             },
-            "10-11-1": {
-                label: "OS X 10.11.1",
+            "10-9-1": {
+                label: "OS X 10.10.1",
                 releases: [
-                    { name: "OS X 10.11.1 beta 1", date: "September 17, 2015", alignment: "left" },
-                    { name: "OS X 10.11.1 beta 2", date: "September 29, 2015", alignment: "right" },
-                    { name: "OS X 10.11.1 beta 4", date: "October 7, 2015", alignment: "left" },
-                    { name: "OS X 10.11.1 beta 5", date: "October 14, 2015", alignment: "right" },
-                    { name: "OS X 10.11.1 final build", date: "October 21, 2015", spanTwo: true }
+                    { name: "OS X 10.9.1 beta 1", date: "November 15, 2013", alignment: "left" },
+                    { name: "OS X 10.9.1 beta 2", date: "November 21, 2013", alignment: "right" },
+                    { name: "OS X 10.9.1 beta 3", date: "December 3, 2013", spanTwo: true },
+                    { name: "OS X 10.9.1 final build", date: "December 16, 2013", spanTwo: true },
                 ],
             },
-            "10-11-2": {
-                label: "OS X 10.11.2",
+            "10-9-2": {
+                label: "OS X 10.9.2",
                 releases: [
-                    { name: "OS X 10.11.2 beta 1", date: "October 27, 2015", alignment: "left" },
-                    { name: "OS X 10.11.2 beta 2", date: "November 3, 2015", alignment: "right" },
-                    { name: "OS X 10.11.2 beta 3", date: "November 10, 2015", alignment: "left" },
-                    { name: "OS X 10.11.2 beta 4", date: "November 17, 2015", alignment: "right" },
-                    { name: "OS X 10.11.2 beta 5", date: "November 30, 2015", spanTwo: true },
-                    { name: "OS X 10.11.2 final build", date: "December 8, 2015", spanTwo: true }
+                    { name: "OS X 10.9.2 beta 1", date: "December 19, 2013", alignment: "left" },
+                    { name: "OS X 10.9.2 beta 2", date: "January 16, 2014", alignment: "right" },
+                    { name: "OS X 10.9.2 beta 3", date: "January 23, 2014", alignment: "left" },
+                    { name: "OS X 10.9.2 beta 4", date: "January 30, 2014", alignment: "right" },
+                    { name: "OS X 10.9.2 beta 5", date: "February 6, 2014", alignment: "left" },
+                    { name: "OS X 10.9.2 beta 6", date: "February 12, 2014", alignment: "right" },
+                    { name: "OS X 10.9.2 beta 7", date: "February 17, 2014", spanTwo: true },
+                    { name: "OS X 10.10.2 final build", date: "February 25, 2014", spanTwo: true },
+                    { name: "OS X 10.10.2 (Security Update 2014-002)", date: "April 22, 2014" },
                 ],
             },
-            "10-11-3": {
-                label: "OS X 10.11.3",
+            "10-9-3": {
+                label: "OS X 10.9.3",
                 releases: [
-                    { name: "OS X 10.11.3 beta 1", date: "December 16, 2015", alignment: "left" },
-                    { name: "OS X 10.11.3 beta 2", date: "January 6, 2016", alignment: "right" },
-                    { name: "OS X 10.11.3 final build", date: "January 19, 2016", spanTwo: true }
+                    { name: "OS X 10.9.3 beta 1", date: "March 6, 2014", alignment: "left" },
+                    { name: "OS X 10.9.3 beta 2", date: "March 13, 2014", alignment: "right" },
+                    { name: "OS X 10.9.3 beta 3", date: "March 20, 2014", alignment: "left" },
+                    { name: "OS X 10.9.3 beta 4", date: "March 28, 2014", alignment: "right" },
+                    { name: "OS X 10.9.3 beta 5", date: "April 3, 2014", alignment: "left" },
+                    { name: "OS X 10.9.3 beta 6", date: "April 9, 2014", alignment: "right" }, 
+                    { name: "OS X 10.9.3 beta 7", date: "April 15, 2014", alignment: "left" },
+                    { name: "OS X 10.9.3 beta 8", date: "April 21, 2014", alignment: "right" }, 
+                    { name: "OS X 10.9.3 beta 9", date: "April 29, 2014", alignment: "left" },
+                    { name: "OS X 10.9.3 beta 10", date: "May 7, 2014", alignment: "right" },                 
+                    { name: "OS X 10.9.3 final build", date: "May 15, 2014", spanTwo: true }
                 ],
             },
-            "10-11-4": {
-                label: "OS X 10.11.4",
+            "10-9-4": {
+                label: "OS X 10.9.4",
                 releases: [
-                    { name: "OS X 10.11.4 beta 1", date: "January 11, 2016", alignment: "left" },
-                    { name: "OS X 10.11.4 beta 2", date: "January 25, 2016", alignment: "right" },
-                    { name: "OS X 10.11.4 beta 3", date: "February 8, 2016", note: "build 2: February 10, 2016", alignment: "left" },
-                    { name: "OS X 10.11.4 beta 4", date: "February 22, 2016", alignment: "right" },
-                    { name: "OS X 10.11.4 beta 5", date: "March 1, 2016", alignment: "left" },
-                    { name: "OS X 10.11.4 beta 6", date: "March 7, 2016", alignment: "right" },
-                    { name: "OS X 10.11.4 beta 7", date: "March 15, 2016", spanTwo: true },
-                    { name: "OS X 10.11.4 final build", date: "March 21, 2016", spanTwo: true }
+                    { name: "OS X 10.9.4 beta 1", date: "May 28, 2014", alignment: "left" },
+                    { name: "OS X 10.9.4 beta 2", date: "June 11, 2014", alignment: "right" },
+                    { name: "OS X 10.9.4 beta 3", date: "June 19, 2014", alignment: "left" },
+                    { name: "OS X 10.9.4 beta 4", date: "June 25, 2014", alignment: "right" },
+                    { name: "OS X 10.9.4 final build", date: "June 30, 2014", spanTwo: true }
                 ],
             },
-            "10-11-5": {
-                label: "OS X 10.11.5",
-                releases: [
-                    { name: "OS X 10.11.5 beta 1", date: "April 6, 2016", alignment: "left" },
-                    { name: "OS X 10.11.5 beta 2", date: "April 20, 2016", alignment: "right" },
-                    { name: "OS X 10.11.5 beta 3", date: "April 27, 2016", alignment: "left" },
-                    { name: "OS X 10.11.5 beta 4", date: "May 3, 2016", alignment: "right" },
-                    { name: "OS X 10.11.5 final build", date: "May 16, 2016", spanTwo: true }
-                ],
-            },
-            "10-11-6": {
-                label: "OS X 10.11.6",
+            "10-9-5": {
+                label: "OS X 10.9.5",
                 gridMaxWidth: "1310px",
                 sectionedLayout: true,
                 releases: [
                     { mainLabel: "Main Update" },
-                    { name: "OS X 10.11.6 beta 1", date: "May 23, 2016", alignment: "left" },
-                    { name: "OS X 10.11.6 beta 2", date: "June 7, 2016", alignment: "right" },
-                    { name: "OS X 10.11.6 beta 3", date: "June 21, 2016", alignment: "left" },
-                    { name: "OS X 10.11.6 beta 4", date: "June 29, 2016", alignment: "right" },
-                    { name: "OS X 10.11.6 beta 5", date: "July 6, 2016", spanTwo: true },
-                    { name: "OS X 10.11.6 final build", date: "July 18, 2016", spanTwo: true },
-                    { name: "OS X 10.11.6 App Store Re-release", date: "September 20, 2016", spanTwo: true },
-                    { name: "OS X 10.11.6 Snow Leopard Upgrade", date: "September 20, 2016", spanTwo: true },
+                    { name: "OS X 10.9.5 beta 1", date: "July 30, 2014", alignment: "left" },
+                    { name: "OS X 10.9.5 beta 2", date: "August 7, 2014", alignment: "right" },
+                    { name: "OS X 10.9.5 beta 3", date: "August 13, 2014", alignment: "left" },
+                    { name: "OS X 10.9.5 beta 4", date: "August 19, 2014", alignment: "right" },
+                    { name: "OS X 10.9.5 beta 5", date: "August 27, 2014", note: "build 2: August 28, 2014", alignment: "left" },
+                    { name: "OS X 10.9.5 beta 6", date: "September 5, 2014", alignment: "right" },                                        
+                    { name: "OS X 10.9.5 final build", date: "September 17, 2014", spanTwo: true },
+                    { name: "OS X 10.9.5 (Security Update 2014-005)", date: "October 16, 2014", spanTwo: true },
+                    { name: "OS X 10.9.5 NTP Update", date: "December 22, 2014", spanTwo: true },
                     { 
                         sectionLabel: "Security Updates",
                         sectionWidth: "wide",
                         sectionLayout: "security-grid",
                     },
                     { 
-                        trio: [
-                            { date: "2016-001", note: "Final build: Sep 1, 2016" },
-                            { date: "2016-002", note: "beta 1: Sep 24, 2016\nFinal build: Oct 24, 2016" },
-                            { date: "2016-003", note: "beta 1: Oct 31, 2016\nbeta 2: Nov 8, 2016\nbeta 3: Nov 14, 2016\nbeta 4: Nov 28, 2016\nbeta 5: Dec 5, 2016\nFinal build: Dec 13, 2016" }
+                        quad: [
+                            { date: "2015-001", note: "Final build: Jan 27, 2015" },
+                            { date: "2015-002", note: "Final build: Mar 9, 2015" },
+                            { date: "2015-004", note: "Final build: Apr 8, 2015", },
+                            { date: "2015-005", note: "Final build: Jun 30, 2015" },
                     ],
-                    className: "release-trio-tight",
-                    securityFitContent: true
-                    },
-                    { 
-                        trio: [
-                            { date: "2017-001", note: "beta 3: Jan 24, 2017\nbeta 2: Feb 20, 2017\nbeta 3: Mar 7, 2017\nFinal build: Mar 27, 2017" },
-                            { date: "2017-002", note: "beta 1: Mar 28, 2017\nbeta 2: Apr 10, 2017\nbeta 3: Apr 17, 2017\nFinal build: May 15, 2017" },
-                            { date: "2017-003", note: "beta 1: May 16, 2017\nbeta 2: May 30, 2017\nbeta 3: Jun 13, 2017\nFinal build: Jul 19, 2017", },
-                    ],
-                    className: "release-trio-tight",
+                    className: "release-quad-tight",
                     securityRow: "2021"
                     },
                     {
-                        pair: [
-                            { date: "2017-004", note: "beta 1: Sep 27, 2017\nbeta 2: Oct 9, 2017\nbeta 3: Oct 23, 2017\nFinal build: Oct 31, 2017" },
-                            { date: "2017-005", note: "beta 1: Oct 31, 2017\nbeta 2: Nov 6, 2017\nbeta 3: Nov 13, 2017\nFinal build: Dec 6, 2017" },
+                        trio: [
+                            { date: "2015-006", note: "Final build: Aug 13, 2015" },
+                            { date: "2015-007", note: "Final build: Oct 21, 2015" },
+                            { date: "2015-008", note: "Final build: Dec 8, 2015" },
                         ],
-                        className: "release-pair-tight",
+                        className: "release-trio-tight",
                         securityRow: "2021"
                     },
                     {
-                        pair: [
-                            { date: "2018-001", note: "beta 1: Jan 3, 2018\nbeta 2: Jan 9, 2018\nbeta 3: Jan 16, 2018\nbeta 4: Jan 19, 2018\nFinal build: Jan 23, 2018" },
-                            { date: "2018-002", note: "beta 1: Feb 6, 2018\nbeta 2: Mar 5, 2018\nFinal build: Mar 29, 2018" },
+                        quad: [
+                            { date: "2016-001", note: "Final build: Jan 19, 2016" },
+                            { date: "2016-002", note: "Final build: Mar 21, 2016" },
+                            { date: "2016-003", note: "Final build: May 16, 2016", },
+                            { date: "2016-004", note: "Final build: Jul 18, 2016" },
                         ],
-                        className: "release-pair-tight",
-                        securityRow: "2022",
-                        securityFitContent: true
+                        className: "release-quad-tight",
+                        securityRow: "2022"
                     },
-                    {
-                        pair: [
-                            { date: "2018-003", note: "beta 1: Apr 3, 2018\nbeta 2: Apr 17, 2018\nbeta 3: May 1, 2018\nFinal build: Jun 1, 2018", },                            
-                            { date: "2018-004", note: "beta 1: May 30, 2018\nbeta 2: Jun 11, 2018\nbeta 3: Jun 25, 2019\nbeta 4: Jul 2, 2018\nFinal build: Jul 9, 2018" },
-                        ],
-                        className: "release-pair-tight",
-                        securityRow: "2022",
-                        securityFitContent: true
-                    },
-                    { supplementalLabel: "Supplemental Updates" },
-                    { date: "2016-003", note: "Supplemental Update: Jan 17, 2017" },
                 ],
             },
         };
@@ -283,7 +263,6 @@
                         ${rowReleases.map(releaseMarkup).join("")}
                     </div>`;
                 }).join("");
-
                 const mobileMarkup = section.releases.map((release) => {
                     if (release.sectionLabel) return releaseMarkup(release);
                     const releases = flatten(release);
