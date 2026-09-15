@@ -325,7 +325,8 @@
                     <option value="ios">iOS</option>
                     <option value="ipados">iPadOS</option>
                     <option value="os-x">OS X</option>
-                    <option value=""
+                    <option value="macos">macOS</option>
+                    <option value="visionos">visionOS</option>
                 </select>
             </div>
             <div>
@@ -342,8 +343,9 @@
     const timelineData = {
         ios: { label: "iOS", versions: ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] },
         ipados: { label: "iPadOS", versions: ["13", "14", "15", "16", "17", "18", "26", "27"] },
-        "os-x": { label: "OS X", versions: ["10-9", "10-10", "10-11"]},
-        macos: { label: "macOS", versions: ["10-12", "10-13", "10-14", "10-15", "11", "12", "13", "14", "15", "26", "27"]},
+        "os-x": { label: "OS X", versions: ["10.9", "10.10", "10.11"]},
+        macos: { label: "macOS", versions: ["10.12", "10.13", "10.14", "10.15", "11", "12", "13", "14", "15", "26", "27"]},
+        visionos: { label: "visionOS", versions: ["1", "2", "26", "27"] },
     };
 
     const picker = document.getElementById("timeline-picker");

@@ -1,0 +1,241 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visionOS 26 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-visionos-26-wallpaper-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-visionos-26-wallpaper-desktop.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>visionOS 26</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose a visionOS 26 version">
+                    <option value="26-0">visionOS 26.0</option>
+                    <option value="26-1">visionOS 26.1</option>
+                    <option value="26-2">visionOS 26.2</option>
+                    <option value="26-3">visionOS 26.3</option>
+                    <option value="26-4">visionOS 26.4</option>
+                    <option value="26-5">visionOS 26.5</option>
+                    <option value="26-6">visionOS 26.6</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "26-0": {
+                label: "visionOS 26.0",
+                releases: [
+                    { name: "visionOS 26.0 beta 1", date: "June 9, 2025", alignment: "left" },
+                    { name: "visionOS 26.0 beta 2", date: "June 23, 2025", alignment: "right" },
+                    { name: "visionOS 26.0 beta 3", date: "July 7, 2025", alignment: "left" },
+                    { name: "visionOS 26.0 beta 4", date: "July 22, 2025", alignment: "right" },
+                    { name: "visionOS 26.0 beta 5", date: "August 5, 2025", alignment: "left" },
+                    { name: "visionOS 26.0 beta 6", date: "August 11, 2025", alignment: "right" },
+                    { name: "visionOS 26.0 beta 7", date: "August 18, 2025", alignment: "left" },
+                    { name: "visionOS 26.0 beta 8", date: "August 25, 2025", alignment: "right" },
+                    { name: "visionOS 26.0 beta 9", date: "September 2, 2025", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "visionOS 26.0 RC build", date: "September 9, 2025" },
+                            { name: "visionOS 26.0 final build", date: "September 15, 2025" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "visionOS 26.0.1", date: "September 29, 2025" }
+                ]
+            },
+            "26-1": {
+                label: "visionOS 26.1",
+                releases: [
+                    { name: "visionOS 26.1 beta 1", date: "September 22, 2025", alignment: "left" },
+                    { name: "visionOS 26.1 beta 2", date: "October 6, 2025", alignment: "right" },
+                    { name: "visionOS 26.1 beta 3", date: "October 13, 2025", alignment: "left" },
+                    { name: "visionOS 26.1 beta 4", date: "October 20, 2025", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "visionOS 26.1 RC build", date: "October 28, 2025" },
+                            { name: "visionOS 26.1 final build", date: "November 3, 2025" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ]
+            },
+            "26-2": {
+                label: "visionOS 26.2",
+                releases: [
+                    { name: "iOS 26.2 beta 1", date: "November 4, 2025", alignment: "left" },
+                    { name: "iOS 26.2 beta 2", date: "November 12, 2025", alignment: "right" },
+                    { name: "iOS 26.2 beta 3", date: "November 17, 2025", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "visionOS 26.2 RC build", date: "December 3, 2025" },
+                            { name: "visionOS 26.2 final build", date: "December 12, 2025" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "26-3": {
+                label: "visionOS 26.3",
+                releases: [
+                    { name: "visionOS 26.3 beta 1", date: "December 15, 2025", alignment: "left" },
+                    { name: "visionOS 26.3 beta 2", date: "January 12, 2026", alignment: "right" },
+                    { name: "visionOS 26.3 beta 3", date: "January 26, 2026", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "visionOS 26.3 RC build", date: "February 4, 2026" },
+                            { name: "visionOS 26.3 final build", date: "February 11, 2026" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "visionOS 26.3.1", date: "February 26, 2026" }
+                ]
+            },
+            "26-4": {
+                label: "visionOS 26.4",
+                releases: [
+                    { name: "visionOS 26.4 beta 1", date: "February 16, 2026", alignment: "left" },
+                    { name: "visionOS 26.4 beta 2", date: "February 23, 2026", alignment: "right" },
+                    { name: "visionOS 26.4 beta 3", date: "March 2, 2026", alignment: "left" },
+                    { name: "visionOS 26.4 beta 4", date: "March 9, 2026", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "visionOS 26.4 RC build", date: "March 18, 2026" },
+                            { name: "visionOS 26.4 final build", date: "March 24, 2026" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "26-5": {
+                label: "visionOS 26.5",
+                releases: [
+                    { name: "visionOS 26.5 beta 1", date: "March 30, 2026", alignment: "left" },
+                    { name: "visionOS 26.5 beta 2", date: "April 13, 2026", alignment: "right" },
+                    { name: "visionOS 26.5 beta 3", date: "April 20, 2026", alignment: "left" },
+                    { name: "visionOS 26.5 beta 4", date: "April 27, 2026", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "visionOS 26.5 RC build", date: "May 4, 2026" },
+                            { name: "visionOS 26.5 final build", date: "May 11, 2026" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "26-6": {
+                label: "visionOS 26.6",
+                releases: [
+                    { name: "visionOS 26.6 beta 1", date: "May 26, 2026", alignment: "left" },
+                    { name: "visionOS 26.6 beta 2", date: "June 15, 2026", alignment: "right" },
+                    { name: "visionOS 26.6 beta 3", date: "June 29, 2026", alignment: "left" },
+                    { name: "visionOS 26.6 beta 4", date: "July 6, 2026", alignment: "right" },
+                    { name: "visionOS 26.6 beta 5", date: "July 13, 2026", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "visionOS 26.6 RC build", date: "July 20, 2026" },
+                            { name: "visionOS 26.6 final build", date: "July 27, 2026" }
+
+                        ],
+                        className: "release-pair-builds"
+                    },
+                ],
+                supplemental: [
+                    { name: "visionOS 26.6.1", date: "August 17, 2026" },
+                ]
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>
