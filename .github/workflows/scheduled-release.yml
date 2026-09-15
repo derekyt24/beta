@@ -1,0 +1,40 @@
+name: Publish scheduled beta release
+
+on:
+  schedule:
+    - cron: "30 14 15 9 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Merge the scheduled release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" != "workflow_dispatch" ] && [ "$(date -u +%F)" != "2026-09-15" ]; then
+            echo "Not the scheduled publication date."
+            exit 0
+          fi
+
+          PR_NUMBER="$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --base main \
+            --head scheduled \
+            --state open \
+            --json number \
+            --jq '.[0].number')"
+
+          if [ -z "$PR_NUMBER" ]; then
+            echo "No open PR from scheduled to main was found."
+            exit 1
+          fi
+
+          gh pr merge "$PR_NUMBER" --merge
