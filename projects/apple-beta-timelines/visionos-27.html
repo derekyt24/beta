@@ -7,31 +7,19 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS 27 &#8211; Apple beta timelines</title>
+    <title>visionOS 27 &#8211; Apple beta timelines</title>
     <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
-    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines-glass.css">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
     <style>
-        @media (max-width:600px) and (prefers-color-scheme: light) {
+        @media (max-width:600px) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light-mobile.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-visionos-27-wallpaper-mobile.png');
             }
         }
 
-        @media (min-width:601px) and (prefers-color-scheme: light) {
+        @media (min-width:601px) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light-desktop.png');
-            }
-        }
-
-        @media (max-width:600px) and (prefers-color-scheme: dark) {
-            body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark-mobile.png');
-            }
-        }
-
-        @media (min-width:601px) and (prefers-color-scheme: dark) {
-            body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark-desktop.png');
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-visionos-27-wallpaper-desktop.png');
             }
         }
     </style>
@@ -40,11 +28,11 @@
     {% include site-header.html %}
 
     <main>
-        <h1>iOS 27</h1>
+        <h1>visionOS 27</h1>
         <label class="version-picker" for="software-version">
             <span>
-                <select id="software-version" aria-label="Choose an iOS 27 version">
-                    <option value="27-0">iOS 27.0</option>
+                <select id="software-version" aria-label="Choose a visionOS 27 version">
+                    <option value="27-0">visionOS 27.0</option>
                 </select>
                 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                     <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -58,23 +46,23 @@
     <script>
         const timelines = {
             "27-0": {
-                label: "iOS 27.0",
+                label: "visionOS 27.0",
                 releases: [
-                    { name: "iOS 27.0 beta 1", date: "Jun 8, 2026" },
-                    { name: "iOS 27.0 beta 2", date: "Jun 22, 2026" },
-                    { name: "iOS 27.0 beta 3", date: "Jul 6, 2026" },
-                    { name: "iOS 27.0 beta 4", date: "Jul 20, 2026" },
-                    { name: "iOS 27.0 beta 5", date: "Aug 10, 2026" },
-                    { name: "iOS 27.0 beta 6", date: "Aug 17, 2026" },
-                    { name: "iOS 27.0 beta 7", date: "Aug 24, 2026" },
-                    { name: "iOS 27.0 beta 8", date: "Aug 31, 2026" },
+                    { name: "visionOS 27.0 beta 1", date: "June 8, 2026", alignment: "left" },
+                    { name: "visionOS 27.0 beta 2", date: "June 22, 2026", alignment: "right" },
+                    { name: "visionOS 27.0 beta 3", date: "July 6, 2026", alignment: "left" },
+                    { name: "visionOS 27.0 beta 4", date: "July 20, 2026", alignment: "right" },
+                    { name: "visionOS 27.0 beta 5", date: "August 10, 2026", alignment: "left" },
+                    { name: "visionOS 27.0 beta 6", date: "August 17, 2026", alignment: "right" },
+                    { name: "visionOS 27.0 beta 7", date: "August 24, 2026", alignment: "left" },
+                    { name: "visionOS 27.0 beta 8", date: "August 31, 2026", alignment: "right" },
                     {
                         pair: [
-                            { name: "iOS 27.0 RC build", date: "Sep 9, 2026" },
-                            { name: "iOS 27.0 final build", date: "Sep 14, 2026" },
+                            { name: "visionOS 27.0 RC build", date: "September 9, 2026" },
+                            { name: "visionOS 27.0 final build", date: "September 14, 2026" },
                         ],
-                        className: "release-pair-builds"
-                    },
+                        className: "release-pair-builds",
+                    }
                 ]
             }
         };
@@ -94,8 +82,9 @@
             }
 
             const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
             const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
-            return `<article class="release${spanClass}">
+            return `<article class="release${spanClass}${alignmentClass}">
                 <p class="release-name">${release.name}</p>
                 <p class="release-date">${release.date}</p>${note}
             </article>`;

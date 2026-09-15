@@ -1,0 +1,229 @@
+---
+---
+<head>
+    <title>Apple beta timelines version 1.1 beta 1 &#8211; DerekYT</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-favicon.png">
+    <link rel="stylesheet" href="/assets/style-sheets/apple-beta-timelines-releases.css">
+<!-- Font information (start) -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- Font information (end) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <style>
+        body {
+            background-image:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines/11A01.png');
+            background-attachment: fixed;
+            background-size:cover;
+            font-family:"Inter", sans-serif;
+            text-align:left;
+            max-width:750px;
+            margin:0 auto;
+            padding-top:30px;
+            padding-bottom:30px;
+            display:flex;
+            flex-direction:column;
+            min-height:100vh;
+        }
+
+        b {
+            font-weight:500;
+        }
+
+        :root {
+            font-family: Inter, sans-serif;
+            font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+        }
+        @supports (font-variation-settings: normal) {
+            :root { font-family: InterVariable, sans-serif; }
+        }
+
+
+        nav {
+            display: flex;
+            justify-content:space-between;
+        }
+        
+        @media (max-width:600px) {
+            body {
+                padding-left:15px;
+                padding-right:15px;
+            }
+            nav {
+                font-size:14px;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                color: #ffffff;
+            }    
+        
+            a:link, a:visited {
+                color: #ffffff;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+            }
+            .nav-brand {
+                color: #ffffff;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0c0e11;
+                color: #ffffff;
+            }
+            a:link, a:visited {
+                color: #ffffff;
+            }
+            .nav-links a {
+                color: #ffffff;
+            }
+            .nav-brand {
+                color: #ffffff;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap:15px;
+        }
+
+        .nav-links a {
+            opacity:0.5;
+            text-decoration:none;
+        }
+
+        .nav-links a:link {
+            opacity:0.5;
+        }
+
+        .nav-links a:hover {
+            opacity:0.75;
+        }
+
+        .nav-links a:visited {
+            opacity:0.5;
+        }
+        
+        .nav-brand {
+            font-weight:500;
+            margin-right:15px;
+        }
+        
+.welcome-font {
+            max-width:90%;
+            margin-top:25px;
+            margin-bottom:15px;
+            font-size:36px;
+            font-weight:500;
+            line-height:1.3;
+            letter-spacing:-0.5px;
+        }
+        
+        .heading-body-line-height {
+            line-height:25px;
+        }
+
+        .ver-head-font {
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            margin:0px;
+            letter-spacing:-0.25px;
+            font-weight:500;
+        }
+
+        img {
+            border-radius: 7px;
+            width: 150px;
+            height: 150px;
+        }
+
+        hr {
+            width:75%;
+            display:block;
+            margin-top: 16px;
+            margin-left: 0;
+            margin-bottom: 10px;
+            margin-right: auto;
+            border:0;
+            border-radius:20px;
+            height:2px;
+            background-color:rgba(255, 255, 255, 0.33);
+        }
+
+        .update-metadata {
+            margin: 5px 0 5px;
+            line-height:1.2;
+            font-size:12px;
+            opacity:0.5;
+            letter-spacing:0.25px;
+        }
+        
+        .update-metadata-div {
+            padding: 3px 0 10px;
+        }
+
+        a:link {
+            opacity:0.83;
+        }
+
+        a:hover {
+            opacity:0.67;
+        }
+
+        a:visited {
+            opacity:0.5;
+        }
+
+        .special-timeline-height {
+            line-height:1.3;
+            margin: 10px 0 10px;
+        }
+
+        footer {
+            font-size:10px;
+            letter-spacing:0.25px;
+            opacity:0.5;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    {% include site-header.html %}
+</header>
+    <div>
+        <p class="welcome-font">What's new in Apple beta timelines version 1.1 beta 1</p>
+        <p class="special-timeline-height">Added iOS 15.7.x release timeline</p>
+        <p class="special-timeline-height">Added iOS 15.8.x release timeline</p>
+        <p class="special-timeline-height">Added OS X El Capitan 10.11</p>
+        <p class="special-timeline-height">Added visionOS 1.0-1.3</p>
+        <div class="special-timeline-height">
+            <p class="special-timeline-height"><b>Added special timelines for:</b></p>
+            <p class="special-timeline-height">iPhone 7 + 7 Plus: iOS 10.0</p>
+            <p class="special-timeline-height">iPad Pro (A10X): iOS 10.3</p>
+            <div class="update-metadata-div">
+                <p class="update-metadata" data-utc="2025-12-13T04:11Z">December 13, 2025 • 04:11 UTC</p>
+                <p class="update-metadata">Build number: 11A01</p>
+            </div>
+        </div>
+    </div>
+    <br>
+{% include site-footer.html %}
+<script>
+    document.querySelectorAll('[data-utc]').forEach(el => {
+    const date = new Date(el.dataset.utc);
+    el.textContent = "" + date.toLocaleString(undefined, {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit',
+        timeZoneName: 'short'
+    });
+});
+</script>
+</body>
