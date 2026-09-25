@@ -119,16 +119,17 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.67);
+            backdrop-filter: blur(33px);
             z-index: 1000;
             align-items: center;
             justify-content: center;
         }
 
         #beta-modal {
-            max-width: 350px;
-            width: 90%;
-            padding: 24px;
+            position: relative;
+            max-width: 375px;
+            padding: 20px;
             border-radius: 12px;
             font-size: 15px;
             line-height: 1.5;
@@ -142,18 +143,38 @@
         }
 
         .beta-modal-body {
-            margin: 0 0 20px;
+            margin: 0;
             opacity: 0.8;
         }
 
         #beta-modal-dismiss {
-            padding: 10px 20px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: grid;
+            place-items: center;
+            width: 27px;
+            height: 27px;
+            padding: 0;
             border: none;
-            border-radius: 8px;
-            font-size: 15px;
+            border-radius: 50%;
+            font-size: 22px;
             font-weight: 500;
+            line-height: 1;
             cursor: pointer;
-            width: 100%;
+        }
+
+        #beta-modal-dismiss svg {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        #beta-modal-dismiss:hover,
+        #beta-modal-dismiss:focus-visible {
+            filter: brightness(1.1);
         }
 
         .beta-label-style {
@@ -250,7 +271,11 @@
     <div id="beta-modal">
         <p class="beta-modal-title">This website is in beta</p>
         <p class="beta-modal-body">You're viewing a beta version of the DerekYT website. Some features won't be available everywhere, they may not function properly, and they can change without notice. For a more stable experience, visit <a href="https://derekyt.dev" target="_blank">derekyt.dev</a>.</p>
-        <button id="beta-modal-dismiss">Got it</button>
+        <button id="beta-modal-dismiss" type="button" aria-label="Close beta notice">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="m4 4 8 8M12 4 4 12" fill="none" />
+            </svg>
+        </button>
     </div>
     </div>
     <header>
