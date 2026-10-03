@@ -1,0 +1,130 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watchOS 27 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines-glass-watchos.css">
+    <style>
+        @media (min-width:601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-27-wallpaper-desktop.png');
+            }
+        }
+
+        @media (max-width:600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-27-wallpaper-mobile.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>watchOS 27</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an iOS 27 version">
+                    <option value="27-0">watchOS 27.0</option>
+                    <option value="27-2">watchOS 27.2</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "27-0": {
+                label: "watchOS 27.0",
+                releases: [
+                    { name: "watchOS 27.0 beta 1", date: "Jun 8, 2026" },
+                    { name: "watchOS 27.0 beta 2", date: "Jun 22, 2026" },
+                    { name: "watchOS 27.0 beta 3", date: "Jul 6, 2026" },
+                    { name: "watchOS 27.0 beta 4", date: "Jul 20, 2026" },
+                    { name: "watchOS 27.0 beta 5", date: "Aug 10, 2026" },
+                    { name: "watchOS 27.0 beta 6", date: "Aug 17, 2026" },
+                    { name: "watchOS 27.0 beta 7", date: "Aug 24, 2026" },
+                    { name: "watchOS 27.0 beta 8", date: "Aug 31, 2026" },
+                    {
+                        pair: [
+                            { name: "watchOS 27.0 RC build", date: "Sep 9, 2026" },
+                            { name: "watchOS 27.0 final build", date: "Sep 14, 2026" },
+                        ],
+                        className: "release-pair-builds"
+                    },
+                ],
+            },
+            "27-2": {
+                label: "watchOS 27.2",
+                releases: [
+                    { name: "watchOS 27.2 beta 1", date: "Sep 16, 2026" },
+                    { name: "watchOS 27.2 beta 2", date: "Sep 21, 2026" },
+                ]
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}">
+                <p class="release-name">${release.name}</p>
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

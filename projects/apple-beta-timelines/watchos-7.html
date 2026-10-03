@@ -1,0 +1,260 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watchOS 7 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines-watchos.css">
+    <style>
+       @media (min-width: 601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-7-wallpaper-desktop.png');
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-7-wallpaper-mobile.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>watchOS 7</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose a watchOS 7 version">
+                    <option value="7-0">watchOS 7.0</option>
+                    <option value="7-1">watchOS 7.1</option>
+                    <option value="7-2">watchOS 7.2</option>
+                    <option value="7-3">watchOS 7.3</option>
+                    <option value="7-4">watchOS 7.4</option>
+                    <option value="7-5">watchOS 7.5</option>
+                    <option value="7-6">watchOS 7.6</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "7-0": {
+                label: "watchOS 7.0",
+                releases: [
+                    { name: "watchOS 7.0 beta 1", date: "June 22, 2020", alignment: "left" },
+                    { name: "watchOS 7.0 beta 2", date: "July 7, 2020", alignment: "right" },
+                    { name: "watchOS 7.0 beta 3", date: "July 22, 2020", alignment: "left" },
+                    { name: "watchOS 7.0 beta 4", date: "August 4, 2020", alignment: "right" },
+                    { name: "watchOS 7.0 beta 5", date: "August 18, 2020", alignment: "left" },
+                    { name: "watchOS 7.0 beta 6", date: "August 25, 2020", alignment: "right" },
+                    { name: "watchOS 7.0 beta 7", date: "September 1, 2020", alignment: "left" },
+                    { name: "watchOS 7.0 beta 8", date: "September 9, 2020", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "watchOS 7.0 GM build", date: "September 15, 2020" },
+                            { name: "watchOS 7.0 final build", date: "September 16, 2020" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    {
+                        trio: [
+                            { name: "watchOS 7.0.1", date: "September 24, 2020" },
+                            { name: "watchOS 7.0.2", date: "October 12, 2020" },
+                            { name: "watchOS 7.0.3", date: "October 19, 2020" },
+                        ]
+                    }
+                ]
+            },
+            "7-1": {
+                label: "watchOS 7.1",
+                releases: [
+                    { name: "watchOS 7.1 beta 1", date: "September 17, 2020", alignment: "left" },
+                    { name: "watchOS 7.1 beta 2", date: "September 29, 2020", alignment: "right" },
+                    { name: "watchOS 7.1 beta 3", date: "October 14, 2020", alignment: "left" },
+                    { name: "watchOS 7.1 beta 4", date: "October 22, 2020", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "watchOS 7.1 RC build", date: "November 2, 2020" },
+                            { name: "watchOS 7.1 final build", date: "November 5, 2020" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "7-2": {
+                label: "watchOS 7.2",
+                releases: [
+                    { name: "watchOS 7.2 beta 1", date: "November 12, 2020", alignment: "left" },
+                    { name: "watchOS 7.2 beta 2", date: "November 18, 2020", alignment: "right" },
+                    { name: "watchOS 7.2 beta 3", date: "December 2, 2020", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "watchOS 7.2 RC build", date: "December 8, 2020" },
+                            { name: "watchOS 7.2 final build", date: "December 14, 2020" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "7-3": {
+                label: "watchOS 7.3",
+                releases: [
+                    { name: "watchOS 7.3 beta 1", date: "December 16, 2020", alignment: "left" },
+                    { name: "watchOS 7.3 beta 2", date: "January 13, 2021", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "watchOS 7.3 RC build", date: "January 21, 2021" },
+                            { name: "watchOS 7.3 final build", date: "January 26, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { trio: [
+                            { name: "watchOS 7.3.1", date: "February 15, 2021" },
+                            { name: "watchOS 7.3.2", date: "March 8, 2021" },
+                            { name: "watchOS 7.3.3", date: "March 15, 2021" },
+                        ],
+                        className: "release-trio-tight" }
+                ]
+            },
+            "7-4": {
+                label: "watchOS 7.4",
+                releases: [
+                    { name: "watchOS 7.4 beta 1", date: "February 1, 2021", alignment: "left" },
+                    { name: "watchOS 7.4 beta 2", date: "February 16, 2021", alignment: "right" },
+                    { name: "watchOS 7.4 beta 3", date: "March 4, 2021", alignment: "left" },
+                    { name: "watchOS 7.4 beta 4", date: "March 15, 2021", alignment: "right" },
+                    { name: "watchOS 7.4 beta 5", date: "March 23, 2021", alignment: "left" },
+                    { name: "watchOS 7.4 beta 6", date: "March 31, 2021", alignment: "right" },
+                    { name: "watchOS 7.4 beta 7", date: "April 7, 2021", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "watchOS 7.4 RC build", date: "April 20, 2021" },
+                            { name: "watchOS 7.4 final build", date: "April 26, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "watchOS 7.4.1", date: "May 3, 2021" }
+                ]
+            },
+            "7-5": {
+                label: "watchOS 7.5",
+                releases: [
+                    { name: "watchOS 7.5 beta 1", date: "April 22, 2021", alignment: "left" },
+                    { name: "watchOS 7.5 beta 2", date: "April 30, 2021", alignment: "right" },
+                    { name: "watchOS 7.5 beta 3", date: "May 10, 2021", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "watchOS 7.5 RC build", date: "May 17, 2021" },
+                            { name: "watchOS 7.5 final build", date: "May 24, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "7-6": {
+                label: "watchOS 7.6",
+                releases: [
+                    { name: "watchOS 7.6 beta 1", date: "May 19, 2021", alignment: "left" },
+                    { name: "watchOS 7.6 beta 2", date: "June 2, 2021", alignment: "right" },
+                    { name: "watchOS 7.6 beta 3", date: "June 14, 2021", alignment: "left" },
+                    { name: "watchOS 7.6 beta 4", date: "June 29, 2021", alignment: "right" },
+                    { name: "watchOS 7.6 beta 5", date: "July 8, 2021", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "watchOS 7.6 RC build", date: "July 13, 2021" },
+                            { name: "watchOS 7.6 final build", date: "July 19, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { name: "watchOS 7.6.1", date: "July 29, 2021" },
+                            { name: "watchOS 7.6.2", date: "September 13, 2021" },
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

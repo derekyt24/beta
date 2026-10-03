@@ -1,0 +1,220 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watchOS 5 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines-watchos.css">
+    <style>
+        @media (max-width:600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-5-wallpaper-mobile.png');
+            }
+        }
+
+        @media (min-width:601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-5-wallpaper-desktop.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>watchOS 5</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose a watchOS 5 version">
+                    <option value="5-0">watchOS 5.0</option>
+                    <option value="5-1">watchOS 5.1</option>
+                    <option value="5-1-2">watchOS 5.1.2</option>
+                    <option value="5-2">watchOS 5.2</option>
+                    <option value="5-2-1">watchOS 5.2.1</option>
+                    <option value="5-3-x">watchOS 5.3.x</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+        <p id="timeline-intro" class="timeline-intro-note" hidden></p>
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "5-0": {
+                label: "watchOS 5.0",
+                releases: [
+                    { name: "watchOS 5.0 beta 1", date: "June 4, 2018", note: "build 2: June 11, 2018", alignment: "left" },
+                    { name: "watchOS 5.0 beta 2", date: "June 19, 2018", alignment: "right" },
+                    { name: "watchOS 5.0 beta 3", date: "July 3, 2018", alignment: "left" },
+                    { name: "watchOS 5.0 beta 4", date: "July 17, 2018", alignment: "right" },
+                    { name: "watchOS 5.0 beta 5", date: "July 30, 2018", alignment: "left" },
+                    { name: "watchOS 5.0 beta 6", date: "August 6, 2018", alignment: "right" },
+                    { name: "watchOS 5.0 beta 7", date: "August 13, 2018", alignment: "left" },
+                    { name: "watchOS 5.0 beta 8", date: "August 20, 2018", alignment: "right" },
+                    { name: "watchOS 5.0 beta 9", date: "August 24, 2018", alignment: "left" },
+                    { name: "watchOS 5.0 beta 10", date: "August 31, 2018", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "watchOS 5.0 GM build", date: "September 12, 2018" },
+                            { name: "watchOS 5.0 final build", date: "September 17, 2018" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "watchOS 5.0.1", date: "September 27, 2018" }
+                ]
+            },
+            "5-1": {
+                label: "watchOS 5.1",
+                releases: [
+                    { name: "watchOS 5.1 beta 1", date: "September 18, 2018", alignment: "left" },
+                    { name: "watchOS 5.1 beta 2", date: "October 2, 2018", alignment: "right" },
+                    { name: "watchOS 5.1 beta 3", date: "October 9, 2018", alignment: "left" },
+                    { name: "watchOS 5.1 beta 4", date: "October 15, 2018", alignment: "right" },
+                    { name: "watchOS 5.1 beta 5", date: "October 22, 2018", spanTwo: true },
+                    { name: "watchOS 5.1 final build", date: "October 30, 2018", spanTwo: true },
+                ],
+                supplemental: [
+                    { name: "watchOS 5.1.1", date: "November 5, 2018" }
+                ]
+            },
+            "5-1-2": {
+                label: "watchOS 5.1.2",
+                releases: [
+                    { name: "watchOS 5.1.2 beta 1", date: "November 7, 2018", alignment: "left" },
+                    { name: "watchOS 5.1.2 beta 2", date: "November 15, 2018", alignment: "right" },
+                    { name: "watchOS 5.1.2 final build", date: "December 5, 2018", spanTwo: true },
+                ],
+                supplemental: [
+                    { date: "watchOS 5.1.3", note: "beta 1: Dec 10, 2018\nbeta 2: Dec 19, 2018\nbeta 3: Jan 7, 2019\nFinal build: Jan 22, 2019" },
+                ]
+            },
+            "5-2": {
+                label: "watchOS 5.2",
+                releases: [
+                    { name: "watchOS 5.2 beta 1", date: "January 24, 2019", alignment: "left" },
+                    { name: "watchOS 5.2 beta 2", date: "February 4, 2019", alignment: "right" },
+                    { name: "watchOS 5.2 beta 3", date: "February 19, 2019", alignment: "left" },
+                    { name: "watchOS 5.2 beta 4", date: "March 4, 2019", alignment: "right" },
+                    { name: "watchOS 5.2 beta 5", date: "March 11, 2019", alignment: "left" },
+                    { name: "watchOS 5.2 beta 6", date: "March 18, 2019", alignment: "right" },
+                    { name: "watchOS 5.2 final build", date: "March 27, 2019", spanTwo: true },
+                ]
+            },
+            "5-2-1": {
+                label: "watchOS 5.2.1",
+                releases: [
+                    { name: "watchOS 5.2.1 beta 1", date: "March 28, 2019", alignment: "left" },
+                    { name: "watchOS 5.2.1 beta 2", date: "April 8, 2019", alignment: "right" },
+                    { name: "watchOS 5.2.1 beta 3", date: "April 22, 2019", alignment: "left" },
+                    { name: "watchOS 5.2.1 beta 4", date: "April 29, 2019", alignment: "right" },
+                    { name: "watchOS 5.2.1 beta 5", date: "May 7, 2019", spanTwo: true },
+                    { name: "watchOS 5.2.1 final build", date: "May 13, 2019", spanTwo: true },
+                ]
+            },
+            "5-3-x": {
+                label: "watchOS 5.3.x",
+                releases: [
+                    {
+                        quad: [
+                            { date: "watchOS 5.3", note: "beta 1: May 15, 2019\nbeta 2: May 28, 2019\nbeta 3: Jun 11, 2019\nbeta 4: Jun 24, 2019\nbeta 5: Jul 9, 2019\nbeta 6: Jul 16, 2019\nFinal build: Jul 22, 2019" },
+                            { date: "watchOS 5.3.1", note: "Final build: Aug 26, 2019" },
+                            { date: "watchOS 5.3.2", note: "Series 1 + 2: Sep 26, 2019\nSeries 3: Sep 30, 2019\nSeries 4: Oct 9, 2019" },
+                            { date: "watchOS 5.3.3", note: "Final build: Oct 29, 2019" },
+                        ],
+                    },
+                    { 
+                        quad: [
+                            { date: "watchOS 5.3.4", note: "Final build: Dec 10, 2019" },
+                            { date: "watchOS 5.3.5", note: "Final build: Feb 18, 2020" },
+                            { date: "watchOS 5.3.6", note: "Final build: Mar 24, 2020" },
+                            { date: "watchOS 5.3.7", note: "Final build: May 18, 2020" },
+                        ],
+                    },
+                    { 
+                        trio: [
+                            { date: "watchOS 5.3.8", note: "Final build: Jul 15, 2020" },
+                            { date: "watchOS 5.3.9", note: "Final build: Nov 5, 2020" },
+                            { date: "watchOS 5.3.10", note: "Final build: Mar 24, 2026" },
+                        ],
+                    },
+                ],
+            }
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineIntro = document.getElementById("timeline-intro");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineIntro.hidden = true;
+                timelineIntro.textContent = "";
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineIntro.textContent = timeline.intro ?? "";
+            timelineIntro.hidden = !timeline.intro;
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

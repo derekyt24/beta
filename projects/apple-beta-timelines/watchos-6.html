@@ -1,0 +1,208 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watchOS 6 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines-watchos.css">
+    <style>
+        @media (max-width: 600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-6-wallpaper-mobile.png');
+            }
+        }
+
+        @media (min-width: 601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-6-wallpaper-desktop.png')
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>watchOS 6</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose an iOS 13 version">
+                    <option value="6-0">watchOS 6.0</option>
+                    <option value="6-1-x">watchOS 6.1.x</option>
+                    <option value="6-2">watchOS 6.2</option>
+                    <option value="6-2-8">watchOS 6.2.8</option>
+                    <option value="6-3-x">watchOS 6.3.x</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "6-0": {
+                label: "watchOS 6.0",
+                releases: [
+                    { name: "watchOS 6.0 beta 1", date: "June 3, 2019", alignment: "left" },
+                    { name: "watchOS 6.0 beta 2", date: "June 17, 2019", alignment: "right" },
+                    { name: "watchOS 6.0 beta 3", date: "July 2, 2019", alignment: "left" },
+                    { name: "watchOS 6.0 beta 4", date: "July 17, 2019", alignment: "right" },
+                    { name: "watchOS 6.0 beta 5", date: "July 30, 2019", alignment: "left" },
+                    { name: "watchOS 6.0 beta 6", date: "August 7, 2019", alignment: "right" },
+                    { name: "watchOS 6.0 beta 7", date: "August 15, 2019", alignment: "left" },
+                    { name: "watchOS 6.0 beta 8", date: "August 21, 2019", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "watchOS 6.0 GM build", date: "September 10, 2019" },
+                            { name: "watchOS 6.0 final build", date: "September 19, 2019" }
+                        ],
+                        className: "release-pair-builds"
+                    },
+                ],
+                supplemental: [
+                    { name: "watchOS 6.0.1", date: "September 30, 2019" },
+                ]
+            },
+            "6-1-x": {
+                label: "watchOS 6.1.x",
+                releases: [
+                    { name: "watchOS 6.1 beta 1", date: "September 23, 2019", alignment: "left" },
+                    { name: "watchOS 6.1 beta 2", date: "October 2, 2019", alignment: "right" },
+                    { name: "watchOS 6.1 beta 3", date: "October 10, 2019", alignment: "left" },
+                    { name: "watchOS 6.1 beta 4", date: "October 16, 2019", alignment: "right" },
+                    { name: "watchOS 6.1 beta 5", date: "October 23, 2019", spanTwo: true },
+                    { name: "watchOS 6.1 final build", date: "October 29, 2019", spanTwo: true }
+                ],
+                supplemental: [
+                    { 
+                        trio: [
+                            { date: "watchOS 6.1.1", note: "beta 1: Nov 5, 2019\nbeta 2: Nov 12, 2019\nbeta 3: Nov 20, 2019\nbeta 4: Dec 5, 2019\nFinal build: Dec 10, 2019" },
+                            { date: "watchOS 6.1.2", note: "beta 1: Dec 17, 2019\nbeta 2: Jan 14, 2020\nbeta 3: Jan 22, 2020\nFinal build: Jan 28, 2020" },
+                            { date: "watchOS 6.1.3", note: "Final build: Feb 18, 2020" },
+                        ],
+                        className: "release-trio-tight"
+                    }
+                ]
+            },
+            "6-2": {
+                label: "watchOS 6.2",
+                releases: [
+                    { name: "watchOS 6.2 beta 1", date: "February 5, 2020", alignment: "left" },
+                    { name: "watchOS 6.2 beta 2", date: "February 19, 2020", alignment: "right" },
+                    { name: "watchOS 6.2 beta 3", date: "February 26, 2020", alignment: "left" },
+                    { name: "watchOS 6.2 beta 4", date: "March 4, 2020", alignment: "right" },
+                    { name: "watchOS 6.2 beta 5", date: "March 11, 2020", alignment: "left" },
+                    { name: "watchOS 6.2 beta 6", date: "March 18, 2020", alignment: "right" },
+                    { name: "watchOS 6.2 final build", date: "March 24, 2020", spanTwo: true }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { date: "watchOS 6.2.5", note: "beta 1: Apr 1, 2020\nbeta 2: Apr 15, 2020\nbeta 3: Apr 29, 2020\nbeta 4: May 6, 2020\nbeta 5: May 14, 2020\nFinal build: May 18, 2020" },
+                            { date: "watchOS 6.2.6", note: "Final build: Jun 1, 2020" },
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ]
+            },
+            "6-2-8": {
+                label: "watchOS 6.2.8",
+                releases: [
+                    { name: "watchOS 6.2.8 beta 1", date: "June 3, 2020", alignment: "left" },
+                    { name: "watchOS 6.2.8 beta 2", date: "June 10, 2020", alignment: "right" },
+                    { name: "watchOS 6.2.8 beta 3", date: "June 30, 2020", spanTwo: "true" },
+                    {
+                        pair: [
+                            { name: "watchOS 6.2.8 GM build", date: "July 9, 2020" },
+                            { name: "watchOS 6.2.8 final build", date: "July 15, 2020" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "watchOS 6.2.9", date: "November 5, 2020" }
+                ]
+            },
+            "6-3-x": {
+                label: "watchOS 6.3.x",
+                releases: [
+                    {
+                        pair: [
+                            { date: "watchOS 6.3", note: "Series 1 + 2: Dec 14, 2020\nSeries 3-5: Jan 26, 2021" },
+                            { date: "watchOS 6.3.1", note: "Final build: Feb 2, 2026" },
+                        ],
+                        className: "release-pair-builds"
+                    },
+                ]
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

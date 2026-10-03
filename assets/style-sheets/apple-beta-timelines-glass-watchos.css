@@ -13,21 +13,21 @@ body {
         background-repeat:no-repeat;
         background-attachment:fixed;
         color:#ffffff;
-        font-family:"SF Pro", "Inter", sans-serif;
+        font-family:"SF Compact", "Inter", sans-serif;
         text-align:center;
     }
 
 @font-face {
-    font-family: "SF Pro";
-    src: url("../fonts/SF-Pro.woff2") format("woff2");
+    font-family: "SF Compact";
+    src: url("../fonts/SF-Compact.ttf") format("truetype");
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
 }
     
 @font-face {
-        font-family: "SF Pro";
-        src: url("../fonts/SF-Pro-Italic.woff2") format("woff2");
+        font-family: "SF Compact";
+        src: url("../fonts/SF-Compact-Italic.ttf") format("truetype");
         font-weight: 1 1000;
         font-style: italic;
         font-display: swap;
@@ -191,11 +191,12 @@ body {
         font-size:64px;
         font-weight:550;
         letter-spacing:0em;
-        line-height:1.1;
+        line-height:1.0;
     }
 
     .version-picker {
         display:block;
+        width: fit-content;
         margin:7px auto 10px;
     }
 
@@ -272,28 +273,28 @@ body {
     }
 
     .release-name {
-        margin:0 0 4px;
+        margin:0 0 3.5px;
         color:rgba(255, 255, 255, 0.67);
         font-size:18px;
         font-weight:500;
-        letter-spacing:0.03em;
+        letter-spacing:0em;
     }
 
     .release-date {
         margin:0;
         font-size:28px;
         font-weight:450;
-        letter-spacing:-0.01em;
+        letter-spacing:-0.03em;
         color:rgba(255, 255, 255, 0.9);
     }
 
     .release-note {
-        margin:3.5px 0 0;
+        margin:3px 0 0;
         color:rgba(255, 255, 255, 0.67);
-        font-size:14px;
+        font-size:16px;
         font-weight:400;
-        letter-spacing:0.04em;
-        line-height:1.4;
+        letter-spacing:0.01em;
+        line-height:1.3;
         white-space:pre-line;
     }
 
@@ -320,6 +321,8 @@ body {
 
     .supplemental .section-label {
         font-size:21px;
+        font-weight:500;
+        letter-spacing:-0.01em;
         margin-bottom:15px;
         color:rgba(255, 255, 255, 0.75);
     }
@@ -332,8 +335,8 @@ body {
 
     @media (max-width:600px) {
         body {
-            padding:20px 25px;
-            padding-bottom:54px;
+            padding:20px;
+            padding-bottom:50px;
             background-attachment:scroll;
         }
 
@@ -346,15 +349,16 @@ body {
         }
 
         main {
-            margin-top:30px;
+            margin-top:25px;
         }
 
         h1 {
-            font-size:44px;
+            font-size:42px;
         }
 
         .version-picker {
             margin:7px auto 10px;
+            width: fit-content;
         }
 
         .version-picker select {
@@ -386,12 +390,12 @@ body {
             margin: 0 0 3.5px;
             font-size:12px;
             line-height: 1.2;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.01em;
         }
 
         .release-date {
             font-size:18px;
-            letter-spacing:0.25px;
+            letter-spacing:-0.03em;
         }
 
         .release-note {
@@ -399,7 +403,7 @@ body {
         }
 
         .supplemental .section-label {
-            letter-spacing:-0.005em;
+            letter-spacing:-0.03em;
             font-size:16px;
             margin-bottom:12px;
         }
@@ -474,13 +478,9 @@ body {
         }
     }
     @media (max-width:600px) {
-        .release-date {
-            letter-spacing:0;
-        }
-
         .release-name,
         .release-date,
         .release-note {
-            line-height:1.13;
+            line-height:1.1;
         }
     }

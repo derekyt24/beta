@@ -1,0 +1,158 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watchOS 2 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines-watchos.css">
+    <style>
+        @media (max-width:600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-2-wallpaper-mobile.png');
+            }
+        }
+
+        @media (min-width:601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-watchos-2-wallpaper-desktop.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>watchOS 2</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose a watchOS 2 version">
+                    <option value="2-0">watchOS 2.0</option>
+                    <option value="2-1">watchOS 2.1</option>
+                    <option value="2-2-x">watchOS 2.2.x</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "2-0": {
+                label: "watchOS 2.0",
+                releases: [
+                    { name: "watchOS 2.0 beta 1", date: "June 8, 2015", alignment: "left" },
+                    { name: "watchOS 2.0 beta 2", date: "June 23, 2015", note: "build 2: June 30, 2015", alignment: "right" },
+                    { name: "watchOS 2.0 beta 3", date: "July 8, 2015", note: "build 2: July 15, 2015", alignment: "left" },
+                    { name: "watchOS 2.0 beta 4", date: "July 21, 2015", alignment: "right" },
+                    { name: "watchOS 2.0 beta 5", date: "August 6, 2015", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "watchOS 2.0 GM build", date: "September 9, 2015" },
+                            { name: "watchOS 2.0 final build", date: "September 21, 2015" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "watchOS 2.0.1", date: "October 21, 2015" },
+                ]
+            },
+            "2-1": {
+                label: "watchOS 2.1",
+                releases: [
+                    { name: "watchOS 2.1", date: "December 8, 2015", spanTwo: true }
+                ],
+            },
+            "2-2-x": {
+                label: "watchOS 2.2.x",
+                releases: [
+                    { name: "watchOS 2.2 beta 1", date: "January 11, 2016", alignment: "left" },
+                    { name: "watchOS 2.2 beta 2", date: "January 25, 2016", alignment: "right" },
+                    { name: "watchOS 2.2 beta 3", date: "February 8, 2016", alignment: "left" },
+                    { name: "watchOS 2.2 beta 4", date: "February 22, 2016", alignment: "right" },
+                    { name: "watchOS 2.2 beta 5", date: "March 1, 2016", alignment: "left" },
+                    { name: "watchOS 2.2 beta 6", date: "March 7, 2016", alignment: "right" },
+                    { name: "watchOS 2.2 final build", date: "March 21, 2016", spanTwo: true }
+                ],
+                supplemental: [
+                    {
+                        pair: [
+                            { date: "watchOS 2.2.1", note: "beta 1: Apr 6, 2016\nGM build: Apr 20, 2016\nFinal build: May 16, 2016" },
+                            { date: "watchOS 2.2.2", note: "GM build: Jun 6, 2016\nFinal build: Jul 18, 2016" },
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ]
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

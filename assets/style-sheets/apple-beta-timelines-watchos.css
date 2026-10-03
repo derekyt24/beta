@@ -14,20 +14,20 @@ body {
     background-attachment: fixed;
     background-color: #0a1015;
     color: #ffffff;
-    font-family: "SF Pro", "Inter", sans-serif;
+    font-family: "SF Compact", "Inter", sans-serif;
     text-align: center;
 }
 
 @font-face {
-    font-family: "SF Pro";
-    src: url("https://beta.derekyt.dev/assets/fonts/SF-Pro.woff2") format("woff2");
+    font-family: "SF Compact";
+    src: url("https://beta.derekyt.dev/assets/fonts/SF-Compact.ttf") format("truetype");
     font-weight: 1 1000;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: "SF Pro";
-    src: url("https://beta.derekyt.dev/assets/fonts/SF-Pro-Italic.woff2") format("woff2");
+    font-family: "SF Compact";
+    src: url("https://beta.derekyt.dev/assets/fonts/SF-Compact-Italic.tff") format("truetype");
     font-weight: 1 1000;
     font-style: italic;
     font-display: swap;
@@ -79,8 +79,8 @@ h1 {
     margin: 0;
     font-size: 64px;
     font-weight: 550;
-    letter-spacing: 0em;
-    line-height: 1.1;
+    letter-spacing: 0.01em;
+    line-height: 1.0;
 }
 
 .timeline-picker-note {
@@ -95,7 +95,7 @@ h1 {
 .version-picker {
     width: fit-content;
     display: block;
-    margin: 7px auto 15px;
+    margin: 10px auto 10px;
 }
 
 .version-picker select {
@@ -312,8 +312,6 @@ h1 {
     column-gap: 25px;
 }
 
-/* Supplemental releases share one section, so give consecutive standalone rows
-   the same breathing room as the main timeline grid. */
 .supplemental > .release + .release {
     margin-top: var(--timeline-row-gap, 17.5px);
 }
@@ -328,11 +326,11 @@ h1 {
 
 .release-name,
 .section-label {
-    margin: 0 0 4px;
+    margin: 0 0 3px;
     color: rgba(255, 255, 255, 0.67);
     font-size: 18px;
     font-weight: 400;
-    letter-spacing: 0.03em;
+    letter-spacing: 0em;
 }
 
 .release-name {
@@ -343,17 +341,17 @@ h1 {
     margin: 0;
     color: rgba(255, 255, 255, 0.9);
     font-size: 28px;
-    font-weight: 450;
-    letter-spacing: 0em;
+    font-weight: 500;
+    letter-spacing: -0.03em;
 }
 
 .release-note {
-    margin: 3px 0 0;
+    margin: 2.5px 0 0;
     color: rgba(255, 255, 255, 0.67);
     font-size: 14px;
     font-weight: 450;
-    letter-spacing: 0.04em;
-    line-height: 1.4;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
     white-space: pre-line;
 }
 
@@ -376,7 +374,7 @@ h1 {
     font-size: 21px;
     font-weight:450;
     margin: 5px 0px 15px 0px;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
     color: rgba(255, 255, 255, 0.75);
 }
 
@@ -389,8 +387,6 @@ h1 {
     color: rgba(255, 255, 255, 0.75);
 }
 
-/* A second, in-timeline section title—for example, Security Updates after
-   a version's main and supplemental releases. */
 .supplemental .section-label-divider {
     margin-top: 30px;
 }
@@ -486,6 +482,7 @@ h1 {
 
     .version-picker select {
         font-size: 19px;
+        letter-spacing:-0.03em;
     }
 
     .release-grid {
@@ -590,24 +587,25 @@ h1 {
 
     .release-name,
     .section-label {
-        margin: 0px 0px 4.5px;
+        margin: 0px 0px 4px;
         font-size: 11px;
+        font-weight:500;
         line-height: 1.2;
-        letter-spacing:0.02em;
+        letter-spacing:0em;
     }
 
     .release-date {
         font-size: 18px;
-        font-weight:450;
+        font-weight:500;
         line-height: 1;
-        letter-spacing: 0em;
+        letter-spacing:-0.03em;
     }
 
     .release-note {
-        margin: 4px 0px 0px;
-        line-height: 1.4;
+        margin: 3px 0px 0px;
+        line-height: 1.5;
         font-size: 10px;
-        letter-spacing:0.02em;
+        letter-spacing:-0.01em;
     }
 
     .release-align-left {
@@ -623,8 +621,9 @@ h1 {
     }
 
     .supplemental .section-label {
-        letter-spacing:-0.005em;
+        letter-spacing:-0.03em;
         font-size: 16px;
+        font-weight:500;
         margin-bottom: 12px;
     }
 

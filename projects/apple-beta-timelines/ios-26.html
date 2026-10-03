@@ -51,6 +51,7 @@
                     <option value="26-4">iOS 26.4</option>
                     <option value="26-5">iOS 26.5</option>
                     <option value="26-6">iOS 26.6</option>
+                    <option value="26-7-x">iOS 26.7.x</option>
                 </select>
                 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                     <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -211,9 +212,26 @@
                     },
                 ],
                 supplemental: [
-                    { date: "iOS 26.6.1", note: "RC build: Aug 10, 2026" },
+                    { 
+                        pair: [
+                            { date: "iOS 26.6.1", note: "RC build: Aug 10, 2026\nFinal build: Aug 17, 2026" },
+                            { date: "iOS 26.6.2", note: "Final build: Sep 8, 2026" },
+                        ]
+                    }
                 ]
             },
+            "26-7-x": {
+                label: "iOS 26.7.x",
+                releases: [
+                    {
+                        pair: [
+                            { date: "iOS 26.7", note: "RC build: Sep 9, 2026\nFinal build: Sep 14, 2026" },
+                            { date: "iOS 26.7.1", note: "Final build: Sep 28, 2026" },
+                        ],
+                        className: "release-pair-tight"
+                    }
+                ]
+            }
         };
 
         const versionSelect = document.getElementById("software-version");
