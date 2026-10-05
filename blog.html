@@ -1,0 +1,173 @@
+---
+---
+<head>
+    <title>Projects &#8211; DerekYT (beta)</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <!-- Font information (start) -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- Font information (end) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
+        body {
+            background-color: #000000;
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            font-family: "SF Pro", "Inter", sans-serif;
+            font-weight:400;
+            color:#ffffff;
+            text-align:left;
+            max-width:750px;
+            margin:0 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 25px 20px 25px 20px;
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/oct-4-background-desktop-light.png');
+                background-color:#ffffff;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/oct-4-projects-background-desktop-dark.png');
+                background-color:#0a1015; 
+            }
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: light) {
+            body {
+                padding-right:15px;
+                padding-left:15px;
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/oct-4-projects-background-mobile-light.png');
+            }
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: dark) {
+            body {
+                padding-right:15px;
+                padding-left:15px;
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/oct-4-projects-background-mobile-dark.png');
+            }
+        }
+
+        a:link {
+            color: rgb(255,255,255,0.83);
+        }
+
+        a:hover {
+            color: rgb(255,255,255,0.67);
+        }
+
+        a:visited {
+            color: rgb(255,255,255,0.5);
+        }
+
+        .beta-label-style {
+            background-color: rgba(247, 220, 46, 0.5);
+            margin-top: 12.5px;
+            /*margin-bottom: 20px;*/
+            padding:14px;
+            font-size:16px;
+            line-height:1.4;
+            border-radius: 7px;
+        }
+        
+        .welcome-font {
+            margin-top:20px;
+            margin-bottom:15px;
+            font-size:36px;
+            font-weight:500;
+            letter-spacing:-0.01em;
+        }
+        
+        .post-frame {
+            background-color: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .post-details {
+            display: flex;
+            max-height: 200px;
+            max-width: 100%;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .post-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+            letter-spacing: -0.02em;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .post-metadata {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            margin: 10px 0 5px;
+        }
+
+        div img {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            background-size: cover;
+        }
+
+        footer {
+            font-size:10px;
+            letter-spacing:0.25px;
+            opacity:0.5;
+            margin-top: auto;
+        }
+
+        footer a,
+        footer a:link,
+        footer a:visited {
+            color:inherit;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    {% include site-header.html %}
+    <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
+    <h1 class="welcome-font">Blog</h1>
+    <div class="post-frame">
+        <div class="post-details">
+            <img src="https://beta.derekyt.dev/assets/blog/01-preview.png">
+            <div>
+                <p class="post-title"><a style="text-decoration: none;" href="https://beta.derekyt.dev/blog/01">Introducing the DerekYT blog &#8250;</a></p>
+                <p class="post-metadata" data-utc="2026-10-05T19:00Z">October 5, 2026 at 19:00 UTC</p>
+            </div>
+        </div>
+    </div>
+    </header>
+<footer>AI models from Anthropic and OpenAI assisted in developing features on this site.</footer>
+<script>
+    document.querySelectorAll('[data-utc]').forEach(el => {
+    const date = new Date(el.dataset.utc);
+    el.textContent = "" + date.toLocaleString(undefined, {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit',
+        timeZoneName: 'short'
+    });
+});
+</script>
+</body>
