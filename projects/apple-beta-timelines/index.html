@@ -202,7 +202,7 @@
 
         .welcome-font {
             margin-top:20px;
-            margin-bottom:20px;
+            margin-bottom:15px;
             font-size:36px;
             font-weight:500;
             font-variation-settings: "wdth" 116;
@@ -210,7 +210,7 @@
 
         .heading-body-line-height {
             line-height:1.5;
-            margin-bottom:15px;
+            margin: 10px 0 10px;
         }
 
         .link-margin {
@@ -239,7 +239,7 @@
 
         .timeline-picker {
             width:min(100%, 500px);
-            margin:32px auto 0;
+            margin:20px auto 0;
         }
 
         .timeline-picker-fields {
@@ -312,7 +312,7 @@
 </style>
 <body>
     <header>
-    {% include site-header-beta.html %}
+    {% include site-header.html %}
     <div class="beta-label-style">This project is in beta. Some elements may not work properly.</div>
     <h1 class="welcome-font">Apple beta timelines</h1>
     <p class="heading-body-line-height">From DerekYT, SLKVinyl, and That Josh Guy, Apple beta timelines is an easy way to find release dates for builds of Apple software.</p>
@@ -327,6 +327,7 @@
                     <option value="os-x">OS X</option>
                     <option value="macos">macOS</option>
                     <option value="visionos">visionOS</option>
+                    <option value="watchos">watchOS</option>
                 </select>
             </div>
             <div>
@@ -346,6 +347,7 @@
         "os-x": { label: "OS X", versions: ["10.9", "10.10", "10.11"]},
         macos: { label: "macOS", versions: ["10.12", "10.13", "10.14", "10.15", "11", "12", "13", "14", "15", "26", "27"]},
         visionos: { label: "visionOS", versions: ["1", "2", "26", "27"] },
+        watchos: { label: "watchOS", versions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "26", "27" ] },
     };
 
     const picker = document.getElementById("timeline-picker");
