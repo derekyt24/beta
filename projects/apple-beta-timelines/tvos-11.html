@@ -1,0 +1,200 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tvOS 11 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (max-width:600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-tvos-11-wallpaper-mobile.png');
+            }
+        }
+
+        @media (min-width:601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-tvos-11-wallpaper-desktop.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>tvOS 11</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose a tvOS 11 version">
+                    <option value="11-0">tvOS 11.0</option>
+                    <option value="11-1">tvOS 11.1</option>
+                    <option value="11-2">tvOS 11.2</option>
+                    <option value="11-3">tvOS 11.3</option>
+                    <option value="11-4">tvOS 11.4</option>
+                    <option value="11-4-1">tvOS 11.4.1</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "11-0": {
+                label: "tvOS 11.0",
+                releases: [
+                    { name: "tvOS 11.0 beta 1", date: "June 5, 2017", note: "build 2: June 7, 2017", alignment: "left" },
+                    { name: "tvOS 11.0 beta 2", date: "June 21, 2017", note: "build 2: June 26, 2017", alignment: "right" },
+                    { name: "tvOS 11.0 beta 3", date: "July 10, 2017", alignment: "left" },
+                    { name: "tvOS 11.0 beta 4", date: "July 24, 2017", alignment: "right" },
+                    { name: "tvOS 11.0 beta 5", date: "August 7, 2017", alignment: "left" },
+                    { name: "tvOS 11.0 beta 6", date: "August 14, 2017", alignment: "right" },
+                    { name: "tvOS 11.0 beta 7", date: "August 21, 2017", alignment: "left" },
+                    { name: "tvOS 11.0 beta 8", date: "August 28, 2017", alignment: "right" },
+                    { name: "tvOS 11.0 beta 9", date: "August 31, 2017", alignment: "left" },
+                    { name: "tvOS 11.0 beta 10", date: "September 6, 2017", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "tvOS 11.0 GM build", date: "September 12, 2017" },
+                            { name: "tvOS 11.0 final build", date: "September 19, 2017" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "11-1": {
+                label: "tvOS 11.1",
+                releases: [
+                    { name: "tvOS 11.1 beta 1", date: "September 27, 2017", alignment: "left" },
+                    { name: "tvOS 11.1 beta 2", date: "October 9, 2017", alignment: "right" },
+                    { name: "tvOS 11.1 beta 3", date: "October 16, 2017", alignment: "left" },
+                    { name: "tvOS 11.1 beta 4", date: "October 23, 2017", alignment: "right" },
+                    { name: "tvOS 11.1 final build", date: "October 31, 2017", spanTwo: true }
+                ],
+            },
+            "11-2": {
+                label: "tvOS 11.2",
+                releases: [
+                    { name: "tvOS 11.2 beta 1", date: "October 30, 2017", alignment: "left" },
+                    { name: "tvOS 11.2 beta 2", date: "November 6, 2017", alignment: "right" },
+                    { name: "tvOS 11.2 beta 3", date: "November 13, 2017", alignment: "left" },
+                    { name: "tvOS 11.2 beta 4", date: "November 17, 2017", alignment: "right" },
+                    { name: "tvOS 11.2 beta 5", date: "November 28, 2017", spanTwo: true },
+                    { name: "tvOS 11.2 final build", date: "December 4, 2017", spanTwo: true },
+                ],
+                supplemental: [
+                    {
+                        trio: [
+                            { date: "tvOS 11.2.1", note: "Final build: Dec 13, 2017" },
+                            { date: "tvOS 11.2.5", note: "beta 1: Dec 13, 2017\nbeta 2: Dec 19, 2017\nbeta 3: Jan 3, 2018\nbeta 4: Jan 9, 2018\nbeta 5: Jan 12, 2018\nbeta 6: Jan 17, 2018\nFinal build: Jan 23, 2018" },
+                            { date: "tvOS 11.2.6", note: "Final build: Feb 19, 2018" },
+                        ],
+                        className: "release-trio-tight"
+                    }
+                ]
+            },
+            "11-3": {
+                label: "tvOS 11.3",
+                releases: [
+                    { name: "tvOS 11.3 beta 1", date: "January 24, 2018", alignment: "left" },
+                    { name: "tvOS 11.3 beta 2", date: "February 6, 2018", alignment: "right" },
+                    { name: "tvOS 11.3 beta 3", date: "February 20, 2018", alignment: "left" },
+                    { name: "tvOS 11.3 beta 4", date: "March 5, 2018", alignment: "right" },
+                    { name: "tvOS 11.3 beta 5", date: "March 12, 2018", alignment: "left" },
+                    { name: "tvOS 11.3 beta 6", date: "March 20, 2018", alignment: "right" },
+                    { name: "tvOS 11.3 final build", date: "March 29, 2018", spanTwo: true }
+                ],
+            },
+            "11-4": {
+                label: "tvOS 11.4",
+                releases: [
+                    { name: "tvOS 11.4 beta 1", date: "April 2, 2018", alignment: "left" },
+                    { name: "tvOS 11.4 beta 2", date: "April 16, 2018", alignment: "right" },
+                    { name: "tvOS 11.4 beta 3", date: "May 1, 2018", alignment: "left" },
+                    { name: "tvOS 11.4 beta 4", date: "May 7, 2018", alignment: "right" },
+                    { name: "tvOS 11.4 beta 5", date: "May 14, 2018", spanTwo: true },
+                    { name: "tvOS 11.4 final build", date: "May 29, 2018", spanTwo: true }
+                ]
+            },
+            "11-4-1": {
+                label: "tvOS 11.4.1",
+                releases: [
+                    { name: "tvOS 11.4.1 beta 1", date: "May 30, 2018", alignment: "left" },
+                    { name: "tvOS 11.4.1 beta 2", date: "June 11, 2018", alignment: "right" },
+                    { name: "tvOS 11.4.1 beta 3", date: "June 18, 2018", alignment: "left" },
+                    { name: "tvOS 11.4.1 beta 4", date: "June 25, 2018", alignment: "right" },
+                    { name: "tvOS 11.4.1 final build", date: "July 9, 2018", spanTwo: true }
+                ]
+            }
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";            
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

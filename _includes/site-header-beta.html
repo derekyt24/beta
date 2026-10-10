@@ -1,33 +1,46 @@
+<link rel="stylesheet" href="/assets/style-sheets/page-transition.css">
+<script src="/assets/scripts/page-transition.js" defer></script>
 <style>
     nav {
         font-size:14px;
     }
 
-    .nav-links {
-        display:flex;
-        gap:10px;
-    }
+        .nav-brand {
+            opacity: 1;
+            font-weight:500;
+            margin-right:15px;
+            text-decoration: none;
+        }
+    
+        .nav-links {
+            display: flex;
+            gap:10px;
+        }
 
-    .nav-links a,
-    .nav-links a:link,
-    .nav-links a:visited {
-        color:inherit;
-        opacity:0.5;
-        text-decoration:none;
-    }
+        .nav-links a {
+            color:inherit;
+            opacity:0.5;
+            text-decoration:none;
+        }
 
-    .nav-links a:hover {
-        color:inherit;
-        opacity:0.75;
-    }
+        .nav-links a:link {
+            color:inherit;
+            opacity:0.5;
+        }
 
-    .nav-brand {
-        font-weight:500;
-        margin-right:15px;
-    }
+        .nav-links a:hover {
+            color:inherit;
+            opacity:0.75;
+        }
+
+        .nav-links a:visited {
+            color:inherit;
+            opacity:0.5;
+        }
+        
 </style>
 <nav>
-    <span class="nav-brand">DerekYT (beta)</span>
+    <a class="nav-brand" href="/">DerekYT</span>
     <div class="nav-links">
         <a href="/">Home</a>
         <a href="/projects">Projects</a>

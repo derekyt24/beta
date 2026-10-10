@@ -221,11 +221,12 @@
                 label: "macOS 26.7.x",
                 releases: [
                     {
-                        pair: [
+                        trio: [
                             { date: "macOS 26.7", note: "RC build 1: Aug 17, 2026\nRC build 2: Aug 24, 2026\nRC build 3: Aug 31, 2026\nRC build 4: Sep 9, 2026\nFinal build: Sep 14, 2026" },
                             { date: "macOS 26.7.1", note: "RC build 1: Sep 16, 2026\nRC build 2: Sep 21, 2026\nFinal build: Sep 28, 2026" },
+                            { date: "macOS 26.7.2", note: "RC build 1: Oct 6, 2026" },
                         ],
-                        className: "release-pair-tight"
+                        className: "release-trio-tight"
                     }
             ],
             },
@@ -239,6 +240,10 @@
             if (release.quad) {
                 const className = release.className ? " " + release.className : "";
                 return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.trio) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
             }
             if (release.pair) {
                 const className = release.className ? ` ${release.className}` : "";

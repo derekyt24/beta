@@ -1,0 +1,241 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tvOS 15 &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines.css">
+    <style>
+        @media (min-width: 601px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-tvos-15-wallpaper-desktop.png');
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-tvos-15-wallpaper-mobile.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+
+    <main>
+        <h1>tvOS 15</h1>
+        <label class="version-picker" for="software-version">
+            <span>
+                <select id="software-version" aria-label="Choose a tvOS 15 version">
+                    <option value="15-0">tvOS 15.0</option>
+                    <option value="15-1">tvOS 15.1</option>
+                    <option value="15-2">tvOS 15.2</option>
+                    <option value="15-3">tvOS 15.3</option>
+                    <option value="15-4">tvOS 15.4</option>
+                    <option value="15-5">tvOS 15.5</option>
+                    <option value="15-6">tvOS 15.6</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script>
+        const timelines = {
+            "15-0": {
+                label: "tvOS 15.0",
+                releases: [
+                    { name: "tvOS 15.0 beta 1", date: "June 7, 2021", alignment: "left" },
+                    { name: "tvOS 15.0 beta 2", date: "June 24, 2021", alignment: "right" },
+                    { name: "tvOS 15.0 beta 3", date: "July 14, 2021", alignment: "left" },
+                    { name: "tvOS 15.0 beta 4", date: "July 27, 2021", alignment: "right" },
+                    { name: "tvOS 15.0 beta 5", date: "August 10, 2021", alignment: "left" },
+                    { name: "tvOS 15.0 beta 6", date: "August 17, 2021", alignment: "right" },
+                    { name: "tvOS 15.0 beta 7", date: "August 25, 2021", alignment: "left" },
+                    { name: "tvOS 15.0 beta 8", date: "August 31, 2021", alignment: "right" },
+                    { name: "tvOS 15.0 beta 9", date: "September 7, 2021", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "iOS 15.0 RC build", date: "September 14, 2021" },
+                            { name: "iOS 15.0 final build", date: "September 20, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "15-1": {
+                label: "tvOS 15.1",
+                releases: [
+                    { name: "tvOS 15.1 beta 1", date: "September 21, 2021", alignment: "left" },
+                    { name: "tvOS 15.1 beta 2", date: "September 28, 2021", alignment: "right" },
+                    { name: "tvOS 15.1 beta 3", date: "October 6, 2021", alignment: "left" },
+                    { name: "tvOS 15.1 beta 4", date: "October 13, 2021", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "tvOS 15.1 RC build", date: "October 18, 2021" },
+                            { name: "tvOS 15.1 final build", date: "October 25, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "iOS 15.1.1", date: "November 1, 2021" }
+                ]
+            },
+            "15-2": {
+                label: "tvOS 15.2",
+                releases: [
+                    { name: "tvOS 15.2 beta 1", date: "October 27, 2021", alignment: "left" },
+                    { name: "tvOS 15.2 beta 2", date: "November 9, 2021", alignment: "right" },
+                    { name: "tvOS 15.2 beta 3", date: "November 16, 2021", alignment: "left" },
+                    { name: "tvOS 15.2 beta 4", date: "December 2, 2021", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "tvOS 15.2 RC build", date: "December 7, 2021" },
+                            { name: "tvOS 15.2 final build", date: "December 13, 2021" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "15-3": {
+                label: "tvOS 15.3",
+                releases: [
+                    { name: "tvOS 15.3 beta 1", date: "December 17, 2021", alignment: "left" },
+                    { name: "tvOS 15.3 beta 2", date: "January 12, 2022", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "tvOS 15.3 RC build", date: "January 20, 2022" },
+                            { name: "tvOS 15.3 final build", date: "January 26, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+            "15-4": {
+                label: "tvOS 15.4",
+                releases: [
+                    { name: "tvOS 15.4 beta 1", date: "January 27, 2022", alignment: "left" },
+                    { name: "tvOS 15.4 beta 2", date: "February 8, 2022", alignment: "right" },
+                    { name: "tvOS 15.4 beta 3", date: "February 15, 2022", alignment: "left" },
+                    { name: "tvOS 15.4 beta 4", date: "February 22, 2022", alignment: "right" },
+                    { name: "tvOS 15.4 beta 5", date: "March 1, 2022", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "tvOS 15.4 RC build", date: "March 8, 2022" },
+                            { name: "tvOS 15.4 final build", date: "March 14, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "tvOS 15.4.1", date: "March 31, 2022" }
+                ]
+            },
+            "15-5": {
+                label: "tvOS 15.5",
+                releases: [
+                    { name: "tvOS 15.5 beta 1", date: "April 5, 2022", alignment: "left" },
+                    { name: "tvOS 15.5 beta 2", date: "April 19, 2022", alignment: "right" },
+                    { name: "tvOS 15.5 beta 3", date: "April 26, 2022", alignment: "left" },
+                    { name: "tvOS 15.5 beta 4", date: "May 3, 2022", alignment: "right" },
+                    {
+                        pair: [
+                            { name: "tvOS 15.5 RC build", date: "May 12, 2022" },
+                            { name: "tvOS 15.5 final build", date: "May 16, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+                supplemental: [
+                    { name: "tvOS 15.5.1", date: "May 25, 2022" },
+                ]
+            },
+            "15-6": {
+                label: "tvOS 15.6",
+                releases: [
+                    { name: "tvOS 15.6 beta 1", date: "May 18, 2022", alignment: "left" },
+                    { name: "tvOS 15.6 beta 2", date: "May 31, 2022", alignment: "right" },
+                    { name: "tvOS 15.6 beta 3", date: "June 14, 2022", alignment: "left" },
+                    { name: "tvOS 15.6 beta 4", date: "June 28, 2022", alignment: "right" },
+                    { name: "tvOS 15.6 beta 5", date: "July 5, 2022", spanTwo: true },
+                    {
+                        pair: [
+                            { name: "tvOS 15.6 RC build", date: "July 12, 2022" },
+                            { name: "tvOS 15.6 final build", date: "July 20, 2022" }
+                        ],
+                        className: "release-pair-builds"
+                    }
+                ],
+            },
+        };
+
+        const versionSelect = document.getElementById("software-version");
+        const releaseGrid = document.getElementById("release-grid");
+        const timelineFootnote = document.getElementById("timeline-footnote");
+
+        function releaseMarkup(release) {
+            if (release.trio) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
+            }
+
+            if (release.quad) {
+                const className = release.className ? " " + release.className : "";
+                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
+            }
+            if (release.pair) {
+                const className = release.className ? ` ${release.className}` : "";
+                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
+            }
+
+            const spanClass = release.spanTwo ? " span-two" : "";
+            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
+            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
+            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
+            return `<article class="release${spanClass}${alignmentClass}">
+                ${name}
+                <p class="release-date">${release.date}</p>${note}
+            </article>`;
+        }
+
+        function renderTimeline() {
+            const timeline = timelines[versionSelect.value];
+
+            if (!timeline) {
+                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
+                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
+                timelineFootnote.hidden = true;
+                timelineFootnote.textContent = "";
+                return;
+            }
+
+            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
+            timelineFootnote.textContent = timeline.footnote ?? "";
+            timelineFootnote.hidden = !timeline.footnote;
+            let markup = timeline.releases.map(releaseMarkup).join("");
+
+            if (timeline.supplemental?.length) {
+                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
+                    <p class="section-label">supplemental releases</p>
+                    ${timeline.supplemental.map(releaseMarkup).join("")}
+                </section>`;
+            }
+
+            releaseGrid.innerHTML = markup;
+        }
+
+        versionSelect.addEventListener("change", renderTimeline);
+        renderTimeline();
+    </script>
+</body>
+</html>

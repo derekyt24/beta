@@ -29,7 +29,7 @@
             text-align:left;
             max-width:800px;
             margin:0 auto;
-            padding:25px 20px 25px 20px;
+            padding:25px 0px 25px 0px;
             display:flex;
             flex-direction:column;
             min-height:100vh;
@@ -109,11 +109,13 @@
 
         @media (prefers-color-scheme: dark) {
             .photo-light { display: none; }
+            .graphic-light { display: none; }
         }
 
         @media (prefers-color-scheme: light) {
             .photo-dark { display: none; }
-        }
+            .graphic-dark { display: none; }
+        }        
 
         #beta-modal-overlay {
             display: none;
@@ -241,6 +243,52 @@
             width:100%;
         }
 
+        h2.featured {
+            font-weight:500;
+            font-size:28px;
+            margin:10px 0px 17.5px 0px;
+        }
+
+        .graphic-light,
+        .graphic-dark {
+            width:100px;
+            height:100px;
+            border-radius: 5px;
+            object-fit:cover;
+        }
+
+        .project-frame {
+            display: flex;
+            max-height:200px;
+            max-width:100%;
+            gap: 17.5px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 600px) {
+            .project-frame {
+                flex-direction:column;
+                max-height:none;
+                max-width:100%;
+                gap:12.5px;
+            }
+        }
+
+        .featured-project-head {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+            letter-spacing:-0.02em;
+            font-size:24px;
+            font-weight:500;
+        }
+
+        .featured-project-description {
+            line-height:1.5;
+            margin: 10px 0px 7.5px 0px;
+        }
+
         a:link {
             color:inherit;
             opacity:0.83;
@@ -289,7 +337,16 @@
     <img class="photo-dark" src="assets/20260827-profilepic-dark.jpg" width="225px" height="225px">
     <p class="heading-body-line-height">Hi! I'm Derek. Student, designer, and enthusiast for tech, modern cars, and weather.</p>
     <p class="heading-body-line-height">I make the Apple beta timelines, Android beta timelines, and compatibility charts projects. You can find links to those on the <a href="/projects">Projects</a> page.</p>
-    </a>
+    <h2 class="featured">Featured project</h2>
+    <div class="project-frame">
+        <img class="graphic-light" src="https://derekyt.dev/assets/graphics/apple-beta-timelines/light.png">
+        <img class="graphic-dark" src="https://derekyt.dev/assets/graphics/apple-beta-timelines/dark.png">
+        <div>
+            <p class="featured-project-head">Apple beta timelines</p>
+            <p class="featured-project-description">An extensive library of release dates for builds of Apple platforms.</p>
+            <p class="featured-project-description"><a href="https://drive.google.com/drive/folders/1Vw2k4fz856dKxGk3J6SnUQwa-9xgCM7D?usp=sharing">Explore</a> <span style="font-weight:700;">&middot;</span> <a href="https://derekyt.dev/releases/apple-beta-timelines">Release notes</a> <span style="font-weight:700;">&middot;</span> <a href="https://beta.derekyt.dev/projects/apple-beta-timelines">Try version 2.0 (beta)</a></p>
+        </div>
+    </div>
     </header>
     {% include site-footer.html %}
     <script>
