@@ -33,6 +33,8 @@
             <span>
                 <select id="software-version" aria-label="Choose a visionOS 27 version">
                     <option value="27-0">visionOS 27.0</option>
+                    <option value="27-2">visionOS 27.2</option>
+                    <option value="27-3">visionOS 27.3</option>
                 </select>
                 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                     <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -43,81 +45,6 @@
         <section id="release-grid" class="release-grid" aria-live="polite"></section>
     </main>
     <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
-    <script>
-        const timelines = {
-            "27-0": {
-                label: "visionOS 27.0",
-                releases: [
-                    { name: "visionOS 27.0 beta 1", date: "June 8, 2026", alignment: "left" },
-                    { name: "visionOS 27.0 beta 2", date: "June 22, 2026", alignment: "right" },
-                    { name: "visionOS 27.0 beta 3", date: "July 6, 2026", alignment: "left" },
-                    { name: "visionOS 27.0 beta 4", date: "July 20, 2026", alignment: "right" },
-                    { name: "visionOS 27.0 beta 5", date: "August 10, 2026", alignment: "left" },
-                    { name: "visionOS 27.0 beta 6", date: "August 17, 2026", alignment: "right" },
-                    { name: "visionOS 27.0 beta 7", date: "August 24, 2026", alignment: "left" },
-                    { name: "visionOS 27.0 beta 8", date: "August 31, 2026", alignment: "right" },
-                    {
-                        pair: [
-                            { name: "visionOS 27.0 RC build", date: "September 9, 2026" },
-                            { name: "visionOS 27.0 final build", date: "September 14, 2026" },
-                        ],
-                        className: "release-pair-builds",
-                    }
-                ]
-            }
-        };
-
-        const versionSelect = document.getElementById("software-version");
-        const releaseGrid = document.getElementById("release-grid");
-        const timelineFootnote = document.getElementById("timeline-footnote");
-
-        function releaseMarkup(release) {
-            if (release.quad) {
-                const className = release.className ? " " + release.className : "";
-                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
-            }
-            if (release.pair) {
-                const className = release.className ? ` ${release.className}` : "";
-                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
-            }
-
-            const spanClass = release.spanTwo ? " span-two" : "";
-            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
-            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
-            return `<article class="release${spanClass}${alignmentClass}">
-                <p class="release-name">${release.name}</p>
-                <p class="release-date">${release.date}</p>${note}
-            </article>`;
-        }
-
-        function renderTimeline() {
-            const timeline = timelines[versionSelect.value];
-
-            if (!timeline) {
-                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
-                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon.</p>';
-                timelineFootnote.hidden = true;
-                timelineFootnote.textContent = "";
-                return;
-            }
-
-            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
-            timelineFootnote.textContent = timeline.footnote ?? "";
-            timelineFootnote.hidden = !timeline.footnote;
-            let markup = timeline.releases.map(releaseMarkup).join("");
-
-            if (timeline.supplemental?.length) {
-                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
-                    <p class="section-label">supplemental releases</p>
-                    ${timeline.supplemental.map(releaseMarkup).join("")}
-                </section>`;
-            }
-
-            releaseGrid.innerHTML = markup;
-        }
-
-        versionSelect.addEventListener("change", renderTimeline);
-        renderTimeline();
-    </script>
+    <script src="/assets/scripts/apple-beta-timelines.js" defer></script>
 </body>
 </html>

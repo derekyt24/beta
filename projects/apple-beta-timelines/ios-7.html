@@ -31,7 +31,7 @@
         <h1>iOS 7</h1>
         <label class="version-picker" for="software-version">
             <span>
-                <select id="software-version" aria-label="Choose an iOS 8 version">
+                <select id="software-version" aria-label="Choose an iOS 7 version">
                     <option value="7-0">iOS 7.0</option>
                     <option value="7-1">iOS 7.1</option>
                 </select>
@@ -44,130 +44,6 @@
         <section id="release-grid" class="release-grid" aria-live="polite"></section>
     </main>
     <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
-    <script>
-        const timelines = {
-            "7-0": {
-                label: "iOS 7.0",
-                footnote: "1: iPhone 5c + 5s only",
-                releases: [
-                    { name: "iOS 7.0 beta 1", date: "June 10, 2013", alignment: "left" },
-                    { name: "iOS 7.0 beta 2", date: "June 24, 2013", alignment: "right" },
-                    { name: "iOS 7.0 beta 3", date: "July 8, 2013", note: "build 2: July 11, 2013", alignment: "left" },
-                    { name: "iOS 7.0 beta 4", date: "July 29, 2013", alignment: "right" },
-                    { name: "iOS 7.0 beta 5", date: "August 6, 2013", alignment: "left" },
-                    { name: "iOS 7.0 beta 6", date: "August 15, 2013", alignment: "right" },
-                    {
-                        pair: [
-                            { name: "iOS 7.0 GM build", date: "September 10, 2013" },
-                            { name: "iOS 7.0 final build", date: "September 18, 2013" }
-                        ],
-                        className: "release-pair-builds"
-                    }
-                ],
-                supplemental: [
-                    {
-                        trio: [
-                            { name: "iOS 7.0.1&#185;", date: "September 18, 2013" },
-                            { name: "iOS 7.0.2", date: "September 26, 2013" },
-                            { name: "iOS 7.0.3", date: "October 22, 2013" },
-                        ],
-                        className: "release-trio-tight"
-                    },
-                    {
-                        trio: [
-                            { name: "iOS 7.0.4", date: "November 14, 2013"},
-                            { name: "iOS 7.0.5&#185;", date: "January 29, 2014" },
-                            { name: "iOS 7.0.6", date: "February 21, 2014" }
-                        ],
-                        className: "release-trio-tight"
-                    }
-                ]
-            },
-            "7-1": {
-                label: "iOS 7.1",
-                releases: [
-                    { name: "iOS 7.1 beta 1", date: "November 18, 2013", alignment: "left" },
-                    { name: "iOS 7.1 beta 2", date: "December 14, 2013", alignment: "right" },
-                    { name: "iOS 7.1 beta 3", date: "January 7, 2014", alignment: "left" },
-                    { name: "iOS 7.1 beta 4", date: "January 20, 2014", alignment: "right" },
-                    { name: "iOS 7.1 beta 5", date: "February 4, 2014", spanTwo: true },
-                    {
-                        pair: [
-                            { name: "iOS 7.1 GM build", date: "March 10, 2014", },
-                            { name: "iOS 7.1 final build", date: "March 10, 2014", }
-                        ],
-                        className: "release-pair-builds"
-                    }
-                ],
-                supplemental: [
-                    {
-                        trio: [
-                            { name: "iOS 7.1.1", date: "April 22, 2014" },
-                            { name: "iOS 7.1.2", date: "June 30, 2014" }
-                        ],
-                        className: "release-pair-tight"
-                    }
-                ]
-            },
-        };
-
-        const versionSelect = document.getElementById("software-version");
-        const releaseGrid = document.getElementById("release-grid");
-        const timelineFootnote = document.getElementById("timeline-footnote");
-
-        function releaseMarkup(release) {
-            if (release.trio) {
-                const className = release.className ? ` ${release.className}` : "";
-                return `<div class="release-trio${className}">${release.trio.map(releaseMarkup).join("")}</div>`;
-            }
-
-            if (release.quad) {
-                const className = release.className ? " " + release.className : "";
-                return `<div class="release-quad${className}">${release.quad.map(releaseMarkup).join("")}</div>`;
-            }
-            if (release.pair) {
-                const className = release.className ? ` ${release.className}` : "";
-                return `<div class="release-pair${className}">${release.pair.map(releaseMarkup).join("")}</div>`;
-            }
-
-            const spanClass = release.spanTwo ? " span-two" : "";
-            const alignmentClass = release.alignment ? ` release-align-${release.alignment}` : "";
-            const name = release.name ? `<p class="release-name">${release.name}</p>` : "";
-            const note = release.note ? `<p class="release-note">${release.note}</p>` : "";
-            return `<article class="release${spanClass}${alignmentClass}">
-                ${name}
-                <p class="release-date">${release.date}</p>${note}
-            </article>`;
-        }
-
-        function renderTimeline() {
-            const timeline = timelines[versionSelect.value];
-
-            if (!timeline) {
-                releaseGrid.setAttribute("aria-label", "Timeline coming soon");
-                releaseGrid.innerHTML = '<p class="timeline-message span-two">This timeline is coming soon</p>';
-                timelineFootnote.hidden = true;
-                timelineFootnote.textContent = "";
-                return;
-            }
-
-            releaseGrid.setAttribute("aria-label", `${timeline.label} release dates`);
-            timelineFootnote.textContent = timeline.footnote ?? "";
-            timelineFootnote.hidden = !timeline.footnote;
-            let markup = timeline.releases.map(releaseMarkup).join("");
-
-            if (timeline.supplemental?.length) {
-                markup += `<section class="span-two supplemental" aria-label="Supplemental releases">
-                    <p class="section-label">supplemental releases</p>
-                    ${timeline.supplemental.map(releaseMarkup).join("")}
-                </section>`;
-            }
-
-            releaseGrid.innerHTML = markup;
-        }
-
-        versionSelect.addEventListener("change", renderTimeline);
-        renderTimeline();
-    </script>
+    <script src="/assets/scripts/apple-beta-timelines.js" defer></script>
 </body>
 </html>

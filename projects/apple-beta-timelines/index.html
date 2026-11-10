@@ -203,14 +203,15 @@
         .welcome-font {
             margin-top:20px;
             margin-bottom:15px;
-            font-size:36px;
+            font-size:32px;
             font-weight:500;
             font-variation-settings: "wdth" 116;
         }
 
         .heading-body-line-height {
             line-height:1.5;
-            margin: 10px 0 10px;
+            max-width: 600px;
+            margin: 10px auto 10px;
         }
 
         .link-margin {
@@ -341,53 +342,5 @@
         <button type="submit" disabled>Go</button>
     </form>
     </header>
-<script>
-    const timelineData = {
-        ios: { label: "iOS", versions: ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27"] },
-        ipados: { label: "iPadOS", versions: ["13", "14", "15", "16", "17", "18", "26", "27"] },
-        "os-x": { label: "OS X", versions: ["10.9", "10.10", "10.11"]},
-        macos: { label: "macOS", versions: ["10.12", "10.13", "10.14", "10.15", "11", "12", "13", "14", "15", "26", "27"]},
-        visionos: { label: "visionOS", versions: ["1", "2", "26", "27"] },
-        watchos: { label: "watchOS", versions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "26", "27" ] },
-        tvos: { label: "tvOS", versions: ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "26", "27" ] },
-    };
-
-    const picker = document.getElementById("timeline-picker");
-    const platformSelect = document.getElementById("platform");
-    const versionSelect = document.getElementById("version");
-    const goButton = picker.querySelector("button");
-
-    function versionSlug(platform, version) {
-        const normalizedVersion = version.replace(".", "-");
-        if (platform === "macos" && ["10.9", "10.10", "10.11"].includes(version)) {
-            return `os-x-${normalizedVersion}`;
-        }
-        return `${platform}-${normalizedVersion}`;
-    }
-
-    function updateVersions() {
-        const platform = platformSelect.value;
-        versionSelect.replaceChildren(new Option("Choose a version", ""));
-        versionSelect.disabled = !platform;
-        goButton.disabled = true;
-
-        if (!platform) return;
-
-        const { label, versions } = timelineData[platform];
-        versions.forEach((version) => {
-            versionSelect.add(new Option(`${label} ${version}`, version));
-        });
-    }
-
-    platformSelect.addEventListener("change", updateVersions);
-    versionSelect.addEventListener("change", () => {
-        goButton.disabled = !versionSelect.value;
-    });
-
-    picker.addEventListener("submit", (event) => {
-        event.preventDefault();
-        if (!platformSelect.value || !versionSelect.value) return;
-        window.location.assign(`/projects/apple-beta-timelines/${versionSlug(platformSelect.value, versionSelect.value)}`);
-    });
-</script>
+<script src="/assets/scripts/apple-beta-timelines.js" defer></script>
 </body>

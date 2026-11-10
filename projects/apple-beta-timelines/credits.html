@@ -1,0 +1,60 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credits &#8211; Apple beta timelines</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="stylesheet" href="../../assets/style-sheets/apple-beta-timelines-glass.css">
+    <style>
+        @media (max-width:600px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light-mobile.png');
+            }
+        }
+
+        @media (min-width:601px) and (prefers-color-scheme: light) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-light-desktop.png');
+            }
+        }
+
+        @media (max-width:600px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark-mobile.png');
+            }
+        }
+
+        @media (min-width:601px) and (prefers-color-scheme: dark) {
+            body {
+                background-image:url('https://beta.derekyt.dev/assets/bg-images/apple-beta-timelines-ios-27-wallpaper-dark-desktop.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include site-header.html %}
+    <main>
+        <h1>Credits</h1>
+        <label class="version-picker" for="software-version" data-link-copy="disabled" hidden>
+            <span>
+                <select id="software-version" aria-label="View Apple beta timelines credits">
+                    <option value="credits">Credits</option>
+                </select>
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M3 5.5 8 10.5l5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+        </label>
+        <p id="timeline-intro" class="timeline-intro-note" hidden></p>
+
+        <section id="release-grid" class="release-grid" aria-live="polite"></section>
+    </main>
+    <footer id="timeline-footnote" class="timeline-footnote" hidden></footer>
+    <script src="/assets/scripts/apple-beta-timelines.js" defer></script>
+</body>
+</html>

@@ -1,9 +1,9 @@
-/*(() => {
+(() => {
     const versionSelect = document.getElementById("software-version");
     const releaseGrid = document.getElementById("release-grid");
     const pickerLabel = versionSelect?.closest(".version-picker");
 
-    if (!versionSelect || !releaseGrid || !pickerLabel || !versionSelect.options.length) return;
+    if (!versionSelect || !releaseGrid || !pickerLabel || pickerLabel.hidden || pickerLabel.dataset.linkCopy === "disabled" || !versionSelect.options.length) return;
 
     const pickerRow = document.createElement("div");
     pickerRow.className = "version-picker-row";
@@ -122,4 +122,4 @@
     window.addEventListener("popstate", selectVersionFromAddressBar);
 
     selectVersionFromAddressBar();
-})();*/
+})();

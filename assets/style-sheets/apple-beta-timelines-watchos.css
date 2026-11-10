@@ -656,6 +656,19 @@ h1 {
     }
 }
 
+@media (min-width:381px) and (max-width:600px) {
+    .release-trio.release-pair-compact {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 20px;
+    }
+
+    .release-trio.release-pair-compact > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - 20px) / 2);
+    }
+}
+
 @media (max-width:380px) {
     body {
         padding: 20px 15px 20px 15px;
