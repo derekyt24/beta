@@ -31,33 +31,45 @@
             padding: 25px 20px 25px 20px;
         }
 
-        @media (prefers-color-scheme: light) {
+        @media (max-width: 600px) and (prefers-color-scheme: light) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-projects-background-desktop-light.png');
-                background-color:#ffffff;
+                background-image: url('https://derekyt.dev/assets/bg-images/projects-mobile.png');
             }
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (max-width: 600px) and (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-projects-background-desktop-dark.png');
-                background-color:#0a1015; 
+                background-image: url('https://derekyt.dev/assets/bg-images/projects-mobile.png');
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.67);
+                pointer-events: none;
+                z-index: -1;
             }
         }
 
-        @media (max-width:600px) and (prefers-color-scheme: light) {
+        @media (min-width: 601px) and (prefers-color-scheme: light) {
             body {
-                padding-right:15px;
-                padding-left:15px;
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-projects-background-mobile-light.png');
+                background-image: url('https://derekyt.dev/assets/bg-images/projects-desktop.png');
             }
         }
 
-        @media (max-width:600px) and (prefers-color-scheme: dark) {
+        @media (min-width: 601px) and (prefers-color-scheme: dark) {
             body {
-                padding-right:15px;
-                padding-left:15px;
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-projects-background-mobile-dark.png');
+                background-image: url('https://derekyt.dev/assets/bg-images/projects-desktop.png');
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.67);
+                pointer-events: none;
+                z-index: -1;
             }
         }
 
@@ -86,14 +98,17 @@
 
         .project-selector {
             margin-top:5px;
-            margin-bottom:10px;
+            margin-bottom:7.5px;
+            font-size:18px;
+            font-weight:500;
         }
 
         .project-card {
             width:100%;
-            max-width:350px;
+            max-width:400px;
             container-type:inline-size;
-            padding:7.5px 15px 15px 15px;
+            padding:15px;
+            margin-bottom:15px;
             border-radius:12px;
             background-position:center;
             background-size:cover;
@@ -132,33 +147,10 @@
             position:relative;
         }
 
-        .project-selector select {
-            width:100%;
-            height:40px;
-            padding:0 32px 0 0;
-            border:0;
-            background:transparent;
-            color:inherit;
-            font-size:14px;
-            font-weight:400;
-            appearance:none;
-            -webkit-appearance:none;
-        }
-
         /* Windows Chrome opens a light native option menu by default. */
         .project-selector select option {
             background-color:#ffffff;
             color:#000000;
-        }
-
-        .project-picker svg {
-            position:absolute;
-            top:50%;
-            right:4px;
-            width:12px;
-            height:22px;
-            transform:translateY(-50%);
-            pointer-events:none;
         }
 
         .project-details {
@@ -170,14 +162,31 @@
         }
 
         .project-description {
-            margin-bottom:10px;
+            margin-bottom: 7.5px;
             font-size:16px;
-            font-weight:500;
-            line-height:1.25;
+            font-weight:400;
+            line-height:24px;
+        }
+
+        .project-description-compatibility {
+            margin-bottom: 7.5px;
+            width: 350px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
         }
 
         .project-links {
             font-size:16px;
+            font-weight:400;
+            margin-bottom: 10px;
+        }
+
+        .project-links-legacy {
+            font-size: 12px;
+            font-weight: 300;
+            margin: 0 0 5px 0;
+            color: rgba(255,255,255,0.3);
         }
 
         .project-card a:link,
@@ -196,38 +205,9 @@
 
         @media (max-width:600px) {
             .project-card {
-                padding:7.5px 15px 15px 15px;
-                border-radius:18px;
-            }
-
-            .project-selector select {
-                font-size:18px;
-            }
-
-            .project-description {
-                font-size:20px;
-            }
-
-            .project-links {
-                font-size:16px;
-            }
-        }
-
-        @container (max-width:500px) {
-            .project-selector select {
-                font-size:16px;
-                letter-spacing:0.005em;
-                font-weight:500;
-            }
-
-            .project-description {
-                font-size:16px;
-                line-height:1.4;
-                font-weight:400;
-            }
-
-            .project-links {
-                font-size:14px;
+                padding:15px 15px 15px 15px;
+                border-radius:10px;
+                width: calc(100% - 30px)
             }
         }
 
@@ -250,36 +230,44 @@
     {% include site-header.html %}
     <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
     <h1 class="welcome-font">Projects</h1>
-    <p class="heading-body-line-height">Here, you can find Google Drive links and release notes to my projects.</p>
+    <p class="heading-body-line-height">Here, you can find links and release notes to my projects.</p>
     <section class="project-selector" aria-label="Project details">
         <div class="project-card project-apple">
             <div class="project-picker">
-                <select id="project-select" aria-label="Choose a project" aria-controls="project-details">
-                    <option value="apple">Apple beta timelines</option>
-                    <option value="android">Android beta timelines</option>
-                    <option value="compatibility">Compatibility charts</option>
-                </select>
-                <svg viewBox="0 0 16 28" aria-hidden="true" focusable="false">
-                    <path d="M3 10 8 5l5 5M3 18l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-
             <div id="project-details" class="project-details">
                 <section data-project="apple">
+                    <p class="project-selector">Apple beta timelines</p>
                     <p class="project-description">View release dates for builds of Apple platforms.</p>
-                    <p class="project-links"><a href="https://drive.google.com/drive/folders/1Vw2k4fz856dKxGk3J6SnUQwa-9xgCM7D?usp=sharing" target="_blank" rel="noopener">Project link</a> <span style="font-weight:700;">&middot;</span> <a href="/releases/apple-beta-timelines/">Release notes</a> <span style="font-weight:700;">&middot;</span> <a class="custom-underline" href="https://beta.derekyt.dev/projects/apple-beta-timelines">Try version 2.0 (beta)</a></p>
-                </section>
-                <section data-project="android" hidden>
-                    <p class="project-description">View release dates for builds of Android versions.</p>
-                    <p class="project-links"><a href="https://drive.google.com/drive/folders/1tq4QyOu16k-QellTT-ZUhTGIfDYwMz3z?usp=sharing" target="_blank" rel="noopener">Project link</a> <span style="font-weight:700;">&middot;</span> <a href="/releases/android-beta-timelines/">Release notes</a></p>
-                </section>
-                <section data-project="compatibility" hidden>
-                    <p class="project-description">Find if your device is compatible with an Apple platform version.</p>
-                    <p class="project-links"><a href="https://drive.google.com/drive/folders/1cX9P6PujMvVeR-1TQRPlPcNdd3uC-VRk?usp=sharing" target="_blank" rel="noopener">Project link</a> <span style="font-weight:700;">&middot;</span> <a href="/releases/compatibility-charts/">Release notes</a></p>
+                    <p class="project-links"><a class="custom-underline" href="https://derekyt.dev/projects/apple-beta-timelines">Project link</a> <span style="font-weight:700;">&middot;</span> <a href="/releases/apple-beta-timelines/">Release notes</a></p>
+                    <p class="project-links-legacy">Legacy version: <a href="https://drive.google.com/drive/folders/1Vw2k4fz856dKxGk3J6SnUQwa-9xgCM7D?usp=sharing" target="_blank" rel="noopener">click here</a></p>
                 </section>
             </div>
         </div>
     </section>
+    <section class="project-selector" aria-label="Project details">
+        <div class="project-card project-android">
+            <div class="project-picker">
+            <div id="project-details" class="project-details">
+                <section data-project="android">
+                    <p class="project-selector">Android beta timelines</p>
+                    <p class="project-description">View release dates for builds of Android versions.</p>
+                    <p class="project-links"><a href="https://drive.google.com/drive/folders/1tq4QyOu16k-QellTT-ZUhTGIfDYwMz3z?usp=sharing" target="_blank" rel="noopener">Project link</a> <span style="font-weight:700;">&middot;</span> <a href="/releases/android-beta-timelines/">Release notes</a></p>
+                </section>
+            </div>
+        </div>
+    </section>
+    <section class="project-selector" aria-label="Project details">
+        <div class="project-card project-compatibility">
+            <div class="project-picker">
+            <div id="project-details" class="project-details">
+                <section data-project="compatibility">
+                    <p class="project-selector">Compatibility charts</p>
+                    <p class="project-description-compatibility">See if your device is compatible with an Apple platform version.</p>
+                    <p class="project-links"><a href="https://drive.google.com/drive/folders/1cX9P6PujMvVeR-1TQRPlPcNdd3uC-VRk?usp=sharing" target="_blank" rel="noopener">Project link</a> <span style="font-weight:700;">&middot;</span> <a href="/releases/compatibility-charts/">Release notes</a></p>
+                </section>
+            </div>
+        </div>
+    </section>      
     </header>
 <footer>AI models from Anthropic and OpenAI assisted in developing features on this site.</footer>
 <script>
