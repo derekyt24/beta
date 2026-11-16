@@ -1,0 +1,104 @@
+<style>
+    .follow {
+        display: flex;
+        max-height: 100px;
+        max-width: 100%;
+        gap: 10px;
+        align-items: flex-start;
+        margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+        .follow {
+            flex-direction: column;
+            max-height: none;
+            margin-top: 25px;
+            max-width: 100%;
+        }
+
+        .follow-inner {
+            box-sizing: border-box;
+            width: fit-content;
+            max-width: none;
+        }
+    }
+
+    .follow-inner {
+        display: inline-flex;
+        max-width: 250px;
+        background: rgba(0,0,0,0.25);
+        padding: 15px;
+        font-size: 14px;
+        line-height:1;
+        letter-spacing: 0em;
+        border-radius: 7px;
+        text-decoration: none;
+    }
+
+    .icon {
+        margin-right: 3px;
+    }
+
+    .icon-2 {
+        margin-right:5px;
+    }
+    
+    .site-footer {
+        font-size:10px;
+        letter-spacing:0.015em;
+        opacity:0.5;
+        margin-top:5px;
+        padding-top:5px;
+    }
+
+    .site-footer .ai-models-tooltip {
+        position:relative;
+        cursor:help;
+        text-decoration:underline dotted;
+        text-underline-offset:3px;
+    }
+
+    .site-footer .ai-models-tooltip::after {
+        content:attr(data-tooltip);
+        position:absolute;
+        left:50%;
+        bottom:calc(100% + 8px);
+        z-index:1;
+        width:max-content;
+        max-width:240px;
+        padding:8px 10px;
+        border-radius:6px;
+        background:rgba(0, 0, 0, 0.85);
+        color:#fff;
+        font-size:12px;
+        letter-spacing:0;
+        line-height:1.3;
+        opacity:0;
+        pointer-events:none;
+        transform:translate(-50%, 4px);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition:opacity 150ms ease, transform 150ms ease;
+    }
+
+    .site-footer .ai-models-tooltip:hover::after,
+    .site-footer .ai-models-tooltip:focus-visible::after {
+        opacity:1;
+        transform:translate(-50%, 0);
+    }
+
+    .site-footer .ai-models-tooltip[data-tooltip=""]::after {
+        display:none;
+    }
+</style>
+<div class="follow">
+    <a class="follow-inner" href="https://twitter.com/derekyt_">
+        <img class="icon" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/3840px-Logo_of_Twitter.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail" height="14px">
+        Follow me on Twitter (X)
+    </a>
+    <a class="follow-inner" href="https://github.com/derekyt24">
+        <img class="icon-2" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Github_logo_svg.svg/1280px-Github_logo_svg.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20230420150203" height="14px">
+        View my projects on GitHub
+    </a>
+</div>
+<footer class="site-footer"><span class="ai-models-tooltip" data-tooltip="from Anthropic and OpenAI" tabindex="0">AI models</span> assisted in developing features on this site.</footer>

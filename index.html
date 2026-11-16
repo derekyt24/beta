@@ -29,7 +29,10 @@
             text-align:left;
             max-width:800px;
             margin:0 auto;
-            padding:25px 20px 25px 20px;
+            padding: max(20px, env(safe-area-inset-top))
+                     max(20px, env(safe-area-inset-right))
+                     max(25px, env(safe-area-inset-bottom))
+                     max(20px, env(safe-area-inset-left));        
             display:flex;
             flex-direction:column;
             min-height:100vh;
@@ -45,7 +48,18 @@
 
         @media (prefers-color-scheme: light) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-desktop-light.png');
+                background-image: url('https://beta.derekyt.dev/assets/bg-images/home-desktop.png');
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.25);
+                backdrop-filter: blur(50px);
+                -webkit-backdrop-filter: blur(50px);
+                pointer-events: none;
+                z-index: -1;
             }
 
             #beta-modal {
@@ -61,7 +75,18 @@
 
         @media (max-width:600px) and (prefers-color-scheme: light) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-light.png');
+                background-image: url('https://beta.derekyt.dev/assets/bg-images/home-mobile.png');
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.25);
+                backdrop-filter: blur(50px);
+                -webkit-backdrop-filter: blur(50px);
+                pointer-events: none;
+                z-index: -1;
             }
 
             #beta-modal {
@@ -77,7 +102,18 @@
 
         @media (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-desktop-dark.png');
+                background-image: url('https://beta.derekyt.dev/assets/bg-images/home-desktop.png');
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.75);
+                backdrop-filter: blur(50px);
+                -webkit-backdrop-filter: blur(50px);
+                pointer-events: none;
+                z-index: -1;
             }
 
             #beta-modal {
@@ -93,7 +129,18 @@
 
         @media (max-width:600px) and (prefers-color-scheme: dark) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/aug-12-home-background-mobile-dark.png');
+                background-image: url('https://beta.derekyt.dev/assets/bg-images/home-mobile.png');
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.75);
+                backdrop-filter: blur(50px);
+                -webkit-backdrop-filter: blur(50px);
+                pointer-events: none;
+                z-index: -1;
             }
 
             #beta-modal {
@@ -200,7 +247,7 @@
         }
 
         .apple-beta-timelines-note-style {
-            background-image: linear-gradient(to right, rgba(56, 123, 142, 0.75), rgba(249, 150, 0, 0.75));
+            background-image: linear-gradient(to right, rgba(0, 89, 140, 0.75), rgba(4, 12, 21, 0.75));
             margin-top: 10px;
             padding:14px;
             font-size:15px;
@@ -224,6 +271,16 @@
             font-weight:500;
             letter-spacing:-0.02em;
         }
+
+        .body-text-main {
+            line-height:25px;
+            margin: 15px 0px 7.5px 0px;
+        }
+
+        .body-text {
+            line-height:25px;
+            margin: 7.5px 0px 10px 0px;
+        }        
 
         .ver-head-font {
             letter-spacing:0.25px;
@@ -287,7 +344,7 @@
 
         .featured-project-description {
             line-height:1.5;
-            margin: 10px 0px 7.5px 0px;
+            margin: 7.5px 0px 7.5px 0px;
         }
 
         a:link {
@@ -331,13 +388,13 @@
     {% include site-header.html %}
     <div>
         <p class="beta-label-style">This website is in beta. Some elements may not work properly.</p>
-        <div class="apple-beta-timelines-note-style">Apple beta timelines version 2.0 launches October 16. <a href="https://beta.derekyt.dev/projects/apple-beta-timelines">Click here</a> to get a preview.</div>
+        <div class="apple-beta-timelines-note-style">Apple beta timelines version 2.1 is now available in beta. <a href="https://beta.derekyt.dev/projects/apple-beta-timelines">Click here</a> to get a preview.</div>
     </div>
     <h1 class="welcome-font">Welcome!</h1>
     <img class="photo-light" src="assets/20260827-profilepic-light.jpg" width="225px" height="225px">
     <img class="photo-dark" src="assets/20260827-profilepic-dark.jpg" width="225px" height="225px">
-    <p class="heading-body-line-height">Hi! I'm Derek. Student, designer, and enthusiast for tech, modern cars, and weather.</p>
-    <p class="heading-body-line-height">I make the Apple beta timelines, Android beta timelines, and compatibility charts projects. You can find links to those on the <a href="/projects">Projects</a> page.</p>
+    <p class="body-text-main">Hi! I'm Derek. Student, learning dev, and enthusiast for tech, (modern) cars, and weather.</p>
+    <p class="body-text">I make the Apple beta timelines, Android beta timelines, and compatibility charts projects. You can find links to those on the <a href="/projects">Projects</a> page.</p>
     <h2 class="featured">Featured project</h2>
     <div class="project-frame">
         <img class="graphic-light" src="https://derekyt.dev/assets/graphics/apple-beta-timelines/light.png">
@@ -345,11 +402,11 @@
         <div>
             <p class="featured-project-head">Apple beta timelines</p>
             <p class="featured-project-description">An extensive library of release dates for builds of Apple platforms.</p>
-            <p class="featured-project-description"><a href="https://drive.google.com/drive/folders/1Vw2k4fz856dKxGk3J6SnUQwa-9xgCM7D?usp=sharing">Explore</a> <span style="font-weight:700;">&middot;</span> <a href="https://derekyt.dev/releases/apple-beta-timelines">Release notes</a> <span style="font-weight:700;">&middot;</span> <a href="https://beta.derekyt.dev/projects/apple-beta-timelines">Try version 2.0 (beta)</a></p>
+            <p class="featured-project-description"><a href="https://beta.derekyt.dev/projects/apple-beta-timelines">Try version 2.1 (beta)</a> <span style="font-weight:700;">&middot;</span> <a href="https://derekyt.dev/releases/apple-beta-timelines">Release notes</a></p>
         </div>
     </div>
     </header>
-    {% include site-footer.html %}
+    {% include site-footer-index.html %}
     <script>
         (function() {
             if (!sessionStorage.getItem('betaDisclosureSeen')) {
