@@ -1,0 +1,16 @@
+{% assign og_title = page.og_title | default: page.title | default: "DerekYT (beta)" %}
+{% assign og_description = page.og_description | default: page.description %}
+{% assign og_image = page.og_image | default: "https://beta.derekyt.dev/assets/meta-image-beta.png" %}
+
+<link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+<meta property="og:site_name" content="DerekYT (beta)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:url" content="https://beta.derekyt.dev{{ page.url | escape }}">
+<meta property="og:image" content="{{ og_image | escape }}">
+
+{% if og_description %}
+<meta property="og:description" content="{{ og_description | strip_html | strip_newlines | escape }}">
+{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
