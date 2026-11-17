@@ -1,0 +1,51 @@
+---
+---
+<head>
+    <title>Apple beta timelines version 2.0 beta 3 (20C01) &#8211; DerekYT</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-favicon.png">
+    <link rel="stylesheet" href="/assets/style-sheets/apple-beta-timelines-releases.css">
+<!-- Font information (start) -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- Font information (end) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <style>
+        body {
+            --page-background:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines/20C01.png');
+        }
+    </style>
+</head>
+<body>
+    <header>
+    {% include site-header.html %}
+</header>
+    <div>
+        <p class="welcome-font">What's new in Apple beta timelines version 2.0 beta 3</p>
+        <div class="changes-section">
+            <p class="changes-class">OS X and macOS are now available.</p>
+        </div>
+        <div class="changes-section">
+            <p class="changes-class">Pages are now better optimized on displays with widths &#8804;380px. Best applies to phones with significantly taller than average aspect ratios.</p>
+            <p class="changes-class">Font weights of build titles and additional builds have been made thicker on both mobile and desktop.</p>
+            <p class="changes-class">Font weight of release dates has been made thicker on mobile.</p>
+            <p class="changes-class">Margins for build titles and additional builds have been reduced and are now closer in appearance between mobile and desktop. Affects both types of timelines.</p>
+            <p class="changes-class-last">Dimmed iOS 26's mobile wallpapers to make elements more visble and readable.</p>
+        </div>
+        <p class="update-metadata" data-utc="2026-09-03T06:19Z">September 3, 2026 • 06:19 UTC</p>
+        <p class="update-metadata">Build number: 20C01</p>
+    </div>
+    <br>
+{% include site-footer.html %}
+<script>
+    document.querySelectorAll('[data-utc]').forEach(el => {
+    const date = new Date(el.dataset.utc);
+    el.textContent = "" + date.toLocaleString(undefined, {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit',
+        timeZoneName: 'short'
+    });
+});
+</script>
+</body>

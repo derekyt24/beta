@@ -1,0 +1,63 @@
+---
+---
+<head>
+    <title>Apple beta timelines version 1.8 (18A) &#8211; DerekYT</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-favicon.png">
+    <link rel="stylesheet" href="/assets/style-sheets/apple-beta-timelines-releases.css">
+<!-- Font information (start) -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- Font information (end) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <style>
+        body {
+            --page-background:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines/18A.png');
+        }
+    </style>
+</head>
+<body>
+    <header>
+    {% include site-header.html %}
+</header>
+    <div>
+        <p class="welcome-font">What's new in Apple beta timelines version 1.8</p>
+        <div class="changes-section">
+            <p class="changes-class">Added Rapid Security Responses for iOS 16, iPadOS 16, and macOS Ventura.</p>
+            <p class="changes-class">Added Background Security Improvements for iOS 26.3, iPadOS 26.3, and macOS Tahoe 26.3.</p>
+        </div>
+        <div class="changes-section">
+            <p class="changes-class">Added sixth and seventh RC's, as well as final builds, for macOS Sonoma 14.8.8 and Sequoia 15.7.8.</p>
+            <p class="changes-class">Added macOS Sonoma 14.8.9, Sequoia 15.7.9, and Tahoe 26.6.1.</p>
+            <p class="changes-class">Added RC builds for macOS Sequoia 15.8 and Tahoe 26.7.</p>
+            <p class="changes-class">Added RC and final builds for iOS 18.7.10 and iPadOS 18.7.10.</p>
+            <p class="changes-class">Added RC and final builds for iOS 26.6.1, iPadOS 26.6.1, and macOS Tahoe 26.6.2.</p>
+            <p class="changes-class">Added fifth and sixth betas for OS 27.0.</p>
+            <p class="changes-class">Added iOS 26.4.2.</p>
+            <p class="changes-class">Added macOS Tahoe 26.3.1, 26.3.2, 26.4.1, 26.5.1, and 26.5.2.</p>
+            <p class="changes-class">Added visionOS 26.6.1.</p>
+            <p class="changes-class">Removed macOS Tahoe 26.2.1.</p>
+        </div>
+        <div class="changes-section">
+            <p class="changes-class">iOS 27 and iPadOS 27 now use a slightly refreshed footer, made of Liquid Glass.</p>
+            <p class="changes-class">Updated iPadOS 17's wallpaper to use a more vibrant version.</p>
+            <p class="changes-class">Updated tvOS 27's wallpaper to use a different frame from Golden Gate Night.</p>
+            <p class="changes-class-last">Corrected "iOS 13.4 beta 6" to "iPadOS 13.4 beta 6" in iPadOS 13.4.</p>
+        </div>
+        <p class="update-metadata" data-utc="2026-08-19T03:03Z">August 19, 2026 • 15:03 UTC</p>
+        <p class="update-metadata">Build number: 18A</p>
+    </div>
+    <br>
+{% include site-footer.html %}
+<script>
+    document.querySelectorAll('[data-utc]').forEach(el => {
+    const date = new Date(el.dataset.utc);
+    el.textContent = "" + date.toLocaleString(undefined, {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: '2-digit',
+        timeZoneName: 'short'
+    });
+});
+</script>
+</body>

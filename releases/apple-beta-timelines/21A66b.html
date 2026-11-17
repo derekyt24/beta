@@ -1,0 +1,68 @@
+---
+---
+<head>
+    <title>Apple beta timelines version 2.1 betas 1 and 1.1 (21A66b) &#8211; DerekYT</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-favicon.png">
+    <link rel="stylesheet" href="/assets/style-sheets/apple-beta-timelines-releases.css">
+<!-- Font information (start) -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- Font information (end) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <style>
+        body {
+            --page-background:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines/21A66b.png');
+        }
+    </style>
+</head>
+<body>
+    <header>
+    {% include site-header.html %}
+</header>
+    <div>
+        <p class="welcome-font">What's new in Apple beta timelines version 2.1 betas 1 and 1.1</p>
+        <div class="changes-section-new">
+            <p class="build-title-new">What's new in version 2.1 beta 1</p>
+            <p class="changes-class">Added a fade in-out transition when cycling between minor updates.</p>
+            <p class="changes-class">Added credits to everyone involved in Apple beta timelines.</p>
+            <p class="changes-class">Added missing "also known as" notes for macOS 26 and macOS 27.</p>
+            <p class="changes-class">Increased font weight for watchOS build titles, release dates, and additional builds.</p>
+            <p class="changes-class">Increased letter spacing for "supplemental releases" text on watchOS pages.</p>
+            <p class="changes-class">Added iOS 18.7.11 and iPadOS 18.7.11.</p>
+            <p class="changes-class">Added iOS 18.7.12 and iPadOS 18.7.12.</p>
+            <p class="changes-class">Added iOS 26.7.2 and iPadOS 26.7.2's builds.</p>
+            <p class="changes-class">Added iOS 26.7.3 and iPadOS 26.7.3.</p>
+            <p class="changes-class">Added the rest of macOS Sequoia 15.8.2 and Tahoe 26.7.2's builds.</p>
+            <p class="changes-class">Added every build of macOS Sequoia 15.8.3 and Tahoe 26.7.3.</p>
+            <p class="changes-class">Added watchOS 26.6.1.</p>
+            <p class="changes-class">Added watchOS 27.0.1. (This originally released in September, but it was missing from the beta branch of Apple beta timelines.)</p>
+            <p class="changes-class">Added the rest of OS 27.2's builds.</p>
+            <p class="changes-class">Added all of visionOS 27.2's builds (not just beta 4 and later like every other platform, excluding tvOS), as they were missing before.</p>
+            <p class="changes-class">Added OS 27.2.1 (excluding tvOS; all other platforms had an update released).</p>
+            <p class="changes-class">Added OS 27.3's first betas.</p>
+            <p class="changes-class-last">Fixed a bug where both tvOS 26.2 and tvOS 26.6's RC and final builds were mistakenly referred to as "iOS 26.2" and "iOS 26.6" respectively.</p>
+            <p class="update-metadata-new" data-utc="2026-11-10T06:17Z">November 10, 2026 • 06:17 UTC</p>
+            <p class="update-metadata">Build number: 21A66b</p>
+        </div>
+        <div class="changes-section-new">
+            <p class="build-title-new">What's new in version 2.1 beta 1.1</p>
+            <p class="changes-class">watchOS 27.3 is now visible.</p>
+            <p class="update-metadata-new" data-utc="2026-11-16T21:58Z">November 16, 2026 • 21:58 UTC</p>
+            <p class="update-metadata">Build number: 21A67b</p>
+        </div>        
+    </div>
+    <br>
+{% include site-footer.html %}
+<script>
+    document.querySelectorAll('[data-utc]').forEach(el => {
+    const date = new Date(el.dataset.utc);
+    el.textContent = "" + date.toLocaleString(undefined, {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: '2-digit',
+        timeZoneName: 'short'
+    });
+});
+</script>
+</body>

@@ -2,11 +2,11 @@
 ---
 <head>
     <title>Apple beta timelines version 1.5.4 &#8211; DerekYT</title>
-    <link rel="icon" type="image/png" href="/assets/20260831-betafavicon.png">
+    <link rel="icon" type="image/png" href="/assets/20260831-favicon.png">
+    <link rel="stylesheet" href="/assets/style-sheets/apple-beta-timelines-releases.css">
 <!-- Font information (start) -->
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="../../assets/fonts/sf-pro.css">
 <!-- Font information (end) -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
@@ -14,15 +14,11 @@
 <link rel="preload" as="image" href="assets/20260610-webimage-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="preload" as="image" href="assets/20260610-webimage-light.png" media="(prefers-color-scheme: light)">
     <style>
-        button, input, select, textarea {
-            font-family: inherit;
-        }
-
         body {
-            background-image:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines-154A-bg-image.png');
+            background-image:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines/154A.png');
             background-attachment: fixed;
             background-size:cover;
-            font-family: "SF Pro", "Inter", sans-serif;
+            font-family:"Inter", sans-serif;
             text-align:left;
             max-width:750px;
             margin:0 auto;
@@ -38,11 +34,11 @@
         }
 
         :root {
-            font-family: "SF Pro", Inter, sans-serif;
+            font-family: Inter, sans-serif;
             font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
         }
         @supports (font-variation-settings: normal) {
-            :root { font-family: "SF Pro", InterVariable, sans-serif; }
+            :root { font-family: InterVariable, sans-serif; }
         }
 
 
@@ -54,8 +50,8 @@
         @media (prefers-color-scheme: light) {
             body {
                 color: #ffffff;
-            }
-
+            }    
+        
             a:link, a:visited {
                 color: #ffffff;
             }
@@ -67,7 +63,7 @@
                 color: #ffffff;
             }
         }
-
+        
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #0c0e11;
@@ -83,7 +79,7 @@
                 color: #ffffff;
             }
         }
-
+        
         @media (max-width:600px) {
             body {
                 padding-left:15px;
@@ -115,23 +111,13 @@
         .nav-links a:visited {
             opacity:0.5;
         }
-
+        
         .nav-brand {
             font-weight:500;
             margin-right:15px;
         }
-
-        .beta-banner-style {
-            background-color: rgba(255, 237, 118, 0.5);
-            margin-top: 20px;
-            /*margin-bottom: 20px;*/
-            padding: 14px;
-            font-size:16px;
-            line-height:1.4;
-            border-radius: 7px;
-        }
-
-        .welcome-font {
+        
+.welcome-font {
             max-width:90%;
             margin-top:25px;
             margin-bottom:15px;
@@ -189,14 +175,12 @@
         }
     </style>
 </head>
-</style>
 <body>
     <header>
     {% include site-header.html %}
-    <div class="beta-banner-style">Caution: This website is in beta. Some elements may not work properly.</div>
-    </header>
+</header>
     <div>
-        <h1 class="welcome-font">What's new in Apple beta timelines version 1.5.4</h1>
+        <p class="welcome-font">What's new in Apple beta timelines version 1.5.4</p>
         <p class="heading-body-line-height">Added beta timelines for project versions 1.0, 1.1, 1.5, and the Spring Update.</p>
         <p class="heading-body-line-height">Added final builds for iOS 18.7.7, iPadOS 18.7.7, and OS 26.4.</p>
         <p class="update-metadata" data-utc="2026-03-24T17:50Z">March 24, 2026 • 17:50 UTC</p>

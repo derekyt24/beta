@@ -1,0 +1,48 @@
+---
+---
+<head>
+    <title>Apple beta timelines version 1.8.1 (181A) &#8211; DerekYT</title>
+    <link rel="icon" type="image/png" href="/assets/20260831-favicon.png">
+    <link rel="stylesheet" href="/assets/style-sheets/apple-beta-timelines-releases.css">
+<!-- Font information (start) -->
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- Font information (end) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <style>
+        body {
+            --page-background:url('https://derekyt.dev/assets/bg-images/apple-beta-timelines/181A.png');
+        }
+    </style>
+</head>
+<body>
+    <header>
+    {% include site-header.html %}
+</header>
+    <div>
+        <p class="welcome-font">What's new in Apple beta timelines version 1.8.1</p>
+        <div class="changes-section">
+            <p class="changes-class">Added RC and final builds for iOS 26.7 and iPadOS 26.7.</p>
+            <p class="changes-class">Added third and fourth RC's, as well as final builds, for macOS Sequoia 15.8 and Tahoe 26.7.</p>
+            <p class="changes-class">Added seventh and eighth betas; RC and final builds for OS 27.0.</p>
+            <p class="changes-class">Dimmed wallpapers for iOS 27, iPadOS 27, and macOS 27 Golden Gate to improve readability.</p>
+            <p class="changes-class">Corrected typos in macOS High Sierra 10.13.6 Security Updates 2019-003 and 2019-004.</p>
+        </div>
+        <p class="update-metadata" data-utc="2026-09-15T04:58Z">September 15, 2026 • 04:58 UTC</p>
+        <p class="update-metadata">Build number: 181A</p>
+    </div>
+    <br>
+{% include site-footer.html %}
+<script>
+    document.querySelectorAll('[data-utc]').forEach(el => {
+    const date = new Date(el.dataset.utc);
+    el.textContent = "" + date.toLocaleString(undefined, {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: '2-digit',
+        timeZoneName: 'short'
+    });
+});
+</script>
+</body>
