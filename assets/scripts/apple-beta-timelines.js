@@ -1935,7 +1935,7 @@
                             label: "iOS 27.3",
                             releases: [
                                 { name: "iOS 27.3 beta 1", date: "Nov 3, 2026" },
-                                { name: "iOS 27.3 beta 2", date: "Nov 16, 2026" },
+                                { name: "iOS 27.3 beta 2", date: "Nov 16, 2026", note: "build 2: Nov 19, 2026" },
                             ]
                         }
                     };
@@ -3481,7 +3481,7 @@
                             label: "iPadOS 27.3",
                             releases: [
                                 { name: "iPadOS 27.3 beta 1", date: "Nov 3, 2026" },
-                                { name: "iPadOS 27.3 beta 2", date: "Nov 16, 2026" },
+                                { name: "iPadOS 27.3 beta 2", date: "Nov 16, 2026", note: "build 2: Nov 19, 2026" },
                             ]
                         }
                     };
