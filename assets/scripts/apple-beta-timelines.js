@@ -1934,7 +1934,8 @@
                         "27-3": {
                             label: "iOS 27.3",
                             releases: [
-                                { name: "iOS 27.3 beta 1", date: "Nov 3, 2026", spanTwo: true },
+                                { name: "iOS 27.3 beta 1", date: "Nov 3, 2026" },
+                                { name: "iOS 27.3 beta 2", date: "Nov 16, 2026" },
                             ]
                         }
                     };
@@ -3479,7 +3480,8 @@
                         "27-3": {
                             label: "iPadOS 27.3",
                             releases: [
-                                { name: "iPadOS 27.3 beta 1", date: "Nov 3, 2026", spanTwo: true },
+                                { name: "iPadOS 27.3 beta 1", date: "Nov 3, 2026" },
+                                { name: "iPadOS 27.3 beta 2", date: "Nov 16, 2026" },
                             ]
                         }
                     };
@@ -5760,8 +5762,14 @@
                                     ],
                                     className: "release-trio-tight"
                                 },
-                                { date: "macOS 15.8.3", note: "RC build 1: Nov 3, 2026\nFinal build: Nov 9, 2026", spanTwo: true }
-                            ]
+                                {
+                                    pair: [
+                                        { date: "macOS 15.8.3", note: "RC build 1: Nov 3, 2026\nFinal build: Nov 9, 2026" },
+                                        { date: "macOS 15.8.4", note: "RC build 1: Nov 16, 2026" },
+                                    ],
+                                    className: "release-pair-tight"
+                                }
+                            ],
                         }
                     };
             initializeTimelinePage(timelines);
@@ -5929,8 +5937,14 @@
                                     ],
                                     className: "release-trio-tight"
                                 },
-                                { date: "macOS 26.7.3", note: "RC build 1: Nov 3, 2026\nFinal build 2: Nov 9, 2026", spanTwo: true },
-                        ],
+                                {
+                                    pair: [
+                                        { date: "macOS 26.7.3", note: "RC build 1: Nov 3, 2026\nFinal build: Nov 9, 2026" },
+                                        { date: "macOS 26.7.4", note: "RC build 1: Nov 16, 2026" },
+                                    ],
+                                    className: "release-pair-tight"
+                                }
+                            ],
                         },
                     };
             initializeTimelinePage(timelines);
@@ -5982,7 +5996,8 @@
                         "27-3": {
                             label: "macOS 27.3",
                             releases: [
-                                { name: "macOS 27.3 beta 1", date: "Nov 3, 2026", spanTwo: true },
+                                { name: "macOS 27.3 beta 1", date: "Nov 3, 2026" },
+                                { name: "macOS 27.3 beta 2", date: "Nov 16, 2026" },
                             ]
                         }
                     };
@@ -7973,12 +7988,16 @@
                                     ],
                                     className: "release-pair-builds"
                                 }
+                            ],
+                            supplemental: [
+                                { name: "tvOS 27.2.1", date: "Nov 13, 2026" },
                             ]
                         },
                         "27-3": {
                             label: "tvOS 27.3",
                             releases: [
                                 { name: "tvOS 27.3 beta 1", date: "Nov 3, 2026" },
+                                { name: "tvOS 27.3 beta 2", date: "Nov 16, 2026" },
                             ]
                         }
                     };
@@ -8428,7 +8447,8 @@
                         "27-3": {
                             label: "visionOS 27.3",
                             releases: [
-                                { name: "visionOS 27.3 beta 1", date: "November 3, 2026" },
+                                { name: "visionOS 27.3 beta 1", date: "November 3, 2026", alignment: "left" },
+                                { name: "visionOS 27.3 beta 2", date: "November 16, 2026", alignment: "right" },
                             ]
                         }
                     };
@@ -8957,7 +8977,8 @@
                         "27-3": {
                             label: "watchOS 27.3",
                             releases: [
-                                { name: "watchOS 27.3 beta 1", date: "Nov 3, 2026" }
+                                { name: "watchOS 27.3 beta 1", date: "Nov 3, 2026" },
+                                { name: "watchOS 27.3 beta 2", date: "Nov 16, 2026" }
                             ]
                         }
                     };
