@@ -173,18 +173,18 @@
 
         #beta-modal {
             position: relative;
-            max-width: 375px;
-            padding: 20px;
+            max-width: 500px;
+            padding: 25px;
             border-radius: 12px;
             font-size: 15px;
-            line-height: 1.5;
+            line-height: 24px;
             letter-spacing:0px;
         }
 
         .beta-modal-title {
             font-weight: 500;
             font-size: 18px;
-            margin: 0 0 10px;
+            margin: 0 0 7.5px;
         }
 
         .beta-modal-body {
@@ -194,8 +194,8 @@
 
         #beta-modal-dismiss {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 25px;
             display: grid;
             place-items: center;
             width: 27px;
@@ -215,6 +215,30 @@
             stroke: currentColor;
             stroke-width: 2;
             stroke-linecap: round;
+        }
+
+        @media (max-width: 600px) {
+            #beta-modal {
+                margin: 20px;
+                font-size: 15px;
+            }
+
+            .beta-modal-title {
+                font-size: 18px;
+                margin: 0 0 7.5px;
+            }
+
+            #beta-modal-dismiss {
+                top: 25px;
+                right: 25px;
+                width: 22px;
+                height: 22px;
+            }
+
+            #beta-modal-dismiss svg {
+                width: 10px;
+                height: 10px;
+            }
         }
 
         #beta-modal-dismiss:hover,
@@ -240,6 +264,92 @@
             line-height:1.4;
             letter-spacing:0em;
             border-radius: 7px;
+        }
+
+        .announcement-countdown {
+            margin-top: 10px;
+            padding: 14px;
+            border-radius: 7px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .countdown-digit,
+            .countdown-digit.outgoing {
+                animation: none;
+            }
+        }
+
+        .announcement-countdown-title {
+            margin: 0 0 8px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .countdown-units {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-unit {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .countdown-value {
+            position: relative;
+            display: inline-block;
+            height: 1.25em;
+            overflow: hidden;
+            vertical-align: middle;
+            line-height: 1.25em;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .countdown-digit {
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: countdown-digit-in 250ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+
+        .countdown-digit.outgoing {
+            animation: countdown-digit-out 250ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+
+        @keyframes countdown-digit-in {
+            from {
+                opacity: 0;
+                transform: translateY(0.45em);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes countdown-digit-out {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-0.45em);
+            }
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            opacity: 0.75;
+        }
+
+        #announcement-countdown[hidden] {
+            display: none;
         }
 
         .apple-beta-timelines-note-style {
@@ -300,7 +410,7 @@
             font-weight:500;
             letter-spacing:-0.02em;
             font-size:28px;
-            margin:10px 0px 17.5px 0px;
+            margin:15px 0px 17.5px 0px;
         }
 
         .graphic-light,
@@ -372,7 +482,7 @@
     <div id="beta-modal-overlay">
     <div id="beta-modal">
         <p class="beta-modal-title">This website is in beta</p>
-        <p class="beta-modal-body">You're viewing a beta version of the DerekYT website. Some features won't be available everywhere, they may not function properly, and they can change without notice. For a more stable experience, visit <a href="https://derekyt.dev" target="_blank">derekyt.dev</a>.</p>
+        <p class="beta-modal-body">You're viewing a beta version of the DerekYT website. You might encounter some bugs, glitches, and/or broken or even missing features. For a more stable experience, visit <a href="https://derekyt.dev" target="_blank">derekyt.dev</a>. If you encounter any issues, click here to file a feedback report.</p>
         <button id="beta-modal-dismiss" type="button" aria-label="Close beta notice">
             <svg viewBox="0 0 16 16" aria-hidden="true">
                 <path d="m4 4 8 8M12 4 4 12" fill="none" />
@@ -385,6 +495,15 @@
     <div>
         <p class="beta-label-style">This website is in beta. Some elements may not work properly.</p>
         <div class="apple-beta-timelines-note-style">Apple beta timelines version 2.1 is now available in beta. <a href="https://beta.derekyt.dev/projects/apple-beta-timelines">Click here</a> to get a preview.</div>
+        <section id="announcement-countdown" class="announcement-countdown" data-target="2026-11-24T17:00:00-08:00" aria-labelledby="announcement-countdown-title" hidden>
+            <h2 id="announcement-countdown-title" class="announcement-countdown-title">New updates are on the way</h2>
+            <div class="countdown-units" role="timer" aria-live="off">
+                <span class="countdown-unit"><span class="countdown-value" data-unit="days">0</span><span class="countdown-label">days</span></span>
+                <span class="countdown-unit"><span class="countdown-value" data-unit="hours">00</span><span class="countdown-label">hours</span></span>
+                <span class="countdown-unit"><span class="countdown-value" data-unit="minutes">00</span><span class="countdown-label">minutes</span></span>
+                <span class="countdown-unit"><span class="countdown-value" data-unit="seconds">00</span><span class="countdown-label">seconds</span></span>
+            </div>
+        </section>
     </div>
     <h1 class="welcome-font">Welcome!</h1>
     <img class="photo-light" src="assets/20260827-profilepic-light.jpg" width="225px" height="225px">
@@ -404,6 +523,69 @@
     </header>
     {% include site-footer-index.html %}
     <script>
+        (() => {
+            const countdown = document.getElementById('announcement-countdown');
+            if (!countdown) return;
+
+            const targetTime = new Date(countdown.dataset.target).getTime();
+            if (!Number.isFinite(targetTime)) return;
+
+            const values = Object.fromEntries(
+                [...countdown.querySelectorAll('[data-unit]')].map((item) => [item.dataset.unit, item])
+            );
+            Object.values(values).forEach((element) => element.replaceChildren());
+            const announcementLink = document.createElement('a');
+            announcementLink.href = '/asset-directory.html';
+            announcementLink.textContent = 'It’s here — explore the asset directory.';
+            let timer = null;
+
+            function updateCountdown() {
+                const remaining = targetTime - Date.now();
+                countdown.hidden = false;
+                if (remaining <= 0) {
+                    countdown.querySelector('.countdown-units').replaceWith(announcementLink);
+                    countdown.querySelector('.announcement-countdown-title').textContent = 'The announcement is here';
+                    if (timer !== null) window.clearInterval(timer);
+                    return;
+                }
+
+                const totalSeconds = Math.floor(remaining / 1000);
+                const nextValues = {
+                    days: String(Math.floor(totalSeconds / 86400)),
+                    hours: String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, '0'),
+                    minutes: String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0'),
+                    seconds: String(totalSeconds % 60).padStart(2, '0')
+                };
+
+                Object.entries(nextValues).forEach(([unit, nextValue]) => {
+                    const element = values[unit];
+                    if (element.dataset.value === nextValue) return;
+                    element.style.width = `${Math.max(1, nextValue.length)}ch`;
+
+                    const previousDigit = element.querySelector('.countdown-digit:not(.outgoing)');
+                    if (previousDigit) {
+                        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                            previousDigit.remove();
+                        } else {
+                            previousDigit.classList.add('outgoing');
+                            window.setTimeout(() => previousDigit.remove(), 450);
+                        }
+                    }
+
+                    const nextDigit = document.createElement('span');
+                    nextDigit.className = 'countdown-digit';
+                    nextDigit.textContent = nextValue;
+                    element.append(nextDigit);
+                    element.dataset.value = nextValue;
+                });
+            }
+
+            updateCountdown();
+            if (targetTime > Date.now()) {
+                timer = window.setInterval(updateCountdown, 1000);
+            }
+        })();
+
         (function() {
             if (!sessionStorage.getItem('betaDisclosureSeen')) {
                 const overlay = document.getElementById('beta-modal-overlay');
