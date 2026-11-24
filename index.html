@@ -43,21 +43,6 @@
         }
 
         @media (prefers-color-scheme: light) {
-            body {
-                background-image: url('https://beta.derekyt.dev/assets/bg-images/home-desktop.png');
-            }
-
-            body::before {
-                content: "";
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.25);
-                backdrop-filter: blur(50px);
-                -webkit-backdrop-filter: blur(50px);
-                pointer-events: none;
-                z-index: -1;
-            }
-
             #beta-modal {
                 background-color: #ffffff;
                 color: #1a2530;
@@ -70,21 +55,6 @@
         }
 
         @media (max-width:600px) and (prefers-color-scheme: light) {
-            body {
-                background-image: url('https://beta.derekyt.dev/assets/bg-images/home-mobile.png');
-            }
-
-            body::before {
-                content: "";
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.25);
-                backdrop-filter: blur(50px);
-                -webkit-backdrop-filter: blur(50px);
-                pointer-events: none;
-                z-index: -1;
-            }
-
             #beta-modal {
                 background-color: #ffffff;
                 color: #1a2530;
@@ -97,21 +67,6 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            body {
-                background-image: url('https://beta.derekyt.dev/assets/bg-images/home-desktop.png');
-            }
-
-            body::before {
-                content: "";
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.75);
-                backdrop-filter: blur(50px);
-                -webkit-backdrop-filter: blur(50px);
-                pointer-events: none;
-                z-index: -1;
-            }
-
             #beta-modal {
                 background-color: #1a2530;
                 color: #ffffff;
@@ -124,21 +79,6 @@
         }
 
         @media (max-width:600px) and (prefers-color-scheme: dark) {
-            body {
-                background-image: url('https://beta.derekyt.dev/assets/bg-images/home-mobile.png');
-            }
-
-            body::before {
-                content: "";
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.75);
-                backdrop-filter: blur(50px);
-                -webkit-backdrop-filter: blur(50px);
-                pointer-events: none;
-                z-index: -1;
-            }
-
             #beta-modal {
                 background-color: #1a2530;
                 color: #ffffff;
@@ -149,6 +89,48 @@
                 color: #ffffff;
             }
         }
+
+        html {
+            background: #1a2530;
+        }
+
+        body {
+            background: transparent;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+
+            background-image: url("https://beta.derekyt.dev/assets/bg-images/home-desktop.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+        }
+
+        @media (max-width: 600px) {
+            body::before {
+                background-image: url("https://beta.derekyt.dev/assets/bg-images/home-mobile.png");
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body::before {
+                background-color: rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body::before {
+                background-color: rgba(0, 0, 0, 0.75);
+            }
+        }        
 
         @media (prefers-color-scheme: dark) {
             .photo-light { display: none; }
