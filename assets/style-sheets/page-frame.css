@@ -1,0 +1,69 @@
+/* Optional inset scrolling viewport for pages with a #page-scroll wrapper. */
+body.page-framed {
+    --page-frame-tint: rgba(0, 0, 0, 0.25);
+    --page-transition-background: var(--page-frame-background);
+    display: flex;
+    flex-direction: column;
+}
+
+body.page-framed #page-scroll {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+@media (prefers-color-scheme: dark) {
+    body.page-framed {
+        --page-frame-tint: rgba(0, 0, 0, 0.75);
+    }
+}
+
+@media (max-width: 600px) {
+    body.page-framed {
+        display: block;
+        width: 100%;
+        max-width: none;
+        min-height: 100dvh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #05090d;
+        background-image: none;
+        background-attachment: scroll;
+    }
+
+    body.page-framed::before,
+    body.page-framed::after {
+        display: none;
+    }
+
+    body.page-framed #page-scroll {
+        box-sizing: border-box;
+        width: calc(100% - 24px);
+        height: calc(100dvh - 24px);
+        margin: 12px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 7.5px;
+        background-image:
+            linear-gradient(var(--page-frame-tint), var(--page-frame-tint)),
+            var(--page-frame-background-mobile, var(--page-frame-background));
+        background-position: center;
+        background-size: cover;
+        padding: calc(20px + env(safe-area-inset-top)) 15px calc(24px + env(safe-area-inset-bottom));
+    }
+
+    body.page-framed #page-scroll > header,
+    body.page-framed #page-scroll > div,
+    body.page-framed #page-scroll > footer {
+        width: min(100%, 750px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body.page-framed nav {
+        font-size: 14px;
+    }
+}
