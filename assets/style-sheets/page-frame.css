@@ -14,7 +14,7 @@ body.page-framed #page-scroll {
 
 @media (prefers-color-scheme: dark) {
     body.page-framed {
-        --page-frame-tint: rgba(0, 0, 0, 0.75);
+        --page-frame-tint: rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -27,8 +27,6 @@ body.page-framed #page-scroll {
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #05090d;
-        background-image: none;
         background-attachment: scroll;
     }
 
@@ -39,19 +37,19 @@ body.page-framed #page-scroll {
 
     body.page-framed #page-scroll {
         box-sizing: border-box;
-        width: calc(100% - 24px);
-        height: calc(100dvh - 24px);
-        margin: 12px;
+        width: calc(100% - 30px);
+        height: calc(100dvh - 30px);
+        margin: 15px;
         overflow-x: hidden;
         overflow-y: auto;
         overscroll-behavior-y: contain;
         -webkit-overflow-scrolling: touch;
-        border-radius: 7.5px;
-        background-image:
-            linear-gradient(var(--page-frame-tint), var(--page-frame-tint)),
-            var(--page-frame-background-mobile, var(--page-frame-background));
-        background-position: center;
-        background-size: cover;
+        border-radius: 10px;
+        background-color: var(--page-frame-background-color, #05090d);
+        /* background-image: linear-gradient(var(--page-frame-tint), var(--page-frame-tint)), var(--page-frame-background-image, none); */
+        background-position: var(--page-frame-background-position, center);
+        background-size: var(--page-frame-background-size, cover);
+        background-repeat: var(--page-frame-background-repeat, no-repeat);
         padding: calc(20px + env(safe-area-inset-top)) 15px calc(24px + env(safe-area-inset-bottom));
     }
 

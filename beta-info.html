@@ -1,6 +1,9 @@
 ---
 ---
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="/assets/style-sheets/page-frame.css">
+    <script src="/assets/scripts/page-frame.js" defer></script>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Home – DerekYT</title>
@@ -78,12 +81,13 @@
     </style>
 </head>
 </style>
-<body>
+<body class="page-framed">
+    <div id="page-scroll">
     <h2 class="welcome-font">More on beta releases</h2>
     <p class="body-line-height">Pages on this website, such as the homepage, are currently in beta and are thus marked as pre-release.</p>
     <p class="body-line-height">This website (derekyt.dev) is meant for development purposes only at this time. While a public launch will occur, there are no plans to publish at this time.</p>
 
-</body>
+
 <script>const images = [
 'url("/assets/20260607-webimage.png)',
 'url("/assets/20260607-webimage-2.png")',
@@ -93,4 +97,5 @@
 const random = images[Math.floor(Math.random() * images.length)];
 document.body.style.backgroundImage = random;
 </script>
+    </div>
 </body>

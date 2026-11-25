@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/assets/style-sheets/page-frame-wallpaper.css">
+    <script src="/assets/scripts/page-frame-wallpaper.js" defer></script>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <meta charset="UTF-8">
@@ -36,7 +38,8 @@
         }
     </style>
 </head>
-<body>
+<body class="page-framed page-framed-wallpaper">
+    <div id="page-scroll">
     {% include site-header.html %}
 
     <main>
@@ -65,5 +68,7 @@
     </main>
     <footer id="timeline-footnote" class="timeline-footnote">Your footer goes here.</footer>
     <script src="/assets/scripts/apple-beta-timelines.js" defer></script>
-</body>
+    </div>
+
+    </body>
 </html>
