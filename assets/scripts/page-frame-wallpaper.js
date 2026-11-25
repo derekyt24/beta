@@ -32,12 +32,15 @@
         frame.style.setProperty('--page-frame-background-repeat', bodyStyle.backgroundRepeat);
 
         if (mobileViewport.matches) {
+            frame.style.setProperty('background-image', wallpaper || 'none', 'important');
             body.style.setProperty(
                 'background-image',
                 `linear-gradient(var(--page-frame-outside-tint), var(--page-frame-outside-tint)), ${wallpaper || 'none'}`,
                 'important'
             );
             bodyBackgroundIsAdjusted = true;
+        } else {
+            frame.style.removeProperty('background-image');
         }
     }
 
