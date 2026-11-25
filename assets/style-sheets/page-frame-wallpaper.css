@@ -12,7 +12,7 @@ body.page-framed-wallpaper {
 @media (max-width: 600px) {
     body.page-framed-wallpaper {
         background-image: none !important;
-        background-color: var(--page-frame-outside-tint);
+        background-color: #0a1015;
     }
 
     body.page-framed-wallpaper #page-scroll {
