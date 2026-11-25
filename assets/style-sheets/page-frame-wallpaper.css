@@ -10,8 +10,12 @@ body.page-framed-wallpaper {
 }
 
 @media (max-width: 600px) {
+    body.page-framed-wallpaper {
+        background-image: none !important;
+        background-color: var(--page-frame-outside-tint);
+    }
+
     body.page-framed-wallpaper #page-scroll {
         background-color: var(--page-frame-background-color, transparent);
-        background-image: var(--page-frame-background-image, none);
     }
 }
