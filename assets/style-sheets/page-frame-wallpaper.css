@@ -1,21 +1,12 @@
-/* Keep paired wallpaper art unchanged inside the frame and dim the exposed area. */
-body.page-framed-wallpaper {
-    --page-frame-outside-tint: rgba(0, 0, 0, 0.25);
-}
-
-@media (prefers-color-scheme: dark) {
-    body.page-framed-wallpaper {
-        --page-frame-outside-tint: rgba(0, 0, 0, 0.75);
-    }
-}
-
 @media (max-width: 600px) {
     body.page-framed-wallpaper {
-        background-image: none !important;
+        /* Keep the area outside #page-scroll a flat fallback color. */
         background-color: #0a1015;
     }
 
     body.page-framed-wallpaper #page-scroll {
         background-color: var(--page-frame-background-color, transparent);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
 }

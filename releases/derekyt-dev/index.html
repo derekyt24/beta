@@ -111,6 +111,31 @@
             border-radius: 7px;
         }
 
+        .end-of-update {
+            background-color: rgba(255, 61, 61, 0.5);
+            margin-top: 15px;
+            /*margin-bottom: 20px;*/
+            padding:12px;
+            font-size:16px;
+            line-height:1.4;
+            border-radius: 7px;
+        }
+        
+        .eod-main {
+            color: rgb(255,255,255);
+            line-height: 23px;
+            margin: 0;
+            font-size: 15px;
+
+        }
+        
+        .eod-data {
+            color: rgba(255,255,255,0.5);
+            font-size: 10px;
+            margin: 4px 0 0;
+            letter-spacing: 0.02em;
+        }        
+
         .welcome-font {
             margin-top:25px;
             margin-bottom:20px;
@@ -191,11 +216,15 @@
     </style>
 </head>
 </style>
-<body class="page-framed">
+<body class="page-framed page-framed-wallpaper">
     <div id="page-scroll">
     <header>
     {% include site-header.html %}
     <div class="beta-banner-style">This website is in beta. Some elements may not work properly.</div>
+    <div class="end-of-update">
+        <p class="eod-main">This page is no longer being updated.</p>
+        <p class="eod-data" data-utc="2026-11-27T10:00Z">November 27, 2026 • 10:00 UTC</p>
+    </div>
     </header>
     <div>
         <h1 class="welcome-font">Site releases</h1>
@@ -235,7 +264,7 @@
     const date = new Date(el.dataset.utc);
     el.textContent = "" + date.toLocaleString(undefined, {
         year: 'numeric', month: 'long', day: 'numeric',
-        hour: '2-digit', minute: '2-digit',
+        hour: 'numeric', minute: '2-digit',
         timeZoneName: 'short'
     });
 });

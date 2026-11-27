@@ -31,33 +31,15 @@
             padding: 25px 20px 25px 20px;
         }
 
-        @media (prefers-color-scheme: light) {
+        @media (max-width: 600px) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/oct-4-blog-background-desktop-light.png');
-                background-color:#ffffff;
+                background-image: url('https://beta.derekyt.dev/assets/bg-images/blog-mobile.png');
             }
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (min-width: 601px) {
             body {
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/oct-4-blog-background-desktop-dark.png');
-                background-color:#0a1015; 
-            }
-        }
-
-        @media (max-width:600px) and (prefers-color-scheme: light) {
-            body {
-                padding-right:15px;
-                padding-left:15px;
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/oct-4-blog-background-mobile-light.png');
-            }
-        }
-
-        @media (max-width:600px) and (prefers-color-scheme: dark) {
-            body {
-                padding-right:15px;
-                padding-left:15px;
-                background-image:url('https://beta.derekyt.dev/assets/bg-images/oct-4-blog-background-mobile-dark.png');
+                background-image: url('https://beta.derekyt.dev/assets/bg-images/blog-desktop.png');
             }
         }
 
@@ -100,7 +82,7 @@
 
         .note-metadata {
             color: rgba(255,255,255,0.5);
-            font-size: 10px;
+            font-size: 11px;
             margin: 6px 0 0;
             letter-spacing: 0.02em;
         }
@@ -111,6 +93,11 @@
             font-size:36px;
             font-weight:500;
             letter-spacing:-0.01em;
+        }
+
+        .subhead {
+            line-height: 23px;
+            margin: 10px 0 10px;
         }
         
         .post-frame {
@@ -153,6 +140,33 @@
             background-size: cover;
         }
 
+        @media (max-width: 600px) {
+            .subhead {
+                line-height: 21px;
+                font-size: 14px;
+            }
+            
+            .post-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .post-title {
+                font-size: 21px;
+            }
+
+            .post-metadata {
+                font-size: 12px;
+            }
+
+            div img {
+                width: 75px;
+                height: 75px;
+                border-radius: 7px;
+                background-size: cover;
+            }
+        }        
+
         footer {
             font-size:10px;
             letter-spacing:0.25px;
@@ -167,22 +181,32 @@
         }
     </style>
 </head>
-<body class="page-framed">
+<body class="page-framed page-framed-wallpaper">
     <div id="page-scroll">
     <header>
     {% include site-header.html %}
-    <div class="beta-label-style">This website is in beta. Some elements may not work properly.</div>
     <div class="in-progress-note-style">
-        <p class="note-main-text">This page is in development.</p>
-        <p class="note-metadata" data-utc="2026-10-05T06:51Z">October 5, 2026 at 06:51 UTC</p>
+        <p class="note-main-text">This page is in development, and will change over time.</p>
+        <p class="note-metadata" data-utc="2026-11-27T10:53Z">November 27, 2026 • 10:53 UTC</p>
     </div>
     <h1 class="welcome-font">Blog</h1>
-    <div hidden class="post-frame">
+    <p class="subhead">Occasionally, I'll write a post about something. I'm not expected to set any standards with them; the main goal is for me to express my thoughts and feelings.</p>
+    <div class="post-frame">
+        <div class="post-details">
+            <img src="https://beta.derekyt.dev/assets/bg-images/releases-derekyt-dev-background.png">
+            <div>
+                <p class="post-title"><a style="text-decoration: none;" href="https://beta.derekyt.dev/blog/02">Updates to my site are changing (link doesn't work) &#8250;</a></p>
+                <p class="post-metadata" data-utc="2026-11-30T20:00Z">November 30, 2026 • 20:00 UTC</p>
+            </div>
+        </div>
+    </div>    
+    
+    <div class="post-frame">
         <div class="post-details">
             <img src="https://beta.derekyt.dev/assets/blog/01-preview.png">
             <div>
-                <p class="post-title"><a style="text-decoration: none;" href="https://beta.derekyt.dev/blog/01">Introducing the DerekYT blog &#8250;</a></p>
-                <p class="post-metadata" data-utc="2026-10-05T19:00Z">October 5, 2026 at 19:00 UTC</p>
+                <p class="post-title"><a style="text-decoration: none;" href="https://beta.derekyt.dev/blog/01">Introducing the DerekYT blog (link doesn't work) &#8250;</a></p>
+                <p class="post-metadata" data-utc="2026-11-27T20:24Z">November 27, 2026 • 20:24 UTC</p>
             </div>
         </div>
     </div>
